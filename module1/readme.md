@@ -22,8 +22,8 @@ As you read, we include many [links](https://en.wikipedia.org/wiki/Hyperlink) th
 
 > **Occasionally, a link does contain required reading, additional downloads, or specific tasks needed to complete the lab activities or lab assignments. We offset these required "actions" to make them visually obvious in the text. Please follow these directions carefully, as it will be difficult to advance in future lessons without first completing these tasks.**
 
-We format example code in code blocks, like this.  
-You can copy-paste this code into a text editor to make it easier to reference the line numbers.
+    We format example code in code blocks, like this.  
+    You can copy-paste this code into a text editor to make it easier to reference the line numbers.
 
 We also include `in-line code` when referencing specific element tags, function and variable names, data values, etc. We _italicize_ the literal names of _directories_ and _files_. We **bold** and _italicize_ keywords on their first use.
 
@@ -48,7 +48,7 @@ You are welcomed to use your preferred text editor in class. Atom, Brackets, and
 
 A _**boilerplate**_ is the minimum starter code needed begin development.  For Geography 575, we start with the basic _**HTML boilerplate**_ to simplify your early designs and focus on JavaScript. 
 
-> **Download _[my\_website.zip](https://canvas.wisc.edu/courses/180498/files/11015017/download?wrap=1 "my_website.zip")_ from the Week 1 files, unzip it, and open _index.html_ in your text editor.**
+> **Download _[my\_website.zip](my_website.zip")_ from the Week 1 files, unzip it, and open _index.html_ in your text editor.**
 
 The HTML boilerplate code in _index.html_ should look like Example 1.1. Every component _must_ be present in your _index.html_ file, excepting the `<!-- -->` comments and IE stylesheet check. Importantly: you must use _index.html_ as the name of the homepage to use the directory name as the endpoint of a web url. For instance [www.geography.wisc.edu/cartography/](http://www.geography.wisc.edu/cartography/) is the same as [www.geography.wisc.edu/cartography/index.html](http://www.geography.wisc.edu/cartography/index.html), but shorter and therefore preferred.
 
@@ -65,7 +65,9 @@ The HTML boilerplate code in _index.html_ should look like Example 1.1. Every co
             <link rel="stylesheet" href="css/style.css">
             <!--[if IE<9]>
                 <link rel="stylesheet" href="css/style.ie.css">
-            <![endif]-->         <!--you can also place internal styles here;             place these within <style> tags-->        
+            <![endif]-->         
+            <!--you can also place internal styles here;             
+                place these within <style> tags-->        
         </head>
     
         <body>
@@ -121,14 +123,21 @@ For example, you can add a `<style>` tag to your boilerplate to embed a CSS rule
 
 ###### Example 2.1: Adding styles in _index.html_
 
-    <!--Example 1 line 13-->   <!--you can also place internal styles here        place these within <style> tags-->   <style>
+    <!--Example 1 line 13-->   
+        <!--you can also place internal styles here        
+            place these within <style> tags-->   
+            
+        <style>
             #mydiv {
                 background-color: red;
                 width: 80%;
                 margin: 0 auto;
                 height: 100px;
             }
-        </style></head><body>
+        </style>
+        
+    </head>
+    <body>
         <div id="mydiv">
             Hello World!
         </div>
@@ -240,7 +249,7 @@ Then open GitHub Desktop, log in, and drag-and-drop your _my\_website_ directory
 
 Importantly, if you first navigate to your website directory instead of the folder above it, the application will create a new directory _inside_ your website directory with the same name. Check the path shown in the "local path" text field to ensure you are syncing from the correct location on your computer.
 
-![figure1.3.2(new).png](https://canvas.wisc.edu/courses/180498/files/10619171/preview)
+![figure1.3.2(new).png](img/figure1.3.2(new).png)
 
 ###### Figure 3.2: Creating a repository in your _my\_website_ directory
 
@@ -253,7 +262,7 @@ Once you've created the repository, open your the _my\_website_ directory on you
 *   **._gitignore_ (optional)**, a file that lists files in the directory that should not be tracked by the repository.
     
 
-![figure1.3.3.png](https://canvas.wisc.edu/courses/180498/files/10619016/preview)
+![figure1.3.3.png](img/figure1.3.3.png)
 
 ###### Figure 3.3: Website directory with repository files
 
