@@ -48,7 +48,7 @@ You are welcomed to use your preferred text editor in class. Atom, Brackets, and
 
 A _**boilerplate**_ is the minimum starter code needed begin development.  For Geography 575, we start with the basic _**HTML boilerplate**_ to simplify your early designs and focus on JavaScript. 
 
-> **Download _[my\_website.zip](my_website.zip")_ from the Week 1 files, unzip it, and open _index.html_ in your text editor.**
+> **Download _[my\_website.zip](my_website.zip)_ from the Week 1 files, unzip it, and open _index.html_ in your text editor.**
 
 The HTML boilerplate code in _index.html_ should look like Example 1.1. Every component _must_ be present in your _index.html_ file, excepting the `<!-- -->` comments and IE stylesheet check. Importantly: you must use _index.html_ as the name of the homepage to use the directory name as the endpoint of a web url. For instance [www.geography.wisc.edu/cartography/](http://www.geography.wisc.edu/cartography/) is the same as [www.geography.wisc.edu/cartography/index.html](http://www.geography.wisc.edu/cartography/index.html), but shorter and therefore preferred.
 
