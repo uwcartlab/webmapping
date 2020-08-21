@@ -1,5 +1,5 @@
-Introduction
-============
+Module 1: Setting Up Your Workspace
+=====================================
 
 Welcome to the first week of Geography 575! Week 1 includes three lab lessons and Activities 1 & 2:
 
@@ -20,7 +20,7 @@ We break each week's material into a set of 3-4 lessons that you should complete
 
 As you read, we include many [links](https://en.wikipedia.org/wiki/Hyperlink) that point to additional reference material . This material is for your reference only, and we recommend returning to these materials when you get stuck at different steps. Importantly, many students cycle back to these links towards the end of the course to debug issues specific to your final project, so it is helpful to get a sense of what information is included in the links. You do not need to read the links comprehensively, however, and none of the lab content is included on the exam.
 
-> **Occasionally, a link does contain required reading, additional downloads, or specific tasks needed to complete the lab activities or lab assignments. We offset these required "actions" to make them visually obvious in the text. Please follow these directions carefully, as it will be difficult to advance in future lessons without first completing these tasks.**
+> ### **Occasionally, a link does contain required reading, additional downloads, or specific tasks needed to complete the lab activities or lab assignments. We offset these required "actions" to make them visually obvious in the text. Please follow these directions carefully, as it will be difficult to advance in future lessons without first completing these tasks.**
 
     We format example code in code blocks, like this.  
     You can copy-paste this code into a text editor to make it easier to reference the line numbers.
@@ -48,9 +48,9 @@ You are welcomed to use your preferred text editor in class. Atom, Brackets, and
 
 A _**boilerplate**_ is the minimum starter code needed begin development.  For Geography 575, we start with the basic _**HTML boilerplate**_ to simplify your early designs and focus on JavaScript. 
 
-> **Download _[my\_website.zip](my_website.zip)_ from the Week 1 files, unzip it, and open _index.html_ in your text editor.**
+> ### **Download _[my\_website.zip](my_website.zip)_ from the Week 1 files, unzip it, and open _index.html_ in your text editor.**
 
-The HTML boilerplate code in _index.html_ should look like Example 1.1. Every component _must_ be present in your _index.html_ file, excepting the `<!-- -->` comments and IE stylesheet check. Importantly: you must use _index.html_ as the name of the homepage to use the directory name as the endpoint of a web url. For instance [www.geography.wisc.edu/cartography/](http://www.geography.wisc.edu/cartography/) is the same as [www.geography.wisc.edu/cartography/index.html](http://www.geography.wisc.edu/cartography/index.html), but shorter and therefore preferred.
+The HTML boilerplate code in _index.html_ should look like Example 1.1. Every component <ins>_must_</ins> be present in your _index.html_ file, excepting the `<!-- -->` comments and IE stylesheet check. Importantly: you must use _index.html_ as the name of the homepage to use the directory name as the endpoint of a web url. For instance [www.geography.wisc.edu/cartography/](http://www.geography.wisc.edu/cartography/) is the same as [www.geography.wisc.edu/cartography/index.html](http://www.geography.wisc.edu/cartography/index.html), but shorter and therefore preferred.
 
 ###### Example 1.1: Boilerplate code in _index.html_
 
@@ -108,7 +108,7 @@ and then open the file in a browser, you should see what you just added to the p
 
 There are a number of frameworks that have their own boilerplates and directory structures, such as [Bootstrap](https://getbootstrap.com/) used introduced in Geography 572 for responsive design across mobile and non-mobile devices. For simplicity's sake, we recommend that you use this boiler plate for each lab activity and lab assignment. You can explore other frameworks with the final project.
 
-> **Add content to the body element and then load your _index.html_ file in a browser and check that your content appears in the browser tab. If HTML is completely new to you, we recommend supplemental Codecademy tutorials as part of Activity 2 to complete alongside JavaScript tutorials.**
+> ### **Add content to the body element and then load your _index.html_ file in a browser and check that your content appears in the browser tab. If HTML is completely new to you, we recommend supplemental Codecademy tutorials as part of Activity 2 to complete alongside JavaScript tutorials.**
 
 Lesson 2: Web Directory Setup
 -----------------------------
@@ -178,13 +178,13 @@ For the real-world projects, internal `<style>` and `<script>` tags are much too
 
 Generally speaking, we use the term "webpage" to describe a single HTML document and "website" to describe the entire directory structure.
 
-> **In the _my\_website_ directory you downloaded, create the following new folders:**
+> ### **In the _my\_website_ directory you downloaded, create the following new folders:**
 > 
-> *   **js**
-> *   **lib**
-> *   **css**
-> *   **data**
-> *   **img**
+> - ###   **js**
+> - ###   **lib**
+> - ###   **css**
+> - ###   **data**
+> - ###   **img**
 
 Let's describe each of these folders in your directory structure:
 
@@ -206,7 +206,7 @@ Notice that the boilerplate _index.html_ file already contains two links to exte
     /* Stylesheet by Buck E. Badger, 2020 */
     
 
-> **Create _style.css_ and _main.js_ text files and save into the _css_ and _js_ folders of _my\_website_ respectively.**
+> ### **Create _style.css_ and _main.js_ text files and save into the _css_ and _js_ folders of _my\_website_ respectively.**
 
 ### III. Setting up a Development Server
 
@@ -220,7 +220,7 @@ For security reasons, browsers _only_ display webpages correctly if the files ar
 
 We use [Prepros](https://prepros.io/) in lab demonstrations and examples for simplicity. Prepros is a "preprocessor" software application that automatically compiles your website and refreshes the browser every time you save files in your web directory. Prepros is available on all Science Hall computers and works on Windows and Mac machines.
 
-> **Preview _my\_website_ using Prepros.** 
+> ### **Preview _my\_website_ using Prepros.** 
 
 Lesson 3: GitHub Setup
 ----------------------
@@ -241,7 +241,7 @@ Again for simplicity, we use [GitHub Desktop](https://desktop.github.com/) in la
 
 ### II. Setting Up a Repository
 
-> **Read the GitHub Guide ["Getting your project on GitHub"](https://guides.github.com/introduction/getting-your-project-on-github/) and follow its directions to create a repository in your _my\_website_ directory.**
+> ### **Read the GitHub Guide ["Getting your project on GitHub"](https://guides.github.com/introduction/getting-your-project-on-github/) and follow its directions to create a repository in your _my\_website_ directory.**
 
 Following the GitHub Guide above, the first step to setting up GitHub is to create a GitHub account if you do not already have one). Go to [https://github.com/](https://github.com/), enter a username, e-mail, and password, and click "Sign up for GitHub."
 
@@ -278,24 +278,5 @@ There are a number of excellent [GitHub Guides](https://guides.github.com/) beyo
 
 From this point, though, the key to becoming comfortable with GitHub is to use it often. This means that _every time you make a working change to your website files, you should commit your changes to your local repository and sync it with the repository on GitHub._ While you are working on your lab projects, your TA will expect to see your GitHub repository for the project updated frequently. This is an easy way for your TA—and you—to track your progress. It also starts to build a public track record of your work that future employers may look at. Thus, **commit frequently and wisely**!
 
-Weekly Deliverables
--------------------
-
-> ### [Activity 1](https://canvas.wisc.edu/courses/180498/assignments/696184 "Activity 1: Website Directory and GitHub Account (due at the end of Week 1 lab)") (_due at the end of Week 1 lab_)
-> 
-> 1.  Create a website directory called _my\_website_ with an organized directory structure and boilerplate _index.html_, _style.css_, and _main.js_ files.
->     
-> 2.  Create a Git repository in your website directory and sync it to your GitHub account.
->     
-> 3.  Submit a zip file (.zip) containing your website directory to Canvas. In the submission comments, paste a link to your GitHub account page. **_Click the link above to submit your zip file and URL._**
->     
-> 
-> ### [Activity 2](https://canvas.wisc.edu/courses/180498/assignments/696185 "Activity 2: Online JavaScript Training") (_due 1-hour before Week 2 lab_)
-> 
-> 1.  **_Required_**: Navigate to codecademy.com and create a free account. Do _not_ sign-up for the Pro paid account.
-> 2.  _Recommended_: If you do not have any programming experience, we recommend first completing the [Learn How to Code](https://www.codecademy.com/learn/learn-how-to-code) broad overview of programming concepts (~1 hour).
-> 3.  _Recommended_: If you do not have experience with HTML or want a refresher, we recommend completing Lesson 1 (and only Lesson 1) of the [Introduction to HTML tutorial](https://www.codecademy.com/learn/learn-html). (~1 hour)
-> 4.  _Recommended_: If you do not have experience with CSS or want a refresher, we recommend completing Lessons 1 and 2 of the [Introduction to CSS tutorial](https://www.codecademy.com/learn/learn-css). (~2 hour)
-> 5.  **_Required_**: Complete Lessons 1-8 of [Introduction to JavaScript](https://www.codecademy.com/learn/introduction-to-javascript). Print a PDF (Ctrl+P in browser; save as a PDF) of your completed table of contents for these tutorials and upload to the Activity 2 assignment to confirm completion. (~6 hours)
 
 _Copyright Robert E. Roth 2020. Do not share or redistribute. All rights reserved._
