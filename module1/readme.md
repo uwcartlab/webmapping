@@ -180,11 +180,11 @@ Generally speaking, we use the term "webpage" to describe a single HTML document
 
 > ### **In the _my\_website_ directory you downloaded, create the following new folders:**
 > 
-> - ###   **js**
-> - ###   **lib**
-> - ###   **css**
-> - ###   **data**
-> - ###   **img**
+> ### -   **js**
+> ### -   **lib**
+> ### -   **css**
+> ### -   **data**
+> ### -   **img**
 
 Let's describe each of these folders in your directory structure:
 
