@@ -1,4 +1,4 @@
-Module 6: The Internal Logic of Leaflet
+Chapter 7: The Internal Logic of Leaflet
 =======================================
 
 Your Leaflet lab should be coming along nicely after the Week 5 overview of interactions. In Week 6, we dive deeper into Leaflet's inner workings to introduce you to some advanced web programming concepts. Week 6 includes three lessons and culminates in the completion of your Leaflet lab (i.e., no progress activity this week with Exam 1).
@@ -129,7 +129,7 @@ Inheritance is a powerful feature of object-oriented JavaScript. Once an object 
 
 Figure 1.1 shows the result of Example 1.5.
 
-![figure6.1.1.png](img/figure6.1.1.png)
+![figure6.1.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%207/img/figure6.1.1.png)
 
 ###### Figure 1.1: A modified popup object
 
@@ -153,7 +153,7 @@ Further, imagine that you want to create two styles of popups, one that maintain
 
 The `console.log()` statement shows that the first `popupContent` object has maintained its original format (Figure 1.2). The second `popupContent2` object inherits all of the properties and methods of the first, but then has its format changed on line 8 before binding this content to the circle marker `layer`.
 
-![figure6.1.2.png](img/figure6.1.2.png)
+![figure6.1.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%207/img/figure6.1.2.png)
 
 ###### Figure 1.2: The prototype popup maintains its original content
 
@@ -228,7 +228,7 @@ We _can_ use jQuery for the next step, which is to place our `"range-slider"` _i
 
 Figure 2.1 shows the resulting slider as an extended `L.Control` in the lower-left corner of your map .
 
-![figure6.2.1.png](img/figure6.2.1.png)
+![figure6.2.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%207/img/figure6.2.1.png)
 
 ###### Figure 2.1: A slider on the map
 
@@ -254,7 +254,7 @@ You similarly can move the step buttons into the `SequenceControl` by placing th
 
 Figure 2.2 shows the resulting step buttons as part of the extended `L.Control`. Note that the slider and step buttons are now part of the same extended Leaflet control called `SequenceControl`. 
 
-![figure6.2.2.png](img/figure6.2.2.png)
+![figure6.2.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%207/img/figure6.2.2.png)
 
 ###### Figure 2.2: Step buttons added
 
@@ -327,7 +327,7 @@ Lastly, make sure you add the event listeners for your slider and step buttons *
 
 Figure 2.3 shows our beautiful new UI controls.
 
-![figure6.2.3.png](img/figure6.2.3.png)
+![figure6.2.3.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%207/img/figure6.2.3.png)
 
 ###### Figure 2.3: Leaflet custom control with _sequence_ UI elements
 
@@ -369,7 +369,7 @@ Also, be sure to add styles for your legend container in _style.css_, otherwise 
 
 Figure 2.4 shows an example temporal legend. You will have the opportunity to check your code in Lesson 3 if you run into any problems with the temporal legend. 
 
-![figure6.2.4.png](img/figure6.2.4.png)
+![figure6.2.4.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%207/img/figure6.2.4.png)
 
 ###### Figure 2.4: Leaflet map with a temporal legend
 
@@ -396,7 +396,7 @@ SVG provides a link between vector artwork software such as Adobe Illustrator an
 
 Let's start with a simple 180-pixel diameter circle drawn with the Ellipse Tool in Illustrator (Figure 3.1).
 
-![figure6.3.1.png](img/figure6.3.1.png)
+![figure6.3.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%207/img/figure6.3.1.png)
 
 ###### Figure 3.1: A circle in Illustrator
 
@@ -430,13 +430,13 @@ We can copy and paste this `<svg>` tag and insert it into the `<svg>` of our boi
 
 Figure 3.2 renders the circle in a browser.
 
-![figure6.3.2.png](img/figure6.3.2.png)
+![figure6.3.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%207/img/figure6.3.2.png)
 
 ###### Figure 3.2: The SVG circle
 
 In addition to importing SVG code to HTML, you also can export SVG graphics created by your script. Simply use the Inspector on the SVG object, then Right-/Command-Click on its code in the HTML tab and choose "Copy"→"Outer HTML" (Figure 3.3). Then paste the code into a new document in your text editor and save it as a file with a _.svg_ suffix. Your can open your new SVG file in Illustrator or any other graphics software that supports SVG. Notably, many news rooms actually generate much of the map through interactive coding with libraries such as D3, exporting different portions of their dynamic graphics as SVGs for static reproduction in print!
 
-![figure6.3.3.png](img/figure6.3.3.png)
+![figure6.3.3.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%207/img/figure6.3.3.png)
 
 ###### Figure 3.3: saving an SVG from the browser
 
@@ -461,7 +461,7 @@ Before moving on, let's briefly look at the code on line 3 of Example 3.2. The S
 
 You might expect that Leaflet passes the options from the `L.CircleMarker options` object to SVG `<circle>` elements that it creates. In fact, this class does create SVG elements, but they are `<path>` elements rather than `<circle>` elements. We can see this using the Inspector on our Leaflet map (Figure 3.4).
 
-![figure6.3.4.png](img/figure6.3.4.png)
+![figure6.3.4.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%207/img/figure6.3.4.png)
 
 ###### Figure 3.4: inspecting Leaflet circle markers
 
@@ -524,7 +524,7 @@ Step 1 in Example 3.4 dynamically adds an `<svg>` element to the legend containe
 
 Let's take a look at our legend control via the Inspector (Figure 3.5).
 
-![figure6.3.5.png](img/figure6.3.5.png)
+![figure6.3.5.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%207/img/figure6.3.5.png)
 
 ###### Figure 3.5: A blank SVG element that will hold our attribute legend
 
@@ -636,7 +636,7 @@ The radius should be calculated the same way as for the symbols on the map, so w
 
 Since we would like the circles to "nest" with each having a common bottom point, we can set the center y coordinate (`cy`) by subtracting the radius from the SVG height, minus an extra pixel for the circle stroke (line 10). This makes them appear to "grow up" from the bottom rather than down from the top. With all of our circle attributes set, we can now see our legend circles (Figure 3.6).
 
-![figure6.3.6.png](img/figure6.3.6.png)
+![figure6.3.6.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%207/img/figure6.3.6.png)
 
 ###### Figure 3.6: A legend with circles
 
@@ -649,7 +649,7 @@ The SVG container in Figure 3.6 is oversized given the sizes of our circles. The
 
 This gives us a much neater legend that no longer covers some of our map symbols (Figure 3.7). You should adjust these values based on the maximum circle size on your own legend.
 
-![figure6.3.7.png](img/figure6.3.7.png)
+![figure6.3.7.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%207/img/figure6.3.7.png)
 
 ###### Figure 3.7: A neater legend
 
@@ -682,7 +682,7 @@ Now we are ready for Step 4 of the pseudocode. We can create text within an SVG 
 
 This adds a  `<text>` element with a unique id and content for each circle to the SVG (line 8).  Notice that we evenly space out each `<text>` element's `y` coordinate attribute for readability. This completes our legend and the basic requirements for the Leaflet lab (Figure 3.8)!
 
-![figure6.3.9.png](img/figure6.3.9.png)
+![figure6.3.9.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%207/img/figure6.3.9.png)
 
 ###### Figure 3.8: Example Leaflet map with a finished legend
 

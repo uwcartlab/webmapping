@@ -1,4 +1,4 @@
-Week 11: Coordinated Interactions
+Chapter 12: Coordinated Interactions
 =================================
 
 Welcome to Week 11, the final set of lessons in Geography 575! In Week 11, we discuss linking interactions in D3 between your map and additional visualization. Week 11 includes two lessons and concludes with your final Lab 2 coordinated visualization: 
@@ -77,7 +77,7 @@ In Example 1.2, we position the menu `<select>` element absolutely so that it is
 
 We can now see our dropdown menu with each of our attribute options atop the map (Figure 1.1).
 
-![figure10.1.1.png](img/figure10.1.1.png)
+![figure10.1.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%2012/img/figure10.1.1.png)
 
 ###### Figure 1.1: Attribute selection dropdown menu
 
@@ -140,7 +140,7 @@ Within `changeAttribute()`, we complete Step 1 in our pseudocode by simply assig
 
 The map should now recolor itself when a new attribute is selected from the dropdown menu (Figure 1.2).
 
-![figure10.1.2.png](img/figure10.1.2.png)
+![figure10.1.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%2012/img/figure10.1.2.png)
 
 ###### Figure 1.2: Dynamic attribute selection changes the choropleth
 
@@ -301,7 +301,7 @@ The final step to updating the chart is to change the chart title. For this, we 
 
 We now have a fully interactive choropleth map and linked visualization, with the affordance of a dropdown menu selection interface and the feedback of updated enumeration units and bars (Figure 1.3).
 
-![figure10.1.3.png](img/figure10.1.3.png)
+![figure10.1.3.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%2012/img/figure10.1.3.png)
 
 ###### Figure 1.3: Interactive choropleth map and chart
 
@@ -354,7 +354,7 @@ The bars of our bar chart can also be animated within `changeAttribute()` (Examp
 
 In Example 1.10, we add a `.transition()` after the data has been re-sorted according to the new expressed attribute (line 7). We then add a [`.delay`](https://github.com/d3/d3-transition#transition_delay) operator with an anonymous function that delays the start of animations 20 additional milliseconds for each bar in the sequence (lines 8-10). This gives the appearance that the bars consciously rearrange themselves. The `.duration()` operator gives each bar half a second to complete its transition (line 11). When the `bars` selection is passed to `updateChart()`, the transition is passed with it, so that each of the changing attributes and the `fill` style are animated when the attribute changes (Figure 1.4).
 
-![figure10.1.4.gif](img/figure10.1.4.gif)
+![figure10.1.4.gif](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%2012/img/figure10.1.4.gif)
 
 ###### Figure 1.4: Animated transitions between attributes on choropleth map and chart
 
@@ -432,7 +432,7 @@ In Example 2.2, the event listener added to the `regions` block uses an anonymou
 
 If we now test our highlighting, we can see it working (Figure 2.1). The brushed features are highlighted when probed, but they still retain their blue borders after the mouse is removed, quickly making a mess of the visualization! This is why we need a `dehighlight()` function as well as a `highlight()` function.
 
-![figure10.2.1.png](img/figure10.2.1.png)
+![figure10.2.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%2012/img/figure10.2.1.png)
 
 ###### Figure 2.1: Linked highlighting
 
@@ -461,7 +461,7 @@ In Example 2.3, note that each style descriptor string adheres to a JSON format 
 
 Using the inspector, we can see that each `<path>` element and each `<rect>` element now have child `<desc>` elements with our pseudo-object string (Figure 2.2).
 
-![figure10.2.2.png](img/figure10.2.2.png)
+![figure10.2.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%2012/img/figure10.2.2.png)
 
 ###### Figure 2.2: Inspecting the `<desc>` elements
 
@@ -516,7 +516,7 @@ This completes the `dehighlight()` function, which we can add event listeners to
 
 We now have working linked highlighting and dehighlighting, allowing only one feature to be selected at a time (Figure 2.3).
 
-![figure10.2.3.png](img/figure10.2.3.png)
+![figure10.2.3.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%2012/img/figure10.2.3.png)
 
 ###### Figure 2.3: Linked highlighting and dehighlighting
 
@@ -582,7 +582,7 @@ Without any styles applied to it, the label will look pretty messy. Let's style 
 
 These styles create a simple black label with white text (Figure 2.4).
 
-![figure10.2.4.png](img/figure10.2.4.png)
+![figure10.2.4.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%2012/img/figure10.2.4.png)
 
 ###### Figure 2.4: Styled info label
 
@@ -675,7 +675,7 @@ Finally, the flicker issue is not really worth solving in the script; instead we
 
 We now have a label that follows the mouse and switches sides to avoid overflow (Figure 2.5).
 
-![figure10.2.5.gif](img/figure10.2.5.gif)
+![figure10.2.5.gif](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%2012/img/figure10.2.5.gif)
 
 ###### Figure 2.5: Dynamic label
 

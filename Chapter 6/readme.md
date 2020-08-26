@@ -1,4 +1,4 @@
-Module 5: Dynamic Mapping with Leaflet
+Chapter 6: Dynamic Mapping with Leaflet
 ======================================
 
 Congratulations on making your first interactive web map with Leaflet last week! Week 5 continues to build on your first lab assignment by introducing Leaflet interaction operators. Week 5 includes four lab lessons and ends with Activity 6 requiring you to implement _pan_, _zoom_, _retrieve_, and _sequence_ on scaled proportional symbols.
@@ -120,7 +120,7 @@ In Example 1.4, we assign the attribute value for a specific feature to the new 
 
 Before moving onto the next step in the pseudocode, use a `console.log` statement to compare each feature's `properties` object with the value assigned to `attValue` (Figure 1.1), reducing the possibility of an error at this stage.
 
-![figure5.1.1.png](img/figure5.1.1.png)
+![figure5.1.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.1.1.png)
 
 ###### Figure 1.1: The Firefox console showing each feature's properties object followed by the `Pop_2015` value
 
@@ -237,7 +237,7 @@ Example 1.5 illustrates the steps needed to implement Flannery scaling for our s
 
 The areas of the circles on the map are now proportional to our data (Figure 1.2)!
 
-![figure5.1.2.png](img/figure5.1.2.png)
+![figure5.1.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.1.2.png)
 
 ###### Figure 1.2: Leaflet map with circle markers scaled into proportional symbols
 
@@ -320,7 +320,7 @@ You then can use JavaScript String methods to format the information in the popu
 
 Figure 2.1 previews the popup in the browser. Each popup is created by Leaflet using HTML `<div>` elements. Accordingly, you can use the inspector to determine how to access and style the popup using CSS.
 
-![figure5.2.1.png](img/figure5.2.1.png)
+![figure5.2.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.2.1.png)
 
 ###### Figure 2.1: Firebug inspector and HTML tab showing popup elements
 
@@ -333,7 +333,7 @@ The popup content has the class name `leaflet-popup-content`, so we can use this
     }
     
 
-![figure5.2.2.png](img/figure5.2.2.png)
+![figure5.2.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.2.2.png)
 
 ###### Figure 2.2: The reformatted popup
 
@@ -346,7 +346,7 @@ You also may want to offset the popup based on its `radius` so that it does not 
         });
     
 
-![figure5.2.4.png](img/figure5.2.4.png)
+![figure5.2.4.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.2.4.png)
 
 ###### Figure 2.3: A vertically offset popup
 
@@ -470,7 +470,7 @@ Besides setting the `type` attribute to `range`, we also need to give our slider
 
 Figure 3.1 shows the resulting panel and slider created from the `createSequenceControls()` function. The slider is centered horizontally in the panel by adding `text-align: center;` to the `#panel` styles in _style.css_ (see Example 3.4).
 
-![figure5.3.1.png](img/figure5.3.1.png)
+![figure5.3.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.3.1.png)
 
 ###### Figure 3.1: Side panel with a `range` slider
 
@@ -485,7 +485,7 @@ Step 2 of the pseudocode creates the forward and reverse step buttons. For these
 
 Give our buttons both a `class` attribute (`"step"`) and an `id` attribute (`"forward"` and `"reverse"`). We can use the `class` attribute to style both buttons together, and the `id` attribute to style them individually and to attach individual event listeners. Figure 3.2 shows the resulting step buttons.
 
-![figure5.3.2.png](img/figure5.3.2.png)
+![figure5.3.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.3.2.png)
 
 ###### Figure 3.2: Step buttons
 
@@ -534,7 +534,7 @@ Finally, we can adjust the _sequence_ UI styles to make the controls more usable
 
 Figure 3.3 shows the styled _sequence_ UI controls.
 
-![figure5.3.3.png](img/figure5.3.3.png)
+![figure5.3.3.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.3.3.png)
 
 ###### Figure 3.3: Final slider and step buttons
 
@@ -588,7 +588,7 @@ We then create and return the array within the `processData()` function. Start w
 
 Figure 3.4 shows the `console.log()` statement of the the the `attributes` array, confirming that the attribute names are in the correct order for the sequence. 
 
-![figure5.3.4.png](img/figure5.3.4.png)
+![figure5.3.4.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.3.4.png)
 
 ###### Figure 3.4: The completed attributes array
 
@@ -625,7 +625,7 @@ Then we can assign our first `attribute` to symbolize as the `attributes` array 
 
 Not only have we successfully assigned the first value in our array to the `attribute` variable, but our map looks a bit different because we are using the "Pop-1985" attribute in the `0` index of the `attributes` array instead of the previously hard coded the "Pop-2015" attribute (Figure 3.5).
 
-![figure5.3.5.png](img/figure5.3.5.png)
+![figure5.3.5.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.3.5.png)
 
 ###### Figure 3.5: Leaflet map visualizing the first attribute in the dataset
 
@@ -739,7 +739,7 @@ The script in our `if` statement assigns each feature's `properties` object to a
 
 We now can _sequence_ through every attribute in the GeoJSON file, resymbolizing the proportional symbols and changing the _retrieve_ popup information using our sequencing controls (Figure 3.6).
 
-![figure5.3.6.png](img/figure5.3.6.png)
+![figure5.3.6.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.3.6.png)
 
 ###### Figure 3.6: Leaflet map with the _sequence_ operator active
 
@@ -758,7 +758,7 @@ With what you have learned the past two weeks, you should have the tools to adap
 
 The Leaflet website includes an _[Interactive Choropleth Map](http://leafletjs.com/examples/choropleth.html)_ tutorial, allowing you to adapt the sample code to your GeoJSON data (e.g., Figure 4.1). If you implement a choropleth map, you will need to link your GeoJSON attributes to a polygon dataset. Leaflet choropleth maps generally are not recommended for small cartographic scales (i.e., when "zoomed out") because of the area distortion imposed by the Web Mercator projection.
 
-![figure5.4.1.png](img/figure5.4.1.png)
+![figure5.4.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.4.1.png)
 
 ###### Figure 4.1: example map from the _Interactive Choropleth Map_ Leaflet tutorial
 
@@ -768,11 +768,11 @@ The Leaflet website includes an _[Interactive Choropleth Map](http://leafletjs.c
 
 The Leaflet website includes a [_Layer Groups and Layers Control_](http://leafletjs.com/examples/layers-control.html) tutorial for using its out-of-the-box _overlay_ control (`L.control.layers`). The `L.control.layers` control applies radio buttons (one selected at a time) for basemap tilesets and checkboxes (compound selection) for vector overlays. Figure 4.2 shows a simple implementation of the Leaflet layers control, while Figure 4.3 shows a more complicated example from the [National Park Service](https://www.nps.gov/viis/planyourvisit/virgin-islands-marine-visitor-use-information.htm) geared more toward exploration. Note that to complete the Overlay operator, you need to provide a second data layer, _not_ just another underlying tileset.
 
-![figure5.4.2.png](img/figure5.4.2.png)
+![figure5.4.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.4.2.png)
 
 ###### Figure 4.2: Example map from the _Layer Groups and Layers Control_ tutorial
 
-![figure5.4.3.png](img/figure5.4.3.png)
+![figure5.4.3.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.4.3.png)
 
 ###### Figure 4.3: National Park Service map with many _overlay_ checkboxes
 
@@ -782,7 +782,7 @@ The Leaflet website includes a [_Layer Groups and Layers Control_](http://leafle
 
 [Carto](https://carto.com/) is an alternative web mapping platform to Mapbox that is also based on Leaflet. Carto allows the user to both _resymbolize_ and _reexpress_ the data through its symbol wizard (shown in Figure 4.4, below).
 
-![figure5.4.4.png](img/figure5.4.4.png)
+![figure5.4.4.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.4.4.png)
 
 ###### Figure 4.4: CartoDB interface with its Map Layer Wizard
 
@@ -800,7 +800,7 @@ The _filter_ operator can be implemented using the filter option of GeoJSON def
 
 **_Search_** alters the map to add or highlight a particular feature of interest, and is the conceptual inverse of _filter_. Luckily, the _search_ operator can be implemented through the [Leaflet Search Control](https://github.com/stefanocudini/leaflet-search) plugin. An example plugin implementation is shown in Figure 4.5, below.
 
-![figure5.4.5.png](img/figure5.4.5.png)
+![figure5.4.5.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.4.5.png)
 
 ###### Figure 4.5: Leaflet Search Control plugin example
 
@@ -812,7 +812,7 @@ You can implement the plugin to enable users to search for mapped features corre
 
 _Arrange_ is more common for the highly-exploratory coordinated multiview visualization possible with D3, with a Leaflet map perhaps one window among coordinated views. Figure 4.7 shows a [final project](http://www.youtube.com/watch?v=Dlt3vU0ZBZ4&list=PLz9yX13m-GeL9tbxNN1tuOuMyx6wgkwb3) by a former Geography 575 student using the jQuery UI library's [Draggable](https://jqueryui.com/draggable/) functionality.
 
-![figure5.4.7.png](img/figure5.4.7.png)
+![figure5.4.7.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.4.7.png)
 
 ###### Figure 4.7: G575 2013 final project making use of _arrange_
 
@@ -822,7 +822,7 @@ _Arrange_ is more common for the highly-exploratory coordinated multiview visual
 
 A common calculation on slippy maps is distance and area measurement, which can be implemented on Leaflet maps using the [Leaflet Draw](https://github.com/Leaflet/Leaflet.draw) plugin. This set of tools is included in [geojson.io](http://geojson.io), which we used in Week 3. Figure 4.8 shows the plugin example, demonstrating measurement with the Leaflet Draw controls.
 
-![figure5.4.8.png](img/figure5.4.8.png)
+![figure5.4.8.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%206/img/figure5.4.8.png)
 
 ###### Figure 4.8: Leaflet Draw plugin example
 

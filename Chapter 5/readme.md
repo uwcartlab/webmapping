@@ -1,4 +1,4 @@
-Module 4: Leaflet Foundation & Using Online Resources
+Chapter 5: Leaflet Foundation & Using Online Resources
 =====================================================
 
 Week 4 transitions into the second unit for Geography 575, which supports your Leaflet lab assignment. With a solid foundation behind you, it is time to make your first interactive web map! Week 3 includes four lab lessons and ends with Activity 5 requiring you to compile and map spatiotemporal data onto a slippy basemap using Leaflet. js.
@@ -112,7 +112,7 @@ Your script should look approximately like Example 1.1 after completing the _Lea
 
 When completing the tutorial, be sure to add a `<div>` element with the `id "mapid"` to the `<body>` of your _index.html_ file, and assigned a `height` to `#mapid` in your _style.css_ stylesheet. Figure 1.1 illustrates the expected slippy map resulting from the _Leaflet Quick Start Guide_.
 
-![figure4.1.1.png](img/figure4.1.1.png)
+![figure4.1.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.1.1.png)
 
 ###### Figure 1.1: An example slippy map created during the _Leaflet Quick Start Guide_ tutorial
 
@@ -147,7 +147,7 @@ After getting a basic slippy map to load, complete the [_Using GeoJSON with Leaf
 
 Figure 1.1 illustrates the expected slippy map resulting from the _Using GeoJSON with Leaflet_ tutorial. Lesson 2 describes how to integrate your GeoJSON data imported via AJAX with the `L.geoJson()` method.
 
-![figure4.1.1.5.png](img/figure4.1.1.5.png)
+![figure4.1.1.5.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.1.1.5.png)
 
 ###### Figure 1.2: An example slippy map created during the _Using GeoJSON with Leaflet_ tutorial
 
@@ -166,7 +166,7 @@ In general, any good API documentation should provide:
 
 Leaflet's API documentation is organized as one long webpage, making it convenient to find a specific method using the browser Ctrl/Command+F feature. The Leaflet API documentation includes a persistent table of contents referencing different page sections (Figure 1.3).
 
-![figure4.1.2.5.png](img/figure4.1.2.5.png)
+![figure4.1.2.5.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.1.2.5.png)
 
 ###### Figure 1.3:The Leaflet API documentation.
 
@@ -179,13 +179,13 @@ Let's examine the Leaflet methods from the two tutorials you completed using the
 
 Let's take a look at [`L.map()`](http://leafletjs.com/reference.html#map-example) in the API. The first line under the section titled "Map" describes the method's parent class (`Map`), "\[t\]he central class of the API — it is used to create a map on a page and manipulate it". Definition of [`L.map()`](http://leafletjs.com/reference.html#map-example) begins with a "Usage example" (Figure 1.4).
 
-![figure4.1.2.png](img/figure4.1.2.png)
+![figure4.1.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.1.2.png)
 
 ###### Figure 1.4: Example map instantiation script in the Leaflet API documentation
 
 Note the difference between this usage of the method and its usage in the _Leaflet Quick Start Guide_ (Example 1.1, line 3). Figure 1.2 shows two parameters: a string (`'map'`) and an object consisting of a `center` property with an array of two coordinates (`[51.505, -0.09]`) and a `zoom` property with a number (`13`). To understand what these parameters do, examine the syntax demonstration under "Creation" (Figure 1.5).
 
-![figure4.1.3.png](img/figure4.1.3.png)
+![figure4.1.3.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.1.3.png)
 
 ###### Figure 1.5: Definition and syntax of `L.map()` in the Leaflet API documentation
 
@@ -200,7 +200,7 @@ The "Description" column describes in plain English what the method does. This t
 
 The "Options" section (Figure 1.6) includes all of the options available as properties of the _options_ parameter object, organized neatly as tables categorized as "Map State Options", "Interaction Options", "Keyboard Navigation Options", "Panning Inertia Options", "Control Options", and "Animation Options". Thus, these options set and constrain the cartographic interaction.
 
-![figure4.1.4.png](img/figure4.1.4.png)
+![figure4.1.4.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.1.4.png)
 
 ###### Figure 1.6: Map options presented in the Leaflet API documentation
 
@@ -208,7 +208,7 @@ Notice that `center` and `zoom` are the first two options in the Map State Optio
 
 Returning to the first line of the _Leaflet Quick Start Guide_ (Example 1.3), we see that `L.map()` includes only the first, required parameter—the `id` of the `<div>` designated to contain the map—and forgoes the _options_ object. However, it is chained to the `setView()` method, which contains two parameters: a two-value array and a single number. We quickly can lookup the `setView()` method using Ctrl/Command+F (Figure 1.7).
 
-![figure4.1.5.png](img/figure4.1.5.png)
+![figure4.1.5.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.1.5.png)
 
 ###### Figure 1.7: Definition and syntax of `setView()` method in the Leaflet API documentation
 
@@ -235,7 +235,7 @@ Let's take a look at the Leaflet API documentation for some of the methods used 
 
 We will return to classes and inheritance as key concepts in object-oriented programming in Week 6.
 
-![figure4.1.6.png](img/figure4.1.6.png)
+![figure4.1.6.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.1.6.png)
 
 ###### Figure 1.8: Types of Leaflet layer groups
 
@@ -254,7 +254,7 @@ Making use of tutorial examples requires figuring out how to integrate them into
 
 The _Using GeoJSON with Leaflet_ tutorial makes use of single GeoJSON features for its data (Figure 2.1).
 
-![figure4.2.1.png](img/figure4.2.1.png)
+![figure4.2.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.2.1.png)
 
 ###### Figure 2.1: Creation of a GeoJSON feature in the _Using GeoJSON with Leaflet_ tutorial
 
@@ -283,7 +283,7 @@ This object represents a point feature, essentially equivalent to one element in
 
 The _Using GeoJSON with Leaflet_ tutorial then maps the feature using the `.addTo()` method (Figure 2.2).
 
-![figure4.2.2.png](img/figure4.2.2.png)
+![figure4.2.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.2.2.png)
 
 ###### Figure 2.2: Script from the _Using GeoJSON with Leaflet_ tutorial to add the feature to the map
 
@@ -334,7 +334,7 @@ Example 2.3 shows the complete code needed in _adaptedTutorial.js_ to adapt the
 
 In Example 2.3, the variable `response`—which holds our AJAX response data, the GeoJSON—takes the place of `geojsonFeature` in the tutorial.  Rather than having to create the data in the script, we bring in our external data from the _MegaCities.geojson_ file and pass it directly to `L.geoJson()`. With no options specified, Leaflet displays the features as default marker icons (from a PNG image stored in Leaflet's _images_ folder), as shown in Figure 2.3. Notice we are declaring our map variable in the global scope so that  we have access to it in the getData function.
 
-![figure4.2.3.png](img/figure4.2.3.png)
+![figure4.2.3.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.2.3.png)
 
 ###### Figure 2.3: Leaflet map with the _MegaCities.geojson_ data shown as markers
 
@@ -344,7 +344,7 @@ Since _megaCities.geojson_ comprises point data, we can adapt the additional sty
 
 **pointToLayer:** The `pointToLayer` option of `GeoJSON` defines a function to convert GeoJSON points into Leaflet layers.  Figure 2.4 shows use of `pointToLayer` in _geojsonTutorial.js._
 
-![figure4.2.4.png](img/figure4.2.4.png)
+![figure4.2.4.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.2.4.png)
 
 ###### Figure 2.4: `pointToLayer` script from the _Using GeoJSON with Leaflet_ tutorial
 
@@ -373,13 +373,13 @@ Example 2.4 updates pointToLayer for our _adaptedTutorials.js_ script (Example 2
 
 Figure 2.5 illustrates the results of applying the modified use of `pointToLayer`.
 
-![figure4.2.5.png](img/figure4.2.5.png)
+![figure4.2.5.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.2.5.png)
 
 ###### Figure 2.5: Leaflet map showing circle markers created using `pointToLayer`
 
 **onEachFeature:** The onEachFeature option of GeoJSON calls a function once for each feature contained in the created GeoJSON object. Figure 2.6 shows the use of onEachFeature in the _Using GeoJSON with Leaflet_ tutorial.
 
-![figure4.2.6.png](img/figure4.2.6.png)
+![figure4.2.6.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.2.6.png)
 
 ###### Figure 2.6: `onEachFeature` script from the _Using GeoJSON with Leaflet_ tutorial
 
@@ -417,7 +417,7 @@ Example 2.5 instead uses a loop to dynamically add each property name and value 
 
 Figure 2.7 illustrates the results of applying the modified use of `onEachFeature`.
 
-![figure4.2.7.png](img/figure4.2.7.png)
+![figure4.2.7.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.2.7.png)
 
 ###### Figure 2.7: Leaflet map showing a popup bound to a marker using `onEachFeature`
 
@@ -429,13 +429,13 @@ Not all real-world web maps have such simple and tidy code, but you can always "
 
 Figure 2.10 illustrates a previous Geography 575 final project mapping the distance of Flickr images from major roads in the U.S. National Parks.
 
-**![figure4.2.10.png](img/figure4.2.10.png)**
+**![figure4.2.10.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.2.10.png)**
 
 ###### Figure 2.10: Previous Geography 575 final project mapping Flickr photos in national parks.
 
 To examine and modify the code, you can right-click on the webpage,  "Inspect Element" and select the _**Debugger**_ tab. This opens developer tools (Figure 2.11), offering a look at the HTML as well as links to other open source files, including stylesheets and scripts. 
 
-**![figure4.2.11.png](img/figure4.2.11.png)**
+**![figure4.2.11.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.2.11.png)**
 
 ###### Figure 2.11: The website's Debugger tool offers access to the JS and CSS files loaded by the page.
 
@@ -483,7 +483,7 @@ In Lesson 1 , you completed the _Leaflet Quick Start Guide_ tutorial using eithe
 
 Do not worry if you have not taken Geography 572, however, as there are a numerous alternative tilesets that are freely available to use. You can discover the tileset source of web map examples used in class (e.g., [past Geography 575 final projects](https://geography.wisc.edu/cartography/education/G575/G575SP2019.html)) using right/Command+click on the web map and navigating to "View Image" or "Open image in new tab". This will display a single tile image in its own browser tab (Figure 4.1):
 
-![figure4.4.1.png](img/figure4.4.1.png)
+![figure4.4.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%205/img/figure4.4.1.png)
 
 ###### Figure 4.1: A single slippy map tile
 
