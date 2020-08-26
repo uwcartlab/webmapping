@@ -24,7 +24,7 @@ As introduced last week, _**forking**_ a Github repo creates a copy of an existi
 
 After you fork the repo, you should be able to see _20\_g575_ in your own repository list. A benefit of forking versus cloning is that you can track the changes of the source repository and sync any updates to your own. For example, if we made changes to the _20\_g575_ course repository, an alert will be added to your repository page. For instance, the alert "This branch is 1 commit behind uwcartlab:master" is displayed  in Figure 0.1.
 
-![figure1.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%203/img/figure1.1.png)
+![figure1.1.png](img/figure1.1.png)
 
 ###### Figure 1.1: Forking the _unit-1_ repo from the _20\_g575_ course page.
 
@@ -32,7 +32,7 @@ You can sync an update by clicking the "Compare" button (Figure 0.2). <ins>_**No
 
 Clicking the "Compare" button redirects you to the "Comparing Changes" page. You can review new updates by switching the "base repository" to your repository and the "head repository" to the course repository by clicking "switching the base". If there are new updates, click "Create Pull Request" to add the updates to your own, forked repository. Confirm that it is "Okay" to make pull changes and click "Merge pull request" to merge the changes in the course repository into your forked repository.
 
-![figure0.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%203/img/figure0.2.png)
+![figure0.2.png](img/figure0.2.png)
 
 ###### Figure 0.2: Example merging changes in the main branch to a forked branch. This is provided as reference, as you will not need to merge any updates immediately after forking in Week 2.
 
@@ -47,7 +47,7 @@ Lesson 1: Exploring the DOM
 
 The Document Object Model, or _**DOM**_, is the standard tree structure, called the **_DOM tree_**, for organizing objects within a webpage (i.e., a "document"). The DOM is _cross-platform_ and _language-independent_, meaning that it is not a specific language or technology, but a convention on how any language should structure a document. For instance, Figure 1.1 visualizes the DOM tree for the HTML boilerplate introduced in Week 1, showing how the DOM tree grows in complexity for even simple webpages. 
 
-![figure2.1.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%203/img/figure2.1.1.png)
+![figure2.1.1.png](img/figure2.1.1.png)
 
 ###### Figure 1.1: Boilerplate DOM tree
 
@@ -63,7 +63,7 @@ You can activate the inspector on any webpage using right-/command-click and sel
 
 If you click the box-arrow icon in the top-left of the inspector tab (a magnifying glass icon in some browsers), you then can hover over the webpage itself and identify the location of the highlighted HTML element in the DOM. Figure 1.2 shows the inspector tab in the Firefox browser, with the `<body>` element selected.
 
-![figure2.1.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%203/img/figure2.1.2.png)
+![figure2.1.2.png](img/figure2.1.2.png)
 
 ###### Figure 1.2: The Firefox Inspector
 
@@ -106,7 +106,7 @@ In Example 2.1, you are accessing and manipulating `mydiv` using JavaScript rath
 
 > ### **Open the HTML boilerplate directory in Prepros and preview _index.html_ in a browser. You should see "Hello World" printed into your div both in the webpage and in the DOM using the inspector (Figure 2.1).**
 
-![figure2.2.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%203/img/figure2.2.1.png)
+![figure2.2.1.png](img/figure2.2.1.png)
 
 ###### Figure 2.1: Using JavaScript to print text into a `<div>` element
 
@@ -197,7 +197,7 @@ JavaScript has a number of native methods for manipulating the DOM. Rather than 
 
 If you add this code into _main.js_ and reload _index.html_ in the browser using Prepros, you should now see a neat little table on the webpage and in the DOM (Figure 2.2)
 
-![figure2.2.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%203/img/figure2.2.2.png)
+![figure2.2.2.png](img/figure2.2.2.png)
 
 ###### Figure 2.2: An HTML table on the page and in the DOM created using JavaScript
 
@@ -523,7 +523,7 @@ At the bottom of the script, we replace `window.onload = intialize()` with `$(do
 
 When writing HTML strings, make sure that you add all of the proper closing tags to your elements in the correct order. Unclosed elements may result in a DOM structure you did not anticipate, with odd formatting results. Figure 3.1 visualizes how the HTML elements in your table are organized in the DOM tree.
 
-![figure2.3.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%203/img/figure2.3.1.png)
+![figure2.3.1.png](img/figure2.3.1.png)
 
 ###### Figure 3.1: The HTML table DOM tree structure
 
@@ -627,7 +627,7 @@ Despite how hackers are depicted in Hollywood movies, you will spend most of you
 
 Or, in the words of the venerable [Douglas Adams](https://en.wikipedia.org/wiki/The_Hitchhiker's_Guide_to_the_Galaxy):
 
-![dontpanic.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%203/img/dontpanic.png)
+![dontpanic.png](img/dontpanic.png)
 
 ### II. Console Errors
 
@@ -637,7 +637,7 @@ Such difficulties are normal, everyday experiences for every level of programmer
 
 The _**console**_, usually accessed by a tab or button next to the inspector, is where errors and other messages from the scripts are printed. Often, it actually is _more_ convenient for you the developer if your console shows an error, because the console error should tell you exactly where in the script the error is occurring. For instance, say your script failed and you found a syntax error in the console (Figure 4.1).
 
-![figure2.4.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%203/img/figure2.4.1.png)
+![figure2.4.1.png](img/figure2.4.1.png)
 
 ###### Figure 4.1: A syntax error displayed in the console
 
@@ -669,7 +669,7 @@ The error statement identifies line 25 of your _main.js_ file, where there may b
 
 Similarly, perhaps you have an undefined variable that you try to manipulate through JavaScript in the code. The console will display a reference error, noting the particular variable (Figure 4.2).
 
-![figure2.4.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%203/img/figure2.4.2.png)
+![figure2.4.2.png](img/figure2.4.2.png)
 
 ###### Figure 4.2: A reference error displayed in the console
 
@@ -679,7 +679,7 @@ There are multiple reasons a variable could be undefined, but a very common caus
 
 Most errors in the console are explanatory and helpful, but occasionally you will run into an error that is mysterious. For example, while developing the example script we have been using, I ran into an error I had never seen before (Figure 4.3):
 
-![figure2.4.3.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%203/img/figure2.4.3.png)
+![figure2.4.3.png](img/figure2.4.3.png)
 
 ###### Figure 4.3: A type error displayed in the console
 
@@ -703,7 +703,7 @@ This update resolved the issue.
 
 What about an error that causes your script to fail silently? For instance, while I was tinkering with the example script for this lesson, I was able to generate a table with just the headers and no errors in the console (Figure 4.4):
 
-![figure2.4.4.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%203/img/figure2.4.4.png)
+![figure2.4.4.png](img/figure2.4.4.png)
 
 ###### Figure 4.4: There's no table, Jim
 
@@ -779,7 +779,7 @@ Let's debug! First, we can see whether the script is stopping for some reason be
 
 The results (Figure 4.5):
 
-![figure2.4.5.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%203/img/figure2.4.5.png)
+![figure2.4.5.png](img/figure2.4.5.png)
 
 ###### Figure 4.5: The console showing the executed statement
 
@@ -800,7 +800,7 @@ Next, is the problem with the code in the loop or the loop itself? To see if the
 
 Result (Figure 4.6):
 
-![figure2.4.6.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%203/img/figure2.4.6.png)
+![figure2.4.6.png](img/figure2.4.6.png)
 
 ###### Figure 4.6: The console is blank
 
@@ -822,13 +822,13 @@ Look carefully at every character in the line for errors with the syntax. There 
 
 Result (Figure 4.7):
 
-![figure2.4.7.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%203/img/figure2.4.7.png)
+![figure2.4.7.png](img/figure2.4.7.png)
 
 ###### Figure 4.7:The console showing that `cities` is a function
 
 Notice in the Console that `cities` is a function, not a variable! Thus it is defined, but has no `length` property. If you click the button next to the function name in the console, you can see where in the script the function is defined (Figure 4.8).
 
-![figure2.4.8.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%203/img/figure2.4.8.png)
+![figure2.4.8.png](img/figure2.4.8.png)
 
 ###### Figure 4.8: The Debugger tab showing where `cities()` is defined
 

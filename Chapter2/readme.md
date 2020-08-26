@@ -102,7 +102,7 @@ This is all the code you need to create a basic HTML5 website. If you add someth
 
 and then open the file in a browser, you should see what you just added to the page (Figure 1.1):
 
-![figure1.1.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%202/img/figure1.1.1.png)
+![figure1.1.1.png](img/figure1.1.1.png)
 
 ###### Figure 1.1: `<body>` content displayed on the page
 
@@ -146,7 +146,7 @@ For example, you can add a `<style>` tag to your boilerplate to embed a CSS rule
 
 The result is a red rectangle 100 pixels high that takes up 80 percent of the page width, with no margin, as seen below (Figure 2.1).
 
-![figure1.2.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%202/img/figure1.2.1.png)
+![figure1.2.1.png](img/figure1.2.1.png)
 
 ###### Figure 2.1: The result of Example 2.1
 
@@ -168,7 +168,7 @@ You also can add a `<script>` tag without a `src` attribute below the `<div>` to
 
 If you click on the div element in your browser, you should see:
 
-![figure1.2.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%202/img/figure1.2.2.png)
+![figure1.2.2.png](img/figure1.2.2.png)
 
 ###### Figure 2.2: The result of Example 2.2
 
@@ -212,7 +212,7 @@ Notice that the boilerplate _index.html_ file already contains two links to exte
 
 As you develop your website, you will need to preview it in a browser to see what it looks like and to use the browser's helpful set of developer tools. While you can just double-click on the simple HTML examples above for preview in a browser, most websites are accessed over the internet using a server. A **_server_** is a piece of software that sends data to a browser over the internet. Figure 2.3 shows a basic server-client architecture, in which the client requests files from your website directory and the server sends them as requested. A server may be across the room, across the country, or even on the other side of the world.
 
-![figure1.2.3.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%202/img/figure1.2.3.png)
+![figure1.2.3.png](img/figure1.2.3.png)
 
 ###### Figure 2.3: Client-server architecture
 
@@ -229,7 +229,7 @@ Lesson 3: GitHub Setup
 
 _**[GitHub](https://github.com/)**_ is a website and project hosting service that uses the [Git](http://git-scm.com/) version control system. _**Git**_ takes a snapshot of your files at a given time, creating a backup that can be shared collaborative when multiple developers are coding at the same time (e.g., your final project). GitHub provides an online suite of tools for cloud storage, sharing, collaboration, and hosting of your projects. It has become standard practice for open-source software developers to keep their projects on GitHub, and you will find yourself accessing various repositories or **_repos_** (i.e., web directories) on GitHub as your development experience grows. For example, the Spring 2020 Geography 575 course materials are hosted at [](https://github.com/reroth/g575-2013)[https://github.com/uwcartlab/20\_g575](https://github.com/uwcartlab/20_g575) [](https://github.com/reroth/g575-2013) (Figure 3.1):
 
-![figure1.3.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%202/img/figure1.3.1.png)
+![figure1.3.1.png](img/figure1.3.1.png)
 
 ###### Figure 3.1: The GitHub repository for this course
 
@@ -249,7 +249,7 @@ Then open GitHub Desktop, log in, and drag-and-drop your _my\_website_ directory
 
 Importantly, if you first navigate to your website directory instead of the folder above it, the application will create a new directory _inside_ your website directory with the same name. Check the path shown in the "local path" text field to ensure you are syncing from the correct location on your computer.
 
-![figure1.3.2(new).png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%202/img/figure1.3.2(new).png)
+![figure1.3.2(new).png](img/figure1.3.2(new).png)
 
 ###### Figure 3.2: Creating a repository in your _my\_website_ directory
 
@@ -262,7 +262,7 @@ Once you've created the repository, open your the _my\_website_ directory on you
 *   **._gitignore_ (optional)**, a file that lists files in the directory that should not be tracked by the repository.
     
 
-![figure1.3.3.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%202/img/figure1.3.3.png)
+![figure1.3.3.png](img/figure1.3.3.png)
 
 ###### Figure 3.3: Website directory with repository files
 

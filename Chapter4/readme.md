@@ -34,7 +34,7 @@ _**CSV**_ (extension .csv) stands for _**comma-separated values**_. Like the nam
 
 Say you want to tell a story about the growth of the world's largest cities. You can start by building a CSV spreadsheet of the top cities and their populations (Figure 1.1):
 
-![figure3.1.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%204/img/figure3.1.1.png)
+![figure3.1.1.png](img/figure3.1.1.png)
 
 ###### Figure 1.1: A correctly formatted spreadsheet table (Source: United Nations)
 
@@ -42,19 +42,19 @@ Each geographic feature (a city) occupies one row, and the attribute data (popul
 
 If we want to tell a story about urban _growth_, we need more than one population data capture for each city. The expanded spreadsheet  includes the urban populations at five-year time intervals from 1985 to 2015 (Figure 1.2). 
 
-![figure3.1.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%204/img/figure3.1.2.png)
+![figure3.1.2.png](img/figure3.1.2.png)
 
 ###### Figure 1.2: A CSV with multiple sequential, numeric attributes (Source: United Nations)
 
 The Figure 1.2 spreadsheet is just attributes and does not yet contain geospatial coordinates. Given the world scale of the map, each city should be represented as a point at its geographic center. You can use an internet search engine to find latitude and longitude values for each feature, but a faster and easier way to do so is to use a **_batch geocoder_**. Figure 1.3 uses the [Local Focus](https://geocode.localfocus.nl/) batch geocoder, one in a number of options available online. Leave "country" set to Worldwide, and simply copy the first column of your spreadsheet and paste it into the input box. Hit "Add to Geocoder" and see your results below.
 
-![figure3.1.3.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%204/img/figure3.1.3.png)
+![figure3.1.3.png](img/figure3.1.3.png)
 
 ###### Figure 1.3: The Local Focus Geocoder: https://geocode.localfocus.nl/
 
 The Local Focus geocoder attempts to disambiguate all text strings into geographic coordinates. Some names may produce multiple coordinates, with Local Focus allowing you to select the correct location. You also can flag incorrectly geocoded coordinates using the "X" button and manually add the coordinates to your CSV later based on an internet search. Notice that the interactive map displaying the results is built with Leaflet, the Javascript library we will start learning next week! Importantly, set your text results to "Decimals with dots", copy the final results, and paste them into a spreadsheet.
 
-![figure3.1.4.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%204/img/figure3.1.4.png)
+![figure3.1.4.png](img/figure3.1.4.png)
 
 ###### Figure 1.4: Results from the geocoder
 
@@ -62,7 +62,7 @@ The geocoded output includes _**latitude**_ (the "Y" value north and south from 
 
 Your final spreadsheet should have the name, lat/long coordinates, and population data for each city (Figure 1.5)  Once the spreadsheet is ready, save it using the ._csv_ option to your _unit-1_ _data_ folder. _Note_: Choose "UTF-8" for the character encoding when saving to ensure all characters are universally recognized.
 
-![figure3.1.5.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%204/img/figure3.1.5.png)
+![figure3.1.5.png](img/figure3.1.5.png)
 
 ###### Figure 1.5: Georeferenced data
 
@@ -76,7 +76,7 @@ _**GeoJSON**_ was invented to take advantage of JSON syntax for geospatial data.
 
 You can convert a CSV or KML to GeoJSON using [geojson.io](http://geojson.io/). You can convert shapefiles to GeoJSON using the [MapShaper tool](https://mapshaper.org/) introduced in Geography 370. Starting with geojson.io, upload your dataset by dragging the file into the browser. If it is correctly formatted, the application will recognize the geography instantly and display a point marker for each city (Figure 1.7).
 
-![figure3.1.7.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%204/img/figure3.1.7.png)
+![figure3.1.7.png](img/figure3.1.7.png)
 
 ###### Figure 1.7: MegaCities.csv displayed in geojson.io
 
@@ -176,7 +176,7 @@ The `.open()` method specifies the type of request: either `GET` for getting da
 
 If the AJAX request executes successfully, the `callback` function will print the GeoJSON to the console (Figure 2.1).
 
-![figure3.2.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%204/img/figure3.2.1.png)
+![figure3.2.1.png](img/figure3.2.1.png)
 
 ###### Figure 2.1: Theconsole showing the data request and GeoJSON object
 
@@ -188,7 +188,7 @@ We also can view the response as plain text using JavaScript's built-in JSON lib
         console.log(JSON.stringify(response));
     
 
-![figure3.2.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%204/img/figure3.2.2.png)
+![figure3.2.2.png](img/figure3.2.2.png)
 
 ###### Figure 2.2: The console showing the JSON data as a string
 
@@ -264,7 +264,7 @@ From the Codecademy tutorials in Activity 2, you know that you can pass data int
 
 However, jQuery returns the full `XMLHttpRequest` object rather than the JSON data. Inspecting the properties of the `XMLHttpRequest` object in the Console (Figure 3.1), you can see that the `responseJSON` property holds our data.
 
-![figure3.3.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%204/img/figure3.3.1.png)
+![figure3.3.1.png](img/figure3.3.1.png)
 
 ###### Figure 3.1: The DOM tab showing properties of the XMLHttpRequest object
 
@@ -276,7 +276,7 @@ However, the data included in `mydata.responseJSON` is not immediately usable. F
     console.log(mydata.responseJSON);
     
 
-![figure3.3.2.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%204/img/figure3.3.2.png)
+![figure3.3.2.png](img/figure3.3.2.png)
 
 ###### Figure 3.2: The response data is undefined?
 
@@ -382,7 +382,7 @@ Adding another `console.log()` statement inside of the callback shows the that `
     };
     
 
-![figure3.3.3.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%204/img/figure3.3.3.png)
+![figure3.3.3.png](img/figure3.3.3.png)
 
 ###### Figure 3.3: The console showing attempts to access data outside of and within the callback
 

@@ -48,7 +48,7 @@ To access your team's repo, login to the email associated with your GitHub accou
 
 Now that you have access to the repository, you need to clone it to your desktop server. Open GitHub Desktop and login. Select the repository for your final project “20\_g575\_\[team name\]” located under the header **uwcartlab**. Figure 2.1 illustrates cloning an existing course repo.
 
-![Week7_2.1.png](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%208/img/Week7_2.1.png)
+![Week7_2.1.png](img/Week7_2.1.png)
 
 ###### Figure 2.1: Cloning your team's repo
 
@@ -72,7 +72,7 @@ Using markdown is much like using HTML (the M standing for "markup"), with [slig
 
 Now that you know a bit about markdown, let’s start working on the final project proposal. In your code editor, open the _readme.md_ file from your cloned team repository. Add your name as an ordered list element and commit your changes with “Activity 7” in the commit summary (Figure 2.2).
 
-![Week7_2.2.PNG](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%208/img/Week7_2.2.PNG)
+![Week7_2.2.PNG](img/Week7_2.2.PNG)
 
 ###### Figure 2.2: Adding your name in markdown to _readme.md_
 
@@ -84,35 +84,35 @@ Sooner or later, you will run into merge _**conflicts**_ between your local code
 
 The first conflict you will need to resolve is integrating all team member names. After you have committed and pushed your name, fetch origin of the repository to check for updates. If your teammates have added their names, GitHub desktop will prompt you to resolve conflicts in the _readme.md_ file before you can merge the code (Figure 2.3).
 
-![Week7_2.4.PNG](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%208/img/Week7_2.4.PNG)
+![Week7_2.4.PNG](img/Week7_2.4.PNG)
 
 ###### Figure 2.2: An error warning triggered by a merge conflict
 
 When you reopen the _readme.md_ file, you will see that your teammates' names are now in the file as well, creating a conflict. In most text editors, these conflicts will be marked within the file with a random binary ID (Figure 2.3). For our purposes, the location of the conflict is more important than the ID assigned to it.
 
-![Week7_2.3.PNG](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%208/img/Week7_2.3.PNG)
+![Week7_2.3.PNG](img/Week7_2.3.PNG)
 
 ###### Figure 2.3: A conflict created when adding your team member names
 
 Accept the new additions to the code and merge the main branch with your local copy. GitHub desktop will no longer show any conflicts (Figure 2.5).
 
-![Week7_2.5.PNG](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%208/img/Week7_2.5.PNG)
+![Week7_2.5.PNG](img/Week7_2.5.PNG)
 
 ###### Figure 2.5: The revised message when conflicts are resolved, allowing a merge
 
 Now that you know a bit about markdown, work in your team during lab to insert a basic outline for your _readme.md_ file based on the [final project proposal guidelines](https://canvas.wisc.edu/courses/180498/pages/final-project-assignment "Final Project Assignment"). The final project proposal should include sections for your title + team members, your personas and scenarios (perhaps with subheadings separating the personas and scenarios), your requirements document as an numbered list (again separated by representation and interaction requirements), and your wireframes, embedded as images linked from an _img_ folder in your directory (Figure 2.6). It is worth experimenting with the collaborative coding process in class now, while your team is in the same location.
 
-![Week7_2.6.PNG](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%208/img/Week7_2.6.PNG)
+![Week7_2.6.PNG](img/Week7_2.6.PNG)
 
 ###### Figure 2.6: The final project proposal outline
 
 As you collaboratively write and edit your proposal, you again will create conflicts that you will need to resolve before merging. For instance, Figure 2.7 shows a _search_ operator added by a teammate to the interaction requirements. Before adding a description to your _sequence_ operator, resolve this conflict so that your teammates can see your description to inform their own (Figure 2.8). The final project proposal is designed to get you in the habit of committing, pushing, and merging using the lower risk framework of markdown as practice for collaborative coding with JavaScript on the actual final project interactive.
 
-![Week7_2.7.PNG](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%208/img/Week7_2.7.PNG)
+![Week7_2.7.PNG](img/Week7_2.7.PNG)
 
 ###### Figure 2.7: A merge conflict in the interaction requirements
 
-![Week7_2.8.PNG](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%208/img/Week7_2.8.PNG)
+![Week7_2.8.PNG](img/Week7_2.8.PNG)
 
 ###### Figure 2.8. Resolving the merge conflict in the interaction requirements
 
@@ -127,7 +127,7 @@ Using GitHub for collaborative coding is a skill in itself that takes experience
 
 When working in a group, you want to make sure that you are working on the most updated version before writing new code. Failure to do this can lead to headaches, such as merge conflicts that span a number of lines and therefore are tricky to resolve as well as duplication of coding effort. Every time you begin a programming work session, **_fetch origin_** of the current branch of your code to check if new changed have been made. Figure 3.1 shows the fetch origin panel when no changes have been made.
 
-![Week7_3.1.PNG](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%208/img/Week7_3.1.PNG)
+![Week7_3.1.PNG](img/Week7_3.1.PNG)
 
 ###### Figure 3.1: The fetch origin dialog when no changes have been made to the current branch
 
@@ -135,7 +135,7 @@ When working in a group, you want to make sure that you are working on the most 
 
 If you fetch origin and there changes were made since you last worked on the branch, you need to pull these changes before starting to code. Figure 3.2 shows the fetch origin panel when changes do exist, requiring a pull request.
 
-![Week7_3.2.PNG](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%208/img/Week7_3.2.PNG)
+![Week7_3.2.PNG](img/Week7_3.2.PNG)
 
 ###### Figure 3.2: The fetch origin dialog when a pull request is required
 
@@ -153,7 +153,7 @@ If the answer to any of these questions is yes, then commit your changes! You ca
 
 When you make a commit, you are provided with a form fill-in interface allowing you to add a summary of the changes (Figure 3.3). These summaries are critical to collaborative coding, as they indicate to your team what you accomplished as well as provide a brief history of changes in case the team needs to revise or undo any work.
 
-![Week7_3.3.PNG](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%208/img/Week7_3.3.PNG)
+![Week7_3.3.PNG](img/Week7_3.3.PNG)
 
 ###### Figure 3.3: Adding a meaningful commit summary is essential for collaborative coding
 
@@ -175,13 +175,13 @@ The GitHub online site offers many features not included on the GitHub desktop c
 
 To create milestones for your final project, open your final project repository using GitHub online. Select the "issues" tab, and click the "milestones" button (Figure 3.4). 
 
-![Week7_3.4.PNG](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%208/img/Week7_3.4.PNG)
+![Week7_3.4.PNG](img/Week7_3.4.PNG)
 
 ###### Figure 3.4: Adding milestones to your collaborative repo
 
 Next, click "create milestone" and fill in the details from your proposal, potentially assigning the milestone to a one or more team members (Figure 3.5).
 
-![Week7_3.5.PNG](https://raw.githubusercontent.com/uwcartlab/webcartography/master/Chapter%208/img/Week7_3.5.PNG)
+![Week7_3.5.PNG](img/Week7_3.5.PNG)
 
 ###### Figure 3.5: Creating a milestones
 
