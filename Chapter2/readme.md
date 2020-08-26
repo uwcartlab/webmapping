@@ -27,7 +27,7 @@ As you read, we include many [links](https://en.wikipedia.org/wiki/Hyperlink) th
 
 We also include `in-line code` when referencing specific element tags, function and variable names, data values, etc. We _italicize_ the literal names of _directories_ and _files_. We **bold** and _italicize_ keywords on their first use.
 
-If you have questions, please post them in Discussion forms or e-mail your TA. We also recommend bookmarking the [W3Schools](http://www.w3schools.com/tags/default.asp) reference fora generally reference on HTML, CSS, and JavaScript during the class. Also, continue to refer back to the Codecademy tutorials (Activity 2 below) as you practice your web mapping knowledge!
+If you have questions, please post them in Discussion forms or e-mail your TA. We also recommend bookmarking the [W3Schools](http://www.w3schools.com/tags/default.asp) reference for a general reference on HTML, CSS, and JavaScript during the class. Also, continue to refer back to the Codecademy tutorials (Activity 2 below) as you practice your web mapping knowledge!
 
 Lesson 1: The HTML Boilerplate
 ------------------------------
