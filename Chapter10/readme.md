@@ -1,5 +1,5 @@
 Chapter 10: Mapping with D3
-=========================
+===========================
 
 Now that you have a basic understanding of some foundational D3 concepts, it is time to make a map! Week 9 includes three shorter lessons (one optional) as you work on your final project proposal and ends with Activity 9, creating your first D3 map.
 
