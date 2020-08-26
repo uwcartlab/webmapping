@@ -1,3 +1,3 @@
-## Insert your syllabus here!
+### \[Insert Your Syllabus Here]
 
-### Offical Introduction coming Spring 2021
+Offical Introduction coming Spring 2021
