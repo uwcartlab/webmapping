@@ -22,7 +22,7 @@
 
 ## Foundational Knowledge
 
-While this textbook outlines the fundamental aspects of web cartography and visualization, including coding tutorials, it does assume a basic knowledge of programming concepts. 
+While this book outlines the fundamental aspects of web cartography and visualization, including coding tutorials, it does assume a basic knowledge of programming concepts. 
 
 - If you do not have any programming experience, we recommend first completing the [Learn How to Code](https://www.codecademy.com/learn/learn-how-to-code) broad overview of programming concepts (~1 hour). 
 
@@ -30,11 +30,25 @@ While this textbook outlines the fundamental aspects of web cartography and visu
 
 - If you do not have experience with CSS or want a refresher, we recommend completing Lesson 1 (and only Lesson 1) of the [Introduction to CSS Tutorial](https://www.codecademy.com/learn/learn-css) (~2 hours).
 
-## How to Use this Resource
+## How to Use this Book
 
-### For Students
+This book and its resources can be downloaded directly from Github for individual use. Each Chapter folder contains the chapter content, as well as any data and files referenced.
 
-### For Instructors
+If you're an instructor using Canvas (or a similar LMS), and want to incorporate  book materials directly onto a course site, additional steps are necessary.
+
+1. Download the book.
+2. Convert Markdown files to HTML
+    1. Each chapter contains one Markdown file with chapter content. To view this information in Canvas, it needs to first be converted to HTML.
+    2. Use our [HTML-to-MD](https://uwcartlab.github.io/html-to-md/) tool to convert each Markdown file.
+3. Upload HTML to Canvas page
+    1. Create a new page in Canvas.
+    2. In the top right of the editor, select "HTML Editor"'.
+    3. Copy the selected HTML file into the page.
+4. Repair image links
+    1. Upload all Chapter images (stored in an "img" folder in each Chapter) to Canvas. 
+    2. Now, each image will have its own URL on your canvas site.
+    3. Replace the relative image links in the HTML with your new uploaded image links. 
+    
 
 
-![logos](logos.png)
+[![uwcl-logo](introduction/img/uwcl-logo.png)](https://geography.wisc.edu/cartography/)[![uw-logo](introduction/img/uw-logo.png)](www.wisc.edu)[![nsf-logo](introduction/img/nsf-logo.png)](https://www.nsf.gov/)
