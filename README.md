@@ -36,7 +36,7 @@ While this book outlines the fundamental aspects of web cartography and visualiz
 
 This book and its resources can be downloaded directly from Github for individual use. Each Chapter folder contains the chapter content, as well as any data and files referenced.
 
-If you're an instructor using Canvas (or a similar LMS), and want to incorporate  book materials directly onto a course site, additional steps are necessary.
+If you're an instructor using Canvas (or a similar LMS), and want to incorporate  book materials directly into a course site, additional steps are necessary.
 
 1. Download the book.
 2. Convert Markdown files to HTML
