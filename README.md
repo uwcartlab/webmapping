@@ -51,4 +51,4 @@ If you're an instructor using Canvas (or a similar LMS), and want to incorporate
     
 
 
-[![uwcl-logo](introduction/img/uwcl-logo.png)](https://geography.wisc.edu/cartography/)[![uw-logo](introduction/img/uw-logo.png)](www.wisc.edu)[![nsf-logo](introduction/img/nsf-logo.png)](https://www.nsf.gov/)
+[![uwcl-logo](Introduction/img/uwcl-logo.png)](https://geography.wisc.edu/cartography/)[![uw-logo](Introduction/img/uw-logo.png)](www.wisc.edu)[![nsf-logo](Introduction/img/nsf-logo.png)](https://www.nsf.gov/)
