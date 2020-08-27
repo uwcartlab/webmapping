@@ -1,13 +1,13 @@
 Chapter 7: The Internal Logic of Leaflet
 =======================================
 
-Your Leaflet lab should be coming along nicely after the Week 5 overview of interactions. In Week 6, we dive deeper into Leaflet's inner workings to introduce you to some advanced web programming concepts. Week 6 includes three lessons and culminates in the completion of your Leaflet lab (i.e., no progress activity this week with Exam 1).
+Your Leaflet lab should be coming along nicely after the Chapter 6 overview of interactions. In Chapter 7, we dive deeper into Leaflet's inner workings to introduce you to some advanced web programming concepts. Chapter 7 includes three lessons and culminates in the completion of your Leaflet lab.
 
-*   In Lesson 1, we contrast procedural versus object-oriented coding with JavaScript by refactoring some existing, suboptimal code from Weeks 4-5.
+*   In Lesson 1, we contrast procedural versus object-oriented coding with JavaScript by refactoring some existing, suboptimal code from Chapter 5-6.
 *   In Lesson 2, we refresh our introduction of Leaflet to look at it as a library of classes and use several of these classes to implement UI controls and a temporal legend.
 *   In Lesson 3, we introduce scalable vector graphics (SVGs)—a graphics format we rely on with D3 in _unit-3—_and use SVG to build an attribute legend for our Leaflet Lab example.
 
-After this week, you should be able to:
+After this chapter, you should be able to:
 
 *   Understand how JavaScript pseudo-classes and prototypes are used by Leaflet
 *   Extend Leaflet objects in your script
@@ -20,9 +20,9 @@ Lesson 1: Procedural and Object-oriented JavaScript
 
 JavaScript employs two different computer programming paradigms: [procedural programming](https://en.wikipedia.org/wiki/Procedural_programming) and [object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming) (OOP). ***Procedural programming*** uses individual variables, functions, and data structures to give step-by-step instructions to the processor. In contrast, ***object-oriented programming*** uses data and methods contained within complex data structures called objects. JavaScript is primarily a procedural language, but has some characteristics that allow advanced programmers to take an object-oriented approach. In the code for your Leaflet Lab, you have actually already used a bit of both.
 
-The weekly tutorials use the term **_function_** to refer to a set of tasks or routines written into the _main.js_ custom script, and the term **_method_** to refer to functions that are part of a library such as jQuery or Leaflet. This is an important semantic distinction. Methods are routines that look like functions but are included as part of an object. Functions belong to the domain of procedural programming: they are a set of instructions that can be used anywhere to redirect the flow of execution, and are not designated as part of a particular code package. On the other hand, code libraries use an object-oriented approach to classes and their methods so that specific ***child*** classes _inherit_ (as introduced in Week 5), or make use of, broader ***parent*** classes, requiring the parent method to be written just once for efficiency. 
+The chapter tutorials use the term **_function_** to refer to a set of tasks or routines written into the _main.js_ custom script, and the term **_method_** to refer to functions that are part of a library such as jQuery or Leaflet. This is an important semantic distinction. Methods are routines that look like functions but are included as part of an object. Functions belong to the domain of procedural programming: they are a set of instructions that can be used anywhere to redirect the flow of execution, and are not designated as part of a particular code package. On the other hand, code libraries use an object-oriented approach to classes and their methods so that specific ***child*** classes _inherit_ (as introduced in Chapter 6), or make use of, broader ***parent*** classes, requiring the parent method to be written just once for efficiency. 
 
-To examine the difference, let's refactor some of the _main.js_ script from the end of Week 5. As you hone your programming skills, you will begin to notice places where your code is more lengthy than it needs to be and could be ***refactored***, or revised for efficiency. To start refactoring, look for code that occurs in a very similar form in multiple places in your script. In procedural programming, this repetition can be reduced by consolidating the duplicate code into its own function that can be called from multiple places to return the desired value.
+To examine the difference, let's refactor some of the _main.js_ script from the end of Chapter 6. As you hone your programming skills, you will begin to notice places where your code is more lengthy than it needs to be and could be ***refactored***, or revised for efficiency. To start refactoring, look for code that occurs in a very similar form in multiple places in your script. In procedural programming, this repetition can be reduced by consolidating the duplicate code into its own function that can be called from multiple places to return the desired value.
 
 In the `updatePropSymbols()` function in _main.js_ of the Leaflet Lab example code, we recreate our popup content for each feature with script very similar to the initial creation of our popups in the `pointToLayer()` function (Example 1.1).
 
@@ -175,7 +175,7 @@ Hopefully, the previous discussion has made the workings of Leaflet a little cle
     };
     
 
-Each Leaflet class is created using an `extend()` method build into the `L.Class` constructor. The `extend` method in turn is inherited by the child class, its children, and so on. This means that new Leaflet classes can be created by _extending_ any class, and they inherit the methods and properties of all previous class "generations"—as in the case of the `L.LayerGroup`, `L.FeatureGroup`, and `L.GeoJSON` chain discussed in Week 4. It also means that _you_ can create custom Leaflet classes in your own script.
+Each Leaflet class is created using an `extend()` method build into the `L.Class` constructor. The `extend` method in turn is inherited by the child class, its children, and so on. This means that new Leaflet classes can be created by _extending_ any class, and they inherit the methods and properties of all previous class "generations"—as in the case of the `L.LayerGroup`, `L.FeatureGroup`, and `L.GeoJSON` chain discussed in Chapter 5. It also means that _you_ can create custom Leaflet classes in your own script.
 
 ### II. Custom Leaflet Controls
 
@@ -384,7 +384,7 @@ Thematic maps typical require an attribute legend to define the meaning of the m
 
 You could create your attribute legend using static HTML `<div>` or `<img>` elements. However, Leaflet uses SVG graphics to dynamically create its circle markers and other vector linework, so it makes sense to replicate the circle markers using SVG for the legend. Additionally, you will need to understand how SVG works to complete the D3 Lab in the next unit, so a basic introduction to the SVG standard now will help you in the future.
 
-***SVG***, or ***S***calable ***V***ector ***G***raphics, is the web standard vector graphics format. As with vector geospatial data introduced in Week 3, [_**vector graphics**_](https://gistbok.ucgis.org/bok-topics/vector-formats-and-sources) use points, lines, and polygon fills to represent image elements. In contrast, [<ins>_**raster graphics**_</ins>](https://gistbok.ucgis.org/bok-topics/raster-formats-and-sources) (such as the ***PNG*** or ***P***ortable ***N***etwork ***G***raphics format), much like raster geospatial data, use a continuous grid of pixels.
+***SVG***, or ***S***calable ***V***ector ***G***raphics, is the web standard vector graphics format. As with vector geospatial data introduced in Chapter 4, [_**vector graphics**_](https://gistbok.ucgis.org/bok-topics/vector-formats-and-sources) use points, lines, and polygon fills to represent image elements. In contrast, [<ins>_**raster graphics**_</ins>](https://gistbok.ucgis.org/bok-topics/raster-formats-and-sources) (such as the ***PNG*** or ***P***ortable ***N***etwork ***G***raphics format), much like raster geospatial data, use a continuous grid of pixels.
 
 SVG uses XML markup, making it relatively human-readable and easy to integrate with HTML. Microsoft initially had its own Vector Markup Language (VML), and Internet Explorer was the last major browser to adopt SVG support. Accordingly, IE 8 and below do not support SVG, the primary reason most boilerplate websites check for this browser. Fortunately, there are increasingly fewer users of these older browser versions, so we will not be concerned with this problem for Geography 575.
 

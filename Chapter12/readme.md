@@ -1,12 +1,12 @@
 Chapter 12: Coordinated Interactions
 =================================
 
-Welcome to Week 11, the final set of lessons in Geography 575! In Week 11, we discuss linking interactions in D3 between your map and additional visualization. Week 11 includes two lessons and concludes with your final Lab 2 coordinated visualization: 
+Welcome to Chapter 12, the final set of lessons in Geography 575! In Chapter 12, we discuss linking interactions in D3 between your map and additional visualization. Chapter 12 includes two lessons and concludes with your final Lab 2 coordinated visualization: 
 
 *   In Lesson 1, we implement the _reexpress_ operator for changing the visualized attribute using the menu selection interface style. Lesson 1 also introduces you to D3 transitions that add visual  feedback as the user interacts with the coordinated visualizations.
 *   In Lesson 2, we implement a _retrieve_ operator linked between the map and visualization.
 
-After this week, you should be able to:
+After this chapter, you should be able to:
 
 *   Implement the _reexpress_ operator using menu selection to change the attribute in both the map and linked visualization.
 *   Implement the _retrieve_ operator using direct manipulation to link enumeration units on the map to elements in the linked visualization.
@@ -196,7 +196,7 @@ Restyling the dynamic visualization (Steps 4-6) is more challenging, but we can 
 
 In Example 1.5, we use `.sort()` to sort the data values for the new attribute from greatest to least (lines 18-20), then reset the `x` attribute of each bar to position the bars in the new order of the data (lines 21-23). To resize the bars, we reset the `height` attribute using our `yScale` with the new expressed attribute values (lines 25-27), then position the bars vertically by resetting the `y` attribute (lines 28-30). Finally, we recolor the bars by resetting the `fill` just as we did for the choropleth enumeration units in Example 1.4.
 
-Note that much of this code is duplicated in the `setChart()` function we created in Week 10. The problem with simply copy+pasting this code for dynamic _reexpress_ is that most of the anonymous functions within the operators access variables that are local to `setChart()`, including the dimension variables and our `yScale`. To make these variables accessible to the `changeAttribute()` function, we need to move them to the top of our wrapper function, declaring them as pseudo-global variables (Example 1.6).
+Note that much of this code is duplicated in the `setChart()` function we created in Chapter 11. The problem with simply copy+pasting this code for dynamic _reexpress_ is that most of the anonymous functions within the operators access variables that are local to `setChart()`, including the dimension variables and our `yScale`. To make these variables accessible to the `changeAttribute()` function, we need to move them to the top of our wrapper function, declaring them as pseudo-global variables (Example 1.6).
 
 ###### Example 1.6: Moving chart variables to make them pseudo-global in _main.js_:
 
@@ -367,7 +367,7 @@ Lesson 2: Linked Retrieve Interactions
 
 The final required components of your D3 laboratory assignment are linked highlighting and dynamic labels, both components of the _retrieve_ interaction operator. _**Highlighting**_ is visual feedback provided across views when selecting or "brushing" elements of the visualization. **_Linking_** is the coupling of any interaction operator performed on one view to feedback given in all views. Linking is a distinguising feature of coordinated visualizations that allows the user to easily compare data across different types of visualizations.
 
-_**Dynamic labels**_, or popups as discussed in Week 5 for the Leaflet lab, are brief labels with critical information about the selected feature that follow the cursor. We will tackle adding these in the third section of this lesson. You may choose to implement other forms of the _retrieve_ operator as well, such as an information window or panel.
+_**Dynamic labels**_, or popups as discussed in Chapter 6 for the Leaflet lab, are brief labels with critical information about the selected feature that follow the cursor. We will tackle adding these in the third section of this lesson. You may choose to implement other forms of the _retrieve_ operator as well, such as an information window or panel.
 
 In order to highlight the enumeration units on our map and the bars in our bar chart, we need two separate functions: a `highlight()` function that changes the style of the linked features and a `dehighlight()` function that returns the elements to their original style. In the examples below, the highlighting strategy we implement is to add a blue stroke to each feature. You should choose the highlighting strategy based on lecture that is most appropriate for your design.
 

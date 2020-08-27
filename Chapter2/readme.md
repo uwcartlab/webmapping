@@ -1,13 +1,13 @@
 Chapter 2: Setting Up Your Workspace
 =====================================
 
-Welcome to the first week of Geography 575! Week 1 includes three lab lessons and Activities 1 & 2:
+Welcome to the first chapter of Geography 575! Chapter 2 includes three lab lessons and Activities 1 & 2:
 
 *   In Lesson 1, we will introduce text editors and some basic "boilerplate" HTML used to structure your website.
 *   In Lesson 2, we will discuss how to efficiently set up your web directory and host it through a localhost development server.
 *   In Lesson 3, we will set-up a GitHub account you will use for cloud storage, version control, web hosting, and collaboration with other developers. If you already have used Github in other courses, this will be review. However, you still must commit a "repo" as part of the Activity #1, so please still read carefully.
 
-After this week, you should be able to:
+After this chapter, you should be able to:
 
 *   Set-up boilerplate for use as the base of your website
 *   Build a website directory hosted on a localhost server
@@ -16,7 +16,7 @@ After this week, you should be able to:
 How to Read and Use the Lessons
 -------------------------------
 
-We break each week's material into a set of 3-4 lessons that you should complete sequentially, with many lessons having subsections that treat specific topics. All lessons are formatted the same way:
+We break each chapter's material into a set of 3-4 lessons that you should complete sequentially, with many lessons having subsections that treat specific topics. All lessons are formatted the same way:
 
 As you read, we include many [links](https://en.wikipedia.org/wiki/Hyperlink) that point to additional reference material . This material is for your reference only, and we recommend returning to these materials when you get stuck at different steps. Importantly, many students cycle back to these links towards the end of the course to debug issues specific to your final project, so it is helpful to get a sense of what information is included in the links. You do not need to read the links comprehensively, however, and none of the lab content is included on the exam.
 
@@ -48,7 +48,7 @@ You are welcomed to use your preferred text editor in class. Atom, Brackets, and
 
 A _**boilerplate**_ is the minimum starter code needed begin development.  For Geography 575, we start with the basic _**HTML boilerplate**_ to simplify your early designs and focus on JavaScript. 
 
-> ### **Download _[my\_website.zip](my_website.zip)_ from the Week 1 files, unzip it, and open _index.html_ in your text editor.**
+> ### **Download _[my\_website.zip](my_website.zip)_ from the Chapter 2 files, unzip it, and open _index.html_ in your text editor.**
 
 The HTML boilerplate code in _index.html_ should look like Example 1.1. Every component <ins>_must_</ins> be present in your _index.html_ file, excepting the `<!-- -->` comments and IE stylesheet check. Importantly: you must use _index.html_ as the name of the homepage to use the directory name as the endpoint of a web url. For instance [www.geography.wisc.edu/cartography/](http://www.geography.wisc.edu/cartography/) is the same as [www.geography.wisc.edu/cartography/index.html](http://www.geography.wisc.edu/cartography/index.html), but shorter and therefore preferred.
 
@@ -235,7 +235,7 @@ _**[GitHub](https://github.com/)**_ is a website and project hosting service tha
 
 The way Git works can be a bit confusing, even after repeated use, as it is different from your prior experience uploading and downloading files from a website through your browser. Git first creates a repository _within_ your website directory, rather than uploading an existing, local directory online. While you can see your files in the remote repository through the GitHub website, you do not use the browser to access them. Rather, the original files sit in the website directory you created on your own machine, and you sync or **_push_** those files to the remote GitHub repository whenever you make changes. 
 
-If you are collaborating on a project with someone else, they can **_clone_** your repository from GitHub to their own machine, make changes to website files, then submit a **_pull request_** asking you to add changes back to the main repository. You can then sync or _pull_ their changes from their repository to the main repository and from there into your local website directory. You also can **_fork_** an existing repository from another GitHub account and propose changes to the main branch using this _pull_ request (more next week). Again, there are several options for using Git and GitHub collaboratively, some using command line and thus providing more control over the push, clone, and pull commands (e.g., [Git Bash](https://git-scm.com/downloads)).
+If you are collaborating on a project with someone else, they can **_clone_** your repository from GitHub to their own machine, make changes to website files, then submit a **_pull request_** asking you to add changes back to the main repository. You can then sync or _pull_ their changes from their repository to the main repository and from there into your local website directory. You also can **_fork_** an existing repository from another GitHub account and propose changes to the main branch using this _pull_ request (more next chapter). Again, there are several options for using Git and GitHub collaboratively, some using command line and thus providing more control over the push, clone, and pull commands (e.g., [Git Bash](https://git-scm.com/downloads)).
 
 Again for simplicity, we use [GitHub Desktop](https://desktop.github.com/) in lab demonstrations and examples. GitHub Desktop is more beginner-friendly than alternatives and meshes well with the GitHub website. However, it can be difficult to make sense when something goes wrong in GitHub Desktop, sometimes requiring deleting and recreating the repo; do such destructive rebuilding only when exhausting alternatives with your TA. GitHub Desktop is available on all Science Hall computers and works on Windows and Mac machines.
 

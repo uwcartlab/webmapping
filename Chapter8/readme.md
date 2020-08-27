@@ -1,13 +1,13 @@
 Chapter 8: Collaborating with Github
 ===================================
 
-You have been working individually with GitHub for six weeks now, and are in the process of wrapping your first major interactive map with Leaflet that will be hosted through GitHub! Week 7 provides additional guidance for working _collaboratively_ with GitHub that supports your group final project. Week 7 includes three relatively short lessons and an activity to set-up a collaborative repository that will house your final project proposal and (eventually) your final project interactive.
+You have been working individually with GitHub for six chapters now, and are in the process of wrapping your first major interactive map with Leaflet that will be hosted through GitHub! Chapter 8 provides additional guidance for working _collaboratively_ with GitHub that supports your group final project. Chapter 8 includes three relatively short lessons and an activity to set-up a collaborative repository that will house your final project proposal and (eventually) your final project interactive.
 
 *   In Lesson 1, we briefly refresh your memory on GitHub concepts and terminology.
 *   In Lesson 2, we provide instructions for setting-up your final project collaborative repository, as well as overview on using markdown to build a readme file for your repository that will be used for your proposal.
 *   In Lesson 3, we summarize best practices for collaboratively coding with GitHub.
 
-After this week, you should be able to:
+After this chapter, you should be able to:
 
 *   Access and commit to a collaborative GitHub repo
 *   Write a readme file in markdown
@@ -16,9 +16,9 @@ After this week, you should be able to:
 Lesson 1: GitHub Refresher
 ==========================
 
-As introduced in Week 1, _**[GitHub](https://github.com/)**_ is a website and project hosting service that uses the _**[Git](http://git-scm.com/)**_ version control system to take snapshots of your files at a given time, creating a backup that can be shared collaborative when multiple developers are coding at the same time (e.g., your final project). 
+As introduced in Chapter 2, _**[GitHub](https://github.com/)**_ is a website and project hosting service that uses the _**[Git](http://git-scm.com/)**_ version control system to take snapshots of your files at a given time, creating a backup that can be shared collaborative when multiple developers are coding at the same time (e.g., your final project). 
 
-You have been using GitHub to commit your weekly activities throughout semester, but before discussing GitHub as a collaborative coding tool, it is helpful to refresh some [core GitHub terminology](https://help.github.com/en/github/getting-started-with-github/github-glossary):
+You have been using GitHub to commit your chapter activities throughout semester, but before discussing GitHub as a collaborative coding tool, it is helpful to refresh some [core GitHub terminology](https://help.github.com/en/github/getting-started-with-github/github-glossary):
 
 *   _**[Repository](https://help.github.com/en/github/getting-started-with-github/github-glossary#repository):**_ A repository is the most basic element of GitHub. They are easiest to imagine as a project's folder. A repository contains all of the project files (including documentation), and stores each file's revision history. Repositories can have multiple collaborators and can be either public or private.
 *   _**[Clone](https://help.github.com/en/github/getting-started-with-github/github-glossary#clone):**_ A clone is a copy of a repository that lives on your computer instead of on a website's server somewhere, or the act of making that copy. With your clone you can edit the files in your preferred editor and use Git to keep track of your changes without having to be online. It is, however, connected to the remote version so that changes can be synced between the two.
@@ -31,7 +31,7 @@ You have been using GitHub to commit your weekly activities throughout semester,
 *   _**[Pull](https://help.github.com/en/github/getting-started-with-github/github-glossary#pull):**_ Pull refers to when you are fetching _in_ changes _and_ merging them. For instance, if someone has edited the remote file you're both working on, you'll want to _pull_ in those changes to your local copy so that it's up to date.
 *   _**[Pull request](https://help.github.com/en/github/getting-started-with-github/github-glossary#pull-request):**_ Pull requests are proposed changes to a repository submitted by a user and accepted or rejected by a repository's collaborators.
 
-You should be conformable with cloning, committing, and pushing through Week 6. A large focus for this week is on the additional features of GitHub, particularly forking, merging, and pulling.
+You should be conformable with cloning, committing, and pushing through Chapter 7. A large focus for this chapter is on the additional features of GitHub, particularly forking, merging, and pulling.
 
 Lesson 2: Setting Up Your Team's Final Project Repository
 =========================================================
@@ -60,7 +60,7 @@ Select "clone" and follow the remaining instructions to clone your team's repo l
 
 With your team repository cloned, let's add a first commit and push to the _readme.md_ file we have created as part of the repo. A _**readme**_ file acts as the metadata of software, datasets, or other coding libraries. Readme files often include information about authors and licensing as well as documentation and background description about the project. Per the final project instructions, you will use the _readme.md_ file to write your final project proposal. 
 
-The _.md_ extension standards for **_markdown_**, as simple text format similar to ._doc_, ._rtf_ and ._txt_ that makes it easy to format text on the web. The _readme.md_ file at the root level of the repo is rendered as styled text on a GitHub repo page beneath the directory structure, and thus serves as the repo's visual website. Markdown is useful for web development beyond GitHub as well; for instance, we wrote these weekly Geography 575 lessons in markdown with Canvas applying our styles automatically upon upload!
+The _.md_ extension standards for **_markdown_**, as simple text format similar to ._doc_, ._rtf_ and ._txt_ that makes it easy to format text on the web. The _readme.md_ file at the root level of the repo is rendered as styled text on a GitHub repo page beneath the directory structure, and thus serves as the repo's visual website. Markdown is useful for web development beyond GitHub as well; for instance, we wrote these lessons in markdown with Github applying our styles automatically upon upload!
 
 Using markdown is much like using HTML (the M standing for "markup"), with [slightly nuanced syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to covert from plain text into HTML elements rather than vice versa. Common syntax includes:
 
@@ -116,7 +116,7 @@ As you collaboratively write and edit your proposal, you again will create confl
 
 ###### Figure 2.8. Resolving the merge conflict in the interaction requirements
 
-> ### **Work with your team to add a the proposal outline that you will complete over the next two weeks, merging and resolving all conflicts.**
+> ### **Work with your team to add a the proposal outline that you will complete over the next two chapters, merging and resolving all conflicts.**
 
 Lesson 3: Best Practices for Collaborative Coding
 =================================================

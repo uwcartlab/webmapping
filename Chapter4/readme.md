@@ -1,13 +1,13 @@
 Chapter 4: Data and AJAX
 =======================
 
-Week 3 is all about data, inching us one step closer to making your first interactive web map next week! Week 3 includes three lab lessons and ends with Activity 4, a second debugging exercise to continue to practice your computational thinking skills.
+Chapter 4 is all about data, inching us one step closer to making your first interactive web map next chapter! Chapter 4 includes three lab lessons and ends with Activity 4, a second debugging exercise to continue to practice your computational thinking skills.
 
 *   In Lesson 1, we introduce common web data formats and their geospatial variants.
 *   In Lesson 2, we introduce AJAX (Asynchronous JavaScript and XML), or the strategy used to load data dynamically into the browser, enabling interactivity with maps and visualizations.
 *   In Lesson 3, we demonstrate how to employ AJAX through callback functions.
 
-After this week, you should be able to:
+After this chapter, you should be able to:
 
 *   Correctly format geospatial data in CSV and JSON formats
 *   Write an AJAX call to retrieve data using `jQuery.ajax()`
@@ -52,7 +52,7 @@ The Figure 1.2 spreadsheet is just attributes and does not yet contain geospatia
 
 ###### Figure 1.3: The Local Focus Geocoder: https://geocode.localfocus.nl/
 
-The Local Focus geocoder attempts to disambiguate all text strings into geographic coordinates. Some names may produce multiple coordinates, with Local Focus allowing you to select the correct location. You also can flag incorrectly geocoded coordinates using the "X" button and manually add the coordinates to your CSV later based on an internet search. Notice that the interactive map displaying the results is built with Leaflet, the Javascript library we will start learning next week! Importantly, set your text results to "Decimals with dots", copy the final results, and paste them into a spreadsheet.
+The Local Focus geocoder attempts to disambiguate all text strings into geographic coordinates. Some names may produce multiple coordinates, with Local Focus allowing you to select the correct location. You also can flag incorrectly geocoded coordinates using the "X" button and manually add the coordinates to your CSV later based on an internet search. Notice that the interactive map displaying the results is built with Leaflet, the Javascript library we will start learning next chapter! Importantly, set your text results to "Decimals with dots", copy the final results, and paste them into a spreadsheet.
 
 ![figure3.1.4.png](img/figure3.1.4.png)
 
@@ -72,7 +72,7 @@ Your final spreadsheet should have the name, lat/long coordinates, and populatio
 
 _**JSON**_, or _**JavaScript Object Notation**_, is an alternative data format native to JavaScript and the Open Web that stores data as one long JavaScript object for referencing and manipulation in the DOM. JSON keys are strings and the values may be strings, numbers, arrays, or other objects.
 
-_**GeoJSON**_ was invented to take advantage of JSON syntax for geospatial data. GeoJSON is to JSON as KML is to XML; while JSON may use any arbitrary keys and values, the GeoJSON specification requires particular keys and data types. Like a shapefile, GeoJSON uses a spaghetti model for geometry, with no topology or shared polygon boundaries (more about this when we introduce TopoJSON for D3 in Week 8).
+_**GeoJSON**_ was invented to take advantage of JSON syntax for geospatial data. GeoJSON is to JSON as KML is to XML; while JSON may use any arbitrary keys and values, the GeoJSON specification requires particular keys and data types. Like a shapefile, GeoJSON uses a spaghetti model for geometry, with no topology or shared polygon boundaries (more about this when we introduce TopoJSON for D3 in Chapter 9).
 
 You can convert a CSV or KML to GeoJSON using [geojson.io](http://geojson.io/). You can convert shapefiles to GeoJSON using the [MapShaper tool](https://mapshaper.org/) introduced in Geography 370. Starting with geojson.io, upload your dataset by dragging the file into the browser. If it is correctly formatted, the application will recognize the geography instantly and display a point marker for each city (Figure 1.7).
 

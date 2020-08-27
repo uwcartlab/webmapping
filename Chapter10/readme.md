@@ -1,13 +1,13 @@
 Chapter 10: Mapping with D3
 ===========================
 
-Now that you have a basic understanding of some foundational D3 concepts, it is time to make a map! Week 9 includes three shorter lessons (one optional) as you work on your final project proposal and ends with Activity 9, creating your first D3 map.
+Now that you have a basic understanding of some foundational D3 concepts, it is time to make a map! Chapter 10 includes three shorter lessons (one optional) as you work on your final project proposal and ends with Activity 9, creating your first D3 map.
 
 -   In Lesson 1, we cover some useful ancillary tools and techniques, including the TopoJSON data format, the MapShaper web application, and `Promise.all()` for combining multiple AJAX calls.
 -   In Lesson 2, we tackle the somewhat complex but vital topic of D3 map projections, walking through D3's projection and path generators to map spatial data as vector linework in the browser..
 -   In the optional Lesson 3, we add a background graticule to our web map to provide additional spatial context.
 
-After this week, you should be able to:
+After this chapter, you should be able to:
 
 -   Convert shapefile and GeoJSON data into TopoJSON format, import data from multiple files to the DOM, and translate TopoJSON data into GeoJSON for display in the browser.
 -   Implement an appropriate projection for your choropleth map using a D3 projection generator, correctly manipulate its projection parameters, and draw geometries from spatial data and elements of a graticule using path generators.
@@ -17,7 +17,7 @@ Lesson 1: D3 Helper Tools and Techniques
 
 ### I. An Introduction to TopoJSON
 
-_**[TopoJSON](https://github.com/mbostock/topojson/wiki)**_ is the first geospatial data format for the Web that encodes topology. As briefly introduced in Week 3, _**topology**_ describes the digital encoding of spatial relationships of connected/unconnected, adjacent/detached, inside/outside, etc., into data captures of geographic phenomena. We did not worry much about topology for Lab 1, as the map only drew points rather than lines or polygons (technically, the proportional symbols were polygonal SVGs, but centered on a single point spatial coordinate). Topology is important for rendering polygons for the Lab 2 choropleth map.
+_**[TopoJSON](https://github.com/mbostock/topojson/wiki)**_ is the first geospatial data format for the Web that encodes topology. As briefly introduced in Chapter 4, _**topology**_ describes the digital encoding of spatial relationships of connected/unconnected, adjacent/detached, inside/outside, etc., into data captures of geographic phenomena. We did not worry much about topology for Lab 1, as the map only drew points rather than lines or polygons (technically, the proportional symbols were polygonal SVGs, but centered on a single point spatial coordinate). Topology is important for rendering polygons for the Lab 2 choropleth map.
 
 For desktop GIS software, [topology](http://webhelp.esri.com/arcgisserver/9.3/java/index.htm#geodatabases/topology_basics.htm) is encoded by coverage and geodatabase file formats but not in shapefiles. The advantages of topological data formats over "spaghetti model" data formats such as shapefiles and GeoJSON are threefold:
 
@@ -87,7 +87,7 @@ While Example 1.2 appears to contain more lines of code, keep in mind that the l
 
 ### II. Using Mapshaper to Simplify and Convert Spatial Data
 
-The major downside to using TopoJSON is that it is under-supported by major desktop GIS software, making converting data to TopoJSON a bit tricky. There is a [command-line tool](https://github.com/topojson/topojson/blob/master/README.md#command-line-reference) available, but it can be difficult to install and work with. Fortunately, there are now at least two Web applications that can do the work for us. You already know about one of them, [geojson.io](http://geojson.io/), from Week 3. In this tutorial, we will make use of the second: [MapShaper](http://mapshaper.org/).
+The major downside to using TopoJSON is that it is under-supported by major desktop GIS software, making converting data to TopoJSON a bit tricky. There is a [command-line tool](https://github.com/topojson/topojson/blob/master/README.md#command-line-reference) available, but it can be difficult to install and work with. Fortunately, there are now at least two Web applications that can do the work for us. You already know about one of them, [geojson.io](http://geojson.io/), from Chapter 4. In this tutorial, we will make use of the second: [MapShaper](http://mapshaper.org/).
 
 _**MapShaper**_ is a line and polygon simplification tool developed and maintained by New York Times Graphics Editor (and UW-Madison alum!) Matthew Bloch. As discussed in lecture, geospatial data often need to be generalized for interactive web maps, sometimes at different scales for slippy web maps. Line generalization is especially important for mobile-first design to simplify overly-complex geometry. For the D3 lab assignment, you will want to balance keeping your geographic areas recognizable with minimizing the data size to maximize the speed of drawing and interaction in the browser. This tradeoff almost certaintly requires simplifying your chosen spatial data. MapShaper has the added benefit of converting from shapefiles, GeoJSON, or other "flat" files without topology (e.g., DBF and CSV) into TopoJSON as part of the generalization export process.
 
@@ -113,7 +113,7 @@ At this point, you should have at least one TopoJSON file for your spatial data 
 
 ###### Figure 1.2: An example multivariate dataset
 
-The next task is to load _all_ of our data files into the DOM using the AJAX concepts first introduced in Week 3. In particular, think about how AJAX callbacks work: after each data file is loaded, the data is passed to a callback function. It only can be accessed within that function because it is loaded asynchronously with the rest of the script. But what if you want to access data from multiple external files or continuous data streams? You could load the files in series, calling an AJAX method for the third file within the callback of the second file and calling the AJAX method for the second file within the callback of the first—in essence, nesting the callback functions and accessing the data from the innermost callback. However, it quickly becomes unwieldy to keep track of the scripts within these nested callback methods. Further, one dataset in the series may load but others  may not, producing potential errors when rendering and interacting with the map.
+The next task is to load _all_ of our data files into the DOM using the AJAX concepts first introduced in Chapter 4. In particular, think about how AJAX callbacks work: after each data file is loaded, the data is passed to a callback function. It only can be accessed within that function because it is loaded asynchronously with the rest of the script. But what if you want to access data from multiple external files or continuous data streams? You could load the files in series, calling an AJAX method for the third file within the callback of the second file and calling the AJAX method for the second file within the callback of the first—in essence, nesting the callback functions and accessing the data from the innermost callback. However, it quickly becomes unwieldy to keep track of the scripts within these nested callback methods. Further, one dataset in the series may load but others  may not, producing potential errors when rendering and interacting with the map.
 
 There is a simpler _and_ more efficient way to load multiple datasets into the browser using JavaScript: promises. A **_promise_** is a placeholder JavaScript object that represents and eventually stores the completion of asynchronous processes, such as loading data. The [Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) method supports multiple AJAX calls, firing a single callback function containing all loaded datasets once the final dataset is loaded.
 
@@ -227,7 +227,7 @@ However, D3 presents an opportunity to break from Web Mercator, supporting suppo
 
 ###### Figure 2.2: Projections included in D3's Geo Projections module
 
-In the script, D3 implements projections using projection generators. Recall from Week 8 that a D3 generator is a function that is returned by a D3 generator method and stored in a local variable. Any D3 projection method will return a _**projection generator**_, which must then be fed into the [`d3.geoPath()`](https://github.com/d3/d3-geo/blob/master/README.md#geoPath) method to produce _another_ generator: the path generator. Finally, the path generator is accessed within a selection block to draw the spatial data as path strings of the `d` attributes of SVG `<path>` elements. This process will become clearer as we build our generators below.
+In the script, D3 implements projections using projection generators. Recall from Chapter 9 that a D3 generator is a function that is returned by a D3 generator method and stored in a local variable. Any D3 projection method will return a _**projection generator**_, which must then be fed into the [`d3.geoPath()`](https://github.com/d3/d3-geo/blob/master/README.md#geoPath) method to produce _another_ generator: the path generator. Finally, the path generator is accessed within a selection block to draw the spatial data as path strings of the `d` attributes of SVG `<path>` elements. This process will become clearer as we build our generators below.
 
 Let's start with the projection generator (Example 2.1). In this example, we will work with an [Albers equal-area conic projection](https://en.wikipedia.org/wiki/Albers_projection) centered on France. You may wish to follow the example at first, then choose a different projection and/or edit the parameters to make the projection appropriate for your data.
 
@@ -328,7 +328,7 @@ Creating the path generator is straightforward—we just create a two-line block
     };
     
 
-In Example 2.3, we add two blocks: one for the background countries (lines 8-11) and one for the regions that will become our choropleth enumeration units (lines 14-21). Because the `countries` block takes the `europeCountries` GeoJSON `FeatureCollection` as a single datum, all of its spatial data is drawn as a single feature. A single SVG `<path>` element is appended to the map container, and its `d` attribute is assigned the `path` generator. This automatically passes the datum to the `path` generator, which returns an SVG path coordinate string to the `<path>` element's `d` attribute. (Do not confuse the `<path> d` attribute with the variable `d` that iteratively holds each datum in a `.data()` block, such as on line 18 of Example 2.3). To recall what a path coordinate string looks like, review Week 6 or see Figure 2.3.
+In Example 2.3, we add two blocks: one for the background countries (lines 8-11) and one for the regions that will become our choropleth enumeration units (lines 14-21). Because the `countries` block takes the `europeCountries` GeoJSON `FeatureCollection` as a single datum, all of its spatial data is drawn as a single feature. A single SVG `<path>` element is appended to the map container, and its `d` attribute is assigned the `path` generator. This automatically passes the datum to the `path` generator, which returns an SVG path coordinate string to the `<path>` element's `d` attribute. (Do not confuse the `<path> d` attribute with the variable `d` that iteratively holds each datum in a `.data()` block, such as on line 18 of Example 2.3). To recall what a path coordinate string looks like, review Chapter 7 or see Figure 2.3.
 
 To create our enumeration units, we use the `.selectAll().data().enter()` chain to draw each feature corresponding to a region of France separately (lines 14-16. Recall that `.data()` requires its parameter to be in the form of an array, whereas `topojson.feature()` converts the TopoJSON object into a GeoJSON `FeatureCollection` object. For our `regions` block to work, we need to pull the array of features out of the `FeatureCollection` and pass that array to `.data()`, so we tack on `.features` to the end of line 5 to access it. Once that is done, a new `<path>` element is appended to the map container for each region (line 17). Two class names are assigned to each `<path>`: the generic class name `regions` for all enumeration units and a unique class name based on the region's `adm1_code` attribute (lines 18-20). Each `<path>` is then drawn with the region geometry by the `path` generator (line 21).
 
@@ -340,7 +340,7 @@ Now we can see our geometries in the browser and use the inspector to distinguis
 
 If you think you have done everything right so far but you do _not_ see your geometries in the browser—particularly if you get a bunch of seemingly random lines or polygons, or just a black map container—it is likely that your geospatial data was projected into something other than EPSG:4326/WGS 84. In this case, D3 attempts to project the already projected data, resulting in visual chaos. If your data is projected, you will need to return to Lesson 1 and "reproject" your data to "unprojected" EPSG:4326/WGS 84 before you can continue.
 
-Obviously, we do not want our map to be colored default black-and-white. We will color these regions dynamically to produce a choropleth and allow the user to reexpress the mapped attribute in Week 10. We can add an outline of the countries of Europe for reference, or similar context features for your Lab 2, by adding some simple styles to _style.css_ (Example 2.4).
+Obviously, we do not want our map to be colored default black-and-white. We will color these regions dynamically to produce a choropleth and allow the user to reexpress the mapped attribute in Chapter 11. We can add an outline of the countries of Europe for reference, or similar context features for your Lab 2, by adding some simple styles to _style.css_ (Example 2.4).
 
 ###### Example 2.4: Styling country borders in _style.css_
 
@@ -454,7 +454,7 @@ One final touch we will add to the map background is a frame to neaten the map (
     }
     
 
-Figure 2.6 shows the resulting basemap, ready to receive the choropleth symbolization next week!
+Figure 2.6 shows the resulting basemap, ready to receive the choropleth symbolization next chapter!
 
 ![figure8.2.6.png](img/figure8.2.6.png)
 

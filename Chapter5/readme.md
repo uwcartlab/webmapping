@@ -1,14 +1,14 @@
 Chapter 5: Leaflet Foundation & Using Online Resources
 =====================================================
 
-Week 4 transitions into the second unit for Geography 575, which supports your Leaflet lab assignment. With a solid foundation behind you, it is time to make your first interactive web map! Week 3 includes four lab lessons and ends with Activity 5 requiring you to compile and map spatiotemporal data onto a slippy basemap using Leaflet. js.
+Chapter 5 transitions into the second unit for Geography 575, which supports your Leaflet lab assignment. With a solid foundation behind you, it is time to make your first interactive web map! Chapter 5 includes four lab lessons and ends with Activity 5 requiring you to compile and map spatiotemporal data onto a slippy basemap using Leaflet. js.
 
 *   In Lesson 1, we introduce the Leaflet open source code library and API documentation, having you complete two tutorials available through the Leaflet website that provide essential background on Leaflet.
-*   In Lesson 2, we discuss how to integrate example code into your interactive web map, adapting several of the Leaflet tutorial scripts to map the _MegaCities.geojson_ file you prepared in Week 3.
+*   In Lesson 2, we discuss how to integrate example code into your interactive web map, adapting several of the Leaflet tutorial scripts to map the _MegaCities.geojson_ file you prepared in Chapter 4.
 *   In Lesson 3, we review useful resources for obtaining help from the open source software community when you are stuck on a problem.
 *   In Lesson 4, we provide guidance for finding basemap tilesets and thematic overlay data, the latter of which is review from Geography 370. Lessons 3 and 4 are short, and provide some general guidance as you begin your first interactive web map.
 
-After this week, you should be able to:
+After this chapter, you should be able to:
 
 *   Read and understand API documentation for Leaflet and other JavaScript code libraries
 *   Adapt examples of a problem solution to work with your custom code
@@ -143,7 +143,7 @@ In OSM and other tilesets:
 
 *   `{s}` represents the server instance from which the tiles are drawn, as many hosts of public-facing tilesets utilize multiple servers to avoid slow response times
 
-After getting a basic slippy map to load, complete the [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html) tutorial. The second tutorial integrates GeoJSON data—introduced last week—with your slippy map via Leaflet's `L.geoJson()` method. Note that the examples given by the tutorial utilize GeoJSON `features` arrays assigned to variables, rather than a `FeatureCollection` object imported via AJAX. 
+After getting a basic slippy map to load, complete the [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html) tutorial. The second tutorial integrates GeoJSON data—introduced last chapter—with your slippy map via Leaflet's `L.geoJson()` method. Note that the examples given by the tutorial utilize GeoJSON `features` arrays assigned to variables, rather than a `FeatureCollection` object imported via AJAX. 
 
 Figure 1.1 illustrates the expected slippy map resulting from the _Using GeoJSON with Leaflet_ tutorial. Lesson 2 describes how to integrate your GeoJSON data imported via AJAX with the `L.geoJson()` method.
 
@@ -248,7 +248,7 @@ Lesson 2: Using Examples
 
 ### I. Adapting Examples
 
-Making use of tutorial examples requires figuring out how to integrate them into your own code. This can be tricky if you are not used to reading JavaScript. Let's return to the [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html) tutorial and see how we can integrate it with the _MegaCities.geojson_ file from last week. 
+Making use of tutorial examples requires figuring out how to integrate them into your own code. This can be tricky if you are not used to reading JavaScript. Let's return to the [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html) tutorial and see how we can integrate it with the _MegaCities.geojson_ file from last chapter. 
 
 > ### **Copy _MegaCities.geojson_ from _unit-1_ into the _data_ folder of your _unit-2_ _data_ website directory. Copy the _geojsonTutorial.js_ file in the _js_ folder of your _unit-2_ directory, which contains the working code from the second Leaflet tutorial, and rename the copy _adaptedTutorial.js_. Add a script link to _adaptedTutorial.js_ in _index.html_.**
 
@@ -287,7 +287,7 @@ The _Using GeoJSON with Leaflet_ tutorial then maps the feature using the `.addT
 
 ###### Figure 2.2: Script from the _Using GeoJSON with Leaflet_ tutorial to add the feature to the map
 
-While the `geojsonFeature` variable is hard coded in the _Using GeoJSON with Leaflet_ tutorial, we can instead load our _MegaCities.geojson_ data dynamically using what we learned about AJAX last week! Example 2.2 loads _MegaCities.geojson_ once the Leaflet `map` is ready using `jQuery.ajax()`.
+While the `geojsonFeature` variable is hard coded in the _Using GeoJSON with Leaflet_ tutorial, we can instead load our _MegaCities.geojson_ data dynamically using what we learned about AJAX last chapter! Example 2.2 loads _MegaCities.geojson_ once the Leaflet `map` is ready using `jQuery.ajax()`.
 
 ###### Example 2.2: Loading _MegaCities.geojson_ data with AJAX and adding it to a Leaflet map in _adaptedTutorial.js_
 
@@ -511,11 +511,11 @@ Keep in mind that while many of these tilesets are open, some (such as MapBox an
 
 ### II. Finding Thematic Data
 
-In Week 3, we discussed how to format GeoJSON data, which we also use for your Leaflet assignment. However, first you need to _find_ spatiotemporal data on a topic that interests you.
+In Chapter 4, we discussed how to format GeoJSON data, which we also use for your Leaflet assignment. However, first you need to _find_ spatiotemporal data on a topic that interests you.
 
 Finding data can be one of the most difficult and time-consuming tasks of any mapping project. Below are some useful resources for finding data. This list is not meant to be exhaustive; many governments, agencies, and non-government organizations maintain their own websites for data access that are not included below.
 
-*   [**The Robinson Map and Data Library**](https://geography.wisc.edu/maplibrary/) at UW-Madison stores over a terabyte of data related to Wisconsin and provides links to many more data sources under its "Collections" menu. As a student of UW-Madison, you can also access staff assistance to help you find what you are looking for. Use the library's [data request form](https://geography.wisc.edu/maplibrary/gis-data-request-form/) to get assistance. Map Librarian Jaime Martindale provides consultation on data sources, so stop by the library if you are stuck this week on a viable dataset.
+*   [**The Robinson Map and Data Library**](https://geography.wisc.edu/maplibrary/) at UW-Madison stores over a terabyte of data related to Wisconsin and provides links to many more data sources under its "Collections" menu. As a student of UW-Madison, you can also access staff assistance to help you find what you are looking for. Use the library's [data request form](https://geography.wisc.edu/maplibrary/gis-data-request-form/) to get assistance. Map Librarian Jaime Martindale provides consultation on data sources, so stop by the library if you are stuck this chapter on a viable dataset.
     
 *   [**Data.gov**](http://www.data.gov/) is a clearinghouse of data sources for data produced by U.S. Government agencies. It has a user-friendly interface with powerful search tools.
     

@@ -1,14 +1,14 @@
 Chapter 3: Scripting and Debugging
 =================================
 
-Congratulations on your first successful week of Geography 575! You now have created your first Github repo (Activity 1) and completed foundational tutorials for developing on the Open Web (Activity 2). Week 2 includes four lab lessons and ends with Activity 3, a debugging exercise to test your knowledge on JavaScript.
+Congratulations on your first successful chapter of Geography 575! You now have created your first Github repo (Activity 1) and completed foundational tutorials for developing on the Open Web (Activity 2). Chapter 3 includes four lab lessons and ends with Activity 3, a debugging exercise to test your knowledge on JavaScript.
 
 *   In Lesson 1, we review the Document Object Model (DOM) and the ways that browsers interpret content on the web.
 *   In Lesson 2, we review JavaScript basics, including syntax rules for variables, functions, and the flow of execution. Lessons 1 and 2 are largely review from the Codecademy tutorials.
 *   In Lesson 3, we introduce jQuery, a helpful open-source library for efficiently writing JavaScript code.
 *   In Lesson 4, we discuss tips and tricks for debugging using the console.
 
-After this week, you should be able to:
+After this chapter, you should be able to:
 
 *   Inspect the Document Object Model (DOM) in any browser
 *   Write variables, functions, and control structures in JavaScript
@@ -18,9 +18,9 @@ After this week, you should be able to:
 Getting Started
 ---------------
 
-Begin Week 2 by forking _unit-1_ from the [GitHub course repository](https://github.com/uwcartlab/20_g575). To do so, navigate to the course repository on GitHub and click the "Fork" button in the upper-right corner (Figure 0.1).
+Begin Chapter 3 by forking _unit-1_ from the [GitHub course repository](https://github.com/uwcartlab/20_g575). To do so, navigate to the course repository on GitHub and click the "Fork" button in the upper-right corner (Figure 0.1).
 
-As introduced last week, _**forking**_ a Github repo creates a copy of an existing repository for personal use, creating a _**branch**_ in the code. Forking typically is used to add functionality or propose changes to the _**main branch**_ of an existing project that you do not control (e.g., you can fork the Leaflet and D3 web mapping libraries we use later in the semester), meaning that cloning your own new project generally is more common than forking an existing project. We will use forking in Geography 575 to start each unit from a common repository.
+As introduced last chapter, _**forking**_ a Github repo creates a copy of an existing repository for personal use, creating a _**branch**_ in the code. Forking typically is used to add functionality or propose changes to the _**main branch**_ of an existing project that you do not control (e.g., you can fork the Leaflet and D3 web mapping libraries we use later in the semester), meaning that cloning your own new project generally is more common than forking an existing project. We will use forking in Geography 575 to start each unit from a common repository.
 
 After you fork the repo, you should be able to see _20\_g575_ in your own repository list. A benefit of forking versus cloning is that you can track the changes of the source repository and sync any updates to your own. For example, if we made changes to the _20\_g575_ course repository, an alert will be added to your repository page. For instance, the alert "This branch is 1 commit behind uwcartlab:master" is displayed  in Figure 0.1.
 
@@ -28,24 +28,24 @@ After you fork the repo, you should be able to see _20\_g575_ in your own reposi
 
 ###### Figure 1.1: Forking the _unit-1_ repo from the _20\_g575_ course page.
 
-You can sync an update by clicking the "Compare" button (Figure 0.2). <ins>_**Note:**_</ins> You will not need to merge any updates immediately after forking in Week 2, so the following instructions are for reference only.
+You can sync an update by clicking the "Compare" button (Figure 0.2). <ins>_**Note:**_</ins> You will not need to merge any updates immediately after forking in Chapter 3, so the following instructions are for reference only.
 
 Clicking the "Compare" button redirects you to the "Comparing Changes" page. You can review new updates by switching the "base repository" to your repository and the "head repository" to the course repository by clicking "switching the base". If there are new updates, click "Create Pull Request" to add the updates to your own, forked repository. Confirm that it is "Okay" to make pull changes and click "Merge pull request" to merge the changes in the course repository into your forked repository.
 
 ![figure0.2.png](img/figure0.2.png)
 
-###### Figure 0.2: Example merging changes in the main branch to a forked branch. This is provided as reference, as you will not need to merge any updates immediately after forking in Week 2.
+###### Figure 0.2: Example merging changes in the main branch to a forked branch. This is provided as reference, as you will not need to merge any updates immediately after forking in Chapter 3.
 
 These steps may seem to be a lot of work compared to a simple download, but they allow you to experiment with GitHub's version control system that you will rely on more heavily with the Geography 575 final project. While it is tempting to ignore version control, learning and using it now will save you time in the long-run.
 
-> ### **Fork the _unit-1_ repo from the [course Github page](https://github.com/uwcartlab/20_g575). The repo includes the HTML boilerplate from Week 1 and additional code snippets for the Week 2 lessons, including your debugging assignment.**
+> ### **Fork the _unit-1_ repo from the [course Github page](https://github.com/uwcartlab/20_g575). The repo includes the HTML boilerplate from Chapter 2 and additional code snippets for the Chapter 3 lessons, including your debugging assignment.**
 
 Lesson 1: Exploring the DOM
 ---------------------------
 
 ### I. Introduction to the DOM
 
-The Document Object Model, or _**DOM**_, is the standard tree structure, called the **_DOM tree_**, for organizing objects within a webpage (i.e., a "document"). The DOM is _cross-platform_ and _language-independent_, meaning that it is not a specific language or technology, but a convention on how any language should structure a document. For instance, Figure 1.1 visualizes the DOM tree for the HTML boilerplate introduced in Week 1, showing how the DOM tree grows in complexity for even simple webpages. 
+The Document Object Model, or _**DOM**_, is the standard tree structure, called the **_DOM tree_**, for organizing objects within a webpage (i.e., a "document"). The DOM is _cross-platform_ and _language-independent_, meaning that it is not a specific language or technology, but a convention on how any language should structure a document. For instance, Figure 1.1 visualizes the DOM tree for the HTML boilerplate introduced in Chapter 2, showing how the DOM tree grows in complexity for even simple webpages. 
 
 ![figure2.1.1.png](img/figure2.1.1.png)
 
@@ -78,7 +78,7 @@ Lesson 2: JavaScript Basics
 
 ### I. Computational Thinking
 
-As introduced in Week 1, _**JavaScript**_ is a web programming language for applying dynamic actions or behaviors to webpage content. In other words, JavaScript is the language of interaction on the web. In order to understand JavaScript, as any other scripting language, it is necessary to develop **_computational thinking_** skills, or the ability to think like a computer and work through the steps and processes taking place in a script. Journalist and interactive application developer [Tasneem Raja compares computational thinking to cooking](http://www.motherjones.com/media/2014/06/computer-science-programming-code-diversity-sexism-education):
+As introduced in Chapter 2, _**JavaScript**_ is a web programming language for applying dynamic actions or behaviors to webpage content. In other words, JavaScript is the language of interaction on the web. In order to understand JavaScript, as any other scripting language, it is necessary to develop **_computational thinking_** skills, or the ability to think like a computer and work through the steps and processes taking place in a script. Journalist and interactive application developer [Tasneem Raja compares computational thinking to cooking](http://www.motherjones.com/media/2014/06/computer-science-programming-code-diversity-sexism-education):
 
 > "_Like a good algorithm, a good recipe follows some basic principles. Ingredients are listed first, so you can collect them before you start, and there's some logic in the way they are listed:  olive oil before cumin because it goes in the pan first. Steps are presented in order, not a random jumble, with staggered tasks so that you're chopping veggies while waiting for water to boil. A good recipe spells out precisely what size of dice or temperature you're aiming for. It tells you to look for signs that things are working correctly at each stage—the custard should coat the back of a spoon. Opportunities for customization are marked—use twice the milk for a creamier texture—but if any in2gredients are absolutely crucial, the recipe makes sure you know it. If you need to do something over and over—add four eggs, one at a time, beating after each—those tasks are boiled down to one simple instruction_."
 
@@ -127,7 +127,7 @@ Unlike other programming languages, JavaScript is not picky about the order of f
 
 Note that the code is neatly indented, similar to the nested structure of our HTML document. Everything within the `myfunc()` function is indented an extra tab to show that it is contained by the function. Again, while indentation is not required, keeping your code tidy makes it much more readable and easier to debug. JavaScript interprets either a semicolon or a line break as the end of a statement, but it is good to get in the habit of using semicolons so that if you ever minify your code (compress it to a single, continuous line without comments), you will not have to go back through and add the semicolons.
 
-JavaScript has a number of native methods for manipulating the DOM. Rather than introducing them all one-by-one, we slowly introduce these methods by example in the weekly lessons. Our focus instead is on following the computational logic when calling these methods. Carefully read through and consider the Example 2.3 script:
+JavaScript has a number of native methods for manipulating the DOM. Rather than introducing them all one-by-one, we slowly introduce these methods by example in the chapter lessons. Our focus instead is on following the computational logic when calling these methods. Carefully read through and consider the Example 2.3 script:
 
 ###### Example 2.3: Creating an HTML table using JavaScript in _main.js_
 
@@ -413,7 +413,7 @@ Lesson 3: jQuery
 
 As you can see from the previous lesson, you need an awful lot of JavaScript code to make just one tiny table! While JavaScript works great for computational logic, it is a bit clunky when picking HTML elements out of the DOM and manipulating them. This is where jQuery comes in handy.
 
- _**jQuery**_ is an open source library that simplifies a number of common applications of JavaScript for web development, including DOM traversal and manipulation, event handling, cross-browser consistency, and AJAX. Our focus this week is on jQuery for interacting with the DOM; we will cover additional features in future weeks. While alternatives are emerging, jQuery remains one of the most widely-used open-source coding libraries and thus is worth learning.
+ _**jQuery**_ is an open source library that simplifies a number of common applications of JavaScript for web development, including DOM traversal and manipulation, event handling, cross-browser consistency, and AJAX. Our focus this chapter is on jQuery for interacting with the DOM; we will cover additional features in future chapters. While alternatives are emerging, jQuery remains one of the most widely-used open-source coding libraries and thus is worth learning.
 
 The first step to using jQuery is to add it to the _lib_ folder of your website directory.
 
@@ -631,7 +631,7 @@ Or, in the words of the venerable [Douglas Adams](https://en.wikipedia.org/wiki/
 
 ### II. Console Errors
 
-If you have been testing each code example in this week's lessons, you probably have run into some unexpected problems. Maybe you accidentally misplaced some punctuation, misspelled or incorrectly capitalized a word, or forgot an essential character. Maybe you copied the code from each example into _main.js_ without removing or commenting out the original Example 2.3 code the new example was intended to replace. Maybe you forgot to update your link to jQuery to the _lib_ folder versus the _js_ folder in _index.html._  Maybe you forgot to preview your changes with Prepros or to clear your cache between refreshes. The list of possible issues goes on and on...
+If you have been testing each code example in this chapter's lessons, you probably have run into some unexpected problems. Maybe you accidentally misplaced some punctuation, misspelled or incorrectly capitalized a word, or forgot an essential character. Maybe you copied the code from each example into _main.js_ without removing or commenting out the original Example 2.3 code the new example was intended to replace. Maybe you forgot to update your link to jQuery to the _lib_ folder versus the _js_ folder in _index.html._  Maybe you forgot to preview your changes with Prepros or to clear your cache between refreshes. The list of possible issues goes on and on...
 
 Such difficulties are normal, everyday experiences for every level of programmer, beginner to expert. The trick to overcoming routine errors is learning how to efficiently debug your code as you go. A single wrong character in the script can break your entire webpage, and it requires some sleuthing to find the pointy needle in the haystack. Fortunately, every browser's developer toolset comes with a vital tool that allows us to do just that: the console.
 

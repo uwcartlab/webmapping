@@ -1,14 +1,14 @@
 Chapter 11: Coordinated Visualizations
 =====================================
 
-Congratulations on building your first basemap with D3! In Week 10, we will will apply what you have learned about D3 selections, scales, and geographic features for dynamically creating a coordinated, multiview visualization of your multivariate attribute dataset. Week 10 includes two long lessons and ends with Activity 10, a choropleth map with linked bar chart:
+Congratulations on building your first basemap with D3! In Chapter 11, we will will apply what you have learned about D3 selections, scales, and geographic features for dynamically creating a coordinated, multiview visualization of your multivariate attribute dataset. Chapter 11 includes two long lessons and ends with Activity 10, a choropleth map with linked bar chart:
 
 -   In Lesson 1, we walkthrough the steps needed to dynamically join your attribute and geospatial data and then symbolize your choropleth map using a color scale. The choropleth map is added atop the basemap you completed for Activity 9. 
--   In Lesson 2, we describe how to draw a complementary bar chart, modifying the bubblechart example from Week 8.
+-   In Lesson 2, we describe how to draw a complementary bar chart, modifying the bubblechart example from Chapter 9.
 
 In completing the previous module, you should have loaded your spatial and attribute data into the browser and used projection and path generators to draw a basemap from your spatial data. 
 
-After this week, you should be able to:
+After this chapter, you should be able to:
 
 -   Create a choropleth map based on attribute values for a single attribute within your multivariate dataset.
 -   Draw a bar chart representing the same attribute values visualized on the map, with the bars automatically sorted from smallest to largest.
@@ -17,7 +17,7 @@ Lesson 1: Dynamic Choropleth Symbolization
 
 ### I. Joining Your Data
 
-The first step of creating a dynamic choropleth map is joining your attribute data to your geospatial data using a common attribute. In Week 9, we instructed you to create separate geospatial and attribute datasets, with the former stored in TopoJSON format and the latter in CSV format. It is possible to store your attribute data along with the spatial data as you convert from shapefiles to GeoJSON and TopoJSON formats. However, we have structured the Week 9 lesson to separate these files to give you a sense of making multiple AJAX calls using the [Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) method as well as familiarizing you with the different JSON and CSV AJAX methods in D3. Further, you often need to load geospatial data from a database or attribute data from a live stream—combining the two in browser—rather than load a single combined file.
+The first step of creating a dynamic choropleth map is joining your attribute data to your geospatial data using a common attribute. In Chapter 10, we instructed you to create separate geospatial and attribute datasets, with the former stored in TopoJSON format and the latter in CSV format. It is possible to store your attribute data along with the spatial data as you convert from shapefiles to GeoJSON and TopoJSON formats. However, we have structured the Chapter 10 lesson to separate these files to give you a sense of making multiple AJAX calls using the [Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) method as well as familiarizing you with the different JSON and CSV AJAX methods in D3. Further, you often need to load geospatial data from a database or attribute data from a live stream—combining the two in browser—rather than load a single combined file.
 
 We will accomplish the data "join" through a nested looping structure. Before writing the looping structure, check to ensure that your attribute data are correctly loading into the browser and are accessible within the DOM. Figure 1.1 shows a console log of one object from our attribute data on the left and the corresponding GeoJSON object in the DOM on the right. Confirm your attribute data have maintained their format from the CSV import.
 
@@ -374,7 +374,7 @@ Lesson 2: Drawing a Coordinated Visualization
 
 ### I. Responsively Framing a Data Visualization
 
-For the D3 lab assignment, you are required to create a _**coordinated visualization**_, linking the _reexpress_ and _retrieve_ interaction operators between the choropleth map and a second visual isomorph communicating different aspects of the attribute information. In Lesson 2, we will create a simple bar chart as our coordinated visualization; logic for linking user interactions between the map and graphic are covered in Week 11.
+For the D3 lab assignment, you are required to create a _**coordinated visualization**_, linking the _reexpress_ and _retrieve_ interaction operators between the choropleth map and a second visual isomorph communicating different aspects of the attribute information. In Lesson 2, we will create a simple bar chart as our coordinated visualization; logic for linking user interactions between the map and graphic are covered in Chapter 12.
 
 You should not feel limited to the bar chart as your only coordinated option. If you are feeling adventurous and want to try implementing a different type of visualization, revisit the [D3 Examples Gallery](https://github.com/mbostock/d3/wiki/Gallery) for inspiration, looking for examples that work well with Shneiderman's multidimensional data type (i.e., multiple variables). If you do decide to stick with a bar chart, make sure you customize its look and feel. Do _not_ simply use the default styles shown in this tutorial. You may copy-paste example code to get started, but simply implementing the default visual appearance of the map or chart will not receive full points for the Lab 2 assignment grade.
 
@@ -457,7 +457,7 @@ In Example 2.3, we add a 10-pixel top margin and 20-pixel left margin to the map
 
 ###### Figure 2.2: Even, responsive map and chart frames
 
-If you try to resize your browser window, you will find that the frames are only "responsive" if the page is reloaded. In Week 11, we describe how to use event listeners to dynamically adjust the layout any time the window is resized.
+If you try to resize your browser window, you will find that the frames are only "responsive" if the page is reloaded. In Chapter 12, we describe how to use event listeners to dynamically adjust the layout any time the window is resized.
 
 > ### **Add an SVG container for your data visualization and adjust your map container size so that both fit neatly on the web page for a wide range of browser window sizes.**
 
@@ -496,7 +496,7 @@ In Example 2.4, to make each bar just wide enough so that they fill the containe
 
 ###### Figure 2.3: Evenly-spaced bars in the bar chart frame
 
-Now let's take a look at bar `height` and `y` coordinate. We want each bar's height to be sized proportionally to its attribute value. Recall from the Week 8 bubble chart example that we can use a linear scale to produce a range of output values between 0 and the chart height. For a bar chart, we can modify our bubble chart example to instead use the linear scale to assign both vertical attributes of the bars (Example 2.5).
+Now let's take a look at bar `height` and `y` coordinate. We want each bar's height to be sized proportionally to its attribute value. Recall from the Chapter 9 bubble chart example that we can use a linear scale to produce a range of output values between 0 and the chart height. For a bar chart, we can modify our bubble chart example to instead use the linear scale to assign both vertical attributes of the bars (Example 2.5).
 
 ###### Example 2.5: Setting the bar heights with a linear scale in _main.js_
 
@@ -571,9 +571,9 @@ We now have a nicely arranged bar chart (Figure 2.5).
 
 ### III. Chart Annotation
 
-As it stands, the bar chart gives the user a better sense of the shape of our attribute dataset for the mapped attribute. However, it would be difficult to tell anything about the attribute _values_ without contextual informatoin. Some of this information will be given to the user via the _retrieve_ operator in Week 11. However, just a glance at the chart should give the user a basic overview of the data range. Thus, we need to annotate the chart, adding the important contextual information that supports interpretation of the visualization.
+As it stands, the bar chart gives the user a better sense of the shape of our attribute dataset for the mapped attribute. However, it would be difficult to tell anything about the attribute _values_ without contextual informatoin. Some of this information will be given to the user via the _retrieve_ operator in Chapter 12. However, just a glance at the chart should give the user a basic overview of the data range. Thus, we need to annotate the chart, adding the important contextual information that supports interpretation of the visualization.
 
-One approach we can take is to add the attribute values as numerical text to the bars themselves. Recall from Week 8 that only can be added within `<text>` elements in an SVG graphic. We can add our bar values by creating a new `.selectAll()` selection similar to our `bars` block, but appending `<text>` elements instead of `<rect>` elements (Example 2.8).
+One approach we can take is to add the attribute values as numerical text to the bars themselves. Recall from Chapter 9 that only can be added within `<text>` elements in an SVG graphic. We can add our bar values by creating a new `.selectAll()` selection similar to our `bars` block, but appending `<text>` elements instead of `<rect>` elements (Example 2.8).
 
 ###### Example 2.8: Adding text to the bars in _main.js_
 
@@ -652,7 +652,7 @@ We can now see our chart title (Figure 2.7).
 
 ### IV. Chart Axis
 
-An alternative annotation for the bar chart is a vertical axis. If you want to include one or more axes in your chart, review the Week 8 tutorial on creating axes in D3.
+An alternative annotation for the bar chart is a vertical axis. If you want to include one or more axes in your chart, review the Chapter 9 tutorial on creating axes in D3.
 
 If we want to add a vertical axis to our bar chart, we face a dilemma. Our bars currently expand horizontally to the edges of the `<svg>` container, but the axis numbers and tics must be inside the container to be visible, and so will overlap the bars without significant adjustment to the rest of the chart. We also should reverse the order of the bars so that the tallest bars are closest to the axis, making them easier to measure visually. Figure 2.8 shows our adjusted chart.
 
