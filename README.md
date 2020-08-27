@@ -51,6 +51,6 @@ If you're an instructor using Canvas (or a similar LMS), and want to incorporate
     2. Now, each image will have its own URL on your canvas site.
     3. Replace the relative image links in the HTML with your new uploaded image links. 
     
-
+_Copyright Robert E. Roth 2020. Do not share or redistribute. All rights reserved._
 
 [![uwcl-logo](Introduction/img/uwcl-logo.png)](https://geography.wisc.edu/cartography/)[![uw-logo](Introduction/img/uw-logo.png)](www.wisc.edu)[![nsf-logo](Introduction/img/nsf-logo.png)](https://www.nsf.gov/)
