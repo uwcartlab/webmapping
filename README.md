@@ -52,5 +52,3 @@ If you're an instructor using Canvas (or a similar LMS), and want to incorporate
     3. Replace the relative image links in the HTML with your new uploaded image links. 
 
 [![uwcl-logo](Introduction/img/uwcl-logo.png)](https://geography.wisc.edu/cartography/)[![uw-logo](Introduction/img/uw-logo.png)](www.wisc.edu)[![nsf-logo](Introduction/img/nsf-logo.png)](https://www.nsf.gov/)
-
-_Copyright Robert E. Roth 2020. Do not share or redistribute. All rights reserved._
