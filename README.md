@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/288738217.svg)](https://zenodo.org/badge/latestdoi/288738217)
+
 # Web Cartography and Visualization
 
 ## Table of Contents
