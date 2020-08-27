@@ -702,4 +702,6 @@ There is only so much you can learn from following along with written tutorials.
 
 > ### **Add logical additional features to your coordinated visualization and finalize its user interface design.**
 
+### [Return Home](../../../) | [Previous Chapter](../Chapter11)
+
 _Copyright Robert E. Roth 2020. Do not share or redistribute. All rights reserved._

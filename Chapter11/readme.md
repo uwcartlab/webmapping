@@ -791,4 +791,6 @@ Rather than step through each of the necessary adjustments to the script and sty
 
 > ### **Create a bar chart or alternative data visualization that clearly expresses the attribute values shown on the choropleth map and is classed using your choropleth classification scheme.**
 
+### [Return Home](../../../) | [Chapter 10](../Chapter10) | [Chapter 12](../Chapter12)
+
 _Copyright Robert E. Roth 2020. Do not share or redistribute. All rights reserved._

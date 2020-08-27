@@ -390,5 +390,6 @@ Note that the `console.log()` statement on Line 17 of Example 3.7 is executed _f
 
 > ### **Add at at least two `console.log()` statements _with comments_ to your AJAX script indicating where your data can and cannot be accessed.**
 
+### [Return Home](../../../) | [Previous Chapter](../Chapter3) | [Next Chapter](../Chapter5)
 
 _Copyright Robert E. Roth 2020. Do not share or redistribute. All rights reserved._

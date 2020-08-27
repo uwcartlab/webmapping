@@ -530,4 +530,6 @@ Based on the directions in the Leaflet Lab assignment, the data you select shoul
 
 > ### **Find and format your own thematic, sequential point data containing at least 15 point features and at least 7 sequential attribute columns. Convert your dataset to a GeoJSON file and add it to a Leaflet map in _main.js_.**
 
+### [Return Home](../../../) | [Previous Chapter](../Chapter4) | [Next Chapter](../Chapter6)
+
 _Copyright Robert E. Roth 2020. Do not share or redistribute. All rights reserved._

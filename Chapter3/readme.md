@@ -890,4 +890,6 @@ I simply forgot to change the name of the variable `cities` to `cityPop` in the 
 
 This might seem like a simple error, but much of debugging involves tediously tracking down simple errors such as this by testing various parts of the script with `console.log` statements. A smart strategy is to add temporary `console.log` statements to check your work every time you write a new piece of code. This way, you know if something is wrong right away and have less script to debug if any problems arise.
 
+### [Return Home](../../../) | [Previous Chapter](../Chapter2) | [Next Chapter](../Chapter4)
+
 _Copyright Robert E. Roth 2020. Do not share or redistribute. All rights reserved._

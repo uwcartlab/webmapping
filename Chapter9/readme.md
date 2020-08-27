@@ -850,4 +850,6 @@ With these adjustments made, we have a complete, readable data graphic (Figure 3
 
 > ### **Add a title and correctly formatted labels to your bubble chart.**
 
+### [Return Home](../../../) | [Previous Chapter](../Chapter8) | [Next Chapter](../Chapter10)
+
 _Copyright Robert E. Roth 2020. Do not share or redistribute. All rights reserved._
