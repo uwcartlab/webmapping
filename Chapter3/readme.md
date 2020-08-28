@@ -1,7 +1,7 @@
 Chapter 3: Scripting and Debugging
 =================================
 
-Congratulations on your first successful chapter of Geography 575! You now have created your first Github repo (Activity 1) and completed foundational tutorials for developing on the Open Web (Activity 2). Chapter 3 includes four lab lessons and ends with Activity 3, a debugging exercise to test your knowledge on JavaScript.
+Congratulations on your first successful chapter of Web Cartography and Visualization! You now have created your first Github repo (Activity 1) and completed foundational tutorials for developing on the Open Web (Activity 2). Chapter 3 includes four lab lessons and ends with Activity 3, a debugging exercise to test your knowledge on JavaScript.
 
 *   In Lesson 1, we review the Document Object Model (DOM) and the ways that browsers interpret content on the web.
 *   In Lesson 2, we review JavaScript basics, including syntax rules for variables, functions, and the flow of execution. Lessons 1 and 2 are largely review from the Codecademy tutorials.
@@ -20,7 +20,7 @@ Getting Started
 
 Begin Chapter 3 by forking _unit-1_ from the [GitHub course repository](https://github.com/uwcartlab/20_g575). To do so, navigate to the course repository on GitHub and click the "Fork" button in the upper-right corner (Figure 0.1).
 
-As introduced last chapter, _**forking**_ a Github repo creates a copy of an existing repository for personal use, creating a _**branch**_ in the code. Forking typically is used to add functionality or propose changes to the _**main branch**_ of an existing project that you do not control (e.g., you can fork the Leaflet and D3 web mapping libraries we use later in the semester), meaning that cloning your own new project generally is more common than forking an existing project. We will use forking in Geography 575 to start each unit from a common repository.
+As introduced last chapter, _**forking**_ a Github repo creates a copy of an existing repository for personal use, creating a _**branch**_ in the code. Forking typically is used to add functionality or propose changes to the _**main branch**_ of an existing project that you do not control (e.g., you can fork the Leaflet and D3 web mapping libraries we use later in the semester), meaning that cloning your own new project generally is more common than forking an existing project. We will use forking to start each unit from a common repository.
 
 After you fork the repo, you should be able to see _20\_g575_ in your own repository list. A benefit of forking versus cloning is that you can track the changes of the source repository and sync any updates to your own. For example, if we made changes to the _20\_g575_ course repository, an alert will be added to your repository page. For instance, the alert "This branch is 1 commit behind uwcartlab:master" is displayed  in Figure 0.1.
 

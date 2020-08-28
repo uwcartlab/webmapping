@@ -1,7 +1,7 @@
 Chapter 2: Setting Up Your Workspace
 =====================================
 
-Welcome to the first chapter of Geography 575! Chapter 2 includes three lab lessons and Activities 1 & 2:
+Welcome to the first chapter of Web Cartography and Visualization! Chapter 2 includes three lab lessons and Activities 1 & 2:
 
 *   In Lesson 1, we will introduce text editors and some basic "boilerplate" HTML used to structure your website.
 *   In Lesson 2, we will discuss how to efficiently set up your web directory and host it through a localhost development server.
@@ -279,6 +279,8 @@ There are a number of excellent [GitHub Guides](https://guides.github.com/) beyo
 From this point, though, the key to becoming comfortable with GitHub is to use it often. This means that _every time you make a working change to your website files, you should commit your changes to your local repository and sync it with the repository on GitHub._ While you are working on your lab projects, your TA will expect to see your GitHub repository for the project updated frequently. This is an easy way for your TA—and you—to track your progress. It also starts to build a public track record of your work that future employers may look at. Thus, **commit frequently and wisely**!
 
 ### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter3)
+
+
 
 _Copyright Robert E. Roth 2020. Do not share or redistribute. All rights reserved._
 

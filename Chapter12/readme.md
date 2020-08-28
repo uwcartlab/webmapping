@@ -1,7 +1,7 @@
 Chapter 12: Coordinated Interactions
 =================================
 
-Welcome to Chapter 12, the final set of lessons in Geography 575! In Chapter 12, we discuss linking interactions in D3 between your map and additional visualization. Chapter 12 includes two lessons and concludes with your final Lab 2 coordinated visualization: 
+Welcome to Chapter 12, the final set of lessons in Web Cartography and Visualization! In Chapter 12, we discuss linking interactions in D3 between your map and additional visualization. Chapter 12 includes two lessons and concludes with your final Lab 2 coordinated visualization: 
 
 *   In Lesson 1, we implement the _reexpress_ operator for changing the visualized attribute using the menu selection interface style. Lesson 1 also introduces you to D3 transitions that add visual  feedback as the user interacts with the coordinated visualizations.
 *   In Lesson 2, we implement a _retrieve_ operator linked between the map and visualization.
