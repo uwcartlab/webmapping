@@ -1,3 +1,5 @@
+### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter3)
+
 Chapter 2: Setting Up Your Workspace
 =====================================
 
@@ -12,8 +14,6 @@ After this chapter, you should be able to:
 *   Set-up boilerplate for use as the base of your website
 *   Build a website directory hosted on a localhost server
 *   Create a GitHub repository for your website and sync it with your local directory
-
-### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter3)
 
 How to Read and Use the Lessons
 -------------------------------
