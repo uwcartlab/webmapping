@@ -1,3 +1,5 @@
+### [Return Home](../../../) | [Chapter 10](../Chapter10) | [Chapter 12](../Chapter12)
+
 Chapter 11: Coordinated Visualizations
 =====================================
 
@@ -790,7 +792,5 @@ Rather than step through each of the necessary adjustments to the script and sty
 ###### Figure 2.9: Comparing the two chart versions using the inspector
 
 > ### **Create a bar chart or alternative data visualization that clearly expresses the attribute values shown on the choropleth map and is classed using your choropleth classification scheme.**
-
-### [Return Home](../../../) | [Chapter 10](../Chapter10) | [Chapter 12](../Chapter12)
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)._

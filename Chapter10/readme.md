@@ -1,3 +1,5 @@
+### [Return Home](../../../) | [Previous Chapter](../Chapter9) | [Next Chapter](../Chapter11)
+
 Chapter 10: Mapping with D3
 ===========================
 
@@ -463,7 +465,5 @@ Figure 2.6 shows the resulting basemap, ready to receive the choropleth symboliz
 You may choose to add your own stylistic touches to your overall map. Do not feel limited by the rather simple approach we have taken in this example. Consider whether your geometries warrant the kind of background reference and framing we have added here, or if they can [stand on their own](http://bost.ocks.org/mike/map/) within your design.
 
 > ### **Add a graticule (optional).**
-
-### [Return Home](../../../) | [Previous Chapter](../Chapter9) | [Next Chapter](../Chapter11)
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)._

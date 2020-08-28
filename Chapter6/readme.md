@@ -1,3 +1,5 @@
+### [Return Home](../../../) | [Previous Chapter](../Chapter5) | [Next Chapter](../Chapter7)
+
 Chapter 6: Dynamic Mapping with Leaflet
 ======================================
 
@@ -825,7 +827,5 @@ A common calculation on slippy maps is distance and area measurement, which can 
 ![figure5.4.8.png](img/figure5.4.8.png)
 
 ###### Figure 4.8: Leaflet Draw plugin example
-
-### [Return Home](../../../) | [Previous Chapter](../Chapter5) | [Next Chapter](../Chapter7)
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)._

@@ -1,3 +1,5 @@
+### [Return Home](../../../) | [Previous Chapter](../Chapter4) | [Next Chapter](../Chapter6)
+
 Chapter 5: Leaflet Foundation & Using Online Resources
 =====================================================
 
@@ -529,7 +531,5 @@ Finding data can be one of the most difficult and time-consuming tasks of any ma
 Based on the directions in the Leaflet Lab assignment, the data you select should include at least <ins>_15 point features_</ins>, with each point feature including <ins>_7 timestamp attributes_</ins>. Once you have found data you want to use for the assignment, format it as a spreadsheet with each feature a row and each attribute a column, and include columns with a unique id for each feature, the feature name, latitude, and longitude. Then, convert your dataset into GeoJSON format.
 
 > ### **Find and format your own thematic, sequential point data containing at least 15 point features and at least 7 sequential attribute columns. Convert your dataset to a GeoJSON file and add it to a Leaflet map in _main.js_.**
-
-### [Return Home](../../../) | [Previous Chapter](../Chapter4) | [Next Chapter](../Chapter6)
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)._

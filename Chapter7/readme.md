@@ -1,3 +1,5 @@
+### [Return Home](../../../) | [Previous Chapter](../Chapter6) | [Next Chapter](../Chapter8)
+
 Chapter 7: The Internal Logic of Leaflet
 =======================================
 
@@ -687,7 +689,5 @@ This adds a  `<text>` element with a unique id and content for each circle to t
 ###### Figure 3.8: Example Leaflet map with a finished legend
 
 > ### **Create an attribute legend for your Leaflet map based on the minimum, mean, and maximum attribute values across all attributes in your dataset (as in the Cartographic Perspectives companion tutorial).**
-
-### [Return Home](../../../) | [Previous Chapter](../Chapter6) | [Next Chapter](../Chapter8)
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)._

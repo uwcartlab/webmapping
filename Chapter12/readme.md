@@ -1,3 +1,5 @@
+### [Return Home](../../../) | [Previous Chapter](../Chapter11)
+
 Chapter 12: Coordinated Interactions
 =================================
 
@@ -701,7 +703,5 @@ Consider implementing the following components that have not been covered in the
 There is only so much you can learn from following along with written tutorials. You have probably already grappled with making use of online examples, documentation, and help forums to do something awesome. We have tried to open the door for you; to become a professional-level web mapper, you need to dive in and figure out the rest on your own. If you have made it this far, you should feel highly confident in your ability to do so!
 
 > ### **Add logical additional features to your coordinated visualization and finalize its user interface design.**
-
-### [Return Home](../../../) | [Previous Chapter](../Chapter11)
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)._

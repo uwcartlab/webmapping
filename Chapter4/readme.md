@@ -1,3 +1,5 @@
+### [Return Home](../../../) | [Previous Chapter](../Chapter3) | [Next Chapter](../Chapter5)
+
 Chapter 4: Data and AJAX
 =======================
 
@@ -389,7 +391,5 @@ Adding another `console.log()` statement inside of the callback shows the that `
 Note that the `console.log()` statement on Line 17 of Example 3.7 is executed _first_ and is undefined. The statement on Line 12 is executed within the callback, so only after the data has been received and assigned to `mydata`.
 
 > ### **Add at at least two `console.log()` statements _with comments_ to your AJAX script indicating where your data can and cannot be accessed.**
-
-### [Return Home](../../../) | [Previous Chapter](../Chapter3) | [Next Chapter](../Chapter5)
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)._
