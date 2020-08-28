@@ -704,4 +704,4 @@ There is only so much you can learn from following along with written tutorials.
 
 > ### **Add logical additional features to your coordinated visualization and finalize its user interface design.**
 
-_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)._
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). For more information, please contact Rob Roth \(reroth@wisc.edu\)_

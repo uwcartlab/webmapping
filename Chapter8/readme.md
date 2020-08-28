@@ -189,4 +189,4 @@ Next, click "create milestone" and fill in the details from your proposal, poten
 
 More [information about milestones](https://help.github.com/en/enterprise/2.18/user/github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests%C2%A0) is available in the GitHub help information.
 
-_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)._
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). For more information, please contact Rob Roth \(reroth@wisc.edu\)_

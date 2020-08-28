@@ -690,4 +690,4 @@ This adds a  `<text>` element with a unique id and content for each circle to t
 
 > ### **Create an attribute legend for your Leaflet map based on the minimum, mean, and maximum attribute values across all attributes in your dataset (as in the Cartographic Perspectives companion tutorial).**
 
-_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)._
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). For more information, please contact Rob Roth \(reroth@wisc.edu\)_

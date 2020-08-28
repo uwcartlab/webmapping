@@ -852,4 +852,4 @@ With these adjustments made, we have a complete, readable data graphic (Figure 3
 
 > ### **Add a title and correctly formatted labels to your bubble chart.**
 
-_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)._
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). For more information, please contact Rob Roth \(reroth@wisc.edu\)_
