@@ -532,4 +532,4 @@ Based on the directions in the Leaflet Lab assignment, the data you select shoul
 
 ### [Return Home](../../../) | [Previous Chapter](../Chapter4) | [Next Chapter](../Chapter6)
 
-_Copyright Robert E. Roth 2020. Do not share or redistribute. All rights reserved._
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)._

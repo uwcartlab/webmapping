@@ -690,4 +690,4 @@ This adds a  `<text>` element with a unique id and content for each circle to t
 
 ### [Return Home](../../../) | [Previous Chapter](../Chapter6) | [Next Chapter](../Chapter8)
 
-_Copyright Robert E. Roth 2020. Do not share or redistribute. All rights reserved._
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)._

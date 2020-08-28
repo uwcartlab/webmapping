@@ -189,4 +189,4 @@ More [information about milestones](https://help.github.com/en/enterprise/2.18/u
 
 ### [Return Home](../../../) | [Previous Chapter](../Chapter7) | [Next Chapter](../Chapter9)
 
-_Copyright Robert E. Roth 2020. Do not share or redistribute. All rights reserved._
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)._

@@ -793,4 +793,4 @@ Rather than step through each of the necessary adjustments to the script and sty
 
 ### [Return Home](../../../) | [Chapter 10](../Chapter10) | [Chapter 12](../Chapter12)
 
-_Copyright Robert E. Roth 2020. Do not share or redistribute. All rights reserved._
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)._

@@ -892,4 +892,4 @@ This might seem like a simple error, but much of debugging involves tediously tr
 
 ### [Return Home](../../../) | [Previous Chapter](../Chapter2) | [Next Chapter](../Chapter4)
 
-_Copyright Robert E. Roth 2020. Do not share or redistribute. All rights reserved._
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)._

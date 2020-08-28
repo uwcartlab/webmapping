@@ -466,4 +466,4 @@ You may choose to add your own stylistic touches to your overall map. Do not fee
 
 ### [Return Home](../../../) | [Previous Chapter](../Chapter9) | [Next Chapter](../Chapter11)
 
-_Copyright Robert E. Roth 2020. Do not share or redistribute. All rights reserved._
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)._
