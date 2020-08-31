@@ -829,3 +829,5 @@ A common calculation on slippy maps is distance and area measurement, which can 
 ###### Figure 4.8: Leaflet Draw plugin example
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
+
+### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter3)

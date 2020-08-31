@@ -467,3 +467,5 @@ You may choose to add your own stylistic touches to your overall map. Do not fee
 > ### **Add a graticule (optional).**
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
+
+### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter3)
