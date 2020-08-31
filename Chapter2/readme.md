@@ -263,6 +263,7 @@ Once you've created the repository, open your the _my\_website_ directory on you
     
 *   **._gitignore_ (optional)**, a file that lists files in the directory that should not be tracked by the repository.
     
+Note, if you're using a Mac, these files may be hidden. You can view hidden files by pressing `command-shift-dot`.
 
 ![figure1.3.3.png](img/figure1.3.3.png)
 
