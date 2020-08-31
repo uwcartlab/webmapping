@@ -280,5 +280,5 @@ There are a number of excellent [GitHub Guides](https://guides.github.com/) beyo
 
 From this point, though, the key to becoming comfortable with GitHub is to use it often. This means that _every time you make a working change to your website files, you should commit your changes to your local repository and sync it with the repository on GitHub._ While you are working on your lab projects, your TA will expect to see your GitHub repository for the project updated frequently. This is an easy way for your TA—and you—to track your progress. It also starts to build a public track record of your work that future employers may look at. Thus, **commit frequently and wisely**!
 
-_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). For more information, please contact Rob Roth \(reroth@wisc.edu\)_
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
 
