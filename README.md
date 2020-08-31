@@ -4,7 +4,7 @@
 
 # ***Web Mapping***
 
-# _A Workbook for Interactive Cartography and Visualization on the Open Web_
+## _A Workbook for Interactive Cartography and Visualization on the Open Web_
 
 ##### [Robert Roth](https://twitter.com/RobertERoth), [Carl Sack](https://twitter.com/northlandiguana), Gareth Baldrica-Franklin, Yuying Chen, [Rich Donahue](https://twitter.com/rgdonohue), [Robin Tolochko](https://twitter.com/tolomaps), [Nick Underwood](https://twitter.com/mulletmapping)
 
