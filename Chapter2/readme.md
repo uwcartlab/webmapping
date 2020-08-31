@@ -280,6 +280,20 @@ There are a number of excellent [GitHub Guides](https://guides.github.com/) beyo
 
 From this point, though, the key to becoming comfortable with GitHub is to use it often. This means that _every time you make a working change to your website files, you should commit your changes to your local repository and sync it with the repository on GitHub._ While you are working on your lab projects, your TA will expect to see your GitHub repository for the project updated frequently. This is an easy way for your TA—and you—to track your progress. It also starts to build a public track record of your work that future employers may look at. Thus, **commit frequently and wisely**!
 
+## Activity 1
+
+1.  Create a website directory called _my\_website_ with an organized directory structure and boilerplate _index.html_, _style.css_, and _main.js_ files.
+2.  Create a Git repository in your website directory and sync it to your GitHub account.
+3.  Submit a zip file (.zip) containing your website directory to Canvas. In the submission comments, paste a link to your GitHub account page.
+
+## Activity 2
+
+1.  **_Required_**: Navigate to codecademy.com and create a free account. Do _<ins>not</ins>_ sign-up for the Pro paid account.
+2.  _Recommended_: If you do not have any programming experience, we recommend first completing the [Learn How to Code](https://www.codecademy.com/learn/learn-how-to-code) broad overview of programming concepts (~1 hour).
+3.  _Recommended_: If you do not have experience with HTML or want a refresher, we recommend completing Lesson 1 (and only Lesson 1) of the [Introduction to HTML tutorial](https://www.codecademy.com/learn/learn-html). (~1 hour)
+4.  _Recommended_: If you do not have experience with CSS or want a refresher, we recommend completing Lessons 1 and 2 of the [Introduction to CSS tutorial](https://www.codecademy.com/learn/learn-css). (~2 hour)
+5.  **_Required_**: Complete Lessons 1-8 of [Introduction to JavaScript](https://www.codecademy.com/learn/introduction-to-javascript). Print a PDF (Ctrl+P in browser; save as a PDF) of your completed table of contents for these tutorials and upload to the Activity 2 assignment to confirm completion. (~6 hours)
+
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
 
 ### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter3)
