@@ -8,7 +8,7 @@
 
 #### [Robert Roth](https://twitter.com/RobertERoth), [Carl Sack](https://twitter.com/northlandiguana), Gareth Baldrica-Franklin, Yuying Chen, [Rich Donahue](https://twitter.com/rgdonohue), [Robin Tolochko](https://twitter.com/tolomaps), [Nick Underwood](https://twitter.com/mulletmapping)
 
-###### Roth RE, CM Sack, G Baldrica-Franklin, Y Chen, R Donohue, R Tolochko, and N Underwood. 2020. _Web Mapping: A Workbook for Interactive Cartography and Visualization on the Open Web._ Version 0.1. University of Wisconsin Cartography Laboratory: Madison, WI. DOI: 10.5281/zenodo.4004430
+###### Cite/Attribute as: Roth RE, CM Sack, G Baldrica-Franklin, Y Chen, R Donohue, R Tolochko, and N Underwood. 2020. _Web Mapping: A Workbook for Interactive Cartography and Visualization on the Open Web._ Version 0.1. University of Wisconsin Cartography Laboratory: Madison, WI. DOI: 10.5281/zenodo.4004430
 
 ---
 
