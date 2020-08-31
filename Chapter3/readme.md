@@ -894,7 +894,7 @@ This might seem like a simple error, but much of debugging involves tediously tr
 
 ## Activity 3
 
-1.  Debug the _main\_with\_debug.js_ script included in the _unit-1_ repo.
+1.  Debug the _main\_with\_debug.js_ script included in the _Chapter 3_ repo.
 2.  Add comments to _main\_with\_debug.js_ explaining what the script is doing at each step.
 3.  Create a GitHub repository called _unit-1_. Commit your changes to your _unit-1_ repository and sync with GitHub (you will want to keep your boilerplate site clean for future use). In the commit message (Summary), write "Activity 3" so that we can find it easily on your GitHub account. Your assignment will be graded based on what is contained in this commit. You also must submit  your unit-1 folder as a zip file on Canvas.
 

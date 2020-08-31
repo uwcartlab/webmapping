@@ -394,7 +394,7 @@ Note that the `console.log()` statement on Line 17 of Example 3.7 is executed _f
 
 ## Activity 4
 
-1.  Debug the [_debug\_ajax.js_](https://canvas.wisc.edu/courses/180498/files/10619035/download?wrap=1 "debug_ajax.js") script included in the _**unit-1**_ repo. Copy and paste its contents into your _main.js_ file after the existing script from Week 2, then add function calls and debug it to make it work with the rest of your script. Add comments explaining what the script is doing at each step. Your script should result in something that looks similar to this in the browser:  
+1.  Debug the [_debug\_ajax.js_](debug_ajax.js "debug_ajax.js") script included in the _**Chapter 4**_ repo. Copy and paste its contents into your _main.js_ file after the existing script from Week 2, then add function calls and debug it to make it work with the rest of your script. Add comments explaining what the script is doing at each step. Your script should result in something that looks similar to this in the browser:  
     
     ![final.png](img/final.png)
     
