@@ -692,4 +692,4 @@ This adds a  `<text>` element with a unique id and content for each circle to t
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
 
-### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter3)
+### [Return Home](../../../) | [Previous Chapter](../Chapter6) | [Next Chapter](../Chapter8)

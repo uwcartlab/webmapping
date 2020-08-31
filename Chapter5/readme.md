@@ -541,4 +541,4 @@ Based on the directions in the Leaflet Lab assignment, the data you select shoul
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
 
-### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter3)
+### [Return Home](../../../) | [Previous Chapter](../Chapter4) | [Next Chapter](../Chapter6)
