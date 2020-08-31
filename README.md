@@ -2,7 +2,7 @@
 
 ---
 
-# Web Mapping<br/><h3>A workbook for Interactive Cartography and Visualization on the Open Web</h3>
+# Web Mapping<br/><h2>A workbook for Interactive Cartography and Visualization on the Open Web</h2>
 
 ---
 
