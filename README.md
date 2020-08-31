@@ -2,7 +2,7 @@
 
 ---
 
-# <sub style="font-size:100px">Web Mapping</sub>
+# <em style="font-size:3em">Web Mapping</em>
 
 # _A Workbook for Interactive Cartography and Visualization on the Open Web_
 
