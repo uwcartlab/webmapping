@@ -6,9 +6,11 @@
 
 ## _A Workbook for Interactive Cartography and Visualization on the Open Web_
 
+---
+
 Roth RE, CM Sack, G Baldrica-Franklin, Y Chen, R Donohue, R Tolochko, and N Underwood. 2020. Web Mapping: A Workbook for Interactive Cartography and Visualization on the Open Web. Version 0.1. University of Wisconsin Cartography Laboratory: Madison, WI. DOI: 
 
----
+
 
 ## Table of Contents
 
