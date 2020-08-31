@@ -6,11 +6,9 @@
 
 ## _A Workbook for Interactive Cartography and Visualization on the Open Web_
 
+Roth RE, CM Sack, G Baldrica-Franklin, Y Chen, R Donohue, R Tolochko, and N Underwood. 2020. _Web Mapping: A Workbook for Interactive Cartography and Visualization on the Open Web._ Version 0.1. University of Wisconsin Cartography Laboratory: Madison, WI. DOI: 
+
 ---
-
-Roth RE, CM Sack, G Baldrica-Franklin, Y Chen, R Donohue, R Tolochko, and N Underwood. 2020. Web Mapping: A Workbook for Interactive Cartography and Visualization on the Open Web. Version 0.1. University of Wisconsin Cartography Laboratory: Madison, WI. DOI: 
-
-
 
 ## Table of Contents
 
@@ -25,6 +23,7 @@ Roth RE, CM Sack, G Baldrica-Franklin, Y Chen, R Donohue, R Tolochko, and N Unde
 - [Chapter 5 - Leaflet Foundations & Using Online Resources](/Chapter5)
 - [Chapter 6 - Dynamic Mapping with Leaflet](/Chapter6)
 - [Chapter 7 - The Internal Logic of Leaflet](/Chapter7)
+- [Chapter 8 - Collaborating with Github](/Chapter8)
 
 **Unit 3 - Designing with D3**
 - [Chapter 9 - D3 Foundations](/Chapter9)
