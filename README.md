@@ -14,9 +14,11 @@
 
 ## About this Workbook
 
-This workbook introduces the practical skills needed to develop interactive maps and visualizatons on the open web. Compared to a traditional textbook, this workbook utilizes a "spiral" curriculum of short but interconnected lessons that incrementally build proficiency in interactive cartography and visualization.  The technological landscape for web mapping and visualization is broad, and this workbook is intended as a partial entry point rather than a comprehensive survey. Specifically, the workbook covers a range of **open source** web technologies, including the HTML, CSS, and (in particular) JavaScript languages and the [Leaflet.js](https://leafletjs.com/) and [D3.js](https://d3js.org/) web mapping and visualization libraries. Throughout, Github is used as the primary teaching and learning platform. This workbook is **free** to use, share, and extend as an open educational resource following a CC-BY license.
+This workbook introduces the practical skills needed to develop interactive maps and visualizatons on the open web. Compared to a traditional textbook, this workbook utilizes a "spiral" curriculum of short but interconnected lessons that incrementally build proficiency in interactive cartography and visualization.  
 
-The workbook is funded by NSF CAREER #1555267 and is meant to be a living resource updated by the University of Wisconsin Cartography Lab. Version 0.1 is a work in progress as we migrate materials to Github, but is stable for classroom instruction. Version 1.0 is anticipated for May 2021.
+The technological landscape for web mapping and visualization is broad, and this workbook is intended as a partial entry point rather than a comprehensive survey. Specifically, the workbook covers a range of open source web technologies, including the HTML, CSS, and (in particular) JavaScript languages and the [Leaflet.js](https://leafletjs.com/) and [D3.js](https://d3js.org/) web mapping and visualization libraries. Throughout, Github is used as the primary teaching and learning platform. This workbook is free to use, share, and extend as an open educational resource following a CC-BY license.
+
+The workbook is funded by NSF CAREER #1555267 and is meant to be a living resource updated by the [University of Wisconsin Cartography Lab](https://geography.wisc.edu/cartography/). Version 0.1 is a work in progress as we migrate materials to Github, but is stable for classroom instruction. Version 1.0 will be released May 2021.
 
 
 ## Table of Contents
