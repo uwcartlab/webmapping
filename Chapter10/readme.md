@@ -466,6 +466,14 @@ You may choose to add your own stylistic touches to your overall map. Do not fee
 
 > ### **Add a graticule (optional).**
 
+## Activity 9
+
+1.  Simplify your spatial data and convert it to TopoJSON format.
+2.  Use `Promise.all()` to load your spatial data TopoJSON files and multivariate attribute CSV file into your _main.js_ script.
+3.  Choose a projection to use with your choropleth map and create the appropriate D3 projection generator.
+4.  Add appropriate styles in _style.css_, which may include a graticule.
+5.  Commit and sync your _unit-3_ directory (including the TopoJSON) with the commit message "Activity 9".
+
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
 
 ### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter3)

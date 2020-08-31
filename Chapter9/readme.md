@@ -852,6 +852,13 @@ With these adjustments made, we have a complete, readable data graphic (Figure 3
 
 > ### **Add a title and correctly formatted labels to your bubble chart.**
 
+## Activity 8
+
+1.  Create a _unit-3_ web directory and Git repository.
+2.  Create a bubble chart based on the simple Week 2 dataset. Save a copy of your _main.js_ as _bubblechart.js_, as you will replace this code in your _main.js_ in Week 9. 
+3.  Based on the instructions in the Lab 2 handout, find and format a multivariate dataset for the D3 lab assignment.
+4.  Commit and sync the dataset and your _unit-3_ folder (including _bubblechart.js_) in your data folder of the _unit-3_ directory with the commit message "Activity 8".
+
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
 
 ### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter3)

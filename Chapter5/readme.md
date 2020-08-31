@@ -532,6 +532,13 @@ Based on the directions in the Leaflet Lab assignment, the data you select shoul
 
 > ### **Find and format your own thematic, sequential point data containing at least 15 point features and at least 7 sequential attribute columns. Convert your dataset to a GeoJSON file and add it to a Leaflet map in _main.js_.**
 
+## Activity 5
+
+1.  Create a GitHub repository in your _unit-1_ directory. As you build your Leaflet map, commit each major change to your code as often as necessary.
+2.  Replace the link to _adaptedTutorial.js_ with a link to your _main.js_ file in _index.html_ and start building your custom Leaflet map for the lab assignment using the data you found. Use the code from _adaptedTutorial__.js_ to use as an initial building block for _main.js_. Be sure to keep _quickstartTutorial.js, geojsonTutorial.js,_ and _adaptedTutorial__.js_ in your _js_ folder for our review!
+3.  With all of the above tasks completed, commit your changes and sync with GitHub. Include "Activity 5" in the commit message. Your assignment is graded based on what is contained in this commit. Again, the repo should include four JS files: _quickstartTutorial.js, geojsonTutorial.js, adaptedTutorial.js_, and _main.js__._ The _index.html_ file should link to just _main.js_ to map the GeoJSON file containing your spatiotemporal data.
+4.  Zip a copy of your _unit-2_ repo and upload to the Activity 5 dropbox as a backup.
+
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
 
 ### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter3)

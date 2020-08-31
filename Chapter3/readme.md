@@ -892,6 +892,12 @@ I simply forgot to change the name of the variable `cities` to `cityPop` in the 
 
 This might seem like a simple error, but much of debugging involves tediously tracking down simple errors such as this by testing various parts of the script with `console.log` statements. A smart strategy is to add temporary `console.log` statements to check your work every time you write a new piece of code. This way, you know if something is wrong right away and have less script to debug if any problems arise.
 
+## Activity 3
+
+1.  Debug the _main\_with\_debug.js_ script included in the _unit-1_ repo.
+2.  Add comments to _main\_with\_debug.js_ explaining what the script is doing at each step.
+3.  Create a GitHub repository called _unit-1_. Commit your changes to your _unit-1_ repository and sync with GitHub (you will want to keep your boilerplate site clean for future use). In the commit message (Summary), write "Activity 3" so that we can find it easily on your GitHub account. Your assignment will be graded based on what is contained in this commit. You also must submit  your unit-1 folder as a zip file on Canvas.
+
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
 
 ### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter3)

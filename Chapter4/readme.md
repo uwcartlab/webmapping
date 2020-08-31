@@ -392,6 +392,14 @@ Note that the `console.log()` statement on Line 17 of Example 3.7 is executed _f
 
 > ### **Add at at least two `console.log()` statements _with comments_ to your AJAX script indicating where your data can and cannot be accessed.**
 
+## Activity 4
+
+1.  Debug the [_debug\_ajax.js_](https://canvas.wisc.edu/courses/180498/files/10619035/download?wrap=1 "debug_ajax.js") script included in the _**unit-1**_ repo. Copy and paste its contents into your _main.js_ file after the existing script from Week 2, then add function calls and debug it to make it work with the rest of your script. Add comments explaining what the script is doing at each step. Your script should result in something that looks similar to this in the browser:  
+    
+    ![final.png](img/final.png)
+    
+2.  Commit your changes to your _unit-1_ Git repository and sync with GitHub. Include "Week 4 Activity Completed" in the commit message. Your assignment is graded based on the contents of this commit. You also must submit  your _unit-1_ folder as a zip file on Canvas.
+
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
 
 ### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter3)
