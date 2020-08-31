@@ -1,6 +1,10 @@
 [![DOI](https://zenodo.org/badge/288738217.svg)](https://zenodo.org/badge/latestdoi/288738217)
 
-# Web Mapping <br/> A workbook for Interactive Cartography and Visualization on the Open Web
+---
+
+# Web Mapping<br/><h3>A workbook for Interactive Cartography and Visualization on the Open Web</h3>
+
+---
 
 ## Table of Contents
 
