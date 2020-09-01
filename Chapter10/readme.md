@@ -207,7 +207,7 @@ Lesson 2: D3 Projections and Path Generators
 
 ### I. Creating a D3 Projection
 
-Now that you have imported your geospatial data, the next step is to project it. Let's start by reviewing map projections, one of the more complex topics covered in Geography 370. 
+Now that you have imported your geospatial data, the next step is to project it. Let's start by reviewing map projections, one of the more complex topics in cartography. 
 
 A _**projection**_ is a mathematical translation from a 3D model of the Earth (called the _reference globe_) to a two-dimensional surface (called the _developable surface_). Projection equations stretch geographic coordinates based on a spheroid, ellipsoid, or geoid model of Earth so that they can be displayed on a planar (two-dimensional) surface, such as your computer screen.
 

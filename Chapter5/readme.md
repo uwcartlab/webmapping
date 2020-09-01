@@ -3,12 +3,12 @@
 Chapter 5: Leaflet Foundation & Using Online Resources
 =====================================================
 
-Chapter 5 transitions into the second unit for Web Cartography and Visualization, which supports your Leaflet lab assignment. With a solid foundation behind you, it is time to make your first interactive web map! Chapter 5 includes four lab lessons and ends with Activity 5 requiring you to compile and map spatiotemporal data onto a slippy basemap using Leaflet. js.
+Chapter 5 transitions into the second unit for Web Mapping, which supports your Leaflet lab assignment. With a solid foundation behind you, it is time to make your first interactive web map! Chapter 5 includes four lab lessons and ends with Activity 5 requiring you to compile and map spatiotemporal data onto a slippy basemap using Leaflet. js.
 
 *   In Lesson 1, we introduce the Leaflet open source code library and API documentation, having you complete two tutorials available through the Leaflet website that provide essential background on Leaflet.
 *   In Lesson 2, we discuss how to integrate example code into your interactive web map, adapting several of the Leaflet tutorial scripts to map the _MegaCities.geojson_ file you prepared in Chapter 4.
 *   In Lesson 3, we review useful resources for obtaining help from the open source software community when you are stuck on a problem.
-*   In Lesson 4, we provide guidance for finding basemap tilesets and thematic overlay data, the latter of which is review from Geography 370. Lessons 3 and 4 are short, and provide some general guidance as you begin your first interactive web map.
+*   In Lesson 4, we provide guidance for finding basemap tilesets and thematic overlay data, some of which may be review if you've taken an introductory cartography course. Lessons 3 and 4 are short, and provide some general guidance as you begin your first interactive web map.
 
 After this chapter, you should be able to:
 
@@ -40,7 +40,7 @@ _**FOSS**_ stands for ***F***ree and ***O***pen ***S***ource ***S***oftware. Let
 *   _**Software**_ is a set of machine-readable instructions that directs a computer's processor to perform specific operations. Thus, an interactive web map technically is lightweight software.
     
 
-The idea of FOSS challenges campus ideas of plagiarism. In the context of FOSS software, not only may you download or copy pieces of code from the Internet to use in your own programming, <ins>_you are encouraged to do so_</ins>. In Geography 575, we grade on originality in two ways: (a) are you considering a novel user experience, and therefore collecting your own datasets and building unique UI controls and layouts and; (b) did you give credit to the original author(s) of the code you reuse in comments at the beginning of the document.
+The idea of FOSS challenges campus ideas of plagiarism. In the context of FOSS software, not only may you download or copy pieces of code from the Internet to use in your own programming, <ins>_you are encouraged to do so_</ins>. However, make sure to give appropriate credit to the original author(s) of the code you reuse
 
 ### II. Introduction to Leaflet
 
@@ -138,7 +138,7 @@ For both tilesets, the URL string for the tile layer has some special characters
 
 In Mapbox tilesets:
 
-*   `{id}` represents the project id, given in the `L.tileLayer()` settings object allowing use of custom-styled Mapbox Streets tiles from Geography 572
+*   `{id}` represents the project id, given in the `L.tileLayer()` settings object, allowing use custom-styled Mapbox Streets tiles
 *   `{accessToken}` represents your Mapbox public token, also given in the `L.tileLayer()` settings object, allowing Mapbox to track the usage of your tileset for billing purposes
 
 In OSM and other tilesets:
@@ -429,11 +429,11 @@ Figure 2.7 illustrates the results of applying the modified use of `onEachFeatur
 
 Not all real-world web maps have such simple and tidy code, but you can always "View Page Source" to see if you can make heads or tails of it. Some websites will minify their back-end code so it becomes unreadable, but many allow you to easily discover their inner workings in keeping with the principles of FOSS.
 
-Figure 2.10 illustrates a previous Geography 575 final project mapping the distance of Flickr images from major roads in the U.S. National Parks.
+Figure 2.10 illustrates a project created by a user of this workbook mapping the distance of Flickr images from major roads in the U.S. National Parks.
 
 **![figure4.2.10.png](img/figure4.2.10.png)**
 
-###### Figure 2.10: Previous Geography 575 final project mapping Flickr photos in national parks.
+###### Figure 2.10: Project mapping Flickr photos in national parks.
 
 To examine and modify the code, you can right-click on the webpage,  "Inspect Element" and select the _**Debugger**_ tab. This opens developer tools (Figure 2.11), offering a look at the HTML as well as links to other open source files, including stylesheets and scripts. 
 
@@ -481,9 +481,9 @@ Lesson 4: Finding Tilesets and Data
 
 ### I. Finding Tilesets
 
-In Lesson 1 , you completed the _Leaflet Quick Start Guide_ tutorial using either a Mapbox tileset or OSM tileset. Mapbox provides a wide range of control over the tileset style through their [Mapbox Studio tool](https://www.mapbox.com/?utm_medium=sem&utm_source=google&utm_campaign=sem%7Cgoogle%7Cbrand%7Cchko-googlesearch-pr01-mapboxbrand-br.broad-us-landingpage-search&utm_term=brand&utm_content=chko-googlesearch-pr01-mapboxbrand-br.broad-us-landingpage-search&gclid=CjwKCAiA4Y7yBRB8EiwADV1haeW8EVPR3rOJcFtTpuLfyK6vbJQwA2dU6iCVIdLMAE0CnlYViEvaLxoCa9YQAvD_BwE) introduced in Geography 572. Thus, you now can tailor your basemap to your UI design, and vice versa.
+In Lesson 1 , you completed the _Leaflet Quick Start Guide_ tutorial using either a Mapbox tileset or OSM tileset. Mapbox provides a wide range of control over the tileset style through their [Mapbox Studio tool](https://www.mapbox.com/?utm_medium=sem&utm_source=google&utm_campaign=sem%7Cgoogle%7Cbrand%7Cchko-googlesearch-pr01-mapboxbrand-br.broad-us-landingpage-search&utm_term=brand&utm_content=chko-googlesearch-pr01-mapboxbrand-br.broad-us-landingpage-search&gclid=CjwKCAiA4Y7yBRB8EiwADV1haeW8EVPR3rOJcFtTpuLfyK6vbJQwA2dU6iCVIdLMAE0CnlYViEvaLxoCa9YQAvD_BwE). Thus, you now can tailor your basemap to your UI design, and vice versa.
 
-Do not worry if you have not taken Geography 572, however, as there are a numerous alternative tilesets that are freely available to use. You can discover the tileset source of web map examples used in class (e.g., [past Geography 575 final projects](https://geography.wisc.edu/cartography/education/G575/G575SP2019.html)) using right/Command+click on the web map and navigating to "View Image" or "Open image in new tab". This will display a single tile image in its own browser tab (Figure 4.1):
+Do not worry if you have do not have experience using Mapbox Studio, as there are a numerous alternative tilesets that are freely available to use. You can discover the tileset source of web map examples used in (e.g., [past projects](https://geography.wisc.edu/cartography/education/G575/G575SP2019.html)) using right/Command+click on the web map and navigating to "View Image" or "Open image in new tab". This will display a single tile image in its own browser tab (Figure 4.1):
 
 ![figure4.4.1.png](img/figure4.4.1.png)
 

@@ -3,7 +3,7 @@
 Chapter 2: Setting Up Your Workspace
 =====================================
 
-Welcome to the first chapter of Web Cartography and Visualization! Chapter 2 includes three lab lessons and Activities 1 & 2:
+Welcome to the first chapter of Web Mapping! Chapter 2 includes three lab lessons and Activities 1 & 2:
 
 *   In Lesson 1, we will introduce text editors and some basic "boilerplate" HTML used to structure your website.
 *   In Lesson 2, we will discuss how to efficiently set up your web directory and host it through a localhost development server.
@@ -48,9 +48,9 @@ You are welcomed to use your preferred text editor in class. Atom, Brackets, and
 
 ### III. The HTML Boilerplate
 
-A _**boilerplate**_ is the minimum starter code needed begin development.  For Geography 575, we start with the basic _**HTML boilerplate**_ to simplify your early designs and focus on JavaScript. 
+A _**boilerplate**_ is the minimum starter code needed begin development.  For this workbook, we start with the basic _**HTML boilerplate**_ to simplify your early designs and focus on JavaScript. 
 
-> ### **Download _[my\_website.zip](my_website.zip)_ from the Chapter 2 files, unzip it, and open _index.html_ in your text editor.**
+> ### **Download _[unit-1.zip](unit-1.zip)_ from the Chapter 2 files, unzip it, and open _index.html_ in your text editor.**
 
 The HTML boilerplate code in _index.html_ should look like Example 1.1. Every component <ins>_must_</ins> be present in your _index.html_ file, excepting the `<!-- -->` comments and IE stylesheet check. Importantly: you must use _index.html_ as the name of the homepage to use the directory name as the endpoint of a web url. For instance [www.geography.wisc.edu/cartography/](http://www.geography.wisc.edu/cartography/) is the same as [www.geography.wisc.edu/cartography/index.html](http://www.geography.wisc.edu/cartography/index.html), but shorter and therefore preferred.
 
@@ -108,7 +108,7 @@ and then open the file in a browser, you should see what you just added to the p
 
 ###### Figure 1.1: `<body>` content displayed on the page
 
-There are a number of frameworks that have their own boilerplates and directory structures, such as [Bootstrap](https://getbootstrap.com/) used introduced in Geography 572 for responsive design across mobile and non-mobile devices. For simplicity's sake, we recommend that you use this boiler plate for each lab activity and lab assignment. You can explore other frameworks with the final project.
+There are a number of frameworks that have their own boilerplates and directory structures, such as [Bootstrap](https://getbootstrap.com/), used for responsive design across mobile and non-mobile devices. For simplicity's sake, we recommend that you use this boiler plate for each lab activity and lab assignment. You can explore other frameworks with the final project.
 
 > ### **Add content to the body element and then load your _index.html_ file in a browser and check that your content appears in the browser tab. If HTML is completely new to you, we recommend supplemental Codecademy tutorials as part of Activity 2 to complete alongside JavaScript tutorials.**
 
@@ -180,7 +180,7 @@ For the real-world projects, internal `<style>` and `<script>` tags are much too
 
 Generally speaking, we use the term "webpage" to describe a single HTML document and "website" to describe the entire directory structure.
 
-> ### **In the _my\_website_ directory you downloaded, create the following new folders:**
+> ### **In the _unit-1_ directory you downloaded, create the following new folders:**
 > 
 > ### -   **js**
 > ### -   **lib**
@@ -208,7 +208,7 @@ Notice that the boilerplate _index.html_ file already contains two links to exte
     /* Stylesheet by Buck E. Badger, 2020 */
     
 
-> ### **Create _style.css_ and _main.js_ text files and save into the _css_ and _js_ folders of _my\_website_ respectively.**
+> ### **Create _style.css_ and _main.js_ text files and save into the _css_ and _js_ folders of _unit-1_ respectively.**
 
 ### III. Setting up a Development Server
 
@@ -222,18 +222,18 @@ For security reasons, browsers <ins>_only_</ins> display webpages correctly if t
 
 We use [Prepros](https://prepros.io/) in lab demonstrations and examples for simplicity. Prepros is a "preprocessor" software application that automatically compiles your website and refreshes the browser every time you save files in your web directory. Prepros is available on all Science Hall computers and works on Windows and Mac machines.
 
-> ### **Preview _my\_website_ using Prepros.** 
+> ### **Preview _unit-1_ using Prepros.** 
 
 Lesson 3: GitHub Setup
 ----------------------
 
 ### I. What is GitHub?
 
-_**[GitHub](https://github.com/)**_ is a website and project hosting service that uses the [Git](http://git-scm.com/) version control system. _**Git**_ takes a snapshot of your files at a given time, creating a backup that can be shared collaborative when multiple developers are coding at the same time (e.g., your final project). GitHub provides an online suite of tools for cloud storage, sharing, collaboration, and hosting of your projects. It has become standard practice for open-source software developers to keep their projects on GitHub, and you will find yourself accessing various repositories or **_repos_** (i.e., web directories) on GitHub as your development experience grows. For example, the Spring 2020 Geography 575 course materials are hosted at [](https://github.com/reroth/g575-2013)[https://github.com/uwcartlab/20\_g575](https://github.com/uwcartlab/20_g575) [](https://github.com/reroth/g575-2013) (Figure 3.1):
+_**[GitHub](https://github.com/)**_ is a website and project hosting service that uses the [Git](http://git-scm.com/) version control system. _**Git**_ takes a snapshot of your files at a given time, creating a backup that can be shared collaborative when multiple developers are coding at the same time (e.g., your final project). GitHub provides an online suite of tools for cloud storage, sharing, collaboration, and hosting of your projects. It has become standard practice for open-source software developers to keep their projects on GitHub, and you will find yourself accessing various repositories or **_repos_** (i.e., web directories) on GitHub as your development experience grows. For example, the Web Mapping workbook materials are hosted at [https://github.com/uwcartlab/webmapping](https://github.com/uwcartlab/webmapping) (Figure 3.1):
 
 ![figure1.3.1.png](img/figure1.3.1.png)
 
-###### Figure 3.1: The GitHub repository for this course
+###### Figure 3.1: The GitHub repository for this workbook
 
 The way Git works can be a bit confusing, even after repeated use, as it is different from your prior experience uploading and downloading files from a website through your browser. Git first creates a repository _within_ your website directory, rather than uploading an existing, local directory online. While you can see your files in the remote repository through the GitHub website, you do not use the browser to access them. Rather, the original files sit in the website directory you created on your own machine, and you sync or **_push_** those files to the remote GitHub repository whenever you make changes. 
 
@@ -243,19 +243,19 @@ Again for simplicity, we use [GitHub Desktop](https://desktop.github.com/) in la
 
 ### II. Setting Up a Repository
 
-> ### **Read the GitHub Guide ["Getting your project on GitHub"](https://guides.github.com/introduction/getting-your-project-on-github/) and follow its directions to create a repository in your _my\_website_ directory.**
+> ### **Read the GitHub Guide ["Getting your project on GitHub"](https://guides.github.com/introduction/getting-your-project-on-github/) and follow its directions to create a repository in your _unit-1_ directory.**
 
 Following the GitHub Guide above, the first step to setting up GitHub is to create a GitHub account if you do not already have one). Go to [https://github.com/](https://github.com/), enter a username, e-mail, and password, and click "Sign up for GitHub."
 
-Then open GitHub Desktop, log in, and drag-and-drop your _my\_website_ directory to create a local repository, following the directions in the GitHub Guide. Alternatively, you can click "Current repository" in the upper-left corner of the application, then click "Add" and choose "Create new repository...". Enter the name of your website, then in "Local path" navigate to the directory _containing_ your website directory, and click "Create repository" (Figure 3.2).
+Then open GitHub Desktop, log in, and drag-and-drop your _unit-1_ directory to create a local repository, following the directions in the GitHub Guide. Alternatively, you can click "Current repository" in the upper-left corner of the application, then click "Add" and choose "Create new repository...". Enter the name of your website, then in "Local path" navigate to the directory _containing_ your website directory, and click "Create repository" (Figure 3.2).
 
 Importantly, if you first navigate to your website directory instead of the folder above it, the application will create a new directory _inside_ your website directory with the same name. Check the path shown in the "local path" text field to ensure you are syncing from the correct location on your computer.
 
 ![figure1.3.2(new).png](img/figure1.3.2(new).png)
 
-###### Figure 3.2: Creating a repository in your _my\_website_ directory
+###### Figure 3.2: Creating a repository in your _unit-1_ directory
 
-Once you've created the repository, open your the _my\_website_ directory on your machine and observe that three new files have been created (Figure 3.3):
+Once you've created the repository, open your the _unit-1_ directory on your machine and observe that three new files have been created (Figure 3.3):
 
 *   **._git_**, a hidden folder that holds the snapshots of your files,
     
@@ -283,7 +283,7 @@ From this point, though, the key to becoming comfortable with GitHub is to use i
 
 ## Activity 1
 
-1.  Create a website directory called _my\_website_ with an organized directory structure and boilerplate _index.html_, _style.css_, and _main.js_ files.
+1.  Create a website directory called _unit-1_ with an organized directory structure and boilerplate _index.html_, _style.css_, and _main.js_ files.
 2.  Create a Git repository in your website directory and sync it to your GitHub account.
 3.  Submit a zip file (.zip) containing your website directory to Canvas. In the submission comments, paste a link to your GitHub account page.
 

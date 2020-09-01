@@ -128,7 +128,7 @@ Before moving onto the next step in the pseudocode, use a `console.log` statemen
 
 Finally, Step 6 in our pseudocoding sets the circle marker radius based on the selected attribute. Proportional symbol maps represent each feature's attribute value as the area of that feature's circle. Thus, we must derive our symbol radius from the area of the circle.
 
-However, this calculation results in **_mathematical scaling_**, or a direct relationship between the feature attribute to the symbol area. We know from Geography 370 that we want to use ***perceptual scaling*** to account for our systematic underestimation of sizes as they grow larger using the [Flannery scaling ratio](http://wiki.gis.com/wiki/index.php/Proportional_symbol_map).
+However, this calculation results in **_mathematical scaling_**, or a direct relationship between the feature attribute to the symbol area. We know that we want to use ***perceptual scaling*** to account for our systematic underestimation of sizes as they grow larger using the [Flannery scaling ratio](http://wiki.gis.com/wiki/index.php/Proportional_symbol_map).
 
 Example 1.5 illustrates the steps needed to implement Flannery scaling for our symbols. Because Flannery scaling requires the minimum value of our data, we first call the new function `calcMinValue()` from our callback function, passing in our `response` from `getJSON()`. In `calcMinValue()`, we loop through our array of cities, adding all of our data values  to a single flat array and calculating the minimum. We then call  a new function `calcPropRadius()` function from from our `calcPropSymbols()` function, using the Flannery formula to calculate the radius based on each cities' population. We use a couple new methods here, including `Math.min()`, `String()`, and `destructuring()`. Refer to the [W3Schools](http://www.w3schools.com/jsref/default.asp) or [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) documentation for additional information on these methods..
 
@@ -812,7 +812,7 @@ You can implement the plugin to enable users to search for mapped features corre
 
 **_Arrange_** manipulates the layout of the map and linked views. _Arrange_ generally is not common on maps for presentation, and thus is rarely implemented with the mobile-friendly Leaflet library.
 
-_Arrange_ is more common for the highly-exploratory coordinated multiview visualization possible with D3, with a Leaflet map perhaps one window among coordinated views. Figure 4.7 shows a [final project](http://www.youtube.com/watch?v=Dlt3vU0ZBZ4&list=PLz9yX13m-GeL9tbxNN1tuOuMyx6wgkwb3) by a former Geography 575 student using the jQuery UI library's [Draggable](https://jqueryui.com/draggable/) functionality.
+_Arrange_ is more common for the highly-exploratory coordinated multiview visualization possible with D3, with a Leaflet map perhaps one window among coordinated views. Figure 4.7 shows a [ project](http://www.youtube.com/watch?v=Dlt3vU0ZBZ4&list=PLz9yX13m-GeL9tbxNN1tuOuMyx6wgkwb3) by a former Web Mapping workbook user using the jQuery UI library's [Draggable](https://jqueryui.com/draggable/) functionality.
 
 ![figure5.4.7.png](img/figure5.4.7.png)
 

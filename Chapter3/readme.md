@@ -3,7 +3,7 @@
 Chapter 3: Scripting and Debugging
 =================================
 
-Congratulations on your first successful chapter of Web Cartography and Visualization! You now have created your first Github repo (Activity 1) and completed foundational tutorials for developing on the Open Web (Activity 2). Chapter 3 includes four lab lessons and ends with Activity 3, a debugging exercise to test your knowledge on JavaScript.
+Congratulations on your first successful chapter of Web Mapping! You now have created your first Github repo (Activity 1) and completed foundational tutorials for developing on the Open Web (Activity 2). Chapter 3 includes four lab lessons and ends with Activity 3, a debugging exercise to test your knowledge on JavaScript.
 
 *   In Lesson 1, we review the Document Object Model (DOM) and the ways that browsers interpret content on the web.
 *   In Lesson 2, we review JavaScript basics, including syntax rules for variables, functions, and the flow of execution. Lessons 1 and 2 are largely review from the Codecademy tutorials.
@@ -38,7 +38,7 @@ Clicking the "Compare" button redirects you to the "Comparing Changes" page. You
 
 ###### Figure 0.2: Example merging changes in the main branch to a forked branch. This is provided as reference, as you will not need to merge any updates immediately after forking in Chapter 3.
 
-These steps may seem to be a lot of work compared to a simple download, but they allow you to experiment with GitHub's version control system that you will rely on more heavily with the Geography 575 final project. While it is tempting to ignore version control, learning and using it now will save you time in the long-run.
+These steps may seem to be a lot of work compared to a simple download, but they allow you to experiment with GitHub's version control system that you will rely on more heavily when creating larger projects. While it is tempting to ignore version control, learning and using it now will save you time in the long-run.
 
 > ### **Fork the _unit-1_ repo from the [course Github page](https://github.com/uwcartlab/20_g575). The repo includes the HTML boilerplate from Chapter 2 and additional code snippets for the Chapter 3 lessons, including your debugging assignment.**
 
@@ -432,7 +432,7 @@ Make sure you add this script link _**above**_ the link to your _main.js_ file i
 
 > ### **Add a script link to jQuery in your _index.html_ file.**
 
-Because jQuery is an open-source library, you can open it up and read through it. The jQuery developers made it especially easy to read the development version by using good formatting and heavily commenting throughout, although we do not expect you to understand all of the script for Geography 575.
+Because jQuery is an open-source library, you can open it up and read through it. The jQuery developers made it especially easy to read the development version by using good formatting and heavily commenting throughout, although we do not expect you to understand all of the script for this workbook.
 
 ### II. Method Chaining
 
@@ -896,7 +896,7 @@ This might seem like a simple error, but much of debugging involves tediously tr
 
 1.  Debug the [_main\_with\_debug.js_](main_with_debug.js "main_with_debug.js") script included in the _Chapter 3_ repo.
 2.  Add comments to _main\_with\_debug.js_ explaining what the script is doing at each step.
-3.  Create a GitHub repository called _unit-1_. Commit your changes to your _unit-1_ repository and sync with GitHub (you will want to keep your boilerplate site clean for future use). In the commit message (Summary), write "Activity 3" so that we can find it easily on your GitHub account. Your assignment will be graded based on what is contained in this commit. You also must submit  your unit-1 folder as a zip file on Canvas.
+3.  Commit your changes to your _unit-1_ repository and sync with GitHub (you will want to keep your boilerplate site clean for future use). 
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
 
