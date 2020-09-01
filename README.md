@@ -52,7 +52,7 @@ While this book outlines the fundamental aspects of web cartography and visualiz
 
 - If you do not have experience with CSS or want a refresher, we recommend completing Lesson 1 (and only Lesson 1) of the [Introduction to CSS Tutorial](https://www.codecademy.com/learn/learn-css) (~2 hours).
 
-## How to Use this Book
+## How to Use this Workbook
 
 This book and its resources can be downloaded directly from Github for individual use. Each Chapter folder contains the chapter content, as well as any data and files referenced.
 
