@@ -409,7 +409,7 @@ In order to make this function work, we need to call it from `"mouseover"` event
                     return "#ccc";            
                 }       
              })
-            .on("mouseover", function(d){
+            .on("mouseover", function(event, d){
                 highlight(d.properties);
             });
     
@@ -427,10 +427,12 @@ In order to make this function work, we need to call it from `"mouseover"` event
                 return "bar " + d.adm1_code;
             })
             .attr("width", chartInnerWidth / csvData.length - 1)
-            .on("mouseover", highlight);
+            .on("mouseover", function(event, d){
+                highlight(d);
+            });
     
 
-In Example 2.2, the event listener added to the `regions` block uses an anonymous function to call the `highlight()` function so that the `properties` object can be passed to it without passing the entire GeoJSON feature (lines 13-15). The listener on the `bars` block, on the other hand, passes the name of the function as a parameter, since this block uses the `csvData` and thus the datum is already equivalent to the `properties` object within the GeoJSON feature.
+In Example 2.2, the event listener added to the `regions` block uses an anonymous function to call the `highlight()` function so that the `properties` object can be passed to it without passing the entire GeoJSON feature (lines 13-15). The listener on the `bars` block, on the other hand, uses `CsvData`, and therefore only passes the datum (`d`) as it is already equivalent to the `properties` object within the GeoJSON feature.
 
 If we now test our highlighting, we can see it working (Figure 2.1). The brushed features are highlighted when probed, but they still retain their blue borders after the mouse is removed, quickly making a mess of the visualization! This is why we need a `dehighlight()` function as well as a `highlight()` function.
 
@@ -502,18 +504,22 @@ This completes the `dehighlight()` function, which we can add event listeners to
 ###### Example 2.5: Adding `mouseout` event listeners in _main.js_
 
             //Example 2.2 line 12...regions event listeners
-            .on("mouseover", function(d){
+            .on("mouseover", function(event, d){
                 highlight(d.properties);
             })
-            .on("mouseout", function(d){
+            .on("mouseout", function(event, d){
                 dehighlight(d.properties);
             });
     
             //...
     
             //Example 2.2 line 30...bars event listeners
-            .on("mouseover", highlight)
-            .on("mouseout", dehighlight);
+            .on("mouseover", function(event, d){
+                highlight(d);
+            })
+            .on("mouseover", function(event, d){
+                dehighlight(d);
+            });
     
 
 We now have working linked highlighting and dehighlighting, allowing only one feature to be selected at a time (Figure 2.3).
@@ -588,15 +594,15 @@ These styles create a simple black label with white text (Figure 2.4).
 
 ###### Figure 2.4: Styled info label
 
-The next step, of course, is to  reposition the label to the cursor. D3 provides a handy object, [`d3.event`](https://github.com/d3/d3-selection/blob/master/README.md#event), that holds the position of the mouse whenever an event is fired on the page. We can use [`d3.event`](https://github.com/d3/d3-selection/blob/master/README.md#event),to set the position of our info label in a function that is called on any `mousemove` event (Example 2.8).
+The next step, of course, is to  reposition the label to the cursor. D3 provides a handy object, [`event`](https://github.com/d3/d3-selection/blob/master/README.md#handling-events), that holds the position of the mouse whenever an event is fired on the page. We can use [`event`](https://github.com/d3/d3-selection/blob/master/README.md#handling-events),to set the position of our info label in a function that is called on any `mousemove` event (Example 2.8).
 
 ###### Example 2.8: Adding movement to the info label in _main.js_
 
     //function to move info label with mouse
     function moveLabel(){
         //use coordinates of mousemove event to set label coordinates
-        var x = d3.event.clientX + 10,
-            y = d3.event.clientY - 75;
+        var x = event.clientX + 10,
+            y = event.clientY - 75;
     
         d3.select(".infolabel")
             .style("left", x + "px")
@@ -609,10 +615,10 @@ In Example 2.8, we retrieve the coordinates of the `mousemove` event and manipu
 ###### Example 2.9. Adding `mousemove` event listeners in _main.js_
 
             //Example 2.5 line 1...regions event listeners
-            .on("mouseover", function(d){
+            .on("mouseover", function(event, d){
                 highlight(d.properties);
             })
-            .on("mouseout", function(d){
+            .on("mouseout", function(event, d){
                 dehighlight(d.properties);
             })
             .on("mousemove", moveLabel);
@@ -620,8 +626,12 @@ In Example 2.8, we retrieve the coordinates of the `mousemove` event and manipu
             //...
     
             //Example 2.5 line 11...bars event listeners
-            .on("mouseover", highlight)
-            .on("mouseout", dehighlight)
+            .on("mouseover", function(event, d){
+                highlight(d);
+            })
+            .on("mouseover", function(event, d){
+                dehighlight(d);
+            });
             .on("mousemove", moveLabel);
     
 
@@ -642,15 +652,15 @@ For the horizontal (`x`) coordinate, since the label is to the right of the mous
             .width;
     
         //use coordinates of mousemove event to set label coordinates
-        var x1 = d3.event.clientX + 10,
-            y1 = d3.event.clientY - 75,
-            x2 = d3.event.clientX - labelWidth - 10,
-            y2 = d3.event.clientY + 25;
+        var x1 = event.clientX + 10,
+            y1 = event.clientY - 75,
+            x2 = event.clientX - labelWidth - 10,
+            y2 = event.clientY + 25;
     
         //horizontal label coordinate, testing for overflow
-        var x = d3.event.clientX > window.innerWidth - labelWidth - 20 ? x2 : x1; 
+        var x = event.clientX > window.innerWidth - labelWidth - 20 ? x2 : x1; 
         //vertical label coordinate, testing for overflow
-        var y = d3.event.clientY < 75 ? y2 : y1; 
+        var y = event.clientY < 75 ? y2 : y1; 
     
         d3.select(".infolabel")
             .style("left", x + "px")

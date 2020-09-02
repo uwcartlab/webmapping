@@ -42,9 +42,17 @@ The workbook is funded by [NSF CAREER #1555267](https://www.nsf.gov/awardsearch/
 - [Chapter 11 - Coordinated Visualizations](/Chapter11)
 - [Chapter 12 - Coordinated Interactions](/Chapter12)
 
+## Technical Skills
+
+This workbook covers foundations in several coding libraries used for different web mapping applications. These include:
+
+- [JQuery 3.4.1](https://jquery.com/)
+- [D3 6](https://d3js.org/)
+- [Leaflet 1.6](https://leafletjs.com/reference-1.6.0.html)
+
 ## Foundational Knowledge
 
-While this book outlines the fundamental aspects of web cartography and visualization, including coding tutorials, it does assume a basic knowledge of programming concepts. 
+While this workbook outlines the fundamental aspects of web cartography and visualization, including coding tutorials, it does assume a basic knowledge of programming concepts. 
 
 - If you do not have any programming experience, we recommend first completing the [Learn How to Code](https://www.codecademy.com/learn/learn-how-to-code) broad overview of programming concepts (~1 hour). 
 
@@ -54,11 +62,11 @@ While this book outlines the fundamental aspects of web cartography and visualiz
 
 ## How to Use this Workbook
 
-This book and its resources can be downloaded directly from Github for individual use. Each Chapter folder contains the chapter content, as well as any data and files referenced.
+This workbook and its resources can be downloaded directly from Github for individual use. Each Chapter folder contains the chapter content, as well as any data and files referenced.
 
 If you're an instructor using Canvas (or a similar LMS), and want to incorporate  book materials directly into a course site, additional steps are necessary.
 
-1. Download the book.
+1. Download the workbook.
 2. Convert Markdown files to HTML
     1. Each chapter contains one Markdown file with chapter content. To view this information in Canvas, it needs to first be converted to HTML.
     2. Use our [HTML-to-MD](https://uwcartlab.github.io/html-to-md/) tool to convert each Markdown file.

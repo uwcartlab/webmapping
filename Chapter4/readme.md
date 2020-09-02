@@ -68,7 +68,7 @@ Your final spreadsheet should have the name, lat/long coordinates, and populatio
 
 ###### Figure 1.5: Georeferenced data
 
-> **Download [MegaCities.csv](lib/MegaCities.csv "MegaCities.csv"). Run its contents through a batch geocoder to add latitude and longitude columns. Fill in any missing coordinate values.**
+> **Download [MegaCities.csv](data/MegaCities.csv "MegaCities.csv"). Run its contents through a batch geocoder to add latitude and longitude columns. Fill in any missing coordinate values.**
 
 ### II. JSON and GeoJSON
 
