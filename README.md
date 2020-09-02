@@ -79,6 +79,10 @@ If you're an instructor using Canvas (or a similar LMS), and want to incorporate
     2. Now, each image will have its own URL on your canvas site.
     3. Replace the relative image links in the HTML with your new uploaded image links. 
 
+## Past Examples
+
+This workbook was originally created for an Interactive Cartography and Geovisualization course at the University of Wisconsin - Madison. To see examples of past student work, please visit [https://geography.wisc.edu/cartography/education/G575/G575SP2020.html](https://geography.wisc.edu/cartography/education/G575/G575SP2020.html).
+
 [![uwcl-logo](Introduction/img/uwcl-logo.png)](https://geography.wisc.edu/cartography/)[![uw-logo](Introduction/img/uw-logo.png)](www.wisc.edu)[![nsf-logo](Introduction/img/nsf-logo.png)](https://www.nsf.gov/)
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
