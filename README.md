@@ -2,8 +2,6 @@
 
 ---
 
-![banner.gif](Introduction/img/banner.gif)
-
 # Web Mapping
 
 ## _A Workbook for Interactive Cartography and Visualization on the Open Web_
@@ -13,6 +11,9 @@
 ###### Cite/Attribute as: Roth RE, CM Sack, G Baldrica-Franklin, Y Chen, R Donohue, R Tolochko, and N Underwood. 2020. _Web Mapping: A Workbook for Interactive Cartography and Visualization on the Open Web._ Version 0.1. University of Wisconsin Cartography Laboratory: Madison, WI. DOI: 10.5281/zenodo.4009327
 
 ---
+
+![banner.gif](Introduction/img/banner.gif)
+###### Sample from _Your Body, (Not) Your Choice_, created by Katie Kowalsky, Dylan Moriarity, and Robin Tolochko. 2014.
 
 ## About this Workbook
 
