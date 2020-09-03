@@ -12,9 +12,6 @@
 
 ---
 
-![banner.gif](Introduction/img/banner.gif)
-###### Sample from _Your Body, (Not) Your Choice_, created by Katie Kowalsky, Dylan Moriarity, and Robin Tolochko. 2014.
-
 ## About this Workbook
 
 This workbook introduces the practical skills needed to develop interactive maps and visualizations on the open web. Compared to a traditional textbook, this workbook utilizes a "spiral" curriculum of short but interconnected lessons that incrementally build proficiency in interactive cartography and visualization.  
