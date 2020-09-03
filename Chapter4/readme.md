@@ -394,11 +394,11 @@ Note that the `console.log()` statement on Line 17 of Example 3.7 is executed _f
 
 ## Activity 4
 
-1.  Debug the [_debug\_ajax.js_](debug_ajax.js "debug_ajax.js") script included in the _**Chapter 4**_ repo. Copy and paste its contents into your _main.js_ file after the existing script from Week 2, then add function calls and debug it to make it work with the rest of your script. Add comments explaining what the script is doing at each step. Your script should result in something that looks similar to this in the browser:  
+1.  Debug the [_debug\_ajax.js_](debug_ajax.js "debug_ajax.js") script included in the _**Chapter 4**_ repo. Copy and paste its contents into your _main.js_ file after the existing script from Chapter 3, then add function calls and debug it to make it work with the rest of your script. Add comments explaining what the script is doing at each step. Your script should result in something that looks similar to this in the browser:  
     
     ![final.png](img/final.png)
     
-2.  Commit your changes to your _unit-1_ Git repository and sync with GitHub. Include "Week 4 Activity Completed" in the commit message. Your assignment is graded based on the contents of this commit. You also must submit  your _unit-1_ folder as a zip file on Canvas.
+2.  Commit your changes to your _unit-1_ Git repository and sync with GitHub. 
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
 

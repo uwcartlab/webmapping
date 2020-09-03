@@ -3,7 +3,7 @@
 Chapter 9: D3 Foundations
 ========================
 
-Welcome to the first of four chapters in Unit 3 on D3, a powerful JavaScript library supporting coordination across many different kinds of map and visualization types. Chapter 9 includes three relatively longer lessons and ends with Activity 8 requiring you to compile a multivariate dataset for your Lab 2 D3 map.
+Welcome to the first of four chapters in Unit 3 on D3, a powerful JavaScript library supporting coordination across many different kinds of map and visualization types. Chapter 9 includes three relatively longer lessons and ends with Activity 8 requiring you to compile a multivariate dataset for your Unit 3 D3 map.
 
 *   In Lesson 1, we investigate selections and blocks, the code structures that provide the backbone of D3 script.
 *   In Lesson 2, we expand on D3 selections to make data joins that transform geospatial data into DOM elements.
@@ -28,9 +28,9 @@ You can review hundreds of fantastic example visualizations created by D3 develo
 
 In this module, we introduce the core principles used by the library to build a simple data-driven graphic. Important formatting rules are highlighted by bullet points; use these to keep your code neater and facilitate the development and debugging process.
 
-To begin, you will need to copy your boilerplate web directory and rename the copy _unit-3_. Then, download the library from the [D3 website](http://d3js.org/), unzip it, place it in the _lib_ folder of your new website, and add a script link to it in _index.html_. Create a _main.js_ file for the _unit-3_ web directory, save it to the _js_ folder, and add a second script link to it. Finally, create a _style.css_ file, save it to the _css_ folder, and link to it in _index.html_. Finally, create a _data_ folder that will hold your Lab 2 multivariate dataset.
+To begin, you will need to copy your boilerplate web directory and rename the copy _unit-3_. Then, download the library from the [D3 website](http://d3js.org/), unzip it, place it in the _lib_ folder of your new website, and add a script link to it in _index.html_. Create a _main.js_ file for the _unit-3_ web directory, save it to the _js_ folder, and add a second script link to it. Finally, create a _style.css_ file, save it to the _css_ folder, and link to it in _index.html_. Finally, create a _data_ folder that will hold your Unit 2 multivariate dataset.
 
-> ### **Create a new web directory called _unit-3_. Add _d3.js_ to the _lib_ folder, _main.js_ to the js folder, and _style.css_ to the _css_ folder. Add links for each file in the appropriate places in _index.html_. Also add a _data_ folder, which will house your Lab 2 multivariate dataset. Create a new Git repository for the directory and sync it with GitHub.**
+> ### **Create a new web directory called _unit-3_. Add _d3.js_ to the _lib_ folder, _main.js_ to the js folder, and _style.css_ to the _css_ folder. Add links for each file in the appropriate places in _index.html_. Also add a _data_ folder, which will house your Unit 3 multivariate dataset. Create a new Git repository for the directory and sync it with GitHub.**
 
 ### II. Selections
 
@@ -855,8 +855,8 @@ With these adjustments made, we have a complete, readable data graphic (Figure 3
 ## Activity 8
 
 1.  Create a _unit-3_ web directory and Git repository.
-2.  Create a bubble chart based on the simple Week 2 dataset. Save a copy of your _main.js_ as _bubblechart.js_, as you will replace this code in your _main.js_ in Week 9. 
-3.  Based on the instructions in the Lab 2 handout, find and format a multivariate dataset for the D3 lab assignment.
+2.  Create a bubble chart based on the simple Chapter 3 dataset. Save a copy of your _main.js_ as _bubblechart.js_, as you will replace this code in your _main.js_ in Chapter 10. 
+3.  Find and format a multivariate dataset for the Unit 3 D3 assignment.
 4.  Commit and sync the dataset and your _unit-3_ folder (including _bubblechart.js_) in your data folder of the _unit-3_ directory with the commit message "Activity 8".
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._

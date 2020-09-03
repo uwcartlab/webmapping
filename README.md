@@ -2,6 +2,8 @@
 
 ---
 
+![banner.gif](Introduction/img/banner.gif)
+
 # Web Mapping
 
 ## _A Workbook for Interactive Cartography and Visualization on the Open Web_
