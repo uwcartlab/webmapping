@@ -429,7 +429,7 @@ Figure 2.7 illustrates the results of applying the modified use of `onEachFeatur
 
 Not all real-world web maps have such simple and tidy code, but you can always "View Page Source" to see if you can make heads or tails of it. Some websites will minify their back-end code so it becomes unreadable, but many allow you to easily discover their inner workings in keeping with the principles of FOSS.
 
-Figure 2.10 illustrates a project created by a user of this workbook mapping the distance of Flickr images from major roads in the U.S. National Parks.
+Figure 2.10 illustrates a project mapping the distance of Flickr images from major roads in the U.S. National Parks.
 
 **![figure4.2.10.png](img/figure4.2.10.png)**
 
