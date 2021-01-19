@@ -1,6 +1,6 @@
-### [Return Home](../../../) | [Previous Chapter](../Chapter3) | [Next Chapter](../Chapter5)
+### [Return Home](../../../) | [Previous Chapter](../Chapter02) | [Next Chapter](../Chapter04)
 
-Chapter 4: Data and AJAX
+Chapter 03: Data and AJAX
 =======================
 
 Chapter 4 is all about data, inching us one step closer to making your first interactive web map next chapter! Chapter 4 includes three lab lessons and ends with Activity 4, a second debugging exercise to continue to practice your computational thinking skills.

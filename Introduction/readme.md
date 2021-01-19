@@ -1,4 +1,4 @@
-### [Return Home](../../../) | [Next Chapter](../Chapter2)
+### [Return Home](../../../) | [Next Chapter](../Chapter02)
 
 ### \[Insert Your Syllabus Here]
 

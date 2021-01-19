@@ -1,6 +1,6 @@
-### [Return Home](../../../) | [Previous Chapter](../Chapter4) | [Next Chapter](../Chapter6)
+### [Return Home](../../../) | [Previous Chapter](../Chapter03) | [Next Chapter](../Chapter05)
 
-Chapter 5: Leaflet Foundation & Using Online Resources
+Chapter 04: Leaflet Foundation & Using Online Resources
 =====================================================
 
 Chapter 5 transitions into the second unit for Web Mapping, which supports your Leaflet lab assignment. With a solid foundation behind you, it is time to make your first interactive web map! Chapter 5 includes four lab lessons and ends with Activity 5 requiring you to compile and map spatiotemporal data onto a slippy basemap using Leaflet. js.

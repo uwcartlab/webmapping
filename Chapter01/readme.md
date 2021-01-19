@@ -1,6 +1,6 @@
-### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter3)
+### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter02)
 
-Chapter 2: Setting Up Your Workspace
+Chapter 01: Setting Up Your Workspace
 =====================================
 
 Welcome to the first chapter of Web Mapping! Chapter 2 includes three lab lessons and Activities 1 & 2:

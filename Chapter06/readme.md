@@ -1,6 +1,6 @@
-### [Return Home](../../../) | [Previous Chapter](../Chapter6) | [Next Chapter](../Chapter8)
+### [Return Home](../../../) | [Previous Chapter](../Chapter05) | [Next Chapter](../Chapter07)
 
-Chapter 7: The Internal Logic of Leaflet
+Chapter 06: The Internal Logic of Leaflet
 =======================================
 
 Your Leaflet lab should be coming along nicely after the Chapter 6 overview of interactions. In Chapter 7, we dive deeper into Leaflet's inner workings to introduce you to some advanced web programming concepts. Chapter 7 includes three lessons and culminates in the completion of your Leaflet lab.

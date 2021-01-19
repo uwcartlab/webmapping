@@ -1,6 +1,6 @@
-### [Return Home](../../../) | [Previous Chapter](../Chapter7) | [Next Chapter](../Chapter9)
+### [Return Home](../../../) | [Previous Chapter](../Chapter06) | [Next Chapter](../Chapter08)
 
-Chapter 8: Collaborating with Github
+Chapter 07: Collaborating with Github
 ===================================
 
 You have been working individually with GitHub for six chapters now, and are in the process of wrapping your first major interactive map with Leaflet that will be hosted through GitHub! Chapter 8 provides additional guidance for working _collaboratively_ with GitHub that supports your group final project. Chapter 8 includes three relatively short lessons and an activity to set-up a collaborative repository that will house your final project proposal and (eventually) your final project interactive.

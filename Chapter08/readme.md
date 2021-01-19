@@ -1,6 +1,6 @@
-### [Return Home](../../../) | [Previous Chapter](../Chapter8) | [Next Chapter](../Chapter10)
+### [Return Home](../../../) | [Previous Chapter](../Chapter07) | [Next Chapter](../Chapter09)
 
-Chapter 9: D3 Foundations
+Chapter 08: D3 Foundations
 ========================
 
 Welcome to the first of four chapters in Unit 3 on D3, a powerful JavaScript library supporting coordination across many different kinds of map and visualization types. Chapter 9 includes three relatively longer lessons and ends with Activity 8 requiring you to compile a multivariate dataset for your Unit 3 D3 map.

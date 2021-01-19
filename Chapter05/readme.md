@@ -1,6 +1,6 @@
-### [Return Home](../../../) | [Previous Chapter](../Chapter5) | [Next Chapter](../Chapter7)
+### [Return Home](../../../) | [Previous Chapter](../Chapter04) | [Next Chapter](../Chapter06)
 
-Chapter 6: Dynamic Mapping with Leaflet
+Chapter 05: Dynamic Mapping with Leaflet
 ======================================
 
 Congratulations on making your first interactive web map with Leaflet last chapter! Chapter 6 continues to build on your first lab assignment by introducing Leaflet interaction operators. Chapter 6 includes four lab lessons and ends with Activity 6 requiring you to implement _pan_, _zoom_, _retrieve_, and _sequence_ on scaled proportional symbols.

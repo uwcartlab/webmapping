@@ -1,6 +1,6 @@
-### [Return Home](../../../) | [Previous Chapter](../Chapter2) | [Next Chapter](../Chapter4)
+### [Return Home](../../../) | [Previous Chapter](../Chapter01) | [Next Chapter](../Chapter03)
 
-Chapter 3: Scripting and Debugging
+Chapter 02: Scripting and Debugging
 =================================
 
 Congratulations on your first successful chapter of Web Mapping! You now have created your first Github repo (Activity 1) and completed foundational tutorials for developing on the Open Web (Activity 2). Chapter 3 includes four lab lessons and ends with Activity 3, a debugging exercise to test your knowledge on JavaScript.

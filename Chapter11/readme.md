@@ -1,313 +1,398 @@
-### [Return Home](../../../) | [Previous Chapter](../Chapter10) | [Next Chapter](../Chapter12)
+### [Return Home](../../../) | [Previous Chapter](../Chapter10)
 
-Chapter 11: Coordinated Visualizations
-=====================================
+Chapter 11: Coordinated Interactions
+=================================
 
-Congratulations on building your first basemap with D3! In Chapter 11, we will will apply what you have learned about D3 selections, scales, and geographic features for dynamically creating a coordinated, multiview visualization of your multivariate attribute dataset. Chapter 11 includes two long lessons and ends with Activity 10, a choropleth map with linked bar chart:
+Welcome to Chapter 12, the final set of lessons in Web Mapping! In Chapter 12, we discuss linking interactions in D3 between your map and additional visualization. Chapter 12 includes two lessons and concludes with your final Lab 2 coordinated visualization: 
 
--   In Lesson 1, we walkthrough the steps needed to dynamically join your attribute and geospatial data and then symbolize your choropleth map using a color scale. The choropleth map is added atop the basemap you completed for Activity 9. 
--   In Lesson 2, we describe how to draw a complementary bar chart, modifying the bubblechart example from Chapter 9.
-
-In completing the previous module, you should have loaded your spatial and attribute data into the browser and used projection and path generators to draw a basemap from your spatial data. 
+*   In Lesson 1, we implement the _reexpress_ operator for changing the visualized attribute using the menu selection interface style. Lesson 1 also introduces you to D3 transitions that add visual  feedback as the user interacts with the coordinated visualizations.
+*   In Lesson 2, we implement a _retrieve_ operator linked between the map and visualization.
 
 After this chapter, you should be able to:
 
--   Create a choropleth map based on attribute values for a single attribute within your multivariate dataset.
--   Draw a bar chart representing the same attribute values visualized on the map, with the bars automatically sorted from smallest to largest.
+*   Implement the _reexpress_ operator using menu selection to change the attribute in both the map and linked visualization.
+*   Implement the _retrieve_ operator using direct manipulation to link enumeration units on the map to elements in the linked visualization.
 
-Lesson 1: Dynamic Choropleth Symbolization
+Lesson 1: Dynamic Attribute Selection
+-------------------------------------
 
-### I. Joining Your Data
+### I. Menu Selection
 
-The first step of creating a dynamic choropleth map is joining your attribute data to your geospatial data using a common attribute. In Chapter 10, we instructed you to create separate geospatial and attribute datasets, with the former stored in TopoJSON format and the latter in CSV format. It is possible to store your attribute data along with the spatial data as you convert from shapefiles to GeoJSON and TopoJSON formats. However, we have structured the Chapter 10 lesson to separate these files to give you a sense of making multiple AJAX calls using the [Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) method as well as familiarizing you with the different JSON and CSV AJAX methods in D3. Further, you often need to load geospatial data from a database or attribute data from a live stream—combining the two in browser—rather than load a single combined file.
+So far, we have worked with one attribute to create the map and data visualization for the D3 lab assignment. However, your dataset includes least five attributes, and we want the user to be able to _reexpress_ among these attributes. In this lesson, we discuss how to implement the _reexpress_ operator the menu selection interface style.
 
-We will accomplish the data "join" through a nested looping structure. Before writing the looping structure, check to ensure that your attribute data are correctly loading into the browser and are accessible within the DOM. Figure 1.1 shows a console log of one object from our attribute data on the left and the corresponding GeoJSON object in the DOM on the right. Confirm your attribute data have maintained their format from the CSV import.
+For Lab 1, you implemented the _**direct manipulation**_ interface style for your interaction operators, enabling the user to probe, drag, or click/tap graphic (non-text) interface controls or the map itself. Specifically, _retrieve_ was implemented with direct manipulation of individual map features, _pan_ and _zoom_ were implemented with direct manipulation of the entire map, and _sequence_ (and possibly _zoom_) was implemented with direct manipulation of a non-map, non-legend, non-isomorphic interface widget (i.e., the slider control).
 
-![figure9.1.1.png](img/figure9.1.1.png)
+For Lab 2, we use _menu selection_ to select one of your multivariate attributes from a list. Menu selection is considered "slightly less direct than direct", as it typically uses text rather than graphics as the _visual affordance_ for list items. However, men selection can include graphics alongside text, such as icons representing different list items (common for mobile), or replace text entirely with graphics (e.g., a map preview). Menu selection has the advantages of lower pointing mileage and great pointing efficiency while also constraining user interaction to a subset of options (versus the more free form fill-in).
 
-###### Figure 1.1: Data from a `csvData` array object (left window) and the corresponding `franceRegions` GeoJSON object (right window) prior to joining the data in _main.js_
+Menu selection has the added advantage of being easy to implement compared to direct manipulation. We make use of a simple HTML `<select>` element for _reexpress_, which provides a basic dropdown menu for attribute selection. Start by adding a [`<select>`](http://www.w3schools.com/tags/tag_select.asp) dropdown menu to the DOM. Note that the `<select>` element is merely a container for the menu; we also need to add each value we want in the menu as an [`<option>`](http://www.w3schools.com/tags/tag_option.asp) child element. By now, you probably have some idea of how to accomplish both of these tasks using D3 selections. Example 1.1 illustrates one possible set of selection blocks.
 
-Note that both datasets contain the `adm1_code` and `name` attributes. Either of these attributes can act as a primary key on which to join the data, but the `adm1_code` is an internationally-assigned code and more reliably identical between datasets, so it is better to use that attribute as the primary key. As we loop through each row of our CSV data, we can use this primary key to find the matching GeoJSON feature and transfer the other attributes to it (Example 1.1).
+###### Example 1.1: Adding a dropdown menu in _main.js_
 
-###### Example 1.1: Joining CSV data to GeoJSON enumeration units in _main.js_
-
-        //translate europe and France TopoJSONs
-        var europeCountries = topojson.feature(europe, europe.objects.EuropeCountries),
-            franceRegions = topojson.feature(france, france.objects.FranceRegions).features;
+    //function to create a dropdown menu for attribute selection
+    function createDropdown(){
+        //add select element
+        var dropdown = d3.select("body")
+            .append("select")
+            .attr("class", "dropdown");
     
-        //variables for data join
-        var attrArray = ["varA", "varB", "varC", "varD", "varE"];
+        //add initial option
+        var titleOption = dropdown.append("option")
+            .attr("class", "titleOption")
+            .attr("disabled", "true")
+            .text("Select Attribute");
     
-        //loop through csv to assign each set of csv attribute values to geojson region
-        for (var i=0; i<csvData.length; i++){
-            var csvRegion = csvData[i]; //the current region
-            var csvKey = csvRegion.adm1_code; //the CSV primary key
-    
-            //loop through geojson regions to find correct region
-            for (var a=0; a<franceRegions.length; a++){
-    
-                var geojsonProps = franceRegions[a].properties; //the current region geojson properties
-                var geojsonKey = geojsonProps.adm1_code; //the geojson primary key
-    
-                //where primary keys match, transfer csv data to geojson properties object
-                if (geojsonKey == csvKey){
-    
-                    //assign all attributes and values
-                    attrArray.forEach(function(attr){
-                        var val = parseFloat(csvRegion[attr]); //get csv attribute value
-                        geojsonProps[attr] = val; //assign attribute and value to geojson properties
-                    });
-                };
-            };
-        };
+        //add attribute name options
+        var attrOptions = dropdown.selectAll("attrOptions")
+            .data(attrArray)
+            .enter()
+            .append("option")
+            .attr("value", function(d){ return d })
+            .text(function(d){ return d });
+    };
     
 
-This is one of many possible ways to accomplish the data join. If you choose to experiment with other implementations, it is important that the outcome be similar to what is shown on the right side of Figure 1.2, which is the same GeoJSON feature as in Figure 1.1 after completing the join:
+In Example 1.1, we create a new function, `createDropdown()`, which is called from the end of the `callback()` function (not shown). The first block appends the `<select>` element to the `<body>` (lines 4-6). The `titleOption` block creates an `<option>` element with no `value` attribute and instructional text to serve as an affordance alerting users that they should interact with the dropdown menu (lines 9-12). Disabling the title option ensures that the user cannot mistakenly select it (line 11). Finally, the `attrOptions` block uses the `.selectAll().data().enter()` sequence with the `attrArray` pseudo-global variable that holds an array of our attribute names, creating one `<option>` element for each attribute (lines 15-18). Each option element is assigned a `value` attribute that holds the name of the attribute, and its text content (what the user sees) is also assigned the name of the attribute (lines 19-20).
 
-![figure9.1.2.png](img/figure9.1.2.png)
+Once we have created the dropdown menu, we need to do a little styling so that it does not simply appear below the previous element on the page (Example 1.2).
 
-###### Figure 1.2: Data from a `csvData` array object (left window) and the corresponding `franceRegions` GeoJSON object (right window) after joining the data in _main.js_
+###### Example 1.2: Styling the dropdown in _style.css_
 
-Compare the other attributes that have appeared in the GeoJSON feature properties in Figure 1.2 to the data in the CSV feature. The numbers are identical, but note that all CSV attribute values are strings, whereas the numerical attributes in the GeoJSON feature are numbers. To work with a D3 linear scale, your attribute data <ins>**_must_**</ins> be typed as numbers—hence the use of the `parseFloat()` JavaScript method to change the CSV strings into numbers as they are transferred (Example 1.1 line 24).
+    .dropdown {
+        position: absolute;
+        top: 30px;
+        left: 40px;
+        z-index: 10;
+        font-family: sans-serif;
+        font-size: 1em;
+        font-weight: bold;
+        padding: 2px;
+        border: 1px solid #999;
+        box-shadow: 2px 2px 4px #999;
+    }
+    
+    option {
+        font-weight: normal;
+    }
+    
 
-> ### **Join your CSV data to your GeoJSON features. Check the results of your data join script against the GeoJSON data structure on the right side of Figure 1.2. If your script does not produce similar results, use Example 1.1 to determine where the problem may lie.**
+In Example 1.2, we position the menu `<select>` element absolutely so that it is not affected by other elements on the page (line 2). We then use `top` and `left` styles to offset the menu `<select>` element from the top-left corner of the page (lines 3-4). Adding a `z-index` of 10 ensures that the menu `<select>` element floats to the top of all other elements on the page (line 5). We then add `font` styles and `padding` around the text (lines 6-9). Finally, a `border` and `box-shadow` make the `<select>` element visually float above the map, making it more obvious to the user (lines 10-11). The `option` style simply reduces the text of the `<option>` elements in the menu to normal weight so they are not emboldened by the `font-weight` of the `<select>` element (lines 14-16).
 
-### II. Advanced JavaScript: From Global to Local
+We can now see our dropdown menu with each of our attribute options atop the map (Figure 1.1).
 
-We will now take a brief but important diversion into computer programming best practice. Starting with our color scale, we are building a number of functions that make use of the array of attribute names (`attrArray`) and the `expressed` attribute. Passing these variables between functions as parameters quickly becomes overly complicated. For convenience, we can move these variables to the top of the script to make them globally accessible. While this seems straightforward, it actually brings up a hidden, generally not-well-understood aspect of JavaScript. To become a skilled web developer and avoid problems when building more complicated web apps down the road, it is important to grasp this next part.
+![figure10.1.1.png](img/figure10.1.1.png)
 
-Advanced web programmers consider it bad practice to use global variables and functions. The reason has to do with the concept of [**scope**](https://en.wikipedia.org/wiki/Scope_(computer_science)) in JavaScript. So far, we have succumbed to this less-than-ideal practice by defining most of our functions in the _**global scope**_, the segment of code execution where any entity in it is visible to the entire program. Every variable and function defined within a function is automatically moved to the _**local scope**_ (also called the _**function scope**_), in which it is only visible to other functions and variables within the parent function. There are times when you may want to keep variables in the global scope—as when you want them to be accessible from multiple _.js_ files all linked to _index.html_. Doing this also can prevent these variables from being "cleaned up" when they are no longer needed, resulting in an unnecessary demand on your computer memory that slows down your application.
+###### Figure 1.1: Attribute selection dropdown menu
 
-If you want a more thorough understanding, there many online resources that explain the difference between global and local in JavaScript and why defining variables in the global scope is generally a not a good idea. [This W3C wiki page](http://www.w3.org/wiki/JavaScript_best_practices#Avoid_globals) makes the case concisely and lays out a few alternatives for when you need variables to be globally available. In Example 1.2, we implement the last alternative listed, wrapping all of our script in a self-executing anonymous function to move our script from the global scope into the local scope. Our "global" variables—which will really be operating in the local scope—then can be defined immediately within the wrapper function.
+### II. Menu Selection Feedback
 
-###### Example 1.2: Defining `attrArray` and `expressed` as pseudo-global variables in _main.js_
+Once implemented, we need to enable our _reexpress_ menu selection by adding an event listener to the script to listen for a user interaction and a listener handler function to respond by changing the expressed attribute, thus giving _visual feedback_ to the user. Let's pseudocode the feedback tasks (Example 1.3).
 
-    //First line of main.js...wrap everything in a self-executing anonymous function to move to local scope
+###### Example 1.3: Pseudo-code for attribute change listener
+
+    // ON USER SELECTION:
+    // Step 1. Change the expressed attribute
+    // Step 2. Recreate the color scale with new class breaks
+    // Step 3. Recolor each enumeration unit on the map
+    // Step 4. Re-sort each bar on the bar chart
+    // Step 5. Resize each bar on the bar chart
+    // Step 6. Recolor each bar on the bar chart
+    
+
+Steps 1-3 are relatively simple to take care of within a listener handler function (Example 1.4).
+
+###### Example 1.4: Adding a change listener and handler function in _main.js_
+
+    //Example 1.1 line 1...function to create a dropdown menu for attribute selection
+    function createDropdown(csvData){
+        //add select element
+        var dropdown = d3.select("body")
+            .append("select")
+            .attr("class", "dropdown")
+            .on("change", function(){
+                changeAttribute(this.value, csvData)
+            });
+    
+        //OPTIONS BLOCKS FROM EXAMPLE 1.1 LINES 8-19
+    };
+    
+    //dropdown change listener handler
+    function changeAttribute(attribute, csvData){
+        //change the expressed attribute
+        expressed = attribute;
+    
+        //recreate the color scale
+        var colorScale = makeColorScale(csvData);
+    
+        //recolor enumeration units
+        var regions = d3.selectAll(".regions")
+            .style("fill", function(d){            
+                var value = d.properties[expressed];            
+                if(value) {            	
+                    return colorScale(value);            
+                } else {            	
+                    return "#ccc";            
+                }    
+            });
+    };
+    
+
+In Example 1.4, we add a [`.on()`](https://github.com/d3/d3-selection#handling-events) operator to the end of the `dropdown` block to listen for a `"change"` interaction on the `<select>` element (line 7). In this context, `.on()` is a D3 method, but it works similarly to Leaflet's `.on()` method. We pass it an anonymous function, within which we call our new listener handler, `changeAttribute()` (lines 7-9). The parameters of `changeAttribute()` are the `value` of the `<select>` element (referenced by `this`), which holds the attribute selected by the user, as well as our `csvData`. The `csvData` will be used to recreate the color scale. Note that we also need to add it as a parameter to the `createDropdown()` function (line 2) and its function call within the `callback()` (not shown).
+
+Within `changeAttribute()`, we complete Step 1 in our pseudocode by simply assigning the user-selected attribute to the `expressed` pseudo-global variable (line 17). For Step 2, we repeat the call to `makeColorScale()`, passing the scale generator our `csvData` and assigning the returned scale to a new `colorScale` variable (line 20). For Step 3, we create a selection of all enumeration units (line 23). Since the enumeration units already have our GeoJSON data attached to them as a property in the DOM, we can re-use their GeoJSON `properties` with the new `colorScale` function to reset each enumeration unit's `fill` attribute (lines 24-30).
+
+The map should now recolor itself when a new attribute is selected from the dropdown menu (Figure 1.2).
+
+![figure10.1.2.png](img/figure10.1.2.png)
+
+###### Figure 1.2: Dynamic attribute selection changes the choropleth
+
+Restyling the dynamic visualization (Steps 4-6) is more challenging, but we can use the same principle of recycling a multi-element selection we used for recoloring the enumeration units on the map in Steps 1-3. The block that we build should contain a selection of all visualization elements (bars in the bar chart) and each operator that affects an aspect of the element we want to change when a new attribute is selected. For re-sorting the bars (Step 4), we need `.sort()` and the `x` attribute. For resizing the bars (Step 5), we need the `height` and `y` attributes. Finally, for recoloring the bars (Step 6), we need the `fill` style (Example 1.5).
+
+###### Example 1.5: Manipulating the chart bars on attribute change in _main.js_
+
+    //Example 1.4 line 14...dropdown change listener handler
+    function changeAttribute(attribute, csvData){
+        //change the expressed attribute
+        expressed = attribute;
+    
+        //recreate the color scale
+        var colorScale = makeColorScale(csvData);
+    
+        //recolor enumeration units
+        var regions = d3.selectAll(".regions")
+            .style("fill", function(d){            
+                var value = d.properties[expressed];            
+                if(value) {            	
+                    return colorScale(value);            
+                } else {            	
+                    return "#ccc";            
+                }    
+            });
+        //re-sort, resize, and recolor bars
+        var bars = d3.selectAll(".bar")
+            //re-sort bars
+            .sort(function(a, b){
+                return b[expressed] - a[expressed];
+            })
+            .attr("x", function(d, i){
+                return i * (chartInnerWidth / csvData.length) + leftPadding;
+            })
+            //resize bars
+            .attr("height", function(d, i){
+                return 463 - yScale(parseFloat(d[expressed]));
+            })
+            .attr("y", function(d, i){
+                return yScale(parseFloat(d[expressed])) + topBottomPadding;
+            })
+            //recolor bars
+            .style("fill", function(d){            
+                var value = d[expressed];            
+                if(value) {            	
+                    return colorScale(value);            
+                } else {            	
+                    return "#ccc";            
+                }    
+        });
+    };
+    
+
+In Example 1.5, we use `.sort()` to sort the data values for the new attribute from greatest to least (lines 18-20), then reset the `x` attribute of each bar to position the bars in the new order of the data (lines 21-23). To resize the bars, we reset the `height` attribute using our `yScale` with the new expressed attribute values (lines 25-27), then position the bars vertically by resetting the `y` attribute (lines 28-30). Finally, we recolor the bars by resetting the `fill` just as we did for the choropleth enumeration units in Example 1.4.
+
+Note that much of this code is duplicated in the `setChart()` function we created in Chapter 11. The problem with simply copy+pasting this code for dynamic _reexpress_ is that most of the anonymous functions within the operators access variables that are local to `setChart()`, including the dimension variables and our `yScale`. To make these variables accessible to the `changeAttribute()` function, we need to move them to the top of our wrapper function, declaring them as pseudo-global variables (Example 1.6).
+
+###### Example 1.6: Moving chart variables to make them pseudo-global in _main.js_:
+
+    //Top of main.js...wrap everything in a self-executing anonymous function to move to local scope
     (function(){
     
     //pseudo-global variables
     var attrArray = ["varA", "varB", "varC", "varD", "varE"]; //list of attributes
     var expressed = attrArray[0]; //initial attribute
     
+    //chart frame dimensions
+    var chartWidth = window.innerWidth * 0.425,
+        chartHeight = 473,
+        leftPadding = 25,
+        rightPadding = 2,
+        topBottomPadding = 5,
+        chartInnerWidth = chartWidth - leftPadding - rightPadding,
+        chartInnerHeight = chartHeight - topBottomPadding * 2,
+        translate = "translate(" + leftPadding + "," + topBottomPadding + ")";
+    
+    //create a scale to size bars proportionally to frame and for axis
+    var yScale = d3.scaleLinear()
+        .range([463, 0])
+        .domain([0, 110]);
+    
     //begin script when window loads
     window.onload = setMap();
     
-    ... //the rest of the script
-    
-    })(); //last line of main.js
+    //...the rest of the script
     
 
-Let's also tidy up our script by moving some of our code that performs specific tasks out of the callback function and into separate functions (Example 1.3).
+Once we have done this, these variables are available for use by _any_ function in the script. Since we copy-pasted the `bars` block from `setChart()`, we now have a number of repetitive lines in our _main.js_ script. We can clean up the script by moving these lines into their own function, called from both `setChart()` and `changeAttribute()` (Example 1.7).
 
-###### Example 1.3: Subdividing the callback script into multiple functions in _main.js_
+###### Example 1.7: Consolidating repetitive chart script in _main.js_:
 
-    //set up choropleth map
-    function setMap(){
+        //in setChart()...set bars for each province
+        var bars = chart.selectAll(".bar")
+            .data(csvData)
+            .enter()
+            .append("rect")
+            .sort(function(a, b){
+                return b[expressed]-a[expressed]
+            })
+            .attr("class", function(d){
+                return "bar " + d.adm1_code;
+            })
+            .attr("width", chartInnerWidth / csvData.length - 1);
     
-        //...MAP, PROJECTION, PATH, AND QUEUE BLOCKS FROM MODULE 8
+        //CHARTTITLE, YAXIS, AXIS, AND CHARTFRAME BLOCKS
     
-        function callback(data){	csvData = data[0];	europe = data[1];	france = data[2];
+        //set bar positions, heights, and colors
+        updateChart(bars, csvData.length, colorScale);
+    }; //end of setChart()
     
-            //place graticule on the map
-            setGraticule(map, path);
+        //...
     
-            //translate europe and France TopoJSONs
-            var europeCountries = topojson.feature(europe, europe.objects.EuropeCountries),
-                franceRegions = topojson.feature(france, france.objects.FranceRegions).features;
+        //in changeAttribute()...Example 1.5 line 15...re-sort bars
+        var bars = d3.selectAll(".bar")
+            //re-sort bars
+            .sort(function(a, b){
+                return b[expressed] - a[expressed];
+            });
     
-            //add Europe countries to map
-            var countries = map.append("path")
-                .datum(europeCountries)
-                .attr("class", "countries")
-                .attr("d", path);
+        updateChart(bars, csvData.length, colorScale);
+    }; //end of changeAttribute()
     
-            //join csv data to GeoJSON enumeration units
-            franceRegions = joinData(franceRegions, csvData);
-    
-            //add enumeration units to the map
-            setEnumerationUnits(franceRegions, map, path);
-        };
-    }; //end of setMap()
-    
-    function setGraticule(map, path){
-        //...GRATICULE BLOCKS FROM MODULE 8
-    };
-    
-    function joinData(franceRegions, csvData){
-        //...DATA JOIN LOOPS FROM EXAMPLE 1.1
-    
-        return franceRegions;
-    };
-    
-    function setEnumerationUnits(franceRegions, map, path){
-        //...REGIONS BLOCK FROM MODULE 8
-    };
-    
-
-In Example 1.3, we moved three tasks into their own functions. The three blocks to create the background graticule are moved to `setGraticule()` (lines 8-9 and 29-31). The loops used to accomplish the CSV to GeoJSON attribute data transfer are moved to `joinData()` (lines 21-22 and 33-37), which returns the updated `franceRegions` GeoJSON features array. Finally, the `regions` block that adds our enumeration units to the map is moved to its own `setEnumerationUnits()` function (lines 24-25 and 39-41). For each of these functions, the variables needed by the script within the function are passed to it as function parameters.
-
-> ### **Move your attribute array and `expressed` variables to the top of _main.js_, encapsulate your script within a self-executing anonymous wrapper function, and group tasks within the callback into their own defined functions.**
-
-### III. Creating a Color Scale
-
-The next step toward creating our choropleth map is to build a color scale that we will use to visualize our attribute data on the map. You worked with a linear color scale in Module 7, Lesson 3 that created an unclassed color scheme. You should use a classed color scheme for your D3 lab assignment using 4-7 classes based on recommendations in cartography. There are multiple classification methods for classed choropleth maps. Three common schemes are easy to implement in D3: quantile, equal interval, and natural breaks. Your choropleth map should be classed, but which classification method you choose should depend on the structure of your data. 
-
--   _**Quantile**_ classification places an equal number of data values in each class, and works best when you want to create a map with the same number of enumeration units in each class but do not care about how wide the class ranges are. Quantile also works well for data measured on an ordinal scale as well as for comparison of multiple variables measured in different units (which might be the case for your Lab 2 multivariate dataset).
-    
--   _**Equal interval**_ classification breaks the data into classes with equal ranges (e.g., 0-10, 10-20, 20-30, etc.). Equal interval produces the easiest to understand legend but works best for data that are spread uniformly across the entire data range.
-    
--   _**Natural Breaks**_ classification uses an algorithm (typically Jenks) based on minimizing the statistical distances between data points within each class, emphasizing clusters within the data.
-    
-
-It is also possible to implement a piecewise scale wherein you manually manipulate the breakpoints of the data. For a refresher on classification, review the [Statistical Mapping](https://gistbok.ucgis.org/bok-topics/statistical-mapping-enumeration-normalization-classification) entry of the GIS&T Body of Knowledge.
-
-The following examples demonstrate how to create each of theses three classification schemes. <ins>_**Choose only one of these classification methods**_</ins> to implement for your choropleth map based on your dataset. Switching between classification schemes is an example of the _resymbolize_ operator.
-
-We start by building a quantile color scale. To keep our code neat, we can create the color scale generator in a new function, which makes use of our attribute data from the `callback()` function (Example 1.4).
-
-###### Example 1.4: Creating the quantile color scale generator in _main.js_
-
-            //create the color scale
-            var colorScale = makeColorScale(csvData);
-    
-            //Example 1.3 line 24...add enumeration units to the map
-            setEnumerationUnits(franceRegions, map, path, colorScale);
-        };
-    }; //end of setMap()
-    
-    //...EXAMPLE 1.3 LINES 29-41
-    
-    //function to create color scale generator
-    function makeColorScale(data){
-        var colorClasses = [
-            "#D4B9DA",
-            "#C994C7",
-            "#DF65B0",
-            "#DD1C77",
-            "#980043"
-        ];
-    
-        //create color scale generator
-        var colorScale = d3.scaleQuantile()
-            .range(colorClasses);
-    
-        //build array of all values of the expressed attribute
-        var domainArray = [];
-        for (var i=0; i<data.length; i++){
-            var val = parseFloat(data[i][expressed]);
-            domainArray.push(val);
-        };
-    
-        //assign array of expressed values as scale domain
-        colorScale.domain(domainArray);
-    
-        return colorScale;
-    };
-    
-
-In Example 1.4, we implement the color scale using [`d3.scaleQuantile()`](https://github.com/d3/d3-scale/blob/master/README.md#quantile-scales) to create a quantile scale generator (line 22). The generator takes an input domain that is either continuous or a discrete set of values and maps it to an output range of discrete values. When the domain is continuous, the output is an equal interval scale; when the domain is discrete , a true quantile scale is generated. For the range, rather than letting D3 interpolate between two colors as we did in Module 7, we pass an array of five color values derived from [ColorBrewer](http://colorbrewer2.org/) to the `.range()` operator (lines 13-19 and 23). These will be our five class colors in our classification scheme. (Note: You can also reference ColorBrewer scales using [ColorBrewer.js](https://github.com/axismaps/colorbrewer/) or the [d3-scale-chromatic](https://github.com/d3/d3-scale-chromatic) plugin).
-
-To build a quantile scale, we need to assign all of the attribute values for the currently expressed attribute in our multivariate dataset as the scale's domain (line 33). This requires us to build an array of these values using a loop to access the value for each feature in the dataset (lines 26-30). The function then returns the scale generator. Within the callback, we create a `colorScale` variable to accept the scale generator from the `makeColorScale()` function, passing the `csvData` into the function (line 2). We also add the `colorScale` as a parameter sent to `setEnumerationUnits()` (line 5).
-
-When the quantile scale generator provides all values in the dataset (the `domainArray`) as its domain, it divides the values into bins that have an equal number of values and assigns each bin one of the color classes. The `d3.scaleQuantile()` method also can be used to create an equal interval scale, generating a continuous domain by passing `.domain()` an array with only two values: the minimum and maximum value of the dataset (Example 1.5).
-
-###### Example 1.5: Creating an equal interval color scale generator in _main.js_
-
-    //Example 1.4 line 11...function to create color scale generator
-    function makeColorScale(data){
-        var colorClasses = [
-            "#D4B9DA",
-            "#C994C7",
-            "#DF65B0",
-            "#DD1C77",
-            "#980043"
-        ];
-    
-        //create color scale generator
-        var colorScale = d3.scaleQuantile()
-            .range(colorClasses);
-    
-        //build two-value array of minimum and maximum expressed attribute values
-        var minmax = [
-            d3.min(data, function(d) { return parseFloat(d[expressed]); }),
-            d3.max(data, function(d) { return parseFloat(d[expressed]); })
-        ];
-        //assign two-value array as scale domain
-        colorScale.domain(minmax);
-    
-        return colorScale;
-    };
-    
-
-Given a two-value input domain and a range array with five output values, the generator will create five bins with a equal ranges of values between the minimum and maximum. For either the quantile or equal interval scale generator, you can use the console to discover the class breaks that the scale creates by adding the statement `console.log(colorScale.quantiles())` at the bottom of the function.
-
-The third major classification scheme, Natural Breaks, tries for a happy medium between quantile and equal interval classification, avoiding the disadvantages of each by finding "natural" clusterings of the data. If the distributions of your attribute values have long tails or several outliers, you should consider implementing a Natural Breaks classification.
-
-To create a Natural Breaks color scale generator, we need to use a D3 [threshold scale](https://github.com/d3/d3-scale/blob/master/README.md#threshold-scales) instead of a quantile scale. The threshold scale generator takes the same discrete array of color strings for its range, but requires a set of specified class breaks for the domain Thus, a threshold scale also is how you can create a scale with arbitrary class breaks. The number of class breaks in the domain array should be one less than the number of range output values. Any data values that are the same as a class break value are included in the class _above_ the break.
-
-To create the breaks, you will need a clustering algorithm. The Jenks algorithm commonly used by cartographers formerly was included in the [Simple Statistics](http://simplestatistics.org/) code library, although now is replaced by the [Cartesian k-means](http://www.cs.toronto.edu/~norouzi/research/papers/ckmeans.pdf) (Ckmeans) algorithm. Ckmeans does an excellent job for our purposes. If you wish to implement a Natural Breaks classification, download _simple-statistics.js_ from the link above, place it in your _lib_ folder, and add a script link to it in your _index.html_. Example 1.6 is an update from Tom MacWright's [Natural Breaks choropleth example](http://bl.ocks.org/tmcw/4969184) that uses the newer Ckmeans algorithm.
-
-###### Example 1.6: Creating a Natural Breaks color scale generator in _main.js_
-
-    //function to create color scale generator
-    function makeColorScale(data){
-        var colorClasses = [
-            "#D4B9DA",
-            "#C994C7",
-            "#DF65B0",
-            "#DD1C77",
-            "#980043"
-        ];
-    
-        //create color scale generator
-        var colorScale = d3.scaleThreshold()
-            .range(colorClasses);
-    
-        //build array of all values of the expressed attribute
-        var domainArray = [];
-        for (var i=0; i<data.length; i++){
-            var val = parseFloat(data[i][expressed]);
-            domainArray.push(val);
-        };
-    
-        //cluster data using ckmeans clustering algorithm to create natural breaks
-        var clusters = ss.ckmeans(domainArray, 5);
-        //reset domain array to cluster minimums
-        domainArray = clusters.map(function(d){
-            return d3.min(d);
+    //function to position, size, and color bars in chart
+    function updateChart(bars, n, colorScale){
+        //position bars
+        bars.attr("x", function(d, i){
+                return i * (chartInnerWidth / n) + leftPadding;
+            })
+            //size/resize bars
+            .attr("height", function(d, i){
+                return 463 - yScale(parseFloat(d[expressed]));
+            })
+            .attr("y", function(d, i){
+                return yScale(parseFloat(d[expressed])) + topBottomPadding;
+            })
+            //color/recolor bars
+            .style("fill", function(d){            
+                var value = d[expressed];            
+                if(value) {                
+                    return colorScale(value);            
+                } else {                
+                    return "#ccc";            
+                }    
         });
-        //remove first value from domain array to create class breakpoints
-        domainArray.shift();
-    
-        //assign array of last 4 cluster minimums as domain
-        colorScale.domain(domainArray);
-    
-        return colorScale;
     };
     
 
-In Example 1.6, we start with a call to `d3.scaleThreshold()` rather than `d3.scaleQuantile()` (line 12). The range remains the same (line 13), and we build a `domainArray` from all expressed attribute values as if we were implementing a quantile scale (lines 16-20). The extra step not present in the other classification schemes is to use the Simple Statistics [`ckmeans()`](http://simplestatistics.org/docs/#ckmeans) method to generate five clusters from our attribute values (line 23). These clusters are returned in the form of a nested array, which you can see in the Console if you pass `clusters` to a `console.log()` statement. We then reset the `domainArray` to a new array of break points, using JavaScript's [`.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) method to build a new array out of each cluster's minimum value (lines 25-27). Since the threshold scale includes each break point in the class above it, we want our array of break points to be class minimums, which we select using `d3.min()` (line 26). The final step in formatting the `domainArray` is to remove the first value of the array using the JavaScript [`.shift()`](http://www.w3schools.com/jsref/jsref_shift.asp) method, leaving the correct number of break points (4)—each of which is included by the class above it—in the `domainArray`.
+In Example 1.7, the positioning, sizing, and coloring of the bars has been moved into a new `updateChart()` function, which is called from within both `setChart()` and `changeAttribute()` (lines 17 and 29). This function receives the `bars` selection, the length of the `csvData` which corresponds to the number of bars, and the `colorScale`. Note that although it is still repeated in `updateChart()` and `changeAttribute()`, we did not move the `.sort()` operator into `updateChart()` because it necessarily comes before the `class` and `width` attribute assignments in `setChart()`, which should not be repeated when the attribute is changed (lines 6-12 and 25-27).
 
-Of the three classification schemes, which should we use? It depends on the distribution of our data. Figure 1.3 demonstrates the different bins created by the three classification schemes and shows where each enumeration unit's varA attribute value fits:
+The final step to updating the chart is to change the chart title. For this, we can move the `.text()` operator from the `chartTitle` block in `setChart()` into `updateChart()` (Example 1.8).
 
-![figure9.1.3.png](img/figure9.1.3.png)
+###### Example 1.8: Turning the chart title into visual feedback in _main.js_
 
-###### Figure 1.3: Difference between quantile and equal interval classification of the varA attribute
-
-Notice in Figure 1.3 that mapping our example datset with an equal interval classification scheme would result in many of our enumeration units falling into one of the first two classes, a few units in each of the third and fifth classes, and none of the enumeration units falling into the fourth class for the varA attribute. The quantile scale results in every color class appearing on the map a similar number of times, but as a result groups the three highest values with the next two lowest despite a very large gap in between. Natural Breaks ensures that each class is represented but clusters the data in such a way as to minimize the gaps between data values within a single class.
-
-> ### **Choose a choropleth classification scheme based on your dataset and create a color scale generator that implements that scheme in _main.js_.**
-
-### IV. Coloring the Enumeration Units
-
-Once we have constructed our color scale generator, the final step in coloring our choropleth is to apply it to our `regions` selection. We can do this by adding a `.style()` operator at the end of the `regions` block with an anonymous function that applies the `colorScale` to each datum's currently expressed attribute value to return the fill (Example 1.7 lines 13-15).
-
-###### Example 1.7: Coloring enumeration units in _main.js_
-
-    //Example 1.3 line 38
-    function setEnumerationUnits(franceRegions, map, path, colorScale){
+        //at the bottom of updateChart()...add text to chart title
+        var chartTitle = d3.select(".chartTitle")
+            .text("Number of Variable " + expressed[3] + " in each region");
     
-        //add France regions to map
+
+We now have a fully interactive choropleth map and linked visualization, with the affordance of a dropdown menu selection interface and the feedback of updated enumeration units and bars (Figure 1.3).
+
+![figure10.1.3.png](img/figure10.1.3.png)
+
+###### Figure 1.3: Interactive choropleth map and chart
+
+> ### **Implement a visual affordance allowing the user to change the expressed attribute, and feedback updating your choropleth map and data visualization in response to user input.**
+
+### III. Transitions
+
+Although our map and visualization now change their state in response to user input, that change is not always noticeable when the attributes are correlated and thus maintain relatively similar class breaks. To make the change more noticeable, we can add additional feedback to the user in the form of a D3 [transition](https://github.com/d3/d3-transition#d3-transition). _**Transitions**_ take advantage of the [animation capabilities](http://www.w3.org/TR/SVG/animate.html) built into the SVG specification to animate between visual states. Animation guides the user's eye from one visual state to another, allowing time for the change to register cognitively. It also improves the aesthetic appeal of the graphics by making them appear to react and flow smoothly in response to user input.
+
+We will cover only basic transitions here. You may wish to explore more deeply into transition options such as different types of [easing](https://github.com/d3/d3-ease#d3-ease) and [interpolation](https://github.com/d3/d3-interpolate#d3-interpolate). Each of these options has a default behavior that D3 implements automatically on any transition if they are not set manually.
+
+The simplest and most common way to create a D3 transition is to call the `.transition()` method in a selection block with no parameters. Every `.attr()` and `.style()` applied to the selection after calling `.transition()` is implemented through the transition; that is, the current values for those element attributes and styles are replaced gradually with the new values according to the default easing function or a different easing function that is specified by the `.ease()` operator. In-between values will be created by an interpolator to form the animation.
+
+Let's start by implementing a transition on the choropleth map (Example 1.9).
+
+###### Example 1.9: Implementing a choropleth transition in _main.js_
+
+        //Example 1.5 line 9...recolor enumeration units
+        var regions = d3.selectAll(".regions")
+            .transition()
+            .duration(1000)
+            .style("fill", function(d){            
+                var value = d.properties[expressed];            
+                if(value) {            	
+                    return colorScale(value);           
+                } else {            	
+                    return "#ccc";            
+                }    
+        });
+    
+
+In Example 1.9, we modify the `regions` block in the `changeAttribute()` function, adding a `.transition()` operator and a `.duration()` operator above the `.style()` operator (lines 3-4). The [`.duration()`](https://github.com/d3/d3-transition#transition_duration) operator specifies a duration in milliseconds; hence the transition will last 1000 milliseconds or 1 second. The effect is to smoothly animate between colors when the color of each enumeration units is changed in response to user input.
+
+The bars of our bar chart can also be animated within `changeAttribute()` (Example 1.10).
+
+        //Example 1.7 line 22...re-sort, resize, and recolor bars
+        var bars = d3.selectAll(".bar")
+            //re-sort bars
+            .sort(function(a, b){
+                return b[expressed] - a[expressed];
+            })
+            .transition() //add animation
+            .delay(function(d, i){
+                return i * 20
+            })
+            .duration(500);
+    
+        updateChart(bars, csvData.length, colorScale);
+    
+
+In Example 1.10, we add a `.transition()` after the data has been re-sorted according to the new expressed attribute (line 7). We then add a [`.delay`](https://github.com/d3/d3-transition#transition_delay) operator with an anonymous function that delays the start of animations 20 additional milliseconds for each bar in the sequence (lines 8-10). This gives the appearance that the bars consciously rearrange themselves. The `.duration()` operator gives each bar half a second to complete its transition (line 11). When the `bars` selection is passed to `updateChart()`, the transition is passed with it, so that each of the changing attributes and the `fill` style are animated when the attribute changes (Figure 1.4).
+
+![figure10.1.4.gif](img/figure10.1.4.gif)
+
+###### Figure 1.4: Animated transitions between attributes on choropleth map and chart
+
+> ### **Implement transitions in response to attribute change on your choropleth map and on your data visualization if appropriate.**
+
+Lesson 2: Linked Retrieve Interactions
+--------------------------------------
+
+### I. Highlighting
+
+The final required components of your D3 laboratory assignment are linked highlighting and dynamic labels, both components of the _retrieve_ interaction operator. _**Highlighting**_ is visual feedback provided across views when selecting or "brushing" elements of the visualization. **_Linking_** is the coupling of any interaction operator performed on one view to feedback given in all views. Linking is a distinguising feature of coordinated visualizations that allows the user to easily compare data across different types of visualizations.
+
+_**Dynamic labels**_, or popups as discussed in Chapter 6 for the Leaflet lab, are brief labels with critical information about the selected feature that follow the cursor. We will tackle adding these in the third section of this lesson. You may choose to implement other forms of the _retrieve_ operator as well, such as an information window or panel.
+
+In order to highlight the enumeration units on our map and the bars in our bar chart, we need two separate functions: a `highlight()` function that changes the style of the linked features and a `dehighlight()` function that returns the elements to their original style. In the examples below, the highlighting strategy we implement is to add a blue stroke to each feature. You should choose the highlighting strategy based on lecture that is most appropriate for your design.
+
+First, let's write the `highlight()` function, which will restyle the stroke of each enumeration unit and bar (Example 2.1).
+
+###### Example 2.1: Adding a `highlight()` function in _main.js_
+
+    //function to highlight enumeration units and bars
+    function highlight(props){
+        //change stroke
+        var selected = d3.selectAll("." + props.adm1_code)
+            .style("stroke", "blue")
+            .style("stroke-width", "2");
+    };
+    
+
+In Example 2.1, `props` is the properties object of the selected element from the GeoJSON data or the attributes object from the CSV data, depending on whether the selected element is an enumeration unit on the map or a bar on the chart (line 2). Since the `adm1_code` attribute should be the same for the matching region and bar, our class selector in the `.selectAll()` method should select both matching elements (line 4). We can then apply a wider blue stroke to both elements with two `.style()` adjustments, one for the stroke color and one for the stroke width (lines 5-6).
+
+In order to make this function work, we need to call it from `"mouseover"` event listeners attached to our `regions` block and our `bars` block (Example 2.2), a common solution for coordinated visualizations, but one that is not mobile-friendly.
+
+###### Example 2.2: Adding mouseover event listeners in _main.js_
+
+        //in setEnumerationUnits()...add France regions to map
         var regions = map.selectAll(".regions")
             .data(franceRegions)
             .enter()
@@ -316,388 +401,21 @@ Once we have constructed our color scale generator, the final step in coloring o
                 return "regions " + d.properties.adm1_code;
             })
             .attr("d", path)
-            .style("fill", function(d){
-                return colorScale(d.properties[expressed]);
-            });
-    };
-    
-
-We now have a choropleth map (Figure 1.4)!
-
-![figure9.1.4.png](img/figure9.1.4.png)
-
-###### Figure 1.4: Colored enumeration units
-
-This solution works fine if _every_ enumeration unit has a value for the current attribute. However, you may have some features in your dataset that do not have values for every attribute. Given the script used in Example 1.3, these may cause an error or result in some enumeration units having a default black fill. We can handle this situation by adding a conditional statement to our fill-styling block that tests for the presence of each attribute value, returns the correct color class if it exists, and returns a neutral gray if it does not (Example 1.8).
-
-###### Example 1.8: Checking for values when setting fill in _main.js_
-
-    function setEnumerationUnits(franceRegions,map,path,colorScale){	
-        //add France regions to map    
-        var regions = map.selectAll(".regions")        
-            .data(franceRegions)        
-            .enter()        
-            .append("path")        
-            .attr("class", function(d){            
-                return "regions " + d.properties.adm1_code;        
-            })        
-            .attr("d", path)        
-                .style("fill", function(d){            
-                    var value = d.properties[expressed];            
-                    if(value) {            	
-                        return colorScale(d.properties[expressed]);            
-                    } else {            	
-                        return "#ccc";            
-                    }    
-            });
-        }
-
-Finally, we can visually highlight the color change between enumeration units by adding a solid border to the `regions` class in _style.css_ (Example 1.9).
-
-###### Example 1.9: Adding a border to enumeration units in _style.css_
-
-    .regions {
-        stroke: #000;
-        stroke-width: 0.5px;
-        stroke-linecap: round;
-    }
-    
-
-Figure 1.5 shows the resulting styled choropleth map.
-
-![figure9.1.5.png](img/figure9.1.5.png)
-
-###### Figure 1.5: The choropleth map with enumeration unit borders
-
-> ### **Apply your color scale generator to your enumeration units. Make sure your script assigns a neutral color to any units with no value for the expressed attribute.**
-
-Lesson 2: Drawing a Coordinated Visualization
----------------------------------------------
-
-### I. Responsively Framing a Data Visualization
-
-For the D3 lab assignment, you are required to create a _**coordinated visualization**_, linking the _reexpress_ and _retrieve_ interaction operators between the choropleth map and a second visual isomorph communicating different aspects of the attribute information. In Lesson 2, we will create a simple bar chart as our coordinated visualization; logic for linking user interactions between the map and graphic are covered in Chapter 12.
-
-You should not feel limited to the bar chart as your only coordinated option. If you are feeling adventurous and want to try implementing a different type of visualization, revisit the [D3 Examples Gallery](https://github.com/mbostock/d3/wiki/Gallery) for inspiration, looking for examples that work well with Shneiderman's multidimensional data type (i.e., multiple variables). If you do decide to stick with a bar chart, make sure you customize its look and feel. Do _not_ simply use the default styles shown in this tutorial. You may copy-paste example code to get started, but simply implementing the default visual appearance of the map or chart will not receive full points for the Lab 2 assignment grade.
-
-The first step in creating our linked visualization is to build the chart container in _main.js_. We can do this in a new function called from within the `callback()` function (Example 2.1).
-
-###### Example 2.1: Creating the bar chart container in _main.js_
-
-            //Example 1.4 line 4...add enumeration units to the map
-            setEnumerationUnits(franceRegions, map, path, colorScale);
-    
-            //add coordinated visualization to the map
-            setChart(csvData, colorScale);
-        };
-    }; //end of setMap()
-    
-    //...
-    
-    //function to create coordinated bar chart
-    function setChart(csvData, colorScale){
-        //chart frame dimensions
-        var chartWidth = 550,
-            chartHeight = 460;
-    
-        //create a second svg element to hold the bar chart
-        var chart = d3.select("body")
-            .append("svg")
-            .attr("width", chartWidth)
-            .attr("height", chartHeight)
-            .attr("class", "chart");
-    };
-    
-
-In Example 2.1, we anticipate that we eventually will need the `csvData` and the `colorScale` to draw and color the bars, so we pass those variables as parameters to our new `setChart()` function (lines 5, 12). Within the `setChart()` function, we set a width and height for the chart (lines 14-15) and build its `<svg>` container using a `chart` block (lines 18-22). If we use the inspector, we can see our chart container on the browser page (Figure 2.1).
-
-![figure9.2.1.png](img/figure9.2.1.png)
-
-###### Figure 2.1: The bar chart container viewed with the Inspector
-
-It is poor UI design to have our chart appear immediately below our map on the page. Much of the utility of a coordinated visualization is in the ability of the users to see both the map and visualization at the same time so as to compare the two. Thus, our map has to become smaller so that the chart can fit next to it. While we could simply adjust the map `width` variable with a guess as to how wide the map should be, it is better to use some principles of _**responsive web design**_ to adapt the content and styling of the webpage to the user's device. If you're unfamiliar with responsive design, it may be worth reviewing the [Mobile Maps & Responsive Design](https://gistbok.ucgis.org/bok-topics/mobile-maps-and-responsive-design) entry of the GIS&T Body of Knowledge.
-
-We can make the widths of the chart and map responsive to each other by setting each to a fraction of the browser window's `innerWidth` property, which reflects the internal width of the browser frame (Example 2.2).
-
-###### Example 2.2: Setting responsive map and chart widths in _main.js_
-
-    //Example 1.3 line 2...set up choropleth map
-    function setMap(){
-        //map frame dimensions
-        var width = window.innerWidth * 0.5,
-            height = 460;
-    
-    //...
-    
-    //Example 2.1 line 11...function to create coordinated bar chart
-    function setChart(csvData, colorScale){
-        //chart frame dimensions
-        var chartWidth = window.innerWidth * 0.425,
-            chartHeight = 460;
-    
-
-In Example 1.3, the map frame width is set to 50% of the `window.innerWidth` property (line 4) and the chart frame width is set to 42.5% (line 12). The 7.5% gap between the two frames leaves space for a margin on either side of the page and ensures a break point (the window width at which the chart falls below the map) that is in between common device display sizes. To make it easier to see our chart frame and fine-tune the appearance of the two frames, we can add some styles in _style.css_ (Example 2.3).
-
-###### Example 2.3: Adding a map frame margin and chart frame styles in _style.css_
-
-    .map {
-        border: medium solid #999;
-        margin: 10px 0 0 20px;
-    }
-    
-    .chart {
-        background-color: rgba(128,128,128,.2);
-        border: medium solid #999;
-        float: right;
-        margin: 10px 20px 0 0;
-    }
-    
-
-In Example 2.3, we add a 10-pixel top margin and 20-pixel left margin to the map frame (line 3). We similarly add a 10-pixel top margin and 20-pixel right margin to the chart frame (line 10). We also add a chart background color and border and make it adhere to the right side of the page, rather than abut the map frame (lines 7-9). Figure 2.2 displays the resulting responsive layout in the browser.
-
-![figure9.2.2.png](img/figure9.2.2.png)
-
-###### Figure 2.2: Even, responsive map and chart frames
-
-If you try to resize your browser window, you will find that the frames are only "responsive" if the page is reloaded. In Chapter 12, we describe how to use event listeners to dynamically adjust the layout any time the window is resized.
-
-> ### **Add an SVG container for your data visualization and adjust your map container size so that both fit neatly on the web page for a wide range of browser window sizes.**
-
-### II. Adding Bars
-
-To make our bars, we need to build a new `.selectAll()` block that appends a rectangle to the chart container for each feature in the dataset, positions it, and sizes it according to its attribute value. The [`<rect>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/rect) element is used to create rectangles in SVG graphics. To draw the bars, we use four attributes of `<rect>`: `width`, `height`, `x` (the horizontal coordinate of the left side of the rectangle), and `y` (the vertical coordinate of the rectangle bottom). Let's start by looking at `width` and `x` (Example 2.4).
-
-###### Example 2.4: Creating bars in _main.js_
-
-        //Example 2.1 line 17...create a second svg element to hold the bar chart
-        var chart = d3.select("body")
-            .append("svg")
-            .attr("width", chartWidth)
-            .attr("height", chartHeight)
-            .attr("class", "chart");
-    
-        //set bars for each province
-        var bars = chart.selectAll(".bars")
-            .data(csvData)
-            .enter()
-            .append("rect")
-            .attr("class", function(d){
-                return "bars " + d.adm1_code;
-            })
-            .attr("width", chartWidth / csvData.length - 1)
-            .attr("x", function(d, i){
-                return i * (chartWidth / csvData.length);
-            })
-            .attr("height", 460)
-            .attr("y", 0);
-    
-
-In Example 2.4, to make each bar just wide enough so that they fill the container horizontally but have gaps in between, we set the `width` attribute of each bar to _1/n - 1_ pixels, where _n_ is the number of bars, represented by the `length` of the `csvData` features array (line 16). To spread the bars evenly across the container, we set the `x` attribute of each bar to `i * (chartWidth / csvData.length)`, where i is the index of the datum; this has the effect of moving each bar to the right of the previous one (lines 17-19). Temporarily, we set an arbitrary bar `height`—the height of the chart container—and an arbitrary `y` attribute of 0, just so the bars are visible (lines 20-21). We deal more with the vertical attributes momentarily, but for now, let's take a look at our evenly-spaced bars (Figure 2.3).
-
-![figure9.2.3.png](img/figure9.2.3.png)
-
-###### Figure 2.3: Evenly-spaced bars in the bar chart frame
-
-Now let's take a look at bar `height` and `y` coordinate. We want each bar's height to be sized proportionally to its attribute value. Recall from the Chapter 9 bubble chart example that we can use a linear scale to produce a range of output values between 0 and the chart height. For a bar chart, we can modify our bubble chart example to instead use the linear scale to assign both vertical attributes of the bars (Example 2.5).
-
-###### Example 2.5: Setting the bar heights with a linear scale in _main.js_
-
-        //create a scale to size bars proportionally to frame
-        var yScale = d3.scaleLinear()
-            .range([0, chartHeight])
-            .domain([0, 105]);
-    
-        //Example 2.4 line 8...set bars for each province
-        var bars = chart.selectAll(".bars")
-            .data(csvData)
-            .enter()
-            .append("rect")
-            .attr("class", function(d){
-                return "bars " + d.adm1_code;
-            })
-            .attr("width", chartWidth / csvData.length - 1)
-            .attr("x", function(d, i){
-                return i * (chartWidth / csvData.length);
-            })
-            .attr("height", function(d){
-                return yScale(parseFloat(d[expressed]));
-            })
-            .attr("y", function(d){
-                return chartHeight - yScale(parseFloat(d[expressed]));
+            .style("fill", function(d){            
+                var value = d.properties[expressed];            
+                if(value) {            	
+                    return colorScale(value);            
+                } else {            	
+                    return "#ccc";            
+                }       
+             })
+            .on("mouseover", function(event, d){
+                highlight(d.properties);
             });
     
-
-In Example 2.5, we create a linear `yScale`, assigning a range from 0 to the height of the chart and a domain that encompasses all of our sample data attribute values (lines 2-4). We then apply the `yScale` to each attribute value to set the bar `height` (lines 18-20). We subtract the scale output from the chart height to set the `y` attribute to ensure that the bars "grow" up from the bottom rather than "fall" down from the top of the chart (lines 21-23).
-
-We also can use our bar chart to show users the position of our class breaks in the dataset by applying our `colorScale` function to style the `fill` of the `<rect>` (Example 2.6).
-
-###### Example 2.6: Applying the color scale at the end of the `bars` block in _main.js_
-
-            //Example 2.5 line 23...end of bars block
-            .style("fill", function(d){
-                return colorScale(d[expressed]);
-            });
+        //...
     
-
-We can now see our attribute values represented by the bar height and classes shown by bar color (Figure 2.4).
-
-![figure9.2.4.png](img/figure9.2.4.png)
-
-###### Figure 2.4: Bar chart with vertical scale and choropleth classification applied
-
-We are making good progress, but the chart is still a little messy. We can polish it and provide a better visual representation of the data by sorting the bars in either ascending or descending size order. This can be accomplished using D3's [`.sort()`](https://github.com/d3/d3-selection/blob/master/README.md#selection_sort) method to sort the data values before applying any of our `<rect>` attributes (Example 2.7).
-
-###### Example 2.7: Sorting attribute values to reorder the bars in _main.js_
-
-        //Example 2.5 line 6...set bars for each province
-        var bars = chart.selectAll(".bars")
-            .data(csvData)
-            .enter()
-            .append("rect")
-            .sort(function(a, b){
-                return a[expressed]-b[expressed]
-            })
-            .attr("class", function(d){
-                return "bars " + d.adm1_code;
-            })
-            //...
-    
-
-D3's `.sort()` method, like the [array sort method](http://www.w3schools.com/jsref/jsref_sort.asp) native to JavaScript, compares each value in the data array to the next value in the array and rearrange the array elements if the returned value is positive (lines 6-8). Subtracting the second value from the first in the function (line 7) orders the bars from smallest to largest, making the chart more readable. Note that if you want to order the bars from largest to smallest, you simply can reverse the two values in the function.
-
-We now have a nicely arranged bar chart (Figure 2.5).
-
-![figure9.2.5.png](img/figure9.2.5.png)
-
-###### Figure 2.5: A neatly arranged and classed bar chart
-
-### III. Chart Annotation
-
-As it stands, the bar chart gives the user a better sense of the shape of our attribute dataset for the mapped attribute. However, it would be difficult to tell anything about the attribute _values_ without contextual informatoin. Some of this information will be given to the user via the _retrieve_ operator in Chapter 12. However, just a glance at the chart should give the user a basic overview of the data range. Thus, we need to annotate the chart, adding the important contextual information that supports interpretation of the visualization.
-
-One approach we can take is to add the attribute values as numerical text to the bars themselves. Recall from Chapter 9 that only can be added within `<text>` elements in an SVG graphic. We can add our bar values by creating a new `.selectAll()` selection similar to our `bars` block, but appending `<text>` elements instead of `<rect>` elements (Example 2.8).
-
-###### Example 2.8: Adding text to the bars in _main.js_
-
-        //annotate bars with attribute value text
-        var numbers = chart.selectAll(".numbers")
-            .data(csvData)
-            .enter()
-            .append("text")
-            .sort(function(a, b){
-                return a[expressed]-b[expressed]
-            })
-            .attr("class", function(d){
-                return "numbers " + d.adm1_code;
-            })
-            .attr("text-anchor", "middle")
-            .attr("x", function(d, i){
-                var fraction = chartWidth / csvData.length;
-                return i * fraction + (fraction - 1) / 2;
-            })
-            .attr("y", function(d){
-                return chartHeight - yScale(parseFloat(d[expressed])) + 15;
-            })
-            .text(function(d){
-                return d[expressed];
-            });
-    
-
-In Example 2.8, we construct our `numbers` block following the same pattern as our `bars` block but append `<text>` elements (line 5) and alter their attributes. The `text-anchor` attribute center-justifies the text (line 12). The `x` attribute adds half of the bar's width to the formula for the horizontal coordinate used in the `bars` block so that each number is centered in the bar (lines 13-16). The `y` attribute accesses the `yScale` using the same formula as in the `bars` block, but adds 15 pixels to lower the text so it appears inside of, rather than on top of, each bar (lines 17-19). Finally, the `.text()` operator places the expressed attribute value in each `<text>` element.
-
-A minor stylistic addition is to change the default black text to white in _style.css_ to make it fit better with the chart's color scheme (Example 2.9).
-
-###### Example 2.9: Styling attribute value annotation in _style.css_
-
-    .numbers {
-        fill: white;
-        font-family: sans-serif;
-    }
-    
-
-This creates tidy numbers in the bars showing the attribute values represented by each bar (Figure 2.6):
-
-![figure9.2.6.png](img/figure9.2.6.png)
-
-###### Figure 2.6: Bar chart with numerical attribute value annotation
-
-While we are on the subject of text, we may as well give our chart a title that reflects the current attribute. The title can be added with a simple block appending a single `<text>` element to the chart and positioning it where we want it (Example 2.10).
-
-###### Example 2.10: Adding a dynamic chart title in _main.js_
-
-        //below Example 2.8...create a text element for the chart title
-        var chartTitle = chart.append("text")
-            .attr("x", 20)
-            .attr("y", 40)
-            .attr("class", "chartTitle")
-            .text("Number of Variable " + expressed[3] + " in each region");
-    
-
-In Example 2.10, we append a `<text>` element to the chart container and position it 20 pixels to the right and 40 pixels below the top-left corner of the container (lines 2-4). For the title itself, we create a string that includes the fourth character from the currently `expressed` attribute name (effectively changing "varA" to "Variable A"; line 6). <ins>_**Note**_</ins> that you need to change the formatting of this title string to make sense given the attribute names in your dataset, and are likely to use the full `expressed` attribute name rather than a subset of characters.
-
-The title should be big and bold, which means overriding the default styles for SVG text with our own styles in _style.css_ (Example 2.11).
-
-###### Example 2.11: Chart title styles in _style.css_
-
-    .chartTitle {
-        font-family: sans-serif;
-        font-size: 1.5em;
-        font-weight: bold;
-    }
-    
-
-We can now see our chart title (Figure 2.7).
-
-![figure9.2.7.png](img/figure9.2.7.png)
-
-###### Figure 2.7: Bar chart with dynamic title
-
-### IV. Chart Axis
-
-An alternative annotation for the bar chart is a vertical axis. If you want to include one or more axes in your chart, review the Chapter 9 tutorial on creating axes in D3.
-
-If we want to add a vertical axis to our bar chart, we face a dilemma. Our bars currently expand horizontally to the edges of the `<svg>` container, but the axis numbers and tics must be inside the container to be visible, and so will overlap the bars without significant adjustment to the rest of the chart. We also should reverse the order of the bars so that the tallest bars are closest to the axis, making them easier to measure visually. Figure 2.8 shows our adjusted chart.
-
-![figure9.2.8.png](img/figure9.2.8.png)
-
-###### Figure 2.8: Bar chart with an axis
-
-Rather than step through each of the necessary adjustments to the script and styles, we provide our full code for the chart with an axis in Examples 2.12 and 2.13. Compare these examples to our previous example code, pick out the differences between the two versions, and analyze what these adjustments accomplish. You may wish to construct both versions, then compare them using the inspector to see the differences (Figure 2.9).
-
-###### Example 2.8: Building a bar chart with an axis in _main.js_
-
-    //function to create coordinated bar chart
-    function setChart(csvData, colorScale){
-        //chart frame dimensions
-        var chartWidth = window.innerWidth * 0.425,
-            chartHeight = 473,
-            leftPadding = 25,
-            rightPadding = 2,
-            topBottomPadding = 5,
-            chartInnerWidth = chartWidth - leftPadding - rightPadding,
-            chartInnerHeight = chartHeight - topBottomPadding * 2,
-            translate = "translate(" + leftPadding + "," + topBottomPadding + ")";
-    
-        //create a second svg element to hold the bar chart
-        var chart = d3.select("body")
-            .append("svg")
-            .attr("width", chartWidth)
-            .attr("height", chartHeight)
-            .attr("class", "chart");
-    
-        //create a rectangle for chart background fill
-        var chartBackground = chart.append("rect")
-            .attr("class", "chartBackground")
-            .attr("width", chartInnerWidth)
-            .attr("height", chartInnerHeight)
-            .attr("transform", translate);
-    
-        //create a scale to size bars proportionally to frame and for axis
-        var yScale = d3.scaleLinear()
-            .range([463, 0])
-            .domain([0, 100]);
-    
-        //set bars for each province
+        //in setChart()...set bars for each province
         var bars = chart.selectAll(".bar")
             .data(csvData)
             .enter()
@@ -709,97 +427,293 @@ Rather than step through each of the necessary adjustments to the script and sty
                 return "bar " + d.adm1_code;
             })
             .attr("width", chartInnerWidth / csvData.length - 1)
-            .attr("x", function(d, i){
-                return i * (chartInnerWidth / csvData.length) + leftPadding;
-            })
-            .attr("height", function(d, i){
-                return 463 - yScale(parseFloat(d[expressed]));
-            })
-            .attr("y", function(d, i){
-                return yScale(parseFloat(d[expressed])) + topBottomPadding;
-            })
-            .style("fill", function(d){
-                return colorScale(d[expressed]);
+            .on("mouseover", function(event, d){
+                highlight(d);
             });
     
-        //create a text element for the chart title
-        var chartTitle = chart.append("text")
-            .attr("x", 40)
-            .attr("y", 40)
-            .attr("class", "chartTitle")
-            .text("Number of Variable " + expressed[3] + " in each region");
+
+In Example 2.2, the event listener added to the `regions` block uses an anonymous function to call the `highlight()` function so that the `properties` object can be passed to it without passing the entire GeoJSON feature (lines 13-15). The listener on the `bars` block, on the other hand, uses `CsvData`, and therefore only passes the datum (`d`) as it is already equivalent to the `properties` object within the GeoJSON feature.
+
+If we now test our highlighting, we can see it working (Figure 2.1). The brushed features are highlighted when probed, but they still retain their blue borders after the mouse is removed, quickly making a mess of the visualization! This is why we need a `dehighlight()` function as well as a `highlight()` function.
+
+![figure10.2.1.png](img/figure10.2.1.png)
+
+###### Figure 2.1: Linked highlighting
+
+> ### **Implement highlighting on your choropleth map and linked visualization.**
+
+### II. Dehighlighting
+
+The `dehighlight()` function is more challenging to implement than the `highlight()` function because the enumeration units and bars have different original border styles. One solution is to use the exact same style for both map and chart; this may not be possible depending on the type of linked visualization you choose to implement. Another choice is to hardcode each style as a global variable and create separate selections for map elements and chart elements to restyle each.
+
+The implementation shown here uses a third method: it takes advantage of the SVG [`<desc>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/desc) element, a simple element that only holds text content, remains invisible to the user, and can be appended to any other kind of SVG element. We can add a `<desc>` element containing a text description of the original style to each of our map's `<path>` elements and our chart's `<rect>` elements (Example 2.3).
+
+###### Example 2.3: Adding `<desc>` elements with style descriptors in _main.js_
+
+        //below Example 2.2 line 16...add style descriptor to each path
+        var desc = regions.append("desc")
+            .text('{"stroke": "#000", "stroke-width": "0.5px"}');
     
-        //create vertical axis generator
-        var yAxis = d3.axisLeft()
-            .scale(yScale);
+        //...
     
-        //place axis
-        var axis = chart.append("g")
-            .attr("class", "axis")
-            .attr("transform", translate)
-            .call(yAxis);
+        //below Example 2.2 line 31...add style descriptor to each rect
+        var desc = bars.append("desc")
+            .text('{"stroke": "none", "stroke-width": "0px"}');
     
-        //create frame for chart border
-        var chartFrame = chart.append("rect")
-            .attr("class", "chartFrame")
-            .attr("width", chartInnerWidth)
-            .attr("height", chartInnerHeight)
-            .attr("transform", translate);
+
+In Example 2.3, note that each style descriptor string adheres to a JSON format (lines 3 and 9). This makes the information easier to parse in the `dehighlight()` function. Be aware that JSON formatting uses even stricter syntax than regular JavaScript: each property and value _must_ be encased by _double-quotes_. The JSON parser will fail if single quotes are used, if necessary quotes are left our, or if there are excess or missing punctuation marks.
+
+Using the inspector, we can see that each `<path>` element and each `<rect>` element now have child `<desc>` elements with our pseudo-object string (Figure 2.2).
+
+![figure10.2.2.png](img/figure10.2.2.png)
+
+###### Figure 2.2: Inspecting the `<desc>` elements
+
+We now can make use of the contents of these `<desc>` elements in our `dehighlight()` function. It still takes a bit of doing to retrieve the information stored in the `<desc>` elements, so we will step carefully through the `dehighlight()` example below (Example 2.4).
+
+###### Example 2.4: Adding a `dehighlight()` function in _main.js_
+
+    //function to reset the element style on mouseout
+    function dehighlight(props){
+        var selected = d3.selectAll("." + props.adm1_code)
+            .style("stroke", function(){
+                return getStyle(this, "stroke")
+            })
+            .style("stroke-width", function(){
+                return getStyle(this, "stroke-width")
+            });
+    
+        function getStyle(element, styleName){
+            var styleText = d3.select(element)
+                .select("desc")
+                .text();
+    
+            var styleObject = JSON.parse(styleText);
+    
+            return styleObject[styleName];
+        };
     };
     
 
-###### Example 2.13: Styles for bar chart with axis in _style.css_
+In Example 2.4, the `dehighlight()` function begins much the same as the `highlight()` function, creating a `selected` block that restyles the `stroke` and `stroke-width` styles (lines 3-9). However, we cannot pass one value for each style, since we are resetting both enumeration units and bars, which have different styles. Instead, each style calls an anonymous function, which in turn calls a separate `getStyle()` function to retrieve the information stored in the `<desc>` element for that style. The `getStyle()` function takes as parameters the current element in the DOM—represented by the keyword `this`—and the style property being manipulated (lines 5 and 8). The results returned by `getStyle()` are passed along to the style object and in turn to the `.style()` operator, which applies them to each element.
 
-    .chart {
-        float: right;
-        margin: 7px 20px 0 0;
-    }
+Within the `getStyle()` function, we retrieve the `<desc>` content by creating a selection of the current DOM element, selecting its `<desc>` element, and returning the text content using the `.text()` operator with no parameters (lines 14-16). We then parse the JSON string to create a JSON object (line 18) and return the correct style property's value (line 20).
+
+This completes the `dehighlight()` function, which we can add event listeners to call (Example 2.5).
+
+###### Example 2.5: Adding `mouseout` event listeners in _main.js_
+
+            //Example 2.2 line 12...regions event listeners
+            .on("mouseover", function(event, d){
+                highlight(d.properties);
+            })
+            .on("mouseout", function(event, d){
+                dehighlight(d.properties);
+            });
     
-    .chartTitle {
-        font-family: sans-serif;
-        font-size: 1.5em;
-        font-weight: bold;
-    }
+            //...
     
-    .chartBackground {
-        fill: rgba(128,128,128,.2);
-    }
-    
-    .chartFrame {
-        fill: none;
-        stroke: #999;
-        stroke-width: 3px;
-        shape-rendering: crispEdges;
-    }
-    
-    .axis path,
-    .axis line {
-        fill: none;
-        stroke: #999;
-        stroke-width: 1px;
-        shape-rendering: crispEdges;
-    }
-    
-    .axis text {
-        font-family: sans-serif;
-        font-size: 0.8em;
-        fill: #999;
-    }
+            //Example 2.2 line 30...bars event listeners
+            .on("mouseover", function(event, d){
+                highlight(d);
+            })
+            .on("mouseover", function(event, d){
+                dehighlight(d);
+            });
     
 
-![figure9.2.9.png](img/figure9.2.9.png)
+We now have working linked highlighting and dehighlighting, allowing only one feature to be selected at a time (Figure 2.3).
 
-###### Figure 2.9: Comparing the two chart versions using the inspector
+![figure10.2.3.png](img/figure10.2.3.png)
 
-> ### **Create a bar chart or alternative data visualization that clearly expresses the attribute values shown on the choropleth map and is classed using your choropleth classification scheme.**
+###### Figure 2.3: Linked highlighting and dehighlighting
 
-## Activity 10
+> ### **Implement dehighlighting on your choropleth map and linked visualization.**
 
-1.  Join your CSV attribute data to your GeoJSON geospatial data and map one of the attributes in your Activity 9 basemap as a choropleth.
-2.  Create a coordinated visualization that supports your choropleth map by providing a sensible alternative view of the data.
-3.  Annotated your coordinated visualization with a title, and either value labels or one or more axes.
-4.  Commit and sync your _unit-3_ directory with the commit message "Activity 10".
+### III. Dynamic Labels
+
+The final assigned task in support of the _retrieve_ interaction operator is to implement a dynamic label (or popup) showing the attribute values for each region of France. For this tutorial, we implement a simple label that moves with the cursor. To create the dynamic label, we can write a new `setLabel()` function that makes use of the feature properties (Example 2.6).
+
+###### Example 2.6: Creating the dynamic label in _main.js_
+
+    //function to create dynamic label
+    function setLabel(props){
+        //label content
+        var labelAttribute = "<h1>" + props[expressed] +
+            "</h1><b>" + expressed + "</b>";
+    
+        //create info label div
+        var infolabel = d3.select("body")
+            .append("div")
+            .attr("class", "infolabel")
+            .attr("id", props.adm1_code + "_label")
+            .html(labelAttribute);
+    
+        var regionName = infolabel.append("div")
+            .attr("class", "labelname")
+            .html(props.name);
+    };
+    
+
+In Example 2.6, within the `setLabel()` function, we first create an HTML string containing an `<h1>` element with the selected attribute value and a `<b>` element with the attribute name (lines 4-5). If these elements needed attributes, it quickly becomes unwieldy to include them in an HTML string, but since they do not, writing an HTML string is a handy shortcut. Next, we create the actual label `<div>` element, giving it `class` and `id` attributes and assigning our HTML string with the `.html()` operator (lines 8-12). Finally, we add a child `<div>` to the label to contain the name of the selected region.
+
+Since we want our label to show up whenever the user highlights a region or bar, we now can call `setLabel()` from within `highlight()`, passing it the `props` variable as a parameter. To make sure our labels do not stack up in the DOM, we need to remove each new label on `dehighlight()` as well (Example 2.7).
+
+###### Example 2.7: Removing the info label on dehighlight in _main.js_
+
+        //below Example 2.4 line 21...remove info label
+        d3.select(".infolabel")
+            .remove();
+    
+
+Without any styles applied to it, the label will look pretty messy. Let's style it in _style.css_ (Example 2.8).
+
+###### Example 2.8: Label styles in _style.css_
+
+    .infolabel {
+        position: absolute;
+        height: 50px;
+        min-width: 100px;
+        color: #fff;
+        background-color: #000;
+        border: solid thin #fff;
+        padding: 5px 10px;
+    }
+    
+    .infolabel h1 {
+        margin: 0 20px 0 0;
+        padding: 0;
+        display: inline-block;
+        line-height: 1em;
+    }
+    
+
+These styles create a simple black label with white text (Figure 2.4).
+
+![figure10.2.4.png](img/figure10.2.4.png)
+
+###### Figure 2.4: Styled info label
+
+The next step, of course, is to  reposition the label to the cursor. D3 provides a handy object, [`event`](https://github.com/d3/d3-selection/blob/master/README.md#handling-events), that holds the position of the mouse whenever an event is fired on the page. We can use [`event`](https://github.com/d3/d3-selection/blob/master/README.md#handling-events),to set the position of our info label in a function that is called on any `mousemove` event (Example 2.8).
+
+###### Example 2.8: Adding movement to the info label in _main.js_
+
+    //function to move info label with mouse
+    function moveLabel(){
+        //use coordinates of mousemove event to set label coordinates
+        var x = event.clientX + 10,
+            y = event.clientY - 75;
+    
+        d3.select(".infolabel")
+            .style("left", x + "px")
+            .style("top", y + "px");
+    };
+    
+
+In Example 2.8, we retrieve the coordinates of the `mousemove` event and manipulate them to set the bottom-left corner of the label above and to the right of the mouse (lines 4-5). We then pass those coordinate values to the `left` and `top` styles of the label—which we use instead of `margin-left` and `margin-top` because the label's position is set to `absolute` instead of `relative` (lines 7-9). We now need to call this function as a listener handler for a `mousemove` event on both the map and chart (Example 2.9).
+
+###### Example 2.9. Adding `mousemove` event listeners in _main.js_
+
+            //Example 2.5 line 1...regions event listeners
+            .on("mouseover", function(event, d){
+                highlight(d.properties);
+            })
+            .on("mouseout", function(event, d){
+                dehighlight(d.properties);
+            })
+            .on("mousemove", moveLabel);
+    
+            //...
+    
+            //Example 2.5 line 11...bars event listeners
+            .on("mouseover", function(event, d){
+                highlight(d);
+            })
+            .on("mouseover", function(event, d){
+                dehighlight(d);
+            });
+            .on("mousemove", moveLabel);
+    
+
+This should cause our info label to follow our mouse. However, there are two minor issues we need to resolve. First, if the mouse gets too high or too far to the right, the label may overflow the page. Second, depending on your browser speed, you may notice that sometimes the label is added to the page before the position styles take affect, causing it to flash briefly in the corner.
+
+To tackle the first problem, we need to test whether the label has moved off the page, and if so, switch which side of the mouse it appears on. For the vertical (`y`) coordinate, we can test whether the event Y coordinate is less than our desired distance between mouse and upper-left label corner; if it is, then we need to use a vertical coordinate for the label that switches which side of the mouse it is on vertically (Example 2.10).
+
+For the horizontal (`x`) coordinate, since the label is to the right of the mouse by default, we need to check to see if the label overflows the right side of the page. To do this, we need to access the browser window's `innerWidth` property and subtract the width of the label and a desired buffer from it. If the event X coordinate is greater than this number, the label will overflow the right side of the page and should therefore be switched to the left side of the mouse (Example 2.10).
+
+###### Example 2.10: Dynamically switching label position to avoid page overflow in _main.js_
+
+    //Example 2.8 line 1...function to move info label with mouse
+    function moveLabel(){
+        //get width of label
+        var labelWidth = d3.select(".infolabel")
+            .node()
+            .getBoundingClientRect()
+            .width;
+    
+        //use coordinates of mousemove event to set label coordinates
+        var x1 = event.clientX + 10,
+            y1 = event.clientY - 75,
+            x2 = event.clientX - labelWidth - 10,
+            y2 = event.clientY + 25;
+    
+        //horizontal label coordinate, testing for overflow
+        var x = event.clientX > window.innerWidth - labelWidth - 20 ? x2 : x1; 
+        //vertical label coordinate, testing for overflow
+        var y = event.clientY < 75 ? y2 : y1; 
+    
+        d3.select(".infolabel")
+            .style("left", x + "px")
+            .style("top", y + "px");
+    };
+    
+
+In Example 2.10, to get the width of the label, we select the label then use the [`.node()`](https://github.com/d3/d3-selection/blob/master/README.md#selection_node) operator to return its DOM node (lines 4-5). From there, we can use the native JavaScript [`.getBoundingClientRect()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) method to return an object containing the size of the label, from which we access its `width` property (lines 6-7). We use this value to set the backup x coordinate that will shift the label to the left of the mouse when it approaches the right side of the page (line 12). After setting our default coordinates (`x1` and `y1`) and backup coordinates (`x2` and `y2`), we perform each overflow test, assigning the backup coordinates if the defaults would overflow the page, and the default coordinates if not (lines 16 and 18).
+
+Finally, the flicker issue is not really worth solving in the script; instead we can sort of sweep it under the rug by assigning the label a default position that moves it off the page entirely (Example 2.11 line 9).
+
+###### Example 2.11: Adding a default `top` style to hide the label in _style.css_
+
+    .infolabel {    margin: 0 20px 0 0;    position: absolute;
+        height: 50px;
+        min-width: 100px;
+        color: #fff;
+        background-color: #000;
+        border: solid thin #fff;
+        padding: 5px 10px;
+        top: -75px;
+    }
+    
+
+We now have a label that follows the mouse and switches sides to avoid overflow (Figure 2.5).
+
+![figure10.2.5.gif](img/figure10.2.5.gif)
+
+###### Figure 2.5: Dynamic label
+
+> ### **Implement a dynamic label on your choropleth map and linked visualization.**
+
+### IV. Extending Your Coordinated Visualization
+
+Here ends the tutorials related to constructing your multivariate coordinated visualization...but your work is not over! If you chose to begin by following the tutorial examples, it is now time to implement your own custom UI/UX design. You should use the principles of cartographic design and interaction that you have learned up to this point to push beyond the basic requirements of the D3 lab assignment and make your final product visually stunning and an experience your users will remember.
+
+Consider implementing the following components that have not been covered in these modules:
+
+*   A dynamic choropleth legend that updates on attribute sequencing
+    
+*   Other interaction operators that make sense given your dataset (_zoom, pan, search, filter, reexpress, overlay, resymbolize, reproject, arrange,_ or _calculate_)
+    
+*   Additional coordinated data visualizations
+    
+*   Metadata and other supplementary information about the topic of your coordinated visualization
+    
+*   Any other tools or features that add to the utility, usability, and/or aesthetics of the coordinated visualization
+    
+
+There is only so much you can learn from following along with written tutorials. You have probably already grappled with making use of online examples, documentation, and help forums to do something awesome. We have tried to open the door for you; to become a professional-level web mapper, you need to dive in and figure out the rest on your own. If you have made it this far, you should feel highly confident in your ability to do so!
+
+> ### **Add logical additional features to your coordinated visualization and finalize its user interface design.**
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
 
-### [Return Home](../../../) | [Previous Chapter](../Chapter10) | [Next Chapter](../Chapter12)
+### [Return Home](../../../) | [Previous Chapter](../Chapter11)
