@@ -837,4 +837,4 @@ A common calculation on slippy maps is distance and area measurement, which can 
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
 
-### [Return Home](../../../) | [Previous Chapter](../Chapter5) | [Next Chapter](../Chapter7)
+### [Return Home](../../../) | [Previous Chapter](../Chapter04) | [Next Chapter](../Chapter06)

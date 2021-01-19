@@ -861,4 +861,4 @@ With these adjustments made, we have a complete, readable data graphic (Figure 3
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
 
-### [Return Home](../../../) | [Previous Chapter](../Chapter8) | [Next Chapter](../Chapter10)
+### [Return Home](../../../) | [Previous Chapter](../Chapter07) | [Next Chapter](../Chapter09)

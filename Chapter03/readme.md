@@ -402,4 +402,4 @@ Note that the `console.log()` statement on Line 17 of Example 3.7 is executed _f
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
 
-### [Return Home](../../../) | [Previous Chapter](../Chapter3) | [Next Chapter](../Chapter5)
+### [Return Home](../../../) | [Previous Chapter](../Chapter02) | [Next Chapter](../Chapter04)
