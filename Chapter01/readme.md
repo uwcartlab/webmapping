@@ -3,7 +3,7 @@
 Chapter 01: Setting Up Your Workspace
 =====================================
 
-Welcome to the first chapter of Web Mapping! Chapter 2 includes three lab lessons and Activities 1 & 2:
+Welcome to the first chapter of Web Mapping! Chapter 01 includes three lab lessons and Activities 1 & 2:
 
 *   In Lesson 1, we will introduce text editors and some basic "boilerplate" HTML used to structure your website.
 *   In Lesson 2, we will discuss how to efficiently set up your web directory and host it through a localhost development server.
@@ -50,7 +50,7 @@ You are welcomed to use your preferred text editor in class. Atom, Brackets, and
 
 A _**boilerplate**_ is the minimum starter code needed begin development.  For this workbook, we start with the basic _**HTML boilerplate**_ to simplify your early designs and focus on JavaScript. 
 
-> ### **Download _[unit-1.zip](unit-1.zip)_ from the Chapter 2 files, unzip it, and open _index.html_ in your text editor.**
+> ### **Download _[unit-1.zip](unit-1.zip)_ from the Chapter 01 files, unzip it, and open _index.html_ in your text editor.**
 
 The HTML boilerplate code in _index.html_ should look like Example 1.1. Every component <ins>_must_</ins> be present in your _index.html_ file, excepting the `<!-- -->` comments and IE stylesheet check. Importantly: you must use _index.html_ as the name of the homepage to use the directory name as the endpoint of a web url. For instance [www.geography.wisc.edu/cartography/](http://www.geography.wisc.edu/cartography/) is the same as [www.geography.wisc.edu/cartography/index.html](http://www.geography.wisc.edu/cartography/index.html), but shorter and therefore preferred.
 

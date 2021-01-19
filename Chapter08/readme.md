@@ -3,7 +3,7 @@
 Chapter 08: D3 Foundations
 ========================
 
-Welcome to the first of four chapters in Unit 3 on D3, a powerful JavaScript library supporting coordination across many different kinds of map and visualization types. Chapter 9 includes three relatively longer lessons and ends with Activity 8 requiring you to compile a multivariate dataset for your Unit 3 D3 map.
+Welcome to the first of four chapters in Unit 3 on D3, a powerful JavaScript library supporting coordination across many different kinds of map and visualization types. Chapter 08 includes three relatively longer lessons and ends with Activity 8 requiring you to compile a multivariate dataset for your Unit 3 D3 map.
 
 *   In Lesson 1, we investigate selections and blocks, the code structures that provide the backbone of D3 script.
 *   In Lesson 2, we expand on D3 selections to make data joins that transform geospatial data into DOM elements.
@@ -38,7 +38,7 @@ The core of D3 is the _**selection**_, allowing its methods to interface with th
 
 There are two methods used to create a selection: [`d3.select()`](https://github.com/d3/d3-selection/blob/master/README.md#select) and [`d3.selectAll()`](https://github.com/d3/d3-selection/blob/master/README.md#selectAll), which differ by how many markup elements are selected at once. The `d3.select()` method selects only the _first_ element in the DOM that matches the selector. Subsequent methods chained to the selection only affect that element. Conversely, `d3.selectAll()` grabs _all_ markup elements in the DOM that match the selector and applies any subsequent methods to all of the selected elements.
 
-We will demonstrate the utility of this distinction over the course of the Chapter 9 and 10 lessons. For now, let's start our script by using `d3.select()` to select the HTML `<body>` and D3's `.append()` method to add a new `<svg>` element, which eventually will hold our data-driven graphic. Make the selection in your _main.js_ file (Example 1.1).
+We will demonstrate the utility of this distinction over the course of the Chapter 08 and 09 lessons. For now, let's start our script by using `d3.select()` to select the HTML `<body>` and D3's `.append()` method to add a new `<svg>` element, which eventually will hold our data-driven graphic. Make the selection in your _main.js_ file (Example 1.1).
 
 ###### Example 1.1:  Selecting the `<body>` in _main.js_
 
@@ -76,7 +76,7 @@ Reload your _unit-3_ website and use the inspector to see the new SVG in the DOM
 
 ###### Figure 1.2: An SVG created using D3
 
-Note that both jQuery and D3 have `.append()` methods. In this case, we know that the `.append()` method we are using belongs to D3 because the block starts with `d3`. Recall from Chapter 7 how JavaScript object prototypes work: D3's `.append()` is a method of the `d3` object, just as jQuery's `.append()` is a method of the `jQuery` object (and its `$` alias). In any script that uses chain syntax or blocks (such as D3, Leaflet, and jQuery), the methods you can use in the chain depend on the library object referenced at the beginning of the chain (e.g., `d3`, `L`, or `$`). You can identify which library is being used by reading backwards up the chain or block to its beginning. If the beginning of the chain or block is a variable, you need to look at how that variable was created to discover which library is being used.
+Note that both jQuery and D3 have `.append()` methods. In this case, we know that the `.append()` method we are using belongs to D3 because the block starts with `d3`. Recall from Chapter 06 how JavaScript object prototypes work: D3's `.append()` is a method of the `d3` object, just as jQuery's `.append()` is a method of the `jQuery` object (and its `$` alias). In any script that uses chain syntax or blocks (such as D3, Leaflet, and jQuery), the methods you can use in the chain depend on the library object referenced at the beginning of the chain (e.g., `d3`, `L`, or `$`). You can identify which library is being used by reading backwards up the chain or block to its beginning. If the beginning of the chain or block is a variable, you need to look at how that variable was created to discover which library is being used.
 
 *   **_Rule:_** _In any method chain or block, only chain together methods belonging to the library referenced at the start of the chain._
 
@@ -89,7 +89,7 @@ In Example 1.1, the block chain is assigned to an `<svg>` variable called `conta
 *   **_Rule:_** _Give each block a name by assigning it to a variable named for the operand it holds._
     
 
-Now that the `<svg>` element is our operand, we can add operators to the block that manipulate that element. Recall from Chapter 7 that every SVG requires `width` and `height` attributes. These values can be stored in separate variables that are passed as parameters to the operators. We can use D3's [`.attr()`](https://github.com/d3/d3-selection/blob/master/README.md#selection_attr) operator to assign any attributes to markup elements (Example 1.3).
+Now that the `<svg>` element is our operand, we can add operators to the block that manipulate that element. Recall from Chapter 06 that every SVG requires `width` and `height` attributes. These values can be stored in separate variables that are passed as parameters to the operators. We can use D3's [`.attr()`](https://github.com/d3/d3-selection/blob/master/README.md#selection_attr) operator to assign any attributes to markup elements (Example 1.3).
 
 ###### Example 1.3: Adding attributes to the `<svg>` element in _main.js_
 
@@ -297,7 +297,7 @@ Let's think about how this might relate to mapping for a moment. In the Leaflet 
     }
     
 
-In Chapter 10, we will find that D3 allows us to map GeoJSON geometries by making use of the `"features"` array. For now, let's return to the basics.
+In Chapter 09, we will find that D3 allows us to map GeoJSON geometries by making use of the `"features"` array. For now, let's return to the basics.
 
 ### II. Joining Data
 
@@ -347,7 +347,7 @@ If we now view the markup using the developer tools HTML tab, we can see our new
 
 ###### Figure 2.1: The circles exist!
 
-Notice there are five circles, one for each datum. Using `.append()` after a data join always creates the same number of new HTML elements as data values in the dataset. The circles are not visible on the page because, as you may recall from Chapter 7, they require `r`, `cx`, and `cy` attributes. We can use our joined data to position the circles (Example 2.6).
+Notice there are five circles, one for each datum. Using `.append()` after a data join always creates the same number of new HTML elements as data values in the dataset. The circles are not visible on the page because, as you may recall from Chapter 06, they require `r`, `cx`, and `cy` attributes. We can use our joined data to position the circles (Example 2.6).
 
 ###### Example 2.6: Using the joined data in _main.js_
 
@@ -379,9 +379,9 @@ In a block with a data join, the anonymous functions that return a second parame
 
 ### III. Complex Data
 
-So far, we have relied upon a very simple array to build our example graphic. What if we want something a little more complex and meaningful—say, a graph of city populations. We can start with our more complicated data array from way back in Chapter 3 (Example 2.7).
+So far, we have relied upon a very simple array to build our example graphic. What if we want something a little more complex and meaningful—say, a graph of city populations. We can start with our more complicated data array from way back in Chapter 02 (Example 2.7).
 
-###### Example 2.7: The city populations data array from Chapter 3
+###### Example 2.7: The city populations data array from Chapter 02
 
     var cityPop = [
         { 
@@ -456,7 +456,7 @@ Note that in Example 2.8, `d` still holds each of our array values, only now eac
 
 ###### Figure 2.3: A bubble chart of city populations
 
-> ### **Using properly formatted D3 code blocks, create a bubble chart of the Chapter 3 example city data with circles named according to city name and sized according to city population.**
+> ### **Using properly formatted D3 code blocks, create a bubble chart of the Chapter 02 example city data with circles named according to city name and sized according to city population.**
 
 Lesson 3: Scales, Axes, and Text
 --------------------------------
@@ -855,7 +855,7 @@ With these adjustments made, we have a complete, readable data graphic (Figure 3
 ## Activity 8
 
 1.  Create a _unit-3_ web directory and Git repository.
-2.  Create a bubble chart based on the simple Chapter 3 dataset. Save a copy of your _main.js_ as _bubblechart.js_, as you will replace this code in your _main.js_ in Chapter 10. 
+2.  Create a bubble chart based on the simple Chapter 02 dataset. Save a copy of your _main.js_ as _bubblechart.js_, as you will replace this code in your _main.js_ in Chapter 09. 
 3.  Find and format a multivariate dataset for the Unit 3 D3 assignment.
 4.  Commit and sync the dataset and your _unit-3_ folder (including _bubblechart.js_) in your data folder of the _unit-3_ directory with the commit message "Activity 8".
 

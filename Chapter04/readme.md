@@ -3,10 +3,10 @@
 Chapter 04: Leaflet Foundation & Using Online Resources
 =====================================================
 
-Chapter 5 transitions into the second unit for Web Mapping, which supports your Leaflet lab assignment. With a solid foundation behind you, it is time to make your first interactive web map! Chapter 5 includes four lab lessons and ends with Activity 5 requiring you to compile and map spatiotemporal data onto a slippy basemap using Leaflet. js.
+Chapter 04 transitions into the second unit for Web Mapping, which supports your Leaflet lab assignment. With a solid foundation behind you, it is time to make your first interactive web map! Chapter 04 includes four lab lessons and ends with Activity 5 requiring you to compile and map spatiotemporal data onto a slippy basemap using Leaflet. js.
 
 *   In Lesson 1, we introduce the Leaflet open source code library and API documentation, having you complete two tutorials available through the Leaflet website that provide essential background on Leaflet.
-*   In Lesson 2, we discuss how to integrate example code into your interactive web map, adapting several of the Leaflet tutorial scripts to map the _MegaCities.geojson_ file you prepared in Chapter 4.
+*   In Lesson 2, we discuss how to integrate example code into your interactive web map, adapting several of the Leaflet tutorial scripts to map the _MegaCities.geojson_ file you prepared in Chapter 03.
 *   In Lesson 3, we review useful resources for obtaining help from the open source software community when you are stuck on a problem.
 *   In Lesson 4, we provide guidance for finding basemap tilesets and thematic overlay data, some of which may be review if you've taken an introductory cartography course. Lessons 3 and 4 are short, and provide some general guidance as you begin your first interactive web map.
 
@@ -513,7 +513,7 @@ Keep in mind that while many of these tilesets are open, some (such as MapBox an
 
 ### II. Finding Thematic Data
 
-In Chapter 4, we discussed how to format GeoJSON data, which we also use for your Leaflet assignment. However, first you need to _find_ spatiotemporal data on a topic that interests you.
+In Chapter 03, we discussed how to format GeoJSON data, which we also use for your Leaflet assignment. However, first you need to _find_ spatiotemporal data on a topic that interests you.
 
 Finding data can be one of the most difficult and time-consuming tasks of any mapping project. Below are some useful resources for finding data. This list is not meant to be exhaustive; many governments, agencies, and non-government organizations maintain their own websites for data access that are not included below.
 

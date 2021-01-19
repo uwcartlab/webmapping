@@ -3,7 +3,7 @@
 Chapter 05: Dynamic Mapping with Leaflet
 ======================================
 
-Congratulations on making your first interactive web map with Leaflet last chapter! Chapter 6 continues to build on your first lab assignment by introducing Leaflet interaction operators. Chapter 6 includes four lab lessons and ends with Activity 6 requiring you to implement _pan_, _zoom_, _retrieve_, and _sequence_ on scaled proportional symbols.
+Congratulations on making your first interactive web map with Leaflet last chapter! Chapter 05 continues to build on your first lab assignment by introducing Leaflet interaction operators. Chapter 05 includes four lab lessons and ends with Activity 6 requiring you to implement _pan_, _zoom_, _retrieve_, and _sequence_ on scaled proportional symbols.
 
 *   In Lesson 1, we introduce pseudocoding in support of scaling your proportional point symbols to your spatiotemporal dataset.
 *   In Lesson 2, we introduce the _pan_, _zoom_, and _retrieve_ operators that are well-supported in Leaflet.
@@ -39,7 +39,7 @@ Before starting on the proportional symbols, take a second to think through the 
     //Step 6. Give each feature's circle marker a radius based on its attribute value
     
 
-Note that in the pseudocode above, we already have accomplished the first three steps in Chapter 5. Thus, we can assess that we are about half way to completing the proportional symbol scaling. Accordingly, pseudocoding also helps to assess workload and progress on a development project, such as your final project.
+Note that in the pseudocode above, we already have accomplished the first three steps in Chapter 04. Thus, we can assess that we are about half way to completing the proportional symbol scaling. Accordingly, pseudocoding also helps to assess workload and progress on a development project, such as your final project.
 
 As we complete the remaining three steps, we leave our pseudocode in our script as comments describing the tasks within it.
 
@@ -79,7 +79,7 @@ While we could keep adding script to the AJAX callback function to create the pr
     };
     
 
-Currently, the code within `createPropSymbols()` applies the same, static options to create the `L.circleMarker` layer as the [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html) tutorial from Chapter 5. Note that one of these options is the radius of the circle, which we can resize dynamically in the `createPropSymbols()` function to scale the point symbols. 
+Currently, the code within `createPropSymbols()` applies the same, static options to create the `L.circleMarker` layer as the [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html) tutorial from Chapter 04. Note that one of these options is the radius of the circle, which we can resize dynamically in the `createPropSymbols()` function to scale the point symbols. 
 
 Step 4 of our pseudocode determines the attribute for scaling the proportional symbols. We describe how to sequence through all of your attributes in Lesson 3, but for now just pick one attribute and assign it to a local `attribute` variable to hold the name of the GeoJSON attribute used for dynamic scaling (e.g., `"Pop_2015"` in Example 1.3).
 
@@ -401,7 +401,7 @@ That's quite a few steps, so let's get started on the code!
 
 ### II. Sequence UI Controls
 
-Step 1 in the pseudocode is creating a slider widget. For now, we can place our sequence controls outside of the map in a separate HTML `<div>` element with id `#panel` beneath the `#map` element in our _index.html_ file (Example 3.3). We will move these onto the map in Chapter 7.
+Step 1 in the pseudocode is creating a slider widget. For now, we can place our sequence controls outside of the map in a separate HTML `<div>` element with id `#panel` beneath the `#map` element in our _index.html_ file (Example 3.3). We will move these onto the map in Chapter 06.
 
 ###### Example 3.3: Adding a `<div>` panel for the sequence controls in _index.html_
 
@@ -631,7 +631,7 @@ Not only have we successfully assigned the first value in our array to the `attr
 
 ###### Figure 3.5: Leaflet map visualizing the first attribute in the dataset
 
-Step 5 of our pseudocode listens for user interaction with the slider and step buttons. We can add `.click` listeners to the step buttons, using the jQuery alias syntax introduced in Chapter 3. The slider `<input>` element has an [`input`](http://www.w3schools.com/jsref/event_oninput.asp) event that fires when the user moves the slider thumb or clicks on the slider bar.
+Step 5 of our pseudocode listens for user interaction with the slider and step buttons. We can add `.click` listeners to the step buttons, using the jQuery alias syntax introduced in Chapter 02. The slider `<input>` element has an [`input`](http://www.w3schools.com/jsref/event_oninput.asp) event that fires when the user moves the slider thumb or clicks on the slider bar.
 
 The _sequence_ listeners should be placed within the `createSequenceControls()` function, after the elements have been added to the DOM (Example 3.14). For now, the contents of the anonymous functions called by both event listeners is a placeholder comment that eventually will include the logic to update the proportional symbols according to the user input.
 
@@ -792,7 +792,7 @@ The Leaflet website includes a [_Layer Groups and Layers Control_](http://leafle
 
 **_Reproject_** sets or changes the map projection beyond the scale (_zoom_) and centering (_pan_). Due to the nature of continuous slippy map tilesets, _reproject_ generally does not make sense for interactive web maps using Leaflet. The most likely scenario for _reproject_ in Leaflet is to allow the user to switch between a tileset that is Web Mercator projection (EPSG:3857/EPSG:900913) and one in Plate Carrée (EPSG:4326/WGS84/unprojected). The script required to do this is challenging and there are few stable online examples.
 
-Custom projection and the _reproject_ operator is possible with D3, and an important (but complex) task when getting started with your D3 map in Chapter 10 is setting your projection parameters computationally.
+Custom projection and the _reproject_ operator is possible with D3, and an important (but complex) task when getting started with your D3 map in Chapter 09 is setting your projection parameters computationally.
 
 ### VI. Filter
 
@@ -822,7 +822,7 @@ _Arrange_ is more common for the highly-exploratory coordinated multiview visual
 
 **_Calculate_** derives new informatoin about a map feature of interest. One way to implement _calculate_ would be to enable your users to perform mathematical operations on your spatiotemporal data, such as mapping the change between two years or calculating the average across years.
 
-A common calculation on slippy maps is distance and area measurement, which can be implemented on Leaflet maps using the [Leaflet Draw](https://github.com/Leaflet/Leaflet.draw) plugin. This set of tools is included in [geojson.io](http://geojson.io), which we used in Chapter 4. Figure 4.8 shows the plugin example, demonstrating measurement with the Leaflet Draw controls.
+A common calculation on slippy maps is distance and area measurement, which can be implemented on Leaflet maps using the [Leaflet Draw](https://github.com/Leaflet/Leaflet.draw) plugin. This set of tools is included in [geojson.io](http://geojson.io), which we used in Chapter 03. Figure 4.8 shows the plugin example, demonstrating measurement with the Leaflet Draw controls.
 
 ![figure5.4.8.png](img/figure5.4.8.png)
 
