@@ -859,6 +859,6 @@ With these adjustments made, we have a complete, readable data graphic (Figure 3
 3.  Find and format a multivariate dataset for the Unit 3 D3 assignment.
 4.  Commit and sync the dataset and your _unit-3_ folder (including _bubblechart.js_) in your data folder of the _unit-3_ directory with the commit message "Activity 8".
 
-_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
 ### [Return Home](../../../) | [Previous Chapter](../Chapter07) | [Next Chapter](../Chapter09)

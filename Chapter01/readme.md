@@ -7,7 +7,7 @@ Welcome to the first chapter of Web Mapping! Chapter 01 includes three lab lesso
 
 *   In Lesson 1, we will introduce text editors and some basic "boilerplate" HTML used to structure your website.
 *   In Lesson 2, we will discuss how to efficiently set up your web directory and host it through a localhost development server.
-*   In Lesson 3, we will set-up a GitHub account you will use for cloud storage, version control, web hosting, and collaboration with other developers. If you already have used Github in other courses, this will be review. However, you still must commit a "repo" as part of the Activity #1, so please still read carefully.
+*   In Lesson 3, we will set-up a GitHub account you will use for cloud storage, version control, web hosting, and collaboration with other developers. If you already have used Github in other courses, this will be review. However, you still must commit a "repo" as part of the Activity 1, so please still read carefully.
 
 After this chapter, you should be able to:
 
@@ -295,7 +295,7 @@ From this point, though, the key to becoming comfortable with GitHub is to use i
 4.  _Recommended_: If you do not have experience with CSS or want a refresher, we recommend completing Lessons 1 and 2 of the [Introduction to CSS tutorial](https://www.codecademy.com/learn/learn-css). (~2 hour)
 5.  **_Required_**: Complete Lessons 1-8 of [Introduction to JavaScript](https://www.codecademy.com/learn/introduction-to-javascript). Print a PDF (Ctrl+P in browser; save as a PDF) of your completed table of contents for these tutorials and upload to the Activity 2 assignment to confirm completion. (~6 hours)
 
-_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
 ### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter02)
 

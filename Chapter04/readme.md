@@ -539,6 +539,6 @@ Based on the directions in the Leaflet Lab assignment, the data you select shoul
 3.  With all of the above tasks completed, commit your changes and sync with GitHub. Include "Activity 5" in the commit message. The repo should include four JS files: _quickstartTutorial.js, geojsonTutorial.js, adaptedTutorial.js_, and _main.js__._ The _index.html_ file should link to just _main.js_ to map the GeoJSON file containing your spatiotemporal data.
 4.  Zip a copy of your _unit-2_ repo and upload to the Activity 5 dropbox as a backup.
 
-_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
 ### [Return Home](../../../) | [Previous Chapter](../Chapter03) | [Next Chapter](../Chapter05)

@@ -800,6 +800,6 @@ Rather than step through each of the necessary adjustments to the script and sty
 3.  Annotated your coordinated visualization with a title, and either value labels or one or more axes.
 4.  Commit and sync your _unit-3_ directory with the commit message "Activity 10".
 
-_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
 ### [Return Home](../../../) | [Previous Chapter](../Chapter09) | [Next Chapter](../Chapter11)

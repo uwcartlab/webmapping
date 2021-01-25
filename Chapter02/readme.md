@@ -898,7 +898,7 @@ This might seem like a simple error, but much of debugging involves tediously tr
 2.  Add comments to _main\_with\_debug.js_ explaining what the script is doing at each step.
 3.  Commit your changes to your _unit-1_ repository and sync with GitHub (you will want to keep your boilerplate site clean for future use). 
 
-_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
 ### [Return Home](../../../) | [Previous Chapter](../Chapter01) | [Next Chapter](../Chapter03)
 

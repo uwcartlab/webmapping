@@ -195,7 +195,7 @@ More [information about milestones](https://help.github.com/en/enterprise/2.18/u
 2.  Add your name to the top of the _readme.md_ file, using a commit message "Activity 7"
 3.  Add an outline based on the final project proposal requirements. You will fill in this outline over the next two weeks.
 
-_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
 ### [Return Home](../../../) | [Previous Chapter](../Chapter06) | [Next Chapter](../Chapter08)
 
