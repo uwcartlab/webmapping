@@ -3,7 +3,7 @@
 Chapter 01: Setting Up Your Workspace
 =====================================
 
-Welcome to the first chapter of Web Mapping! Chapter 01 includes three lab lessons and Activities 1 & 2:
+Welcome to the first chapter of Web Mapping! Chapter 01 includes three lessons and Activities 1 & 2:
 
 *   In Lesson 1, we will introduce text editors and some basic "boilerplate" HTML used to structure your website.
 *   In Lesson 2, we will discuss how to efficiently set up your web directory and host it through a localhost development server.
@@ -20,9 +20,9 @@ How to Read and Use the Lessons
 
 We break each chapter's material into a set of 3-4 lessons that you should complete sequentially, with many lessons having subsections that treat specific topics. All lessons are formatted the same way:
 
-As you read, we include many [links](https://en.wikipedia.org/wiki/Hyperlink) that point to additional reference material . This material is for your reference only, and we recommend returning to these materials when you get stuck at different steps. Importantly, many students cycle back to these links towards the end of the course to debug issues specific to your final project, so it is helpful to get a sense of what information is included in the links. You do not need to read the links comprehensively, however, and none of the lab content is included on the exam.
+As you read, we include many [links](https://en.wikipedia.org/wiki/Hyperlink) that point to additional reference material. This material is for your reference only, and we recommend returning to these materials when you get stuck at different steps. Importantly, you may want to cycle back to these links towards the end of the course to debug issues specific to your final project, so it is helpful to get a sense of what information is included in the links.
 
-> ### **Occasionally, a link does contain required reading, additional downloads, or specific tasks needed to complete the lab activities or lab assignments. We offset these required "actions" to make them visually obvious in the text. Please follow these directions carefully, as it will be difficult to advance in future lessons without first completing these tasks.**
+> ### **Occasionally, a link does contain required reading, additional downloads, or specific tasks needed to complete the activities. We offset these required "actions" to make them visually obvious in the text. Please follow these directions carefully, as it will be difficult to advance in future lessons without first completing these tasks.**
 
     We format example code in code blocks, like this.  
     You can copy-paste this code into a text editor to make it easier to reference the line numbers.
@@ -44,11 +44,11 @@ HTML **_tags_** are keywords composed of reserved words surrounded by angle brac
 
 _**Code**_ is just text that gets interpreted by various technologies (e.g., by a web browser for HTML) to complete actions or execute instructions. A _**text editor**_ is a software program that facilitates the writing of code. Text editors include features that support coding, such as color-coding reserved words in different code languages, automatically applying indentation and closing tags, and even live preview of the code. Text editors are regularly updated with new features, so it is worth continuously reviewing your choice of text editor. Popular text editors include [Aptana Studio](http://www.aptana.com/), [Atom](https://atom.io/), [Brackets](http://brackets.io/), [Notepad++](https://notepad-plus-plus.org/), and [Sublime Text](http://www.sublimetext.com/).
 
-You are welcomed to use your preferred text editor in class. Atom, Brackets, and Notepad++ are available on all Science Hall computers.
+You are welcomed to use your preferred text editor.
 
 ### III. The HTML Boilerplate
 
-A _**boilerplate**_ is the minimum starter code needed begin development.  For this workbook, we start with the basic _**HTML boilerplate**_ to simplify your early designs and focus on JavaScript. 
+A _**boilerplate**_ is the minimum starter code needed begin development.  For these lessons, we start with the basic _**HTML boilerplate**_ to simplify your early designs and focus on JavaScript. 
 
 > ### **Download _[unit-1.zip](unit-1.zip)_ from the Chapter 01 files, unzip it, and open _index.html_ in your text editor.**
 
@@ -84,7 +84,7 @@ The HTML boilerplate code in _index.html_ should look like Example 1.1. Every co
     </html>
     
 
-Note the neatly indented structure of the markup. This is not strictly required for the code to work; browsers interpret opening and closing tags as the start and end points of HTML elements, not newline or tab characters. However, proper indentation is a convention and best practice that will make your life and your TA's life (and anyone else reading your code) exponentially easier.
+Note the neatly indented structure of the markup. This is not strictly required for the code to work; browsers interpret opening and closing tags as the start and end points of HTML elements, not newline or tab characters. However, proper indentation is a convention and best practice that will make your life (and anyone else reading your code) exponentially easier.
 
 Different levels of _**indentation**_ represent parent-child relationships in the overall tree structure of the document. Think of this structure as analogous to [Matryoshka dolls](https://en.wikipedia.org/wiki/Matryoshka_doll) that nest inside one another. In the code above, the `<html>` tag is the outermost "doll", the `<head>` and `<body>` are smaller "dolls" sitting inside the `<html>` "doll", and so on. Each new level of indentation is used to represent another nested level of HTML elements, helping you to assess visually how the webpage is structured hierarchically and then identify missing or incorrectly located opening and closing tags. 
 
@@ -108,7 +108,7 @@ and then open the file in a browser, you should see what you just added to the p
 
 ###### Figure 1.1: `<body>` content displayed on the page
 
-There are a number of frameworks that have their own boilerplates and directory structures, such as [Bootstrap](https://getbootstrap.com/), used for responsive design across mobile and non-mobile devices. For simplicity's sake, we recommend that you use this boiler plate for each lab activity and lab assignment. You can explore other frameworks with the final project.
+There are a number of frameworks that have their own boilerplates and directory structures, such as [Bootstrap](https://getbootstrap.com/), used for responsive design across mobile and non-mobile devices. For simplicity's sake, we recommend that you use this boiler plate when completing the following lessons.
 
 > ### **Add content to the body element and then load your _index.html_ file in a browser and check that your content appears in the browser tab. If HTML is completely new to you, we recommend supplemental Codecademy tutorials as part of Activity 2 to complete alongside JavaScript tutorials.**
 
@@ -205,7 +205,7 @@ Notice that the boilerplate _index.html_ file already contains two links to exte
 
 ###### Example 2.3: Authorship comment in _style.css_
 
-    /* Stylesheet by Buck E. Badger, 2020 */
+    /* Stylesheet by Buck E. Badger, 2021 */
     
 
 > ### **Create _style.css_ and _main.js_ text files and save into the _css_ and _js_ folders of _unit-1_ respectively.**
@@ -220,7 +220,7 @@ As you develop your website, you will need to preview it in a browser to see wha
 
 For security reasons, browsers <ins>_only_</ins> display webpages correctly if the files are passed through a server. This complicates development, as you do not want to push every change to your website to a server just to preview it. However, you can set up a _**local development server**_ on your machine to reliably preview dynamic content such as JavaScript before you post online. As with text editors, there are many options for setting up a local development server, with many common ones requiring additional programming knowledge such as Python SimpleHTTPServer and server frameworks including [WAMP](http://www.wampserver.com/en/) (for Windows), [MAMP](https://www.mamp.info/en/) (for Mac), and [LAMP](http://lamphowto.com/) (for Linux).
 
-We use [Prepros](https://prepros.io/) in lab demonstrations and examples for simplicity. Prepros is a "preprocessor" software application that automatically compiles your website and refreshes the browser every time you save files in your web directory. Prepros is available on all Science Hall computers and works on Windows and Mac machines.
+We use [Prepros](https://prepros.io/) in lesson examples for simplicity. Prepros is a "preprocessor" software application that automatically compiles your website and refreshes the browser every time you save files in your web directory. Prepros is available on all Science Hall computers and works on Windows and Mac machines.
 
 > ### **Preview _unit-1_ using Prepros.** 
 
@@ -239,7 +239,7 @@ The way Git works can be a bit confusing, even after repeated use, as it is diff
 
 If you are collaborating on a project with someone else, they can **_clone_** your repository from GitHub to their own machine, make changes to website files, then submit a **_pull request_** asking you to add changes back to the main repository. You can then sync or _pull_ their changes from their repository to the main repository and from there into your local website directory. You also can **_fork_** an existing repository from another GitHub account and propose changes to the main branch using this _pull_ request (more next chapter). Again, there are several options for using Git and GitHub collaboratively, some using command line and thus providing more control over the push, clone, and pull commands (e.g., [Git Bash](https://git-scm.com/downloads)).
 
-Again for simplicity, we use [GitHub Desktop](https://desktop.github.com/) in lab demonstrations and examples. GitHub Desktop is more beginner-friendly than alternatives and meshes well with the GitHub website. However, it can be difficult to make sense when something goes wrong in GitHub Desktop, sometimes requiring deleting and recreating the repo; do such destructive rebuilding only when exhausting alternatives with your TA. GitHub Desktop is available on all Science Hall computers and works on Windows and Mac machines.
+Again for simplicity, we use [GitHub Desktop](https://desktop.github.com/) in lesson examples. GitHub Desktop is more beginner-friendly than alternatives and meshes well with the GitHub website. However, it can be difficult to make sense when something goes wrong in GitHub Desktop, sometimes requiring deleting and recreating the repo; do such destructive rebuilding only when exhausting alternatives with your TA. GitHub Desktop is available on all Science Hall computers and works on Windows and Mac machines.
 
 ### II. Setting Up a Repository
 
@@ -277,15 +277,15 @@ When you are just figuring things out, you are likely to end up with one or two 
 
 ### III. Learning and Using GitHub
 
-There are a number of excellent [GitHub Guides](https://guides.github.com/) beyond the introductory guide required above. We recommend that you reference these as build experience with GitHub. We will use most or all of the covered skills for your final project.
+There are a number of excellent [GitHub Guides](https://guides.github.com/) beyond the introductory guide required above. We recommend that you reference these as you build experience with GitHub. We will use most or all of the covered skills in the following lessons.
 
-From this point, though, the key to becoming comfortable with GitHub is to use it often. This means that _every time you make a working change to your website files, you should commit your changes to your local repository and sync it with the repository on GitHub._ While you are working on your lab projects, your TA will expect to see your GitHub repository for the project updated frequently. This is an easy way for your TA—and you—to track your progress. It also starts to build a public track record of your work that future employers may look at. Thus, **commit frequently and wisely**!
+From this point, though, the key to becoming comfortable with GitHub is to use it often. This means that _every time you make a working change to your website files, you should commit your changes to your local repository and sync it with the repository on GitHub._ Working on these lessons with GitHub starts to build a public track record of your work that future employers may look at. Thus, **commit frequently and wisely**!
 
 ## Activity 1
 
 1.  Create a website directory called _unit-1_ with an organized directory structure and boilerplate _index.html_, _style.css_, and _main.js_ files.
 2.  Create a Git repository in your website directory and sync it to your GitHub account.
-3.  Submit a zip file (.zip) containing your website directory to Canvas. In the submission comments, paste a link to your GitHub account page.
+3.  Submit a zip file (.zip) containing your website directory to Canvas (Geography 575 course only). In the submission comments, paste a link to your GitHub account page.
 
 ## Activity 2
 
