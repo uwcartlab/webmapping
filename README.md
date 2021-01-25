@@ -27,21 +27,21 @@ The workbook is funded by [NSF CAREER #1555267](https://www.nsf.gov/awardsearch/
 [**Introduction**](/Introduction)
 
 **Unit 1 - Workflows and Data**
-- [Chapter 2 - Setting Up Your Workspace](/Chapter02)
-- [Chapter 3 - Scripting and Debugging](/Chapter03)
-- [Chapter 4 - Data and AJAX](/Chapter04)
+- [Chapter 1 - Setting Up Your Workspace](/Chapter01)
+- [Chapter 2 - Scripting and Debugging](/Chapter02)
+- [Chapter 3 - Data and AJAX](/Chapter03)
 
 **Unit 2 - Designing with Leaflet**
-- [Chapter 5 - Leaflet Foundations & Using Online Resources](/Chapter05)
-- [Chapter 6 - Dynamic Mapping with Leaflet](/Chapter06)
-- [Chapter 7 - The Internal Logic of Leaflet](/Chapter07)
-- [Chapter 8 - Collaborating with Github](/Chapter08)
+- [Chapter 4 - Leaflet Foundations & Using Online Resources](/Chapter04)
+- [Chapter 5 - Dynamic Mapping with Leaflet](/Chapter05)
+- [Chapter 6 - The Internal Logic of Leaflet](/Chapter06)
+- [Chapter 7 - Collaborating with Github](/Chapter07)
 
 **Unit 3 - Designing with D3**
-- [Chapter 9 - D3 Foundations](/Chapter09)
-- [Chapter 10 - Mapping in D3](/Chapter10)
-- [Chapter 11 - Coordinated Visualizations](/Chapter11)
-- [Chapter 12 - Coordinated Interactions](/Chapter12)
+- [Chapter 8 - D3 Foundations](/Chapter08)
+- [Chapter 9 - Mapping in D3](/Chapter09)
+- [Chapter 10 - Coordinated Visualizations](/Chapter10)
+- [Chapter 11 - Coordinated Interactions](/Chapter11)
 
 ## Technical Skills
 
