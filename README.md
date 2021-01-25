@@ -86,4 +86,4 @@ This workbook was originally created for an Interactive Cartography and Geovisua
 
 [![uwcl-logo](Introduction/img/uwcl-logo.png)](https://geography.wisc.edu/cartography/)[![uw-logo](Introduction/img/uw-logo.png)](www.wisc.edu)[![nsf-logo](Introduction/img/nsf-logo.png)](https://www.nsf.gov/)
 
-_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Rob Roth \(reroth@wisc.edu\)._
+_This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
