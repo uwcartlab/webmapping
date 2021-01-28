@@ -181,13 +181,13 @@ Let's examine the Leaflet methods from the two tutorials you completed using the
 
 Let's take a look at [`L.map()`](http://leafletjs.com/reference.html#map-example) in the API. The first line under the section titled "Map" describes the method's parent class (`Map`), "\[t\]he central class of the API — it is used to create a map on a page and manipulate it". Definition of [`L.map()`](http://leafletjs.com/reference.html#map-example) begins with a "Usage example" (Figure 1.4).
 
-![figure4.1.2.png](img/figure4.1.2.png)
+![figure4.1.2.png](img/figure4.1.2.PNG)
 
 ###### Figure 1.4: Example map instantiation script in the Leaflet API documentation
 
 Note the difference between this usage of the method and its usage in the _Leaflet Quick Start Guide_ (Example 1.1, line 3). Figure 1.2 shows two parameters: a string (`'map'`) and an object consisting of a `center` property with an array of two coordinates (`[51.505, -0.09]`) and a `zoom` property with a number (`13`). To understand what these parameters do, examine the syntax demonstration under "Creation" (Figure 1.5).
 
-![figure4.1.3.png](img/figure4.1.3.png)
+![figure4.1.3.png](img/figure4.1.3.PNG)
 
 ###### Figure 1.5: Definition and syntax of `L.map()` in the Leaflet API documentation
 
@@ -202,7 +202,7 @@ The "Description" column describes in plain English what the method does. This t
 
 The "Options" section (Figure 1.6) includes all of the options available as properties of the _options_ parameter object, organized neatly as tables categorized as "Map State Options", "Interaction Options", "Keyboard Navigation Options", "Panning Inertia Options", "Control Options", and "Animation Options". Thus, these options set and constrain the cartographic interaction.
 
-![figure4.1.4.png](img/figure4.1.4.png)
+![figure4.1.4.png](img/figure4.1.4.PNG)
 
 ###### Figure 1.6: Map options presented in the Leaflet API documentation
 
@@ -256,7 +256,7 @@ Making use of tutorial examples requires figuring out how to integrate them into
 
 The _Using GeoJSON with Leaflet_ tutorial makes use of single GeoJSON features for its data (Figure 2.1).
 
-![figure4.2.1.png](img/figure4.2.1.png)
+![figure4.2.1.png](img/figure4.2.1.PNG)
 
 ###### Figure 2.1: Creation of a GeoJSON feature in the _Using GeoJSON with Leaflet_ tutorial
 
@@ -285,7 +285,7 @@ This object represents a point feature, essentially equivalent to one element in
 
 The _Using GeoJSON with Leaflet_ tutorial then maps the feature using the `.addTo()` method (Figure 2.2).
 
-![figure4.2.2.png](img/figure4.2.2.png)
+![figure4.2.2.png](img/figure4.2.2.PNG)
 
 ###### Figure 2.2: Script from the _Using GeoJSON with Leaflet_ tutorial to add the feature to the map
 
@@ -346,7 +346,7 @@ Since _megaCities.geojson_ comprises point data, we can adapt the additional sty
 
 **pointToLayer:** The `pointToLayer` option of `GeoJSON` defines a function to convert GeoJSON points into Leaflet layers.  Figure 2.4 shows use of `pointToLayer` in _geojsonTutorial.js._
 
-![figure4.2.4.png](img/figure4.2.4.png)
+![figure4.2.4.png](img/figure4.2.4.PNG)
 
 ###### Figure 2.4: `pointToLayer` script from the _Using GeoJSON with Leaflet_ tutorial
 
@@ -381,7 +381,7 @@ Figure 2.5 illustrates the results of applying the modified use of `pointToLayer
 
 **onEachFeature:** The onEachFeature option of GeoJSON calls a function once for each feature contained in the created GeoJSON object. Figure 2.6 shows the use of onEachFeature in the _Using GeoJSON with Leaflet_ tutorial.
 
-![figure4.2.6.png](img/figure4.2.6.png)
+![figure4.2.6.png](img/figure4.2.6.PNG)
 
 ###### Figure 2.6: `onEachFeature` script from the _Using GeoJSON with Leaflet_ tutorial
 
