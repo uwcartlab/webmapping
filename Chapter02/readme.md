@@ -24,15 +24,15 @@ Begin Chapter 02 by forking _unit-1_ from the [workbook Unit 1 Github page](http
 
 As introduced last chapter, _**forking**_ a Github repo creates a copy of an existing repository for personal use, creating a _**branch**_ in the code. Forking typically is used to add functionality or propose changes to the _**main branch**_ of an existing project that you do not control (e.g., you can fork the Leaflet and D3 web mapping libraries we use later in the semester), meaning that cloning your own new project generally is more common than forking an existing project. We will use forking to start each unit from a common repository.
 
-After you fork the repo, you should be able to see _webmapping\_unit-1_ in your own repository list. A benefit of forking versus cloning is that you can track the changes of the source repository and sync any updates to your own. For example, if we made changes to the _webmapping\_unit-1_ course repository, an alert will be added to your repository page. For instance, the alert "This branch is 1 commit behind uwcartlab:master" is displayed  in Figure 0.1.
+After you fork the repo, you should be able to see _webmapping\_unit-1_ in your own repository list. A benefit of forking versus cloning is that you can track the changes of the source repository and sync any updates to your own. For example, if we made changes to the _webmapping\_unit-1_ course repository (source repository), an alert will be added to your repository page. 
 
 ![figure1.1.png](img/figure1.1.png)
 
-###### Figure 1.1: Forking the _unit-1_ repo from the _webmapping\_unit-1_ page.
+###### Figure 0.1: Forking the _unit-1_ repo from the _webmapping\_unit-1_ page.
 
-You can sync an update by clicking the "Compare" button (Figure 0.2). <ins>_**Note:**_</ins> You will not need to merge any updates immediately after forking in Chapter 02, so the following instructions are for reference only.
+You can sync an update by clicking the "Compare" button, which redirects you to the "Comparing Changes" page (Figure 0.2). <ins>_**Note:**_</ins> You will not need to merge any updates immediately after forking in Chapter 02, so the following instructions are for reference only.
 
-Clicking the "Compare" button redirects you to the "Comparing Changes" page. You can review new updates by switching the "base repository" to your repository and the "head repository" to the course repository by clicking "switching the base". If there are new updates, click "Create Pull Request" to add the updates to your own, forked repository. Confirm that it is "Okay" to make pull changes and click "Merge pull request" to merge the changes in the course repository into your forked repository.
+In the "Comparing Changes" page, you can review new updates by switching the "base repository" to your repository and the "head repository" to the course repository by clicking "switching the base". If there are new updates, click "Create Pull Request" to add the updates to your own, forked repository. Confirm that it is "Okay" to make pull changes and click "Merge pull request" to merge the changes in the course repository into your forked repository.
 
 ![figure0.2.png](img/figure0.2.png)
 
@@ -195,7 +195,7 @@ JavaScript has a number of native methods for manipulating the DOM. Rather than 
     
     //call the initialize function when the window has loaded
     window.onload = initialize();
-    
+
 
 If you add this code into _main.js_ and reload _index.html_ in the browser using Prepros, you should now see a neat little table on the webpage and in the DOM (Figure 2.2)
 
@@ -251,7 +251,7 @@ Example 2.3 uses two arrays `cities` and `population` to hold the city names ve
     
             table.appendChild(tr);
         };
-    
+
 
 This format has the advantage of explicitly associating each city with its population as two properties of the same object, rather than simply relying on the order of elements in the arrays to associate them, which easily could have an off-by-one error with a missing or misplaced comma, or otherwise omitted value.
 
@@ -286,7 +286,7 @@ You also can create the array of objects using longform syntax, defining each ob
         superior.city = 'Superior';
         superior.population = 27244;
         cityPop.push(superior);
-    
+
 
 When would you use this longform syntax? It is not necessary here, but you might imagine a case where you wanted to dynamically populate an array—that is, add objects to it at different times in the program. You might also want to add a new property or change some property of an object some time after the object was created.
 
@@ -348,7 +348,7 @@ Example 2.3 uses a `for` loop to create the table. Alternatively, you can use a 
     
             table.appendChild(tr);
         });
-    
+
 
 With the `while` loop, make sure to define the counter variable _first_, outside of the loop, and _increment the counter within the loop_. Otherwise, you will be stuck with an infinite loop!
 
@@ -392,7 +392,7 @@ Finally, let's return to the original loop structure to review some basic condit
     
             table.appendChild(tr);
         };
-    
+
 
 The Example 2.7 script presents two conditional blocks. The first looks at the name of the city, giving a different value to the table cells for Madison and Green Bay. Remember that in JavaScript (as in most programming languages), conditional _**equality**_ is denoted by `==` (equal value) or `===` (equal value _and_ type), while `=` denotes **_assignment_** of a value to a variable. Thus, make sure you are using the correct number of equals signs in your comparison statements and not accidentally reassigning the values of your variables.
 
@@ -402,7 +402,7 @@ The second conditional block uses a `<` to compare the population value to a thr
 
     //Example 2.7 line 19
     pop.innerHTML = cityPop[i].population < 500000 ? cityPop[i].population : 'Too big!';
-    
+
 
 As the question mark implies, you can think of this statement as asking a question: is the population less than 500000? If it is, assign `cityPop[i].population` to `pop.innerHTML`. If not, assign `'Too big!'` to `pop.innerHTML`. We recommend starting with the longform conditional syntax, as it is easy to invert the order of conditions with the shorthand syntax.
 
@@ -426,7 +426,7 @@ After adding the _jQuery.js_ file to your website directory, link to it in the `
 ###### Example 3.1: Linking jQuery in _index.html_
 
     <script type="text/javascript" src="lib/jquery-3.4.1.js"></script>
-    
+
 
 Make sure you add this script link _**above**_ the link to your _main.js_ file in _index.html_, as linked files are read by the browser's interpreter in the order in which they are linked. Otherwise, the code in _main.js_ will not be able to find the jQuery library!
 
@@ -441,7 +441,7 @@ The jQuery library essentially is a series of functions that support common task
 ###### Example 3.2: Method chaining with dot syntax in _main.js_
 
     jQuery('#mydiv').html('Hello World');
-    
+
 
 The first part of the Example 3.2 method chain is `jQuery('#mydiv')`. This method selects the HTML `<div>` with the id attribute `'mydiv'` and returns it to the script for manipulation. The second method, `html('Hello World')`, writes the text 'Hello World' to the `<div>`. The method chain above is functionally equivalent to Example 2.1 above.
 
@@ -452,7 +452,7 @@ jQuery also provides alias `$` syntax for its name to further reduce the size of
 ###### Example 3.3: Using the `$` alias for jQuery
 
     $('#mydiv').html('Hello World');
-    
+
 
 jQuery uses a **_selector_** to find the element or elements you want to manipulate. In the case above, we gave our `<div>` an `id` attribute, which we can access using pound `#` sign, just like in CSS. If we had assigned a `class` attribute to the `<div>`, we can access it with a `.`, as in `'.mydiv'`. You also can select all elements of a particular tag in the document by using just the tag name with no prefix character, such as `$('div')` to select all div elements.
 
@@ -513,7 +513,7 @@ Knowing how jQuery syntax works, you now can rewrite the table script using jQue
     
     //call the initialize function when the document has loaded
     $(document).ready(initialize);
-    
+
 
 Compare the (much shorter) jQuery script in Example 3.4 to our original script in Example 2.3. Note that the strategy for adding elements to the webpage has changed. In the original Example 2.3 script, we first created each element, then added the content to the element, and finally—_only when the element was complete_—added it to the DOM. Thus, the `<table>`—the outermost element—was the very first element created, but the last to be appended, and the only element appended to an existing element in the DOM (the `<div>`).
 
@@ -550,7 +550,7 @@ As you develop your lab projects, you will use many more jQuery methods. All of 
         $('#mydiv').attr('class', 'foo');
     
         //Check your work with the Inspector!
-    
+
 
 _**[.css()](http://api.jquery.com/css/)**_: This method gets or sets the value of the `style` attribute of the selected element(s) using CSS styles. It is useful for changing element styles dynamically. It will, however, override any styles in your _style.css_ file that apply to the element(s), as in-line styles (those designated through the HTML element `style` attribute) always override styles stored in separate stylesheets. You can either give it the name and value of one style as strings, or change multiple styles at once as an object (Example 3.6).
 
@@ -571,7 +571,7 @@ _**[.css()](http://api.jquery.com/css/)**_: This method gets or sets the value o
         $('#mydiv').append(thecolor);
     
         //fooled ya! thecolor is rgb(255, 0, 0), the CSS interpreter's translation of the keyword 'red'
-    
+
 
 _**[.each()](https://api.jquery.com/each/)**_: This method accepts as its parameter a function that loops through all of the selected elements. This is useful if you need to use individual attribute values of each element or need to assign different values to each element using imported data (Example 3.7).
 
@@ -583,7 +583,7 @@ _**[.each()](https://api.jquery.com/each/)**_: This method accepts as its parame
             var thesource = $(this).attr('src');
             $('#mydiv').append(thesource);
         });
-    
+
 
 Note that `$(this)` inside of the loop selects the current element. You need not use `.each()` if you are assigning the exact same value to a set of selected elements; for that, simply chain the method that does what you want to the selection.
 
@@ -612,7 +612,7 @@ Note that `$(this)` inside of the loop selects the current element. You need not
     
         //remove the event listener
         $('table').off('click', clickme);
-    
+
 
 > ### **Use the jQuery `.attr()`, `.css()`, and `.on()` methods to add properties and events to the HTML elements on your webpage.**
 
@@ -667,7 +667,7 @@ The error statement identifies line 25 of your _main.js_ file, where there may b
             city: 'Superior',
             population: 27244
     ]; //this is line 25 of Example 3.4
-    
+
 
 Similarly, perhaps you have an undefined variable that you try to manipulate through JavaScript in the code. The console will display a reference error, noting the particular variable (Figure 4.2).
 
@@ -690,14 +690,14 @@ Most errors in the console are explanatory and helpful, but occasionally you wil
 ###### Example 4.2: Incorrect use of a jQuery method in _main.js_
 
         $(document).append("<table>");
-    
+
 
 jQuery only accepts `document` as a selector for its `.ready()` method, _not_ for `.append()`. The latter method requires the selection of an existing HTML element. I thus changed the selector to a div reference by id `"#mydiv"` (Example 4.3).
 
 ###### Example 4.3: Rectified jQuery method call in _main.js_
 
         $("#mydiv").append("<table>");
-    
+
 
 This update resolved the issue.
 
@@ -760,7 +760,7 @@ Example 4.4 shows my original script producing this silent error.
     
     //call the initialize function when the window has loaded
     $(document).ready(initialize);
-    
+
 
 Can you see the problem? I did not. I could tell from preview that my header row was drawing correctly, but it was as though my loop did not exist. There were a few things that could be going on, so I needed to use a process of elimination to test for different issues. This is where `console.log` comes in handy. This native JavaScript method prints whatever you want to the console, allowing you to make visible what is going on in the script.
 
@@ -777,7 +777,7 @@ Let's debug! First, we can see whether the script is stopping for some reason be
             //add the row's html string to the table
             $("table").append(rowHtml);
         };
-    
+
 
 The results (Figure 4.5):
 
@@ -798,7 +798,7 @@ Next, is the problem with the code in the loop or the loop itself? To see if the
             //add the row's html string to the table
             $("table").append(rowHtml);
         };
-    
+
 
 Result (Figure 4.6):
 
@@ -811,7 +811,7 @@ Aha! The loop is _not_ executing at all. So let's look at the opening statement 
 ###### Example 4.7: The opening loop statement in _main.js_
 
         for (var i = 0; i < cities.length; i++){
-    
+
 
 Look carefully at every character in the line for errors with the syntax. There are none (plus the console didn't show a syntax error), so let's look at the variables. The only variable that is not defined within the statement is `cities`. Let's check this variable with a `console.log` statement just above the loop (Example 4.8).
 
@@ -820,7 +820,7 @@ Look carefully at every character in the line for errors with the syntax. There 
         console.log(cities);
         //loop to add a new row for each city
         for (var i = 0; i < cities.length; i++){
-    
+
 
 Result (Figure 4.7):
 
@@ -875,7 +875,7 @@ Why then did I use `cities` in my loop? Remember back to our _very first script_
                 population: 27244
             }
         ];
-    
+
 
 I simply forgot to change the name of the variable `cities` to `cityPop` in the loop when I changed the structure of my data. Since both the original `cities` variable and the new `cityPop` variable hold arrays of the same length (4, the number of cities in our data), they should work the same way in a loop statement. We can now fix the loop statement (Example 4.10):
 
@@ -888,7 +888,7 @@ I simply forgot to change the name of the variable `cities` to `cityPop` in the 
             //add the row's html string to the table
             $("table").append(rowHtml);
         };
-    
+
 
 This might seem like a simple error, but much of debugging involves tediously tracking down simple errors such as this by testing various parts of the script with `console.log` statements. A smart strategy is to add temporary `console.log` statements to check your work every time you write a new piece of code. This way, you know if something is wrong right away and have less script to debug if any problems arise.
 
