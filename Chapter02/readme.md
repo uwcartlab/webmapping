@@ -203,7 +203,7 @@ If you add this code into _main.js_ and reload _index.html_ in the browser using
 
 ###### Figure 2.2: An HTML table on the page and in the DOM created using JavaScript
 
-> ### **Create an HTML table in _main.js._ Practice mentally stepping through the script above until you are sure you understand the operations it performs and the order in which it performs them. Example 2.3 is available for reference in the forked _unit-1_ repo.** 
+> ### **Create an HTML table in _main.js._ Practice mentally stepping through the script above until you are sure you understand the operations it performs and the order in which it performs them. Example 2.3 is available for reference in the forked _unit-1_/Chapter02/ repo subdirectory.** 
 
 ### II. Arrays and Objects
 
