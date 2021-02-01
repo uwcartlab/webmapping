@@ -404,7 +404,7 @@ The second conditional block uses a `<` to compare the population value to a thr
     pop.innerHTML = cityPop[i].population < 500000 ? cityPop[i].population : 'Too big!';
 
 
-As the question mark implies, you can think of this statement as asking a question: is the population less than 500000? If it is, assign `cityPop[i].population` to `pop.innerHTML`. If not, assign `'Too big!'` to `pop.innerHTML`. We recommend starting with the longform conditional syntax, as it is easy to invert the order of conditions with the shorthand syntax.
+As the question mark implies, you can think of this statement as asking a question: is the population less than 500,000? If it is, assign `cityPop[i].population` to `pop.innerHTML`. If not, assign `'Too big!'` to `pop.innerHTML`. We recommend starting with the longform conditional syntax, as it is easy to invert the order of conditions with the shorthand syntax.
 
 > ### **Add the conditional statements to _main.js_.**
 
@@ -419,13 +419,13 @@ As you can see from the previous lesson, you need an awful lot of JavaScript cod
 
 The first step to using jQuery is to add it to the _lib_ folder of your website directory.
 
-> ### **From the [jQuery website](https://jquery.com/), download the latest version of jQuery (uncompressed, development version). Save this _js_ file to the _lib_ folder in your website directory.**
+> ### **From the [jQuery website](https://jquery.com/), download the latest version of jQuery (uncompressed, development version; example code may reflect older versions). Save this _js_ file to the _lib_ folder in your website directory.**
 
 After adding the _jQuery.js_ file to your website directory, link to it in the `<body>` of your _index.html_ file (Example 3.1). 
 
 ###### Example 3.1: Linking jQuery in _index.html_
 
-    <script type="text/javascript" src="lib/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.5.1.js"></script>
 
 
 Make sure you add this script link _**above**_ the link to your _main.js_ file in _index.html_, as linked files are read by the browser's interpreter in the order in which they are linked. Otherwise, the code in _main.js_ will not be able to find the jQuery library!
