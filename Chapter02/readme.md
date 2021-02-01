@@ -71,7 +71,7 @@ If you click the box-arrow icon in the top-left of the inspector tab (a magnifyi
 
 You also can activate the inspector through the browser "Tools"/"Developer Tools" menu or the F12 keyboard shortcut. 
 
-> ### **Open the HTML boilerplate found in chapter01 of the forked webmapping_unit1 directory using a browser and see how the HTML tree is structured using the inspector.**
+> ### **Open the HTML boilerplate directory forked from chapter01 of the _unit-1_ repo directory using a browser and see how the HTML tree is structured using the inspector.**
 
 The inspector primarily shows the HTML elements contained in the DOM and not the attributes, styles, and scripts also included in the DOM. Most browsers have a _**DOM tab**_ (it will go by different names across browsers) that displays the _entire_ DOM of a webpage, but the added complexity often is difficult to interpret for the purposes of debugging. We will return to additional developer tools in subsequent lessons that facilitate interpretation of other aspects of the DOM.
 
@@ -97,7 +97,7 @@ Additionally, _**comments**_ indicate to human readers of the script—including
 
 Let's build a simple example to explore the logic of JavaScript (Example 2.1).
 
-> ### **Open the HTML boilerplate directory forked from the _unit-1_ repo. Within the `<body>` of your _index.html_ file, add a `<div>` element with an `id` attribute of `"mydiv"` (do not forget to add a closing `</div>` tag). Open your _main.js_ file and add the Example 2.1 script. Make sure your _main.js_ file is linked through a `<script>` tag with a `src` attribute in _index.html_.**
+> ### **Open the HTML boilerplate directory forked from chapter01 of the _unit-1_ repo, if not still open from using the inspector. Within the `<body>` of your _index.html_ file, add a `<div>` element with an `id` attribute of `"mydiv"` (do not forget to add a closing `</div>` tag). Open your _main.js_ file and add the Example 2.1 script. Make sure your _main.js_ file is linked through a `<script>` tag with a `src` attribute in _index.html_.**
 
 ###### Example 2.1: Accessing the `<div>` element through JavaScript in _main.js_
 
