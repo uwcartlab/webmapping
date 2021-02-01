@@ -20,11 +20,11 @@ After this chapter, you should be able to:
 Getting Started
 ---------------
 
-Begin Chapter 02 by forking _unit-1_ from the [workbook Unit 1 Github page](https://github.com/uwcartlab/webmapping_unit-1). To do so, navigate to the Unit 1 repository on GitHub and click the "Fork" button in the upper-right corner (Figure 0.1).
+Begin Chapter 02 by forking _unit-1_ from the [workbook Unit 1 Github page](https://github.com/uwcartlab/unit-1). To do so, navigate to the Unit 1 repository on GitHub and click the "Fork" button in the upper-right corner (Figure 0.1).
 
 As introduced last chapter, _**forking**_ a Github repo creates a copy of an existing repository for personal use, creating a _**branch**_ in the code. Forking typically is used to add functionality or propose changes to the _**main branch**_ of an existing project that you do not control (e.g., you can fork the Leaflet and D3 web mapping libraries we use later in the semester), meaning that cloning your own new project generally is more common than forking an existing project. We will use forking to start each unit from a common repository.
 
-After you fork the repo, you should be able to see _webmapping\_unit-1_ in your own repository list. A benefit of forking versus cloning is that you can track the changes of the source repository and sync any updates to your own. For example, if we made changes to the _webmapping\_unit-1_ course repository (source repository), an alert will be added to your repository page. 
+After you fork the repo, you should be able to see _unit-1_ in your own repository list. A benefit of forking versus cloning is that you can track the changes of the source repository and sync any updates to your own. For example, if we made changes to the _unit-1_ course repository (source repository), an alert will be added to your repository page. 
 
 ![figure1.1.png](img/figure1.1.png)
 
@@ -40,7 +40,7 @@ In the "Comparing Changes" page, you can review new updates by switching the "ba
 
 These steps may seem to be a lot of work compared to a simple download, but they allow you to experiment with GitHub's version control system that you will rely on more heavily when creating larger projects. While it is tempting to ignore version control, learning and using it now will save you time in the long-run.
 
-> ### **Fork the _unit-1_ repo from the [workbook Unit 1 Github page](https://github.com/uwcartlab/webmapping_unit-1). The repo includes the HTML boilerplate from Chapter 01 and additional code snippets for the Chapter 02 lessons, including your debugging assignment.**
+> ### **Fork the _unit-1_ repo from the [workbook Unit 1 Github page](https://github.com/uwcartlab/unit-1). The repo includes the HTML boilerplate from Chapter 01 and additional code snippets for the Chapter 02 lessons, including your debugging assignment.**
 
 Lesson 1: Exploring the DOM
 ---------------------------
@@ -71,7 +71,7 @@ If you click the box-arrow icon in the top-left of the inspector tab (a magnifyi
 
 You also can activate the inspector through the browser "Tools"/"Developer Tools" menu or the F12 keyboard shortcut. 
 
-> ### **Open the HTML boilerplate directory forked from chapter01 of the _unit-1_ repo directory using a browser and see how the HTML tree is structured using the inspector.**
+> ### **Open the HTML boilerplate directory forked from the _unit-1_ repo directory using a browser and see how the HTML tree is structured using the inspector.**
 
 The inspector primarily shows the HTML elements contained in the DOM and not the attributes, styles, and scripts also included in the DOM. Most browsers have a _**DOM tab**_ (it will go by different names across browsers) that displays the _entire_ DOM of a webpage, but the added complexity often is difficult to interpret for the purposes of debugging. We will return to additional developer tools in subsequent lessons that facilitate interpretation of other aspects of the DOM.
 
@@ -97,7 +97,7 @@ Additionally, _**comments**_ indicate to human readers of the script—including
 
 Let's build a simple example to explore the logic of JavaScript (Example 2.1).
 
-> ### **Open the HTML boilerplate directory forked from chapter01 of the _unit-1_ repo, if not still open from using the inspector. Within the `<body>` of your _index.html_ file, add a `<div>` element with an `id` attribute of `"mydiv"` (do not forget to add a closing `</div>` tag). Open your _main.js_ file and add the Example 2.1 script. Make sure your _main.js_ file is linked through a `<script>` tag with a `src` attribute in _index.html_.**
+> ### **Reopen the HTML boilerplate directory forked from the _unit-1_ repo. Within the `<body>` of your _index.html_ file, add a `<div>` element with an `id` attribute of `"mydiv"` (do not forget to add a closing `</div>` tag). Open your _main.js_ file and add the Example 2.1 script. Make sure your _main.js_ file is linked through a `<script>` tag with a `src` attribute in _index.html_.**
 
 ###### Example 2.1: Accessing the `<div>` element through JavaScript in _main.js_
 
