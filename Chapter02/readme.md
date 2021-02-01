@@ -71,7 +71,7 @@ If you click the box-arrow icon in the top-left of the inspector tab (a magnifyi
 
 You also can activate the inspector through the browser "Tools"/"Developer Tools" menu or the F12 keyboard shortcut. 
 
-> ### **Open the HTML boilerplate in a browser and see how the HTML tree is structured using the inspector.**
+> ### **Open the HTML boilerplate found in chapter01 of the forked webmapping_unit1 directory using a browser and see how the HTML tree is structured using the inspector.**
 
 The inspector primarily shows the HTML elements contained in the DOM and not the attributes, styles, and scripts also included in the DOM. Most browsers have a _**DOM tab**_ (it will go by different names across browsers) that displays the _entire_ DOM of a webpage, but the added complexity often is difficult to interpret for the purposes of debugging. We will return to additional developer tools in subsequent lessons that facilitate interpretation of other aspects of the DOM.
 
