@@ -894,9 +894,12 @@ This might seem like a simple error, but much of debugging involves tediously tr
 
 ## Activity 3
 
-1.  Debug the [_main\_with\_debug.js_](main_with_debug.js "main_with_debug.js") script included in the _Chapter 02_ repo.
-2.  Add comments to _main\_with\_debug.js_ explaining what the script is doing at each step.
-3.  Commit your changes to your _unit-1_ repository and sync with GitHub (you will want to keep your boilerplate site clean for future use). 
+1.  Copy the _main_with_debug.js_ script found in the _Chapter02_ directory for the forked _unit-1_ repo into your boilerplate _js_ folder. Replace the script link in _index.html_ from _main.js_ to _main_with_debug.js_.
+2.  Debug the _main\_with\_debug.js_ script to get the table to draw properly with the hover and click interactions (see preview below).
+3.  Add comments to _main\_with\_debug.js_ explaining what the script is doing at each step.
+4.  Commit your changes to your _unit-1_ repository and sync with GitHub (you will want to keep your boilerplate site clean for future use). 
+
+![figure2.5.1.png](img/figure2.5.1.png)
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
