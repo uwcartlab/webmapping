@@ -3,7 +3,7 @@
 Chapter 03: Data and AJAX
 =======================
 
-Chapter 03 is all about data, inching us one step closer to making your first interactive web map next chapter! Chapter 03 includes three lab lessons and ends with Activity 4, a second debugging exercise to continue to practice your computational thinking skills.
+Chapter 03 is all about data, inching us one step closer to making your first interactive web map in the next chapter! Chapter 03 includes three lab lessons and ends with Activity 4, a second debugging exercise to continue to practice your computational thinking skills.
 
 *   In Lesson 1, we introduce common web data formats and their geospatial variants.
 *   In Lesson 2, we introduce AJAX (Asynchronous JavaScript and XML), or the strategy used to load data dynamically into the browser, enabling interactivity with maps and visualizations.
@@ -24,15 +24,15 @@ Lesson 1: (Geo)Web Data Formats
 
 Geospatial data therefore cannot be treated as simple X,Y or Cartesian coordinates, but instead need to be [projected](https://gistbok.ucgis.org/bok-topics/map-projections) onto a distorted, flat surface of the otherwise three-dimensional Earth. As we discuss later in the semester when introducing non-spatial data formats and their associated visualization techniques, the importance of coordinate systems, spatial typology, and projections makes maps perhaps the most difficult form of information visualization (i.e., _cartographers easily can design non-map visualizations, but data scientists without spatial training often struggle to make effective maps_!). 
 
-When making static maps, we rely primarily on **_shapefiles_** (extension **_.shp_**), a very common geospatial format developed by Esri for its proprietary products. Shapefiles are not optimized for the web, as they comprise multiple files of different formats (e.g., .prj, .dbf), some that can be read by a text editor (and thus web browser) and others that cannot. Thus, the first step in web mapping often is converting shapefiles into a simpler web format.
+When making static maps, we rely primarily on **_shapefiles_** (extension **_.shp_**), a very common geospatial format developed by Esri for its proprietary products. Shapefiles are not optimized for the web, as they comprise multiple files of different formats (e.g., .prj, .dbf), some that can be read by a text editor (and thus web browser) and others that cannot. Thus, the first step in web mapping often is converting shapefiles into a simpler web format (details below).
 
-There are a number of options of web data formats that can be used for interactive maps. For instance, _**KML** (**Keyhold Markup Language**_) is an extension of _**XML**_ (_**eXtensible Markup Language**_) popularized by Google for its Google Earth and Google Maps APIs. While XML remains popular on the web (it is the X in AJAX, as introduced below!), contemporary web mapping is shifting to JSON-based formats that are more easily interpreted through the DOM. In Lesson 1, we first introduce CSV data, perhaps the simplest form of geospatial data that is acceptable for mapping vector points, and then discuss the more complex JSON-based formats used for mapping lines and polygons.
+There are a number of options of web data formats that can be used for interactive maps. For instance, _**KML** (**Keyhold Markup Language**_) is an extension of _**XML**_ (_**eXtensible Markup Language**_) popularized by Google for its Google Earth and Google Maps APIs. While XML remains popular on the web (it is the X in AJAX, as introduced below!), contemporary web mapping is shifting to JSON-based formats (introduced below) that are more easily interpreted through the DOM. In Lesson 1, we first introduce CSV data, perhaps the simplest form of geospatial data that is acceptable for mapping vector points, and then discuss the more complex JSON-based formats used for mapping lines and polygons.
 
 If you are not familiar with geospatial data, we recommend reading background on common [vector](https://gistbok.ucgis.org/bok-topics/vector-formats-and-sources) and [raster](https://gistbok.ucgis.org/bok-topics/raster-formats-and-sources) formats. We primarily use vector formats in this workbook, but will load raster tilesets as basemaps in Unit 2.
 
 ### II. CSV Data
 
-_**CSV**_ (extension .csv) stands for _**comma-separated values**_. Like the name implies, a CSV is a matrix of values with a header row. Values are separated by commas along the horizontal axis and by invisible newline characters at the end of the row. Thus, CSVs typically are viewed in spreadsheet form, and can be created and edited through Excel, Google Sheets, or other spreadsheet software.
+_**CSV**_ (extension .csv) stands for _**comma-separated values**_. Like the name implies, a CSV is a matrix of values with a header row. Values are separated by commas along the horizontal axis and by invisible newline characters at the end of the row. Thus, CSVs typically are viewed in spreadsheet form, and can be created and edited through Microsoft Excel, Google Sheets, or other spreadsheet software.
 
 Say you want to tell a story about the growth of the world's largest cities. You can start by building a CSV spreadsheet of the top cities and their populations (Figure 1.1):
 
@@ -68,7 +68,8 @@ Your final spreadsheet should have the name, lat/long coordinates, and populatio
 
 ###### Figure 1.5: Georeferenced data
 
-> **Download [MegaCities.csv](data/MegaCities.csv "MegaCities.csv"). Run its contents through a batch geocoder to add latitude and longitude columns. Fill in any missing coordinate values.**
+> **Download [MegaCities.csv](data/MegaCities.csv "MegaCities.csv"); the file also is included in _Chapter03_ of the _unit-1_ folder. Run its contents through a batch geocoder to add latitude and 
+longitude columns. Fill in any missing coordinate values.**
 
 ### II. JSON and GeoJSON
 
@@ -86,7 +87,7 @@ Note that data appears in GeoJSON format in the right-side panel. There are no v
 
 Once you have imported your data, you have two options for saving it as a GeoJSON file. If you want to keep the data neatly formatted as it is in the side panel, you can simply select all of the text in the side panel, copy it, paste into a new blank file in your text editor, and save it with a _.geojson_ extension from there. For a minified file, use the Save menu in the upper-left corner of the map and choose "GeoJSON". A file called _map.geojson_ will download automatically; retrieve this file from your downloads folder, move it to the data folder in your website directory, and rename it appropriately.
 
-> ### **Use [geojson.io](http://geojson.io/) to convert your CSV to a GeoJSON. Save your GeoJSON file to your data folder in your website directory.**
+> ### **Use [geojson.io](http://geojson.io/) to convert your CSV to a GeoJSON. Save your GeoJSON file to your _data_ folder in your _unit-1/boilerplate_ directory.**
 
 Lesson 2: AJAX Concepts and Syntax
 ----------------------------------
