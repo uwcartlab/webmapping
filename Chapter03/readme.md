@@ -317,7 +317,7 @@ Note that the `ajax()` function calls the `callback` function when the `success`
     function callback(response){
     
 
-Any other functions you call from within the callback function can access to the loaded data if you pass it as a parameter in the function call (Example 3.5).
+Any other functions you call from within the callback function can access the loaded data if you pass it as a parameter in the function call (Example 3.5).
 
 ###### Example 3.5: Calling a new function from within the callback function in _main.js_
 
