@@ -195,7 +195,7 @@ We also can view the response as plain text using JavaScript's built-in JSON lib
 
 ###### Figure 2.2: The console showing the JSON data as a string
 
-> ### **Print the _MegaCities.geojson_ file to the console in _main.js_ using native JavaScript functions.**
+> ### **Switch the script in _index.html_ back to _main.js_. Print the _MegaCities.geojson_ file to the console in _main.js_ using native JavaScript functions shown in Example 2.3.**
 
 ### III. jQuery AJAX Requests
 
