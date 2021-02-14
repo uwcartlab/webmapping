@@ -256,7 +256,7 @@ Making use of tutorial examples requires figuring out how to integrate them into
 
 The _Using GeoJSON with Leaflet_ tutorial makes use of single GeoJSON features for its data (Figure 2.1).
 
-![figure4.2.1.png](img/figure4.2.1.png)
+![figure4.2.1.PNG](img/figure4.2.1.PNG)
 
 ###### Figure 2.1: Creation of a GeoJSON feature in the _Using GeoJSON with Leaflet_ tutorial
 
@@ -285,7 +285,7 @@ This object represents a point feature, essentially equivalent to one element in
 
 The _Using GeoJSON with Leaflet_ tutorial then maps the feature using the `.addTo()` method (Figure 2.2).
 
-![figure4.2.2.png](img/figure4.2.2.png)
+![figure4.2.2.PNG](img/figure4.2.2.PNG)
 
 ###### Figure 2.2: Script from the _Using GeoJSON with Leaflet_ tutorial to add the feature to the map
 
@@ -304,7 +304,8 @@ Example 2.3 shows the complete code needed in _adaptedTutorial.js_ to adapt the
 ###### Example 2.3: The complete _adaptedTutorial.js_ script to create a Leaflet map with the _MegaCities.geojson_ data
 
     /* Map of GeoJSON data from MegaCities.geojson */
-    //declare map var in global scopevar map;
+    //declare map var in global scope
+	var map;
     //function to instantiate the Leaflet map
     function createMap(){
         //create the map
@@ -334,7 +335,7 @@ Example 2.3 shows the complete code needed in _adaptedTutorial.js_ to adapt the
     $(document).ready(createMap);
 
 
-In Example 2.3, the variable `response`—which holds our AJAX response data, the GeoJSON—takes the place of `geojsonFeature` in the tutorial.  Rather than having to create the data in the script, we bring in our external data from the _MegaCities.geojson_ file and pass it directly to `L.geoJson()`. With no options specified, Leaflet displays the features as default marker icons (from a png image stored in Leaflet's _images_ folder), as shown in Figure 2.3. Notice we are declaring our map variable in the global scope so that  we have access to it in the getData function.
+In Example 2.3, the variable `response`—which holds our AJAX response data, the GeoJSON—takes the place of `geojsonFeature` in the tutorial.  Rather than having to create the data in the script, we bring in our external data from the _MegaCities.geojson_ file and pass it directly to `L.geoJson()`. With no options specified, Leaflet displays the features as default marker icons (from a png image stored in Leaflet's _images_ folder), as shown in Figure 2.3. Notice we are declaring our map variable in the global scope so that we have access to it in the `getData` function.
 
 ![figure4.2.3.png](img/figure4.2.3.png)
 
@@ -344,9 +345,9 @@ In Example 2.3, the variable `response`—which holds our AJAX response data, th
 
 Since _megaCities.geojson_ comprises point data, we can adapt the additional styling from the _Using GeoJSON with Leaflet_ tutorial.
 
-**pointToLayer:** The `pointToLayer` option of `GeoJSON` defines a function to convert GeoJSON points into Leaflet layers.  Figure 2.4 shows use of `pointToLayer` in _geojsonTutorial.js._
+**pointToLayer:** The `pointToLayer` option of `GeoJSON` defines a function to convert GeoJSON points into Leaflet layers. Figure 2.4 shows use of `pointToLayer` in _geojsonTutorial.js._
 
-![figure4.2.4.png](img/figure4.2.4.png)
+![figure4.2.4.PNG](img/figure4.2.4.PNG)
 
 ###### Figure 2.4: `pointToLayer` script from the _Using GeoJSON with Leaflet_ tutorial
 
@@ -381,7 +382,7 @@ Figure 2.5 illustrates the results of applying the modified use of `pointToLayer
 
 **onEachFeature:** The onEachFeature option of GeoJSON calls a function once for each feature contained in the created GeoJSON object. Figure 2.6 shows the use of onEachFeature in the _Using GeoJSON with Leaflet_ tutorial.
 
-![figure4.2.6.png](img/figure4.2.6.png)
+![figure4.2.6.PNG](img/figure4.2.6.PNG)
 
 ###### Figure 2.6: `onEachFeature` script from the _Using GeoJSON with Leaflet_ tutorial
 
@@ -435,7 +436,7 @@ Figure 2.10 illustrates a project mapping the distance of Flickr images from maj
 
 ###### Figure 2.10: Project mapping Flickr photos in national parks.
 
-To examine and modify the code, you can right-click on the webpage,  "Inspect Element" and select the _**Debugger**_ tab (This option may vary for different web browsers). This opens developer tools (Figure 2.11), offering a look at the HTML as well as links to other open source files, including stylesheets and scripts. 
+To examine and modify the code, you can right-click on the webpage, "Inspect Element" and select the _**Debugger**_ tab (This option may vary for different web browsers). This opens developer tools (Figure 2.11), offering a look at the HTML as well as links to other open source files, including stylesheets and scripts. 
 
 **![figure4.2.11.png](img/figure4.2.11.png)**
 
