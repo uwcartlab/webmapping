@@ -110,7 +110,7 @@ Your script should look approximately like Example 1.1 after completing the _Lea
     }
     
     mymap.on('click', onMapClick);
-    
+
 
 When completing the tutorial, be sure to add a `<div>` element with the `id "mapid"` to the `<body>` of your _index.html_ file, and assigned a `height` to `#mapid` in your _style.css_ stylesheet. Figure 1.1 illustrates the expected slippy map resulting from the _Leaflet Quick Start Guide_.
 
@@ -118,7 +118,7 @@ When completing the tutorial, be sure to add a `<div>` element with the `id "map
 
 ###### Figure 1.1: An example slippy map created during the _Leaflet Quick Start Guide_ tutorial
 
-Leaflet.js is the foundation for Mapbox.js, maintained by a large web mapping company of the same name, and the original developer of Leaflet (Vladimir Agafonkin) is now a software engineer for Mapbox. Accordingly, the _Leaflet Quick Start Guide_ makes use of a Mapbox tileset that requires an [access token](https://account.mapbox.com/access-tokens/). You may follow the format given in the tutorial, but if so, note that you must replace the text _your.mapbox.project.id_ and _your.mapbox.public.access.token_ with your unique project id and access token acquired from Mapbox.
+Leaflet.js is the foundation for Mapbox.js, maintained by a large web mapping company of the same name, and the original developer of Leaflet (Vladimir Agafonkin) is now a software engineer for Mapbox. Accordingly, the _Leaflet Quick Start Guide_ makes use of a Mapbox tileset that requires an [access token](https://account.mapbox.com/access-tokens/) (You may need to create a Mapbox account first). You may follow the format given in the tutorial, but if so, note that you must replace the text _your.mapbox.project.id_ and _your.mapbox.public.access.token_ with your unique project id and access token acquired from Mapbox.
 
 Alternatively, you can avoid creating a Mapbox account by using an open tileset from the [Leaflet-providers preview website.](http://leaflet-extras.github.io/leaflet-providers/preview/) Example 1.2 makes use of the primary OpenStreetMap (OSM) tileset.
 
@@ -128,7 +128,7 @@ Alternatively, you can avoid creating a Mapbox account by using an open tileset 
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
     }).addTo(map);
-    
+
 
 For both tilesets, the URL string for the tile layer has some special characters in it. The URL format reflects the standardized structure of slippy map tilesets, which consist of 256x256 pixel images in a set of nested subdirectories on the tile server. Tileset URL variables include:
 
@@ -177,7 +177,7 @@ Let's examine the Leaflet methods from the two tutorials you completed using the
 ###### Example 1.3: Using the Leaflet methods `L.map()` and `.setView()` in _quickstartTutorial.js_
 
     var map = L.map('map').setView([51.505, -0.09], 13);
-    
+
 
 Let's take a look at [`L.map()`](http://leafletjs.com/reference.html#map-example) in the API. The first line under the section titled "Map" describes the method's parent class (`Map`), "\[t\]he central class of the API — it is used to create a map on a page and manipulate it". Definition of [`L.map()`](http://leafletjs.com/reference.html#map-example) begins with a "Usage example" (Figure 1.4).
 
@@ -231,7 +231,7 @@ Next, let's look at the `L.tileLayer()` and `.addTo()` methods. `L.tileLayer` ta
     });
     
     tileLayer.addTo(map);
-    
+
 
 Let's take a look at the Leaflet API documentation for some of the methods used in the _Using_ _GeoJSON with Leaflet_ tutorial. The [`L.geoJson()`](http://leafletjs.com/reference.html#geojson) method represents a GeoJSON object or an array of GeoJSON objects and _**extends**_ the `FeatureGroup` class, meaning GeoJSON inherits methods and properties from [`FeatureGroup`](https://leafletjs.com/reference-1.6.0.html#featuregroup). A `FeatureGroup` in turn extends the [`LayerGroup`](https://leafletjs.com/reference-1.6.0.html#layergroup) class, which groups multiple Leaflet layers and handles them as if they were one layer. Think of GeoJSON, `FeatureGroup`, and `LayerGroup` as nested objects in a Venn diagram (Figure 1.8). In practical terms, such inheritance means that a GeoJSON layer can use any of the options, methods, or events specified in GeoJSON, `FeatureGroup`, and `LayerGroup`.
 
@@ -281,7 +281,7 @@ This object represents a point feature, essentially equivalent to one element in
             "coordinates": [139.8089447, 35.6832085]
         }
     },
-    
+
 
 The _Using GeoJSON with Leaflet_ tutorial then maps the feature using the `.addTo()` method (Figure 2.2).
 
@@ -332,7 +332,7 @@ Example 2.3 shows the complete code needed in _adaptedTutorial.js_ to adapt the
     };
     
     $(document).ready(createMap);
-    
+
 
 In Example 2.3, the variable `response`—which holds our AJAX response data, the GeoJSON—takes the place of `geojsonFeature` in the tutorial.  Rather than having to create the data in the script, we bring in our external data from the _MegaCities.geojson_ file and pass it directly to `L.geoJson()`. With no options specified, Leaflet displays the features as default marker icons (from a png image stored in Leaflet's _images_ folder), as shown in Figure 2.3. Notice we are declaring our map variable in the global scope so that  we have access to it in the getData function.
 
@@ -371,7 +371,7 @@ Example 2.4 updates pointToLayer for our _adaptedTutorials.js_ script (Example 2
                     }
                 }).addTo(map);
             });
-    
+
 
 Figure 2.5 illustrates the results of applying the modified use of `pointToLayer`.
 
@@ -415,7 +415,7 @@ Example 2.5 instead uses a loop to dynamically add each property name and value 
                 }).addTo(map);
         });
     };
-    
+
 
 Figure 2.7 illustrates the results of applying the modified use of `onEachFeature`.
 
@@ -435,7 +435,7 @@ Figure 2.10 illustrates a project mapping the distance of Flickr images from maj
 
 ###### Figure 2.10: Project mapping Flickr photos in national parks.
 
-To examine and modify the code, you can right-click on the webpage,  "Inspect Element" and select the _**Debugger**_ tab. This opens developer tools (Figure 2.11), offering a look at the HTML as well as links to other open source files, including stylesheets and scripts. 
+To examine and modify the code, you can right-click on the webpage,  "Inspect Element" and select the _**Debugger**_ tab (This option may vary for different web browsers). This opens developer tools (Figure 2.11), offering a look at the HTML as well as links to other open source files, including stylesheets and scripts. 
 
 **![figure4.2.11.png](img/figure4.2.11.png)**
 
@@ -494,14 +494,14 @@ Note that the path to the image is shown in the URL bar. We can simply copy this
 ###### Example 4.1: Adding a tile URL as the `L.tileLayer()` URL parameter in _main.js_
 
     L.tileLayer('http://c.tile.openstreetmap.org/12/1031/1503.png').addTo(map);
-    
+
 
 Now, we need to replace the elements of the URL string that are specific to that tile with tileset URL variables (Example 4.2).
 
 ###### Example 4.2: Adding variables to reference the entire tileset in _main.js_
 
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-    
+
 
 Voilà! We are now accessing that tileset as the base layer for our custom Leaflet map.
 
@@ -535,8 +535,8 @@ Based on the directions in the Leaflet Lab assignment, the data you select shoul
 ## Activity 5
 
 1.  Create a GitHub repository called _unit-2_. As you build your Leaflet map, commit each major change to your code as often as necessary.
-2.  Replace the link to _adaptedTutorial.js_ with a link to your _main.js_ file in _index.html_ and start building your custom Leaflet map for the lab assignment using the data you found. Use the code from _adaptedTutorial__.js_ to use as an initial building block for _main.js_. Be sure to keep _quickstartTutorial.js, geojsonTutorial.js,_ and _adaptedTutorial__.js_ in your _js_ folder for review!
-3.  With all of the above tasks completed, commit your changes and sync with GitHub. Include "Activity 5" in the commit message. The repo should include four JS files: _quickstartTutorial.js, geojsonTutorial.js, adaptedTutorial.js_, and _main.js__._ The _index.html_ file should link to just _main.js_ to map the GeoJSON file containing your spatiotemporal data.
+2.  Replace the link to _adaptedTutorial.js_ with a link to your _main.js_ file in _index.html_ and start building your custom Leaflet map for the lab assignment using the data you found. Use the code from _adaptedTutorial.js_ to use as an initial building block for _main.js_. Be sure to keep _quickstartTutorial.js, geojsonTutorial.js,_ and _adaptedTutorial.js_ in your _js_ folder for review!
+3.  With all of the above tasks completed, commit your changes and sync with GitHub. Include "Activity 5" in the commit message. The repo should include four JS files: _quickstartTutorial.js, geojsonTutorial.js, adaptedTutorial.js_, and _main.js_. The _index.html_ file should link to just _main.js_ to map the GeoJSON file containing your spatiotemporal data.
 4.  Zip a copy of your _unit-2_ repo and upload to the Activity 5 dropbox as a backup.
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
