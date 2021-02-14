@@ -449,7 +449,7 @@ Lesson 3: Using Help Forums
 
 ### I. Asking Questions
 
-"Google Fu" may sound like a martial art that takes years of training to master. However, knowing how to ask a question when searching for answers online is perhaps the most important skill when programming. However, phrasing a question is more difficult than it seems: if you do not understand what is going wrong with your code, how are you supposed to ask a question about it?
+"Google Fu" may sound like a martial art that takes years of training to master. However, knowing how to ask a question when searching for answers online is perhaps the most important skill when programming. Phrasing a question is more difficult than it seems: if you do not understand what is going wrong with your code, how are you supposed to ask a question about it?
 
 The first step is using the API document to come up with a set of _**keywords**_ that you can use to describe your coding problem. How about these: "Leaflet", "web map", "object", "loop", "tile layer", "marker", "data", "coordinate", "array", "element", "AJAX", "variable", "GeoJSON". Then, think of other descriptive words for your coding issue and put them together in a sentence, such as:
 
@@ -484,7 +484,7 @@ Lesson 4: Finding Tilesets and Data
 
 In Lesson 1 , you completed the _Leaflet Quick Start Guide_ tutorial using either a Mapbox tileset or OSM tileset. Mapbox provides a wide range of control over the tileset style through their [Mapbox Studio tool](https://www.mapbox.com/?utm_medium=sem&utm_source=google&utm_campaign=sem%7Cgoogle%7Cbrand%7Cchko-googlesearch-pr01-mapboxbrand-br.broad-us-landingpage-search&utm_term=brand&utm_content=chko-googlesearch-pr01-mapboxbrand-br.broad-us-landingpage-search&gclid=CjwKCAiA4Y7yBRB8EiwADV1haeW8EVPR3rOJcFtTpuLfyK6vbJQwA2dU6iCVIdLMAE0CnlYViEvaLxoCa9YQAvD_BwE). Thus, you now can tailor your basemap to your UI design, and vice versa.
 
-Do not worry if you have do not have experience using Mapbox Studio, as there are a numerous alternative tilesets that are freely available to use. You can discover the tileset source of web map examples used in (e.g., [past projects](https://geography.wisc.edu/cartography/education/G575/G575SP2019.html)) using right/Command+click on the web map and navigating to "View Image" or "Open image in new tab". This will display a single tile image in its own browser tab (Figure 4.1):
+Do not worry if you have do not have experience using Mapbox Studio, as there are a numerous alternative tilesets that are freely available to use. You can discover the tileset source of web map examples, such a previous projects from the [UW Cartography Lab](https://geography.wisc.edu/cartography/education/G575/G575SP2019.html) using right/Command+click on the web map and navigating to "View Image" or "Open image in new tab". This will display a single tile image in its own browser tab (Figure 4.1):
 
 ![figure4.4.1.png](img/figure4.4.1.png)
 
@@ -514,11 +514,11 @@ Keep in mind that while many of these tilesets are open, some (such as MapBox an
 
 ### II. Finding Thematic Data
 
-In Chapter 03, we discussed how to format GeoJSON data, which we also use for your Leaflet assignment. However, first you need to _find_ spatiotemporal data on a topic that interests you.
+In Chapter 03, we discussed how to format GeoJSON data, which we also use for your first Leaflet map. However, first you need to _find_ spatiotemporal data on a topic that interests you.
 
 Finding data can be one of the most difficult and time-consuming tasks of any mapping project. Below are some useful resources for finding data. This list is not meant to be exhaustive; many governments, agencies, and non-government organizations maintain their own websites for data access that are not included below.
 
-*   [**The Robinson Map and Data Library**](https://geography.wisc.edu/maplibrary/) at UW-Madison stores over a terabyte of data related to Wisconsin and provides links to many more data sources under its "Collections" menu. As a student of UW-Madison, you can also access staff assistance to help you find what you are looking for. Use the library's [data request form](https://geography.wisc.edu/maplibrary/gis-data-request-form/) to get assistance. Map Librarian Jaime Martindale provides consultation on data sources, so stop by the library if you are stuck this chapter on a viable dataset.
+*   [**The Robinson Map and Data Library**](https://geography.wisc.edu/maplibrary/) at UW-Madison stores over a terabyte of data related to Wisconsin and provides links to many more data sources under its "Collections" menu. As a student of UW-Madison, you can also access staff assistance to help you find what you are looking for. Use the library's [data request form](https://geography.wisc.edu/maplibrary/gis-data-request-form/) to get assistance.
     
 *   [**Data.gov**](http://www.data.gov/) is a clearinghouse of data sources for data produced by U.S. Government agencies. It has a user-friendly interface with powerful search tools.
     
@@ -529,7 +529,7 @@ Finding data can be one of the most difficult and time-consuming tasks of any ma
 *   [**The World Bank**](http://data.worldbank.org/) maintains web access to its expansive database of economic, demographic, environmental, and human development data. Their focus is obviously on economic indicators, but this is a good place to look for health, education, and greenhouse gas emissions data by country as well.
     
 
-Based on the directions in the Leaflet Lab assignment, the data you select should include at least <ins>_15 point features_</ins>, with each point feature including <ins>_7 timestamp attributes_</ins>. Once you have found data you want to use for the assignment, format it as a spreadsheet with each feature a row and each attribute a column, and include columns with a unique id for each feature, the feature name, latitude, and longitude. Then, convert your dataset into GeoJSON format.
+Once you have found data you want to use for the assignment, format it as a spreadsheet with each feature a row and each attribute a column, and include columns with a unique id for each feature, the feature name, latitude, and longitude. Then, convert your dataset into GeoJSON format.
 
 > ### **Find and format your own thematic, sequential point data containing at least 15 point features and at least 7 sequential attribute columns. Convert your dataset to a GeoJSON file and add it to a Leaflet map in _main.js_.**
 
