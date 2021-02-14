@@ -7,9 +7,9 @@
 
 ## _A Workbook for Interactive Cartography and Visualization on the Open Web_
 
-#### [Robert Roth](https://twitter.com/RobertERoth), [Carl Sack](https://twitter.com/northlandiguana), Gareth Baldrica-Franklin, Yuying Chen, [Rich Donohue](https://twitter.com/rgdonohue), [Tim Prestby](https://twitter.com/timprestby?lang=en), [Robin Tolochko](https://twitter.com/tolomaps), [Nick Underwood](https://twitter.com/mulletmapping)
+#### [Robert Roth](https://twitter.com/RobertERoth), [Carl Sack](https://twitter.com/northlandiguana), Gareth Baldrica-Franklin, Yuying Chen, [Rich Donohue](https://twitter.com/rgdonohue), Lily Houtman, [Tim Prestby](https://twitter.com/timprestby?lang=en), [Robin Tolochko](https://twitter.com/tolomaps), [Nick Underwood](https://twitter.com/mulletmapping)
 
-###### Cite/Attribute as: Roth RE, CM Sack, G Baldrica-Franklin, Y Chen, R Donohue, T Prestby, R Tolochko, and N Underwood. 2020. _Web Mapping: A Workbook for Interactive Cartography and Visualization on the Open Web._ Version 0.1. University of Wisconsin Cartography Laboratory: Madison, WI. DOI: 10.5281/zenodo.4032935
+###### Cite/Attribute as: Roth RE, CM Sack, G Baldrica-Franklin, Y Chen, R Donohue, L Houtman, T Prestby, R Tolochko, and N Underwood. 2020. _Web Mapping: A Workbook for Interactive Cartography and Visualization on the Open Web._ Version 0.1. University of Wisconsin Cartography Laboratory: Madison, WI. DOI: 10.5281/zenodo.4032935
 
 ---
 
