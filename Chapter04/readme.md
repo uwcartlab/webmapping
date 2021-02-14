@@ -157,9 +157,9 @@ Figure 1.1 illustrates the expected slippy map resulting from the _Using GeoJSON
 
 You used several Leaflet methods in the pair of tutorials to create the example slippy map with minimal discussion of how each method works and, more importantly, how each method can be customized to support your design vision. The [Leaflet API Documentation](https://leafletjs.com/reference-1.6.0.html) provides a comprehensive overview of the Leaflet methods and their syntax.
 
-An ***API*** or ***A***pplication ***P***rogramming ***I***nterface describes the functional utility of a code library or software that is exposed for use by developers. The API _**documentation**_ is like a dictionary that defines the available functions. You already used API documentation for [jQuery](http://api.jquery.com/) in Week 2 and JavaScript API documentation is available through [W3Schools](http://www.w3schools.com/jsref/default.asp) and the [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference). While essential for developing on the opening web, learning to read and understand the documentation can be a challenging skill to acquire, perhaps akin to learning to read scientific papers if you are used to writing for the humanities.
+An ***API*** or ***A***pplication ***P***rogramming ***I***nterface describes the functional utility of a code library or software that is exposed for use by developers. The API _**documentation**_ is like a dictionary that defines the available functions. You already used API documentation for [jQuery](http://api.jquery.com/) in Week 2 and JavaScript API documentation is available through [W3Schools](http://www.w3schools.com/jsref/default.asp) and the [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference). While essential for developing on the opening web, learning to read and understand the documentation can be a challenging skill to acquire, perhaps akin to learning to read scientific papers if you are used to writing for the humanities, and vice versa.
 
-In general, any good API documentation should provide:
+In general, API documentation provide:
 
 *   a description of what the expression does
 *   a demonstration of the syntax for its use, with variable values identified by a consistent formatting convention
@@ -181,13 +181,13 @@ Let's examine the Leaflet methods from the two tutorials you completed using the
 
 Let's take a look at [`L.map()`](http://leafletjs.com/reference.html#map-example) in the API. The first line under the section titled "Map" describes the method's parent class (`Map`), "\[t\]he central class of the API — it is used to create a map on a page and manipulate it". Definition of [`L.map()`](http://leafletjs.com/reference.html#map-example) begins with a "Usage example" (Figure 1.4).
 
-![figure4.1.2.png](img/figure4.1.2.png)
+![figure4.1.2.PNG](img/figure4.1.2.PNG)
 
 ###### Figure 1.4: Example map instantiation script in the Leaflet API documentation
 
 Note the difference between this usage of the method and its usage in the _Leaflet Quick Start Guide_ (Example 1.1, line 3). Figure 1.2 shows two parameters: a string (`'map'`) and an object consisting of a `center` property with an array of two coordinates (`[51.505, -0.09]`) and a `zoom` property with a number (`13`). To understand what these parameters do, examine the syntax demonstration under "Creation" (Figure 1.5).
 
-![figure4.1.3.png](img/figure4.1.3.png)
+![figure4.1.3.PNG](img/figure4.1.3.PNG)
 
 ###### Figure 1.5: Definition and syntax of `L.map()` in the Leaflet API documentation
 
@@ -202,7 +202,7 @@ The "Description" column describes in plain English what the method does. This t
 
 The "Options" section (Figure 1.6) includes all of the options available as properties of the _options_ parameter object, organized neatly as tables categorized as "Map State Options", "Interaction Options", "Keyboard Navigation Options", "Panning Inertia Options", "Control Options", and "Animation Options". Thus, these options set and constrain the cartographic interaction.
 
-![figure4.1.4.png](img/figure4.1.4.png)
+![figure4.1.4.PNG](img/figure4.1.4.PNG)
 
 ###### Figure 1.6: Map options presented in the Leaflet API documentation
 
@@ -235,7 +235,7 @@ Next, let's look at the `L.tileLayer()` and `.addTo()` methods. `L.tileLayer` ta
 
 Let's take a look at the Leaflet API documentation for some of the methods used in the _Using_ _GeoJSON with Leaflet_ tutorial. The [`L.geoJson()`](http://leafletjs.com/reference.html#geojson) method represents a GeoJSON object or an array of GeoJSON objects and _**extends**_ the `FeatureGroup` class, meaning GeoJSON inherits methods and properties from [`FeatureGroup`](https://leafletjs.com/reference-1.6.0.html#featuregroup). A `FeatureGroup` in turn extends the [`LayerGroup`](https://leafletjs.com/reference-1.6.0.html#layergroup) class, which groups multiple Leaflet layers and handles them as if they were one layer. Think of GeoJSON, `FeatureGroup`, and `LayerGroup` as nested objects in a Venn diagram (Figure 1.8). In practical terms, such inheritance means that a GeoJSON layer can use any of the options, methods, or events specified in GeoJSON, `FeatureGroup`, and `LayerGroup`.
 
-We will return to classes and inheritance as key concepts in object-oriented programming in Week 6.
+We will return to classes and inheritance as key concepts in object-oriented programming in Chapter 6.
 
 ![figure4.1.6.png](img/figure4.1.6.png)
 
