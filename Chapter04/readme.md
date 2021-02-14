@@ -8,7 +8,7 @@ Chapter 04 transitions into the second unit for Web Mapping, which supports your
 *   In Lesson 1, we introduce the Leaflet open source code library and API documentation, having you complete two tutorials available through the Leaflet website that provide essential background on Leaflet.
 *   In Lesson 2, we discuss how to integrate example code into your interactive web map, adapting several of the Leaflet tutorial scripts to map the _MegaCities.geojson_ file you prepared in Chapter 03.
 *   In Lesson 3, we review useful resources for obtaining help from the open source software community when you are stuck on a problem.
-*   In Lesson 4, we provide guidance for finding basemap tilesets and thematic overlay data, some of which may be review if you've taken an introductory cartography course. Lessons 3 and 4 are short, and provide some general guidance as you begin your first interactive web map.
+*   In Lesson 4, we provide guidance for finding basemap tilesets and thematic overlay data. Lessons 3 and 4 are short, and provide some general guidance as you begin your first interactive web map.
 
 After this chapter, you should be able to:
 
@@ -26,10 +26,10 @@ _**FOSS**_ stands for ***F***ree and ***O***pen ***S***ource ***S***oftware. Let
 
 *   _**Free**_ has two meanings to FOSS developers: free as in **_libre_**, or without restriction, and free as in **_gratis_**, or without cost. Free as in _libre_ has four components according to the [manifesto](https://www.gnu.org/philosophy/free-sw.html) of the Free Software Foundation:
     
-    *   Freedom to run the program as you wish, for any purpose.
-    *   Freedom to study how the program works, and change it so it does your computing as you wish.
-    *   Freedom to redistribute copies so you can help your neighbor.
-    *   Freedom to distribute copies of your modified versions to others. By doing this you can give the whole community a chance to benefit from your changes.
+    *   _Freedom to run the program as you wish, for any purpose._
+    *   _Freedom to study how the program works, and change it so it does your computing as you wish._
+    *   _Freedom to redistribute copies so you can help your neighbor._
+    *   _Freedom to distribute copies of your modified versions to others. By doing this you can give the whole community a chance to benefit from your changes._
     
     Free as in  _libre_ enables FOSS developers to innovate through collective sharing in a way not possible with _**proprietary software**_ that is owned privately with its source code hidden as a trade secret. It is common for FOSS software like Leaflet to have dozens or even hundreds of contributors.
     
