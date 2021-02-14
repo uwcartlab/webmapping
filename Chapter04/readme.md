@@ -538,7 +538,6 @@ Once you have found data you want to use for the assignment, format it as a spre
 1.  Create a GitHub repository called _unit-2_. As you build your Leaflet map, commit each major change to your code as often as necessary.
 2.  Replace the link to _adaptedTutorial.js_ with a link to your _main.js_ file in _index.html_ and start building your custom Leaflet map for the lab assignment using the data you found. Use the code from _adaptedTutorial.js_ to use as an initial building block for _main.js_. Be sure to keep _quickstartTutorial.js, geojsonTutorial.js,_ and _adaptedTutorial.js_ in your _js_ folder for review!
 3.  With all of the above tasks completed, commit your changes and sync with GitHub. Include "Activity 5" in the commit message. The repo should include four JS files: _quickstartTutorial.js, geojsonTutorial.js, adaptedTutorial.js_, and _main.js_. The _index.html_ file should link to just _main.js_ to map the GeoJSON file containing your spatiotemporal data.
-4.  Zip a copy of your _unit-2_ repo and upload to the Activity 5 dropbox as a backup.
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
