@@ -1,9 +1,9 @@
 ### [Return Home](../../../) | [Previous Chapter](../Chapter06) | [Next Chapter](../Chapter08)
 
-Chapter 07: Collaborating with Github
+Chapter 7: Collaborating with Github
 ===================================
 
-You have been working individually with GitHub for six chapters now, and are in the process of wrapping your first major interactive map with Leaflet that will be hosted through GitHub! Chapter 07 provides additional guidance for working _collaboratively_ with GitHub that supports your group final project. Chapter 07 includes three relatively short lessons and an activity to set-up a collaborative repository that will house your final project proposal and (eventually) your final project interactive.
+You have been working individually with GitHub for six chapters now, and are in the process of wrapping your first major interactive map with Leaflet that will be hosted through GitHub! Chapter 7 provides additional guidance for working _collaboratively_ with GitHub that supports your group final project. Chapter 7 includes three relatively short lessons and an activity to set-up a collaborative repository that will house your final project proposal and (eventually) your final project interactive.
 
 *   In Lesson 1, we briefly refresh your memory on GitHub concepts and terminology.
 *   In Lesson 2, we provide instructions for setting-up your final project collaborative repository, as well as overview on using markdown to build a readme file for your repository that will be used for your proposal.
@@ -18,7 +18,7 @@ After this chapter, you should be able to:
 Lesson 1: GitHub Refresher
 ==========================
 
-As introduced in Chapter 01, _**[GitHub](https://github.com/)**_ is a website and project hosting service that uses the _**[Git](http://git-scm.com/)**_ version control system to take snapshots of your files at a given time, creating a backup that can be shared collaborative when multiple developers are coding at the same time (e.g., your final project). 
+As introduced in Chapter 1, _**[GitHub](https://github.com/)**_ is a website and project hosting service that uses the _**[Git](http://git-scm.com/)**_ version control system to take snapshots of your files at a given time, creating a backup that can be shared collaborative when multiple developers are coding at the same time (e.g., your final project). 
 
 You have been using GitHub to commit your chapter activities throughout semester, but before discussing GitHub as a collaborative coding tool, it is helpful to refresh some [core GitHub terminology](https://help.github.com/en/github/getting-started-with-github/github-glossary):
 
@@ -33,7 +33,7 @@ You have been using GitHub to commit your chapter activities throughout semester
 *   _**[Pull](https://help.github.com/en/github/getting-started-with-github/github-glossary#pull):**_ Pull refers to when you are fetching _in_ changes _and_ merging them. For instance, if someone has edited the remote file you're both working on, you'll want to _pull_ in those changes to your local copy so that it's up to date.
 *   _**[Pull request](https://help.github.com/en/github/getting-started-with-github/github-glossary#pull-request):**_ Pull requests are proposed changes to a repository submitted by a user and accepted or rejected by a repository's collaborators.
 
-You should be conformable with cloning, committing, and pushing through Chapter 06. A large focus for this chapter is on the additional features of GitHub, particularly forking, merging, and pulling.
+You should be conformable with cloning, committing, and pushing through Chapter 6. A large focus for this chapter is on the additional features of GitHub, particularly forking, merging, and pulling.
 
 Lesson 2: Setting Up Your Team's Final Project Repository
 =========================================================
