@@ -1,9 +1,9 @@
 ### [Return Home](../../../) | [Previous Chapter](../Chapter04) | [Next Chapter](../Chapter06)
 
-Chapter 05: Dynamic Mapping with Leaflet
+Chapter 5: Dynamic Mapping with Leaflet
 ======================================
 
-Congratulations on making your first interactive web map with Leaflet last chapter! Chapter 05 continues to build on your first lab assignment by introducing Leaflet interaction operators. Chapter 05 includes four lab lessons and ends with Activity 6 requiring you to implement _pan_, _zoom_, _retrieve_, and _sequence_ on scaled proportional symbols.
+Congratulations on making your first interactive web map with Leaflet last chapter! Chapter 5 continues to build on Chapter 4 by introducing Leaflet interaction operators. Chapter 5 includes four lessons and ends with Activity 6 requiring you to implement _pan_, _zoom_, _retrieve_, and _sequence_ on scaled proportional symbols.
 
 *   In Lesson 1, we introduce pseudocoding in support of scaling your proportional point symbols to your spatiotemporal dataset.
 *   In Lesson 2, we introduce the _pan_, _zoom_, and _retrieve_ operators that are well-supported in Leaflet.
@@ -21,9 +21,9 @@ Lesson 1: Making Leaflet Layers Dynamic
 
 ### I. Pseudocoding
 
-For Activity 5, you used the Leaflet `pointToLayer` function to convert the point features in your custom GeoJSON file into circle markers placed atop a slippy basemap of your choice. While this code uses the _spatial_ data in your GeoJSON, it does not yet utilize the _temporal_ sequence of _attributes_ you collected for your Leaflet lab.
+For Activity 5, you used the Leaflet `pointToLayer` function to convert the point features in your custom GeoJSON file into circle markers placed atop a slippy basemap of your choice. While this code uses the _spatial_ data in your GeoJSON, it does not yet utilize the _temporal_ sequence of _attributes_ you collected for your Leaflet map.
 
-The next step in developing your Leaflet lab is to scale dynamically the radius of those circle markers based on your GeoJSON file, turning them into proportional symbols that represent the attribute data through the visual variable size. Although we continue to work with the _MegaCities.geojson_ dataset in the following examples, you should apply these instructions to your own dataset.
+The next step in developing your Leaflet map is to scale dynamically the radius of those circle markers based on your GeoJSON file, turning them into proportional symbols that represent the attribute data through the visual variable size. Although we continue to work with the _MegaCities.geojson_ dataset in the following examples, you should apply these instructions to your own dataset.
 
 Before starting on the proportional symbols, take a second to think through the task at hand. ***Pseudocoding*** describes the higher-level outlining of computational steps necessary to perform the task. Pseudocoding before coding clarifies the logic behind potential coding solutions, breaking down big, abstract problems into small, manageable pieces. You then can use the console to confirm that your code is "working" at each of these smaller stages to reduce unexpected bugs. Example 1.1 provides one possible pseudocoding outline for implementing proportional symbols; as with all programming, there always are a number of sometimes equally viable pseudocoded solutions for achieving a goal.
 
@@ -39,7 +39,7 @@ Before starting on the proportional symbols, take a second to think through the 
     //Step 6. Give each feature's circle marker a radius based on its attribute value
     
 
-Note that in the pseudocode above, we already have accomplished the first three steps in Chapter 04. Thus, we can assess that we are about half way to completing the proportional symbol scaling. Accordingly, pseudocoding also helps to assess workload and progress on a development project, such as your final project.
+Note that in the pseudocode above, we already have accomplished the first three steps in Chapter 4. Thus, we can assess that we are about half way to completing the proportional symbol scaling. Accordingly, pseudocoding also helps to assess workload and progress on a development project, such as your final project.
 
 As we complete the remaining three steps, we leave our pseudocode in our script as comments describing the tasks within it.
 
@@ -79,7 +79,7 @@ While we could keep adding script to the AJAX callback function to create the pr
     };
     
 
-Currently, the code within `createPropSymbols()` applies the same, static options to create the `L.circleMarker` layer as the [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html) tutorial from Chapter 04. Note that one of these options is the radius of the circle, which we can resize dynamically in the `createPropSymbols()` function to scale the point symbols. 
+Currently, the code within `createPropSymbols()` applies the same, static options to create the `L.circleMarker` layer as the [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html) tutorial from Chapter 4. Note that one of these options is the radius of the circle, which we can resize dynamically in the `createPropSymbols()` function to scale the point symbols. 
 
 Step 4 of our pseudocode determines the attribute for scaling the proportional symbols. We describe how to sequence through all of your attributes in Lesson 3, but for now just pick one attribute and assign it to a local `attribute` variable to hold the name of the GeoJSON attribute used for dynamic scaling (e.g., `"Pop_2015"` in Example 1.3).
 
@@ -250,7 +250,7 @@ Lesson 2: Zoom, Pan, and Retrieve Interactions
 
 ### I. Zoom and Pan Operators
 
-With the proportional symbols correctly scaling based on your GeoJSON file, we now can make your slippy map interactive! The first two of these operators—_zoom_ and _pan_—are automatically implemented by default on any Leaflet map. As introduced in lecture, **_zoom_** describes a change in map scale, typically accompanied with a change in map detail, and ***pan*** describes a change in the map centering.
+With the proportional symbols correctly scaling based on your GeoJSON file, we now can make your slippy map interactive! The first two of these operators—_zoom_ and _pan_—are automatically implemented by default on any Leaflet map. **_Zoom_** describes a change in map scale, typically accompanied with a change in map detail, and ***pan*** describes a change in the map centering.
 
 The _zoom_ operator has a high level of flexibility by default in Leaflet: it can be performed with the zoom control buttons on the map, with a mouse wheel, by pinching on a touch-enabled device, by double-clicking on the map, by holding the Shift key while clicking and dragging the mouse across the map (i.e., a rubberband zoom), or by using the + and - buttons on a keyboard. However, the zoom operator has limited freedom, constrained to 20 interlocking scales with the current scale defined by Leaflet's the `zoom` property introduced last chapter. The strategy of 20 preset scales enables a tileset to approximate a user experience of a "map of everywhere", as each additional scale would require additional processing and storage.
 
@@ -260,7 +260,7 @@ Leaflet's _zoom_ and _pan_ interactions can be modified from the default behavio
 
 ### II. Retrieve Operator with Leaflet Popups
 
-**_Retrieve_** describes the request for details on demand about a map feature of interest. As discussed in lecture, _retrieve_ can be implemented in multiple ways, including a dynamic label (not mobile-friendly), an information window within the map, or an information panel to the side of the map. Because the UI controls for our Leaflet map are relatively simple, we recommend implementing _retrieve_ with the mobile-friendly information panel using the Leaflet `Popup` class.
+**_Retrieve_** describes the request for details on demand about a map feature of interest. _Retrieve_ can be implemented in multiple ways, including a dynamic label on hover (not mobile-friendly), an information window opening near the feature within the map, or an information panel docked to the side of the map. Because the UI controls for our Leaflet map are relatively simple, we recommend implementing _retrieve_ with the mobile-friendly information panel using the Leaflet `Popup` class.
 
 You already used Leaflet popups within the `onEachFeature` function in the [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html) tutorial. Since the `pointToLayer` function also iterates through every feature, we can use the same logic to bind popups to each `L.circleMarker` layer created in the `pointToLayer` anonymous function in Example 1.5. To avoid having too much code within the `pointToLayer` anonymous function, let's move the code for creating the circle markers (including the `attribute` variable and `options` variable) to a separate function called `pointToLayer()` so that we can add _retrieve_ popups directly after creating each new circle marker (Example 2.1). Replace the anonymous function within the `createPropSymbols()` function with a call to the new `pointToLayer()` function.
 
@@ -491,7 +491,7 @@ Give our buttons both a `class` attribute (`"step"`) and an `id` attribute (`"fo
 
 ###### Figure 3.2: Step buttons
 
-Normally _sequence_ UI controls use icons rather than words. You can find and download free icons at [The Noun Project](https://thenounproject.com/) and save them as raster images in your _unit-2/img_ folder. We then can references these icons for our buttons using jQuery's `html()` method (Example 3.8).
+Normally _sequence_ UI controls use icons rather than words. You can find and download open source icons at [The Noun Project](https://thenounproject.com/) and save them as raster images in your _unit-2/img_ folder. We then can references these icons for our buttons using jQuery's `html()` method (Example 3.8).
 
 ###### Example 3.8: Replacing button content with images in _main.js_
 
@@ -752,11 +752,11 @@ Lesson 4: Additional Interaction Operators
 
 ### I. Adapting Additional Interaction Examples
 
-With what you have learned the past two chapters, you should have the tools to adapt examples and solutions of additional interaction operators for your Leaflet lab. This final lesson provides some general strategies and examples for implementing the remaining work operators Leaflet. This material is <ins>_for your reference only_</ins>, as only _pan_, _zoom_, _retrieve_, and _sequence_ are required for Activity 6 and thus your Leaflet lab assignment.
+With what you have learned the past two chapters, you should have the tools to adapt examples and solutions of additional interaction operators. This final lesson provides some general strategies and examples for implementing the remaining work operators in Leaflet. This material is <ins>_for your reference only_</ins>, as only _pan_, _zoom_, _retrieve_, and _sequence_ are required for Activity 6.
 
 ### II. Reexpress
 
-***Reexpress*** sets or changes the visual isomorph used to display the mapped data. In the context of the Leaflet lab, this could involve allowing the user to change the visual variable, for instance using symbol _color value_ instead of _size_. A more common use of _reexpress_ for interactive web maps is toggling among thematic map types, for instance between a proportional symbol and choropleth map if you mapped enumerated data.
+***Reexpress*** sets or changes the visual isomorph used to display the mapped data. This could involve allowing the user to change the visual variable, for instance using symbol _color value_ instead of _size_. A more common use of _reexpress_ for interactive web maps is toggling among thematic map types, for instance between a proportional symbol and choropleth map if you mapped enumerated data.
 
 The Leaflet website includes an _[Interactive Choropleth Map](http://leafletjs.com/examples/choropleth.html)_ tutorial, allowing you to adapt the sample code to your GeoJSON data (e.g., Figure 4.1). If you implement a choropleth map, you will need to link your GeoJSON attributes to a polygon dataset. Leaflet choropleth maps generally are not recommended for small cartographic scales (i.e., when "zoomed out") because of the area distortion imposed by the Web Mercator projection.
 
