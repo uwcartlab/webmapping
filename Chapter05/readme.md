@@ -8,7 +8,7 @@ Congratulations on making your first interactive web map with Leaflet last chapt
 *   In Lesson 1, we introduce pseudocoding in support of scaling your proportional point symbols to your spatiotemporal dataset.
 *   In Lesson 2, we introduce the _pan_, _zoom_, and _retrieve_ operators that are well-supported in Leaflet.
 *   In Lesson 3, we describe the more involved process for implementing the _sequence_ controls to view your spatiotemporal data.
-*   In Lesson 4, we provide some background for implementing the remaining interaction operators introduced in class in a Leaflet slippy map. This material is <ins>_for your reference only_</ins>, as only _pan_, _zoom_, _retrieve_, and _sequence_ are required for Activity 6 and thus your Leaflet lab assignment. However, we encourage you to return to this lesson for the design scenario points in the Leaflet lab rubric or your final project if using Leaflet as the base technology.
+*   In Lesson 4, we provide some background for implementing the remaining interaction operators introduced in class in a Leaflet slippy map. This material is <ins>_for your reference only_</ins>, as only _pan_, _zoom_, _retrieve_, and _sequence_ are included in the Activity 6. However, we encourage you to return to this lesson as you develop more complex interactive maps.
 
 After this chapter, you should be able to:
 
