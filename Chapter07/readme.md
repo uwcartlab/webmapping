@@ -187,7 +187,7 @@ Next, click "create milestone" and fill in the details from your proposal, poten
 
 ###### Figure 3.5: Creating a milestones
 
-More [information about milestones](https://help.github.com/en/enterprise/2.18/user/github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests%C2%A0) is available in the GitHub help information.
+More [information about milestones](https://docs.github.com/en/github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests) is available in the GitHub help information.
 
 ## Activity 7
 
