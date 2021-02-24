@@ -118,7 +118,7 @@ As you collaboratively write and edit your proposal, you again will create confl
 
 ###### Figure 2.8. Resolving the merge conflict in the interaction requirements
 
-> ### **Work with your team to add a the proposal outline that you will complete over the next two chapters, merging and resolving all conflicts.**
+> ### **Work with your team to add to the proposal outline that you will complete over the next two chapters, merging and resolving all conflicts.**
 
 Lesson 3: Best Practices for Collaborative Coding
 =================================================
