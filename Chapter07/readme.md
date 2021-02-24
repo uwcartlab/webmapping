@@ -189,6 +189,10 @@ Next, click "create milestone" and fill in the details from your proposal, poten
 
 More [information about milestones](https://docs.github.com/en/github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests) is available in the GitHub help information.
 
+**8.\. Stay in Contact with Your Team**
+
+Use Slack and video conference platforms to stay in contact with your team. Determine whether you prefer to work at the same time or independently, updating your team when you have made changes. Virtual collaboration is difficult, so don't be afraid to overcommunicate until you figure out a workflow.
+
 ## Activity 7
 
 1.  Clone the collaborative repository we created for you.
