@@ -193,7 +193,11 @@ More [information about milestones](https://docs.github.com/en/github/managing-y
 
 **8.\. Stay in Contact with Your Team**
 
-Use Slack and video conference platforms to stay in contact with your team. Determine whether you prefer to work at the same time or independently, updating your team when you have made changes. Virtual collaboration is difficult, so don't be afraid to overcommunicate until you figure out a workflow.
+Use Slack and video conference platforms to stay in contact with your team. Determine whether you prefer to work at the same time or independently. Virtual collaboration is difficult, so don't be afraid to overcommunicate until you figure out a workflow.
+
+**9.\. Consult Documentation**
+
+In addition to discussing any issues with your team members, remember that GitHub has a number of instructional guides, such as [collaborating with issues and pull requests](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests) that may help resolve many common issues. You can also check online forums, like the [GitHub Support Community](https://github.community/) to see if anyone has asked a similar question before.
 
 ## Activity 7
 
