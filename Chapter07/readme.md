@@ -118,6 +118,8 @@ As you collaboratively write and edit your proposal, you again will create confl
 
 ###### Figure 2.8. Resolving the merge conflict in the interaction requirements
 
+As you move along in your project, you may want to create separate [branches](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-branches) to test features without committing them to the main branch. If you are happy with the features you tested, you can open a pull request to merge the changes from your head (current) branch to a base (different, perhaps the main) branch, similar to other pull requests. 
+
 > ### **Work with your team to add to the proposal outline that you will complete over the next two chapters, merging and resolving all conflicts.**
 
 Lesson 3: Best Practices for Collaborative Coding
