@@ -833,7 +833,7 @@ A common calculation on slippy maps is distance and area measurement, which can 
 1.  Implement styled _retrieve_ popups.
 2.  Implement the _sequence_ operator with a slider and step buttons.
 3.  Commit the changes to your _unit-2_ directory and sync with GitHub. Include "Activity 6" in the commit message (Summary). Your assignment will be graded based on what is contained in this commit.
-4.  Zip a copy of your _unit-2_ repo and upload to the Activit 6 dropbox as a backup.
+4.  Zip a copy of your _unit-2_ repo and upload to the Activity 6 dropbox as a backup.
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
