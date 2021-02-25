@@ -37,7 +37,7 @@ Before starting on the proportional symbols, take a second to think through the 
     //Step 4. Determine the attribute for scaling the proportional symbols
     //Step 5. For each feature, determine its value for the selected attribute
     //Step 6. Give each feature's circle marker a radius based on its attribute value
-
+    
 
 Note that in the pseudocode above, we already have accomplished the first three steps in Chapter 4. Thus, we can assess that we are about half way to completing the proportional symbol scaling. Accordingly, pseudocoding also helps to assess workload and progress on a development project, such as your final project.
 
@@ -77,7 +77,7 @@ While we could keep adding script to the AJAX callback function to create the pr
                 createPropSymbols(response);
         });
     };
-
+    
 
 Currently, the code within `createPropSymbols()` applies the same, static options to create the `L.circleMarker` layer as the [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html) tutorial from Chapter 4. Note that one of these options is the radius of the circle, which we can resize dynamically in the `createPropSymbols()` function to scale the point symbols. 
 
@@ -90,7 +90,7 @@ Step 4 of our pseudocode determines the attribute for scaling the proportional s
     
         //Step 4. Determine the attribute for scaling the proportional symbols
         var attribute = "Pop_2015";
-
+    
 
 Step 5 is a little trickier, iterating through each feature in your GeoJSON to get its value for the `Pop_2015` attribute. The `pointToLayer` anonymous function already iterates through each feature to turn the marker into a circle. Thus, we can determine the value of each feature's `Pop_2015` attribute within the `pointToLayer` function (Example 1.4).
 
@@ -134,98 +134,106 @@ Example 1.5 illustrates the steps needed to implement Flannery scaling for our s
 
 ###### Example 1.5: Dynamically calculating a each circle marker radius in _main.js_
 
-    //declare map variable globally so all functions have access
-    var map;
-    var minValue;
+    //declare vars globally so all functions have access  
+    var map;  
+    var minValue;  
     
-    //step 1 create map
-    function createMap(){
+    //step 1 create map  
+    function createMap(){  
+          
+         //create the map  
+        map = L.map('map', {  
+             center: \[0, 0\],  
+              zoom: 2  
+        });  
+            
+        //add OSM base tilelayer  
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {  
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'  
+        }).addTo(map);  
     
-        //create the map
-        map = L.map('map', {
-            center: [0, 0],
-            zoom: 2
-        });
+         //call getData function  
+        getData(map);  
+    };  
     
-        //add OSM base tilelayer
-        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
-        }).addTo(map);
+    function calcMinValue(data){  
+           
+         //create empty array to store all data values  
+         var allValues = \[\];  
+           
+         //loop through each city  
+         for(var city of data.features){  
+              //loop through each year  
+              for(var year = 1985; year <= 2015; year+=5){  
+                    //get population for current year  
+                   var value = city.properties\["Pop\_"+ String(year)\];  
+                   //add value to array  
+                   allValues.push(value);  
+               }  
+         }  
+           
+         //get minimum value of our array  
+         var minValue = Math.min(...allValues)  
     
-        //call getData function
-        getData(map);
-    };
+         return minValue;  
+    }  
     
-    function calculateMinValue(data){
-        //create empty array to store all data values
-        var allValues = [];
-        //loop through each city
-        for(var city of data.features){
-            //loop through each year
-            for(var year = 1985; year <= 2015; year+=5){
-                  //get population for current year
-                  var value = city.properties["Pop_"+ String(year)];
-                  //add value to array
-                  allValues.push(value);
-            }
-        }
-        //get minimum value of our array
-        var minValue = Math.min(...allValues)
+    //calculate the radius of each proportional symbol  
+    function calcPropRadius(attValue) {  
+           
+         //constant factor adjusts symbol sizes evenly  
+         var minRadius = 5;  
+           
+        //Flannery Appearance Compensation formula  
+         var radius = 1.0083 \* Math.pow(attValue/minValue,0.5715) \* minRadius  
     
-        return minValue;
-    }
+         return radius;  
+    };  
     
-    //calculate the radius of each proportional symbol
-    function calcPropRadius(attValue) {
-        //constant factor adjusts symbol sizes evenly
-        var minRadius = 5;
-        //Flannery Apperance Compensation formula
-        var radius = 1.0083 * Math.pow(attValue/minValue,0.5715) * minRadius
+    //Step 3: Add circle markers for point features to the map  
+    function createPropSymbols(data){  
     
-        return radius;
-    };
+         //Step 4: Determine which attribute to visualize with proportional symbols  
+         var attribute = "Pop\_2015";  
     
-    //Step 3: Add circle markers for point features to the map
-    function createPropSymbols(data){
+         //create marker options  
+         var geojsonMarkerOptions = {  
+              fillColor: "#ff7800",  
+              color: "#fff",  
+              weight: 1,  
+              opacity: 1,  
+              fillOpacity: 0.8,  
+              radius: 8  
+          };  
     
-        //Step 4: Determine which attribute to visualize with proportional symbols
-        var attribute = "Pop_2015";
+          L.geoJson(data, {  
+            pointToLayer : function (feature, latlng) {  
+                
+              //Step 5: For each feature, determine its value for the selected attribute  
+              var attValue = Number(feature.properties\[attribute\]);  
     
-        //create marker options
-        var geojsonMarkerOptions = {
-            fillColor: "#ff7800",
-            color: "#fff",
-            weight: 1,
-            opacity: 1,
-            fillOpacity: 0.8,
-            radius: 8
-        };
+              //Step 6: Give each feature's circle marker a radius based on its attribute value  
+              geojsonMarkerOptions.radius = calcPropRadius(attValue);  
     
-        L.geoJson(data, {
-            pointToLayer: function (feature, latlng) {
-                //Step 5: For each feature, determine its value for the selected attribute
-                var attValue = Number(feature.properties[attribute]);
+              //create circle markers  
+              return L.circleMarker(latlng, geojsonMarkerOptions);  
+              }  
+         }).addTo(map);  
+    };  
     
-                //Step 6: Give each feature's circle marker a radius based on its attribute value
-                geojsonMarkerOptions.radius = calcPropRadius(attValue);
-    
-                //create circle markers
-                return L.circleMarker(latlng, geojsonMarkerOptions);
-            }
-        }).addTo(map);
-    };
-    
-    //Step 2: Import GeoJSON data
-    function getData(map){
-        //load the data
-        $.getJSON("data/MegaCities.geojson", function(response){
-    
-                //calculate minimum data value
-                minValue = calculateMinValue(response);
-                //call function to create proportional symbols
-                createPropSymbols(response);
-        });
-    };
+    //Step 2: Import GeoJSON data  
+    function getData(map){  
+           
+         //load the data  
+         $.getJSON("data/MegaCities.geojson", function(response){  
+               
+              //calculate minimum data value  
+              minValue = calcMinValue(response);  
+                
+              //call function to create proportional symbols  
+              createPropSymbols(response);  
+         });  
+    };  
     
     $(document).ready(createMap);
 
@@ -298,7 +306,7 @@ You already used Leaflet popups within the `onEachFeature` function in the [_Usi
             pointToLayer: pointToLayer
         }).addTo(map);
     };
-
+    
 
 You then can use JavaScript String methods to format the information in the popup, making it more human-readable and matching your map style (Example 2.2).
 
@@ -310,7 +318,7 @@ You then can use JavaScript String methods to format the information in the popu
         //add formatted attribute to popup content string
         var year = attribute.split("_")[1];
         popupContent += "<p><b>Population in " + year + ":</b> " + feature.properties[attribute] + " million</p>";
-
+    
 
 Figure 2.1 previews the popup in the browser. Each popup is created by Leaflet using HTML `<div>` elements. Accordingly, you can use the inspector to determine how to access and style the popup using CSS.
 
@@ -325,7 +333,7 @@ The popup content has the class name `leaflet-popup-content`, so we can use this
     .leaflet-popup-content p {
         margin: 0.2em 0;
     }
-
+    
 
 ![figure5.2.2.png](img/figure5.2.2.png)
 
@@ -338,7 +346,7 @@ You also may want to offset the popup based on its `radius` so that it does not 
         layer.bindPopup(popupContent, {
             offset: new L.Point(0,-options.radius) 
         });
-
+    
 
 ![figure5.2.4.png](img/figure5.2.4.png)
 
@@ -362,7 +370,7 @@ Now that you have a handle on using attribute data to dynamically symbolize map 
     //Step 2. Listen for user input via affordances
     //Step 3. Respond to user input by changing the selected attribute
     //Step 4. Resize proportional symbols according to each feature's value for the new attribute
-
+    
 
 There are a number of different types of UI affordances that can be used as controls. We have selected two types of tools with native HTML elements to implement: a slider widget and step buttons. Both allow the user to adjust the sequence in either direction (forward or backward). Note that these widgets work best for depictions of linear time rather than cyclical time, following a timeline metaphor rather than a clock metaphor.
 
@@ -387,7 +395,7 @@ With these UI design requirements in mind, we can expand our pseudocode (Example
     //Step 8. Update the slider position based on the new index
     //Step 9. Reassign the current attribute based on the new attributes array index
     //Step 10. Resize proportional symbols according to each feature's value for the new attribute
-
+    
 
 That's quite a few steps, so let's get started on the code!
 
@@ -444,7 +452,7 @@ It makes sense to start a new function called `createSequenceControls()` for cre
             }
         });
     };
-
+    
 
 Besides setting the `type` attribute to `range`, we also need to give our slider `max` and `min` values based on the number of attributes in the sequence. Since our _MegaCities.geojson_ data has seven attributes, the `min` value should be `0` (the index of the first attribute) and the `max` value is `6` (the index of the seventh attribute). We also need to set an initial value using the `value` attribute; if we want our slider to start at the first attribute in the sequence, `value` should be `0`. The element's underlying value starts at whatever the `value` attribute is set to, but changes when the user moves the slider. Thus, we use `value` to reset the currently shown attribute in the sequence when the slider is moved. Finally, the slider's value increments or decrements by 1 with each _sequence_ interaction, so we will set the `step` attribute to `1` (Example 3.6).
 
@@ -460,7 +468,7 @@ Besides setting the `type` attribute to `range`, we also need to give our slider
             value: 0,
             step: 1
         });
-
+    
 
 Figure 3.1 shows the resulting panel and slider created from the `createSequenceControls()` function. The slider is centered horizontally in the panel by adding `text-align: center;` to the `#panel` styles in _style.css_ (see Example 3.4).
 
@@ -475,7 +483,7 @@ Step 2 of the pseudocode creates the forward and reverse step buttons. For these
         //below Example 3.6...add step buttons
         $('#panel').append('<button class="step" id="reverse">Reverse</button>');
         $('#panel').append('<button class="step" id="forward">Forward</button>');
-
+    
 
 Give our buttons both a `class` attribute (`"step"`) and an `id` attribute (`"forward"` and `"reverse"`). We can use the `class` attribute to style both buttons together, and the `id` attribute to style them individually and to attach individual event listeners. Figure 3.2 shows the resulting step buttons.
 
@@ -490,7 +498,7 @@ Normally _sequence_ UI controls use icons rather than words. You can find and do
         //replace button content with images
         $('#reverse').html('<img src="img/reverse.png">');
         $('#forward').html('<img src="img/forward.png">');
-
+    
 
 Finally, we can adjust the _sequence_ UI styles to make the controls more usable (Example 3.9).
 
@@ -516,9 +524,8 @@ Finally, we can adjust the _sequence_ UI styles to make the controls more usable
     .step img {  
         width: 100%;  
     }  
-
-
-​    
+    
+    
     #forward {  
         float: right;  
     }  
@@ -552,7 +559,7 @@ Step 3 of our _sequence_ pseudocode creates an array to hold all of the attribut
                 createSequenceControls(attributes);
             }
         });
-
+    
 
 We then create and return the array within the `processData()` function. Start with an empty array, then loop through the attribute names from the `properties` object of the first feature in the dataset, and push each attribute name that contains the characters `"Pop"` into our array. Your dataset likely uses other attributes keys than those in _MegaCities.geojson_, perhaps only a given year (e.g., `"1985"` instead of `"Pop_1985")`, so reformat your attribute keys to include a common prefix string for each of the attributes you wish to include in the spatiotemporal sequence. After successfully building the array, `return` the array to the callback function (Example 3.11).
 
@@ -579,7 +586,7 @@ We then create and return the array within the `processData()` function. Start w
     
         return attributes;
     };
-
+    
 
 Figure 3.4 shows the `console.log()` statement of the the the `attributes` array, confirming that the attribute names are in the correct order for the sequence. 
 
@@ -604,7 +611,7 @@ Recall that the `pointToLayer` option expects us to return a Leaflet layer to it
             }
         }).addTo(map);
     };
-
+    
 
 Then we can assign our first `attribute` to symbolize as the `attributes` array value at index `0` (Example 3.13).
 
@@ -616,7 +623,7 @@ Then we can assign our first `attribute` to symbolize as the `attributes` array 
         var attribute = attributes[0];
         //check
         console.log(attribute);
-
+    
 
 Not only have we successfully assigned the first value in our array to the `attribute` variable, but our map looks a bit different because we are using the "Pop-1985" attribute in the `0` index of the `attributes` array instead of the previously hard coded the "Pop-2015" attribute (Figure 3.5).
 
@@ -640,7 +647,7 @@ The _sequence_ listeners should be placed within the `createSequenceControls()`
         $('.range-slider').on('input', function(){
             //sequence
         });
-
+    
 
 In Step 6 of the pseudocode, we change the attribute index based on the user interaction. The slider makes this easy: we can obtain the current slider value using `$(this).val()`. Returning to the basics of jQuery, `$(this)` references the element that fired the event and[`.val()`](http://api.jquery.com/val/) retrieves the slider's current value (Example 3.15). You can watch the index value change in real time by adding a `console.log()` statement and manipulating the slider. 
 
@@ -652,7 +659,7 @@ In Step 6 of the pseudocode, we change the attribute index based on the user int
             var index = $(this).val();        
             console.log(index);    
         });
-
+    
 
 The step buttons are a bit more complicated. To coordinate the step buttons with the slider, we can obtain the current index using `$('.range-slider').val()` and increment or decrement this value depending on which button the user clicked (increment for `'forward'`, decrement for `'reverse'`). We then update the slider with the new value so it continues to track the current index (Example 3.16).
 
@@ -677,7 +684,7 @@ The step buttons are a bit more complicated. To coordinate the step buttons with
             //Step 8: update slider
             $('.range-slider').val(index);
         });
-
+    
 
 Note that in Example 3.16, we implemented Step 7 in our pseudocode using simplified conditional syntax to assign the index `0` if it is incremented past `6`, and to assign it `6` if it is decremented past `0`. This prevents our sequence from going beyond the boundaries of our attribute array and allows it to wrap continuously. We also implemented Step 8 in our pseudocode by simply setting our new `index` as the value of the slider, which automatically updates its position.
 
@@ -688,7 +695,7 @@ Step 9 of our pseudocode reassigns the current attribute based on the new index 
             //Called in both step button and slider event listener handlers
             //Step 9: pass new attribute to update symbols
             updatePropSymbols(attributes[index]);
-
+    
 
 Within the `updatePropSymbols()` function, we can use Leaflet's `L.map() eachLayer()` method to access all of the Leaflet layers currently on the map. These layers include the `L.tileLayer`, so we need to select only our `L.circleMarker` layers that contain the features we want to update using an `if` statement. The `if` statement below tests both for the existence of a feature in the layer _and_ the existence of the selected attribute in the layer's feature properties, ensuring the script will not encounter any `undefined` values (Example 3.18).
 
@@ -702,7 +709,7 @@ Within the `updatePropSymbols()` function, we can use Leaflet's `L.map() eachLay
             };
         });
     };
-
+    
 
 Finally, we update each circle marker's radius based on the new attribute values and update the popup content with the new data (Example 3.19).
 
@@ -728,7 +735,7 @@ Finally, we update each circle marker's radius based on the new attribute values
                 popup = layer.getPopup();            
                 popup.setContent(popupContent).update();
             };
-
+    
 
 The script in our `if` statement assigns each feature's `properties` object to a variable to keep the code tidy. It then resets the layer radius using `calcPropRadius()` and the Leaflet layer's `setRadius()` method. Finally, we get a reference to our popup, replace its content, and update it.
 
