@@ -38,11 +38,14 @@ In the `updatePropSymbols()` function in _main.js_ of the Leaflet Lab example co
         var year = attribute.split("_")[1];
         popupContent += "<p><b>Population in " + year + ":</b> " + feature.properties[attribute] + " million</p>";
     
-        /bind the popup to the circle marker    layer.bindPopup(popupContent, {          offset: new L.Point(0,-options.radius)    });
+        //bind the popup to the circle marker    
+        layer.bindPopup(popupContent, { 
+        	offset: new L.Point(0,-options.radius) 
+        });
     
     ...
     
-    //CODE FROM updatePropSymbols() FUNCTION
+    		//CODE FROM updatePropSymbols() FUNCTION
         //build new popup content string
         var popupContent = "<p><b>City:</b> " + props.City + "</p>";
     
@@ -50,8 +53,10 @@ In the `updatePropSymbols()` function in _main.js_ of the Leaflet Lab example co
         var year = attribute.split("_")[1];
         popupContent += "<p><b>Population in " + year + ":</b> " + props[attribute] + " million</p>";
     
-        //update popup with new content    popup = layer.getPopup();    popup.setContent(popupContent).update();
-    
+        //update popup with new content    
+        popup = layer.getPopup();    
+        popup.setContent(popupContent).update();
+
 
 Let's improve our script by consolidating the redundant code into one procedural function that can be called from both `pointToLayer()` and `updatePropSymbols()` (Example 1.2). First, note which variables should be passed into the function as parameters: `feature.properties` and the selected `attribute` from the dataset. If you assign a different parameter name for any of these variables, make sure you also change the variable name within the function to reflect the parameter name.
 
@@ -67,7 +72,7 @@ Let's improve our script by consolidating the redundant code into one procedural
     
         return popupContent;
     };
-    
+
 
 You then can replace the popup creation code in each of the functions where it appears (Example 1.3).
 
@@ -75,11 +80,15 @@ You then can replace the popup creation code in each of the functions where it a
 
         //Example 1.1 line 2...in pointToLayer()
         var popupContent = createPopupContent(feature.properties, attribute);
-        //bind the popup to the circle marker    layer.bindPopup(popupContent, {          offset: new L.Point(0,-options.radius)    });
+        //bind the popup to the circle marker    
+        layer.bindPopup(popupContent, {  offset: new L.Point(0,-options.radius)    });
         ...
     
         //Example 1.1 line 18...in updatePropSymbols()
-        var popupContent = createPopupContent(props, attribute);    //update popup with new content    popup = layer.getPopup();    popup.setContent(popupContent).update();
+        var popupContent = createPopupContent(props, attribute);    
+        //update popup with new content    
+        popup = layer.getPopup();    
+        popup.setContent(popupContent).update();
 
 ### II. Object-oriented Code Refactoring
 
@@ -104,15 +113,20 @@ An object-oriented approach instead assigns the variables as properties of an ob
         //create new popup content
         var popupContent = new PopupContent(feature.properties, attribute);
     
-        //bind the popup to the circle marker    layer.bindPopup(popupContent.formatted, {          offset: new L.Point(0,-options.radius)      });
+        //bind the popup to the circle marker    
+        layer.bindPopup(popupContent.formatted, { 
+        	offset: new L.Point(0,-options.radius)
+        });
     
     ...
     
         //Example 1.3 line 6...in UpdatePropSymbols()
         var popupContent = new PopupContent(props, attribute);
     
-        //update popup with new content    popup = layer.getPopup();    popup.setContent(popupContent.formatted).update();
-    
+        //update popup with new content    
+        popup = layer.getPopup();    
+        popup.setContent(popupContent.formatted).update();
+
 
 In the example above (Example 1.4), the keyword `this` refers to the function's **_prototype_** property. Think of the prototype as the immediate parent of the objects that are instantiated by the constructor function. Every JavaScript object has a prototype—its parent—which defines its properties and methods. Each object instance is created using the special `new` keyword to call the constructor, passing each required parameter to the constructor function. When new `popupContent` objects are instantiated in Example 1.4 on lines 21 and 29, these objects inherit the properties and methods assigned to the prototype using `this` in the constructor. Lines 3-8 assign properties to the prototype based on the parameters passed into the constructor function.
 
@@ -126,8 +140,11 @@ Inheritance is a powerful feature of object-oriented JavaScript. Once an object 
         //change the formatting
         popupContent.formatted = "<h2>" + popupContent.population + " million</h2>";
     
-        //add popup to circle marker    layer.bindPopup(popupContent.formatted, {          offset: new L.Point(0,-options.radius)    });
-    
+        //add popup to circle marker    
+        layer.bindPopup(popupContent.formatted, {          
+        	offset: new L.Point(0,-options.radius)    
+        });
+
 
 Figure 1.1 shows the result of Example 1.5.
 
@@ -148,10 +165,11 @@ Further, imagine that you want to create two styles of popups, one that maintain
         //change the formatting of popup 2
         popupContent2.formatted = "<h2>" + popupContent.population + " million</h2>";
     
-        //add popup to circle marker    layer.bindPopup(popupContent2.formatted);
+        //add popup to circle marker    
+        layer.bindPopup(popupContent2.formatted);
     
         console.log(popupContent.formatted) //original popup content
-    
+
 
 The `console.log()` statement shows that the first `popupContent` object has maintained its original format (Figure 1.2). The second `popupContent2` object inherits all of the properties and methods of the first, but then has its format changed on line 8 before binding this content to the circle marker `layer`.
 
@@ -175,7 +193,7 @@ Hopefully, the previous discussion has made the workings of Leaflet a little cle
     L.map = function (id, options) {
         return new L.Map(id, options);
     };
-    
+
 
 Each Leaflet class is created using an `extend()` method build into the `L.Class` constructor. The `extend` method in turn is inherited by the child class, its children, and so on. This means that new Leaflet classes can be created by _extending_ any class, and they inherit the methods and properties of all previous class "generations"—as in the case of the `L.LayerGroup`, `L.FeatureGroup`, and `L.GeoJSON` chain discussed in Chapter 4. It also means that _you_ can create custom Leaflet classes in your own script.
 
@@ -226,7 +244,7 @@ We _can_ use jQuery for the next step, which is to place our `"range-slider"` _i
     
                 return container;
             }
-    
+
 
 Figure 2.1 shows the resulting slider as an extended `L.Control` in the lower-left corner of your map .
 
@@ -252,7 +270,7 @@ You similarly can move the step buttons into the `SequenceControl` by placing th
     
                 return container;
             }
-    
+
 
 Figure 2.2 shows the resulting step buttons as part of the extended `L.Control`. Note that the slider and step buttons are now part of the same extended Leaflet control called `SequenceControl`. 
 
@@ -278,7 +296,7 @@ We can deactivate the map's mouse event listeners for the area covered by the `S
     
                 return container;
             }
-    
+
 
 Second, we need to modify our styles in _style.css_ to better position our slider and buttons in the control container. We also remove the right panel. If any of the Example 2.6 styles are unfamiliar, remember that you can look them up on [W3Schools](http://www.w3schools.com/cssref/).
 
@@ -290,7 +308,7 @@ Second, we need to modify our styles in _style.css_ to better position our slide
         display: inline-block;
     }
     ...
-
+    
     .sequence-control-container {  
         width: 350px;  
         height: 30px;  
@@ -316,11 +334,10 @@ Second, we need to modify our styles in _style.css_ to better position our slide
 
 Lastly, make sure you add the event listeners for your slider and step buttons **after** adding the controls- otherwise you're trying to attach listeners with to HTML elements that have not been created yet.
 
-    onAdd: function (){  
-    
-    //adding slider and step buttons  
-    
-    }  
+    	onAdd: function (){  
+    		//adding slider and step buttons
+      	.....
+    	}  
     });  
     
     map.addControl(new SequenceControl());  
@@ -361,7 +378,7 @@ First, create a new extended `L.Control` control for the temporal legend using a
     
         map.addControl(new LegendControl());
     };
-    
+
 
 At this point, you should have a good idea of how to create the temporal legend based on the attribute names in your GeoJSON dataset. Rather than walking through all the steps here, we will let you adapt script for the popups to populate the temporal legend.
 
@@ -415,7 +432,7 @@ Once you have saved the SVG file, you can open it in your text editor to view th
          width="180px" height="180px" viewBox="0 0 180 180" enable-background="new 0 0 180 180" xml:space="preserve">
     <circle fill="#F47821" fill-opacity="0.8" stroke="#000000" stroke-miterlimit="10" cx="90" cy="90.001" r="89.5"/>
     </svg>
-    
+
 
 Compare this code to the circle example on the [Mozilla SVG documentation](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/circle) page. The SVG content starts with the opening `<svg>` tag (line 4), with the rest generated by Illustrator and thus can be deleted.
 
@@ -428,7 +445,7 @@ We can copy and paste this `<svg>` tag and insert it into the `<svg>` of our boi
             <circle fill="#F47821" fill-opacity="0.8" stroke="#000000" stroke-miterlimit="10" cx="90" cy="90.001" r="89.5"/>
         </svg>
     </body>
-    
+
 
 Figure 3.2 renders the circle in a browser.
 
@@ -472,7 +489,7 @@ An SVG [`<path>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/path)
 ###### Example 3.3: Leaflet circle marker path `d` attribute
 
     d="M341,186.92441514450513A15.07558485549488,15.07558485549488,0,1,1,340.9,186.92441514450513 z"
-    
+
 
 If you are interested in deconstructing this code, visit the Mozilla documentation page for the [`d` attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d). You will become more familiar with the `d` attribute in Unit 3 when using D3; we stick with the SVG `<circle>` element for our attribute legend.
 
@@ -522,7 +539,7 @@ Step 1 in Example 3.4 dynamically adds an `<svg>` element to the legend containe
     
         updateLegend(map, attributes[0]);
     };
-    
+
 
 Let's take a look at our legend control via the Inspector (Figure 3.5).
 
@@ -552,7 +569,7 @@ Step 2 of the pseudocode creates each example proportional circle for the legend
     
             //add attribute legend svg to container
             $(container).append(svg);
-    
+
 
 On line 10 of Example 3.6, we assign the circle `id` attribute based orean the current value of the array. Other attributes are similar to the code on line 3 of Example 3.2, except that we have left out the unnecessary `stroke-miterlimit` attribute as well as the necessary `cy` and `r` attributes. We have left out the latter two because these will be assigned dynamically depending on the dataset values for each attribute. Because they are left out, no circles will appear yet in the legend, but if you were to inspect the legend, you could see that the `<circle>` elements are all present in the DOM.
 
@@ -568,34 +585,28 @@ For Step 3 of our pseudocode, we want to size and center our legend's circles ba
     
     .....  
     
-    function calcStats(data){  
-        //create empty array to store all data values  
-        var allValues = \[\];  
+    function calcStats(data){
+        //create empty array to store all data values
+        var allValues = [];
+        //loop through each city
+        for(var city of data.features){
+            //loop through each year
+            for(var year = 1985; year <= 2015; year+=5){
+                  //get population for current year
+                  var value = city.properties["Pop_"+ String(year)];
+                  //add value to array
+                  allValues.push(value);
+            }
+        }
+        //get min, max, mean stats for our array
+        dataStats.min = Math.min(...allValues);
+        dataStats.max = Math.max(...allValues);
+        //calculate meanValue
+        var sum = allValues.reduce(function(a, b){return a+b;});
+        dataStats.mean = sum/ allValues.length;
     
-        //loop through each city  
-        for(var city of data.features){  
-        
-            //loop through each year  
-            for(var year = 1985; year <= 2015; year+=5){  
-            
-                //get population for current year  
-                var value = city.properties\["Pop\_"+ String(year)\];  
-    
-                //add value to array  
-                allValues.push(value);  
-            }  
-        }  
-    
-        //get min, max, mean stats for our array  
-        dataStats.min = Math.min(...allValues);  
-        dataStats.max = Math.max(...allValues);  
-    
-        //calculate mean  
-        var sum = allValues.reduce(function(a, b){return a+b;});  
-        dataStats.mean = sum/ allValues.length;  
-  
-    }     
-  
+    }    
+      
     .....  
     
     function getData(map){  
@@ -618,19 +629,19 @@ Now that we have calculated the statistics we need to size and center our circle
 ##### Example 3.8: Dynamically assigning the last two circle attributes in _createLegend_
 
             //array of circle names to base loop on  
-            var circles = \["max", "mean", "min"\];  
-  
+            var circles = ["max", "mean", "min"]; 
+      
             //Step 2: loop to add each circle and text to svg string  
             for (var i=0; i<circles.length; i++){  
-  
+      
                 //Step 3: assign the r and cy attributes  
-                var radius = calcPropRadius(dataStats\[circles\[i\]\]);  
+                var radius = calcPropRadius(dataStats[circles[i]]);  
                 var cy = 130 - radius;  
-  
+      
                 //circle string  
-                svg += '<circle class="legend-circle" id="' + circles\[i\] + '" r="' + radius + '"cy="' + cy + '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="65"/>';  
+                svg += '<circle class="legend-circle" id="' + circles[i] + '" r="' + radius + '"cy="' + cy + '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="65"/>';  
             };  
-  
+      
             //close svg string  
             svg += "</svg>"; 
 
@@ -675,10 +686,10 @@ Now we are ready for Step 4 of the pseudocode. We can create text within an SVG 
                 //text string            
                 svg += '<text id="' + circles[i] + '-text" x="65" y="' + textY + '">' + Math.round(dataStats[circles[i]]*100)/100 + " million" + '</text>';
             };
-
+    
             //close svg string
             svg += "</svg>";
-
+    
             //add attribute legend svg to container
             $(container).append(svg);
 
