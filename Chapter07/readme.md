@@ -102,7 +102,7 @@ Accept the new additions to the code and merge the main branch with your local c
 
 ###### Figure 2.5: The revised message when conflicts are resolved, allowing a merge
 
-Now that you know a bit about markdown, work in your team during lab to insert a basic outline for your _readme.md_ file based on the [final project proposal guidelines](https://canvas.wisc.edu/courses/180498/pages/final-project-assignment "Final Project Assignment"). The final project proposal should include sections for your title + team members, your personas and scenarios (perhaps with subheadings separating the personas and scenarios), your requirements document as an numbered list (again separated by representation and interaction requirements), and your wireframes, embedded as images linked from an _img_ folder in your directory (Figure 2.6). It is worth experimenting with the collaborative coding process early on, perhaps over a video call with your teammates.
+Now that you know a bit about markdown, work in your team to insert a basic outline for your _readme.md_ file based on the [final project proposal guidelines](https://canvas.wisc.edu/courses/180498/pages/final-project-assignment "Final Project Assignment"). The final project proposal should include sections for your title + team members, your personas and scenarios (perhaps with subheadings separating the personas and scenarios), your requirements document as an numbered list (again separated by representation and interaction requirements), and your wireframes, embedded as images linked from an _img_ folder in your directory (Figure 2.6). It is worth experimenting with the collaborative coding process early on, perhaps over a video call with your teammates.
 
 ![Week7_2.6.png](img/Week7_2.6.png)
 
