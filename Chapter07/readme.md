@@ -120,6 +120,8 @@ As you collaboratively write and edit your proposal, you again will create confl
 
 As you move along in your project, you may want to create separate [branches](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-branches) to test features without committing them to the main branch. If you are happy with the features you tested, you can open a pull request to merge the changes from your head (current) branch to a base (different, perhaps the main) branch, similar to other pull requests. 
 
+During this preliminary stage, you will likely encounter simple merge conflicts that can be resolved using GitHub Desktop. However, some more complicated merge conflicts may need to be resolved using GitHub in your browser, where you can select portions of each version on your project. Alternatively, these conflicts can also be resolved using GitHub command line. Knowing how to use all three is important if you plan to use GitHub in your career.
+
 > ### **Work with your team to add to the proposal outline that you will complete over the next two chapters, merging and resolving all conflicts.**
 
 Lesson 3: Best Practices for Collaborative Coding
