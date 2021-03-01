@@ -332,7 +332,7 @@ Second, we need to modify our styles in _style.css_ to better position our slide
 	    height: auto;  
     } 
 
-Lastly, make sure you add the event listeners for your slider and step buttons **after** adding the controls- otherwise you're trying to attach listeners with to HTML elements that have not been created yet.
+Lastly, make sure you add the event listeners for your slider and step buttons **after** adding the controls; otherwise you are trying to attach listeners with to HTML elements that have not been created yet.
 
     	onAdd: function (){  
     		//adding slider and step buttons
@@ -407,11 +407,11 @@ You could create your attribute legend using static HTML `<div>` or `<img>` elem
 
 SVG uses XML markup, making it relatively human-readable and easy to integrate with HTML. Microsoft initially had its own Vector Markup Language (VML), and Internet Explorer was the last major browser to adopt SVG support. Accordingly, IE 8 and below do not support SVG, the primary reason most boilerplate websites check for this browser. Fortunately, there are increasingly fewer users of these older browser versions, so we will not be concerned with this problem in this workbook.
 
-The [SVG standard](https://www.w3.org/TR/SVG11/) describes the [elements](https://developer.mozilla.org/en-US/docs/Web/SVG/Element) and [attributes](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute) avaimaple as part of an SVG drawing. Every SVG graphic begins with the tag `<svg>`, within which every other SVG element is nested.
+The [SVG standard](https://www.w3.org/TR/SVG11/) describes the [elements](https://developer.mozilla.org/en-US/docs/Web/SVG/Element) and [attributes](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute) available as part of an SVG drawing. Every SVG graphic begins with the tag `<svg>`, within which every other SVG element is nested.
 
 ### II. Importing SVG from Adobe Illustrator
 
-SVG provides a link between vector artwork software such as Adobe Illustrator and web graphics. Illustrator can save graphics as SVG, which then can be added to a webpage. Although SVG circles are quite simple to code from scratch, we  start with Illustrator in this lesson to demonstrate how the SVG export works. This method can be applied to more complex graphics as well.
+SVG provides a link between vector artwork software such as Adobe Illustrator and web graphics. Illustrator can save graphics as SVG, which then can be added to a webpage. Although SVG circles are quite simple to code from scratch, we start with Illustrator in this lesson to demonstrate how the SVG export works. This method can be applied to more complex graphics as well.
 
 Let's start with a simple 180-pixel diameter circle drawn with the Ellipse Tool in Illustrator (Figure 3.1).
 
@@ -491,7 +491,7 @@ An SVG [`<path>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/path)
     d="M341,186.92441514450513A15.07558485549488,15.07558485549488,0,1,1,340.9,186.92441514450513 z"
 
 
-If you are interested in deconstructing this code, visit the Mozilla documentation page for the [`d` attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d). You will become more familiar with the `d` attribute in Unit 3 when using D3; we stick with the SVG `<circle>` element for our attribute legend.
+If you are interested in deconstructing this code, visit the Mozilla documentation page for the [`d` attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d). You will become more familiar with the `d` attribute in _unit-3_ when using D3; we stick with the SVG `<circle>` element for our attribute legend.
 
 In case you are wondering about the `<g>` elements in Figure 3.4, these are group elements that contain each `<path>`, but could contain more than one other element and be used to uniformly style all of their child elements.
 
