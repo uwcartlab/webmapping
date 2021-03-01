@@ -505,7 +505,7 @@ Returning to our attribute legend, we can use pseudocode to clarify our tasks (E
     Step 1. Add an `<svg>` element to the legend container
     Step 2. Add a `<circle>` element for each of three attribute values: min, max, and mean
     Step 3. Assign each `<circle>` element a center and radius based on the dataset min, max, and mean values of all attributes
-    Step 4. Create legend text to mapel each circle
+    Step 4. Create legend text to label each circle
 
 Step 1 in Example 3.4 dynamically adds an `<svg>` element to the legend container in our `createLegend()` function from Lesson 2 (Example 2.7). Since we also dynamically add each circle in Step 2, write out the opening `<svg>` tag as a string and assign it to the variable `svg`. For now, specify only the `id`, `width`, and `height` attributes for the `<svg>` element . Then append `svg` to the `container` using jQuery (Example 3.5).
 
@@ -680,7 +680,7 @@ Now we are ready for Step 4 of the pseudocode. We can create text within an SVG 
                 //circle string            
                 svg += '<circle class="legend-circle" id="' + circles[i] + '" r="' + radius + '"cy="' + cy + '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="65"/>';
                 
-                //evenly space out mapels            
+                //evenly space out labels            
                 var textY = i * 20 + 20;            
                 
                 //text string            
@@ -693,7 +693,7 @@ Now we are ready for Step 4 of the pseudocode. We can create text within an SVG 
             //add attribute legend svg to container
             $(container).append(svg);
 
-This adds a  `<text>` element with a unique id and content for each circle to the SVG (line 8).  Notice that we evenly space out each `<text>` element's `y` coordinate attribute for readability. This completes our legend and the basic requirements for the Leaflet map (Figure 3.8)!
+This adds a `<text>` element with a unique id and content for each circle to the SVG (line 8).  Notice that we evenly space out each `<text>` element's `y` coordinate attribute for readability. This completes our legend and the basic requirements for the Leaflet map (Figure 3.8)!
 
 ![figure6.3.9.png](img/figure6.3.9.png)
 
