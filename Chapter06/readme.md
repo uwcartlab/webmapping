@@ -3,11 +3,11 @@
 Chapter 6: The Internal Logic of Leaflet
 =======================================
 
-Your Leaflet lab should be coming along nicely after the Chapter 5 overview of interactions. In Chapter 6, we dive deeper into Leaflet's inner workings to introduce you to some advanced web programming concepts. Chapter 6 includes three lessons and culminates in the completion of your Leaflet lab.
+Your Leaflet map should be coming along nicely after the Chapter 5 overview of interactions. In Chapter 6, we dive deeper into Leaflet's inner workings to introduce you to some advanced web programming concepts. Chapter 6 includes three lessons and culminates in the completion of your Leaflet map.
 
 *   In Lesson 1, we contrast procedural versus object-oriented coding with JavaScript by refactoring some existing, suboptimal code from Chapter 4-5.
 *   In Lesson 2, we refresh our introduction of Leaflet to look at it as a library of classes and use several of these classes to implement UI controls and a temporal legend.
-*   In Lesson 3, we introduce scalable vector graphics (SVGs)—a graphics format we rely on with D3 in _unit-3—_and use SVG to build an attribute legend for our Leaflet Lab example.
+*   In Lesson 3, we introduce scamaple vector graphics (SVGs)—a graphics format we rely on with D3 in _unit-3_and use SVG to build an attribute legend for our Leaflet map example.
 
 After this chapter, you should be able to:
 
@@ -20,13 +20,13 @@ Lesson 1: Procedural and Object-oriented JavaScript
 
 ### I. Procedural Code Refactoring
 
-JavaScript employs two different computer programming paradigms: [procedural programming](https://en.wikipedia.org/wiki/Procedural_programming) and [object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming) (OOP). ***Procedural programming*** uses individual variables, functions, and data structures to give step-by-step instructions to the processor. In contrast, ***object-oriented programming*** uses data and methods contained within complex data structures called objects. JavaScript is primarily a procedural language, but has some characteristics that allow advanced programmers to take an object-oriented approach. In the code for your Leaflet Lab, you have actually already used a bit of both.
+JavaScript employs two different computer programming paradigms: [procedural programming](https://en.wikipedia.org/wiki/Procedural_programming) and [object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming) (OOP). ***Procedural programming*** uses individual variables, functions, and data structures to give step-by-step instructions to the processor. In contrast, ***object-oriented programming*** uses data and methods contained within complex data structures called objects. JavaScript is primarily a procedural language, but has some characteristics that allow advanced programmers to take an object-oriented approach. In the code for your Leaflet map, you have actually already used a bit of both.
 
 The chapter tutorials use the term **_function_** to refer to a set of tasks or routines written into the _main.js_ custom script, and the term **_method_** to refer to functions that are part of a library such as jQuery or Leaflet. This is an important semantic distinction. Methods are routines that look like functions but are included as part of an object. Functions belong to the domain of procedural programming: they are a set of instructions that can be used anywhere to redirect the flow of execution, and are not designated as part of a particular code package. On the other hand, code libraries use an object-oriented approach to classes and their methods so that specific ***child*** classes _inherit_ (as introduced in Chapter 5), or make use of, broader ***parent*** classes, requiring the parent method to be written just once for efficiency. 
 
 To examine the difference, let's refactor some of the _main.js_ script from the end of Chapter 5. As you hone your programming skills, you will begin to notice places where your code is more lengthy than it needs to be and could be ***refactored***, or revised for efficiency. To start refactoring, look for code that occurs in a very similar form in multiple places in your script. In procedural programming, this repetition can be reduced by consolidating the duplicate code into its own function that can be called from multiple places to return the desired value.
 
-In the `updatePropSymbols()` function in _main.js_ of the Leaflet Lab example code, we recreate our popup content for each feature with script very similar to the initial creation of our popups in the `pointToLayer()` function (Example 1.1).
+In the `updatePropSymbols()` function in _main.js_ of the Leaflet map example code, we recreate our popup content for each feature with script very similar to the initial creation of our popups in the `pointToLayer()` function (Example 1.1).
 
 ###### Example 1.1: Duplicate code in _main.js_
 
@@ -177,7 +177,7 @@ The `console.log()` statement shows that the first `popupContent` object has mai
 
 ###### Figure 1.2: The prototype popup maintains its original content
 
-Prototypes and constructor functions are advanced JavaScript concepts, so we do not expect you to rely on them heavily for your Leaflet lab. However, consider how you can make use of prototypes and constructors as you begin to plan your final project.
+Prototypes and constructor functions are advanced JavaScript concepts, so we do not expect you to rely on them heavily for your Leaflet map. However, consider how you can make use of prototypes and constructors as you begin to plan your final project.
 
 > ### **Refactor any duplicate code in your script using either procedural or object-oriented programming.**
 
@@ -354,7 +354,7 @@ Figure 2.3 shows our beautiful new UI controls.
 
 ### III. Temporal Legend
 
-The final requirement of the Leaflet Lab assignment is a temporal legend for the _sequence_ operator and an attribute legend for the proportional symbols. Let's start with the more straightforward temporal legend. We will build the attribute legend using SVG in Lesson 3.
+The final requirement of the Leaflet map assignment is a temporal legend for the _sequence_ operator and an attribute legend for the proportional symbols. Let's start with the more straightforward temporal legend. We will build the attribute legend using SVG in Lesson 3.
 
 First, create a new extended `L.Control` control for the temporal legend using a new `createLegend()` function (Example 2.7). Call the extended control `LegendControl` and place it in the bottom-right corner of the map. You can change the position of all controls to customize your design after you get their functionality working. Add a call to the new `createLegend()` function in the AJAX callback.
 
@@ -401,13 +401,13 @@ Lesson 3: Using SVG Graphics
 
 Thematic maps typical require an attribute legend to define the meaning of the map symbols. It is conventional for a proportional symbol map to include a legend of nested circles representing the minimum, maximum, and one or more intermediate values.
 
-You could create your attribute legend using static HTML `<div>` or `<img>` elements. However, Leaflet uses SVG graphics to dynamically create its circle markers and other vector linework, so it makes sense to replicate the circle markers using SVG for the legend. Additionally, you will need to understand how SVG works to complete the D3 Lab in the next unit, so a basic introduction to the SVG standard now will help you in the future.
+You could create your attribute legend using static HTML `<div>` or `<img>` elements. However, Leaflet uses SVG graphics to dynamically create its circle markers and other vector linework, so it makes sense to replicate the circle markers using SVG for the legend. Additionally, you will need to understand how SVG works to complete the D3 map in the next unit, so a basic introduction to the SVG standard now will help you in the future.
 
-***SVG***, or ***S***calable ***V***ector ***G***raphics, is the web standard vector graphics format. As with vector geospatial data introduced in Chapter 3, [_**vector graphics**_](https://gistbok.ucgis.org/bok-topics/vector-formats-and-sources) use points, lines, and polygon fills to represent image elements. In contrast, [<ins>_**raster graphics**_</ins>](https://gistbok.ucgis.org/bok-topics/raster-formats-and-sources) (such as the ***png*** or ***P***ortable ***N***etwork ***G***raphics format), much like raster geospatial data, use a continuous grid of pixels.
+***SVG***, or ***S***camaple ***V***ector ***G***raphics, is the web standard vector graphics format. As with vector geospatial data introduced in Chapter 3, [_**vector graphics**_](https://gistbok.ucgis.org/bok-topics/vector-formats-and-sources) use points, lines, and polygon fills to represent image elements. In contrast, [<ins>_**raster graphics**_</ins>](https://gistbok.ucgis.org/bok-topics/raster-formats-and-sources) (such as the ***png*** or ***P***ortable ***N***etwork ***G***raphics format), much like raster geospatial data, use a continuous grid of pixels.
 
 SVG uses XML markup, making it relatively human-readable and easy to integrate with HTML. Microsoft initially had its own Vector Markup Language (VML), and Internet Explorer was the last major browser to adopt SVG support. Accordingly, IE 8 and below do not support SVG, the primary reason most boilerplate websites check for this browser. Fortunately, there are increasingly fewer users of these older browser versions, so we will not be concerned with this problem in this workbook.
 
-The [SVG standard](https://www.w3.org/TR/SVG11/) describes the [elements](https://developer.mozilla.org/en-US/docs/Web/SVG/Element) and [attributes](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute) available as part of an SVG drawing. Every SVG graphic begins with the tag `<svg>`, within which every other SVG element is nested.
+The [SVG standard](https://www.w3.org/TR/SVG11/) describes the [elements](https://developer.mozilla.org/en-US/docs/Web/SVG/Element) and [attributes](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute) avaimaple as part of an SVG drawing. Every SVG graphic begins with the tag `<svg>`, within which every other SVG element is nested.
 
 ### II. Importing SVG from Adobe Illustrator
 
@@ -505,7 +505,7 @@ Returning to our attribute legend, we can use pseudocode to clarify our tasks (E
     Step 1. Add an `<svg>` element to the legend container
     Step 2. Add a `<circle>` element for each of three attribute values: min, max, and mean
     Step 3. Assign each `<circle>` element a center and radius based on the dataset min, max, and mean values of all attributes
-    Step 4. Create legend text to label each circle
+    Step 4. Create legend text to mapel each circle
 
 Step 1 in Example 3.4 dynamically adds an `<svg>` element to the legend container in our `createLegend()` function from Lesson 2 (Example 2.7). Since we also dynamically add each circle in Step 2, write out the opening `<svg>` tag as a string and assign it to the variable `svg`. For now, specify only the `id`, `width`, and `height` attributes for the `<svg>` element . Then append `svg` to the `container` using jQuery (Example 3.5).
 
@@ -680,7 +680,7 @@ Now we are ready for Step 4 of the pseudocode. We can create text within an SVG 
                 //circle string            
                 svg += '<circle class="legend-circle" id="' + circles[i] + '" r="' + radius + '"cy="' + cy + '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="65"/>';
                 
-                //evenly space out labels            
+                //evenly space out mapels            
                 var textY = i * 20 + 20;            
                 
                 //text string            
@@ -693,7 +693,7 @@ Now we are ready for Step 4 of the pseudocode. We can create text within an SVG 
             //add attribute legend svg to container
             $(container).append(svg);
 
-This adds a  `<text>` element with a unique id and content for each circle to the SVG (line 8).  Notice that we evenly space out each `<text>` element's `y` coordinate attribute for readability. This completes our legend and the basic requirements for the Leaflet lab (Figure 3.8)!
+This adds a  `<text>` element with a unique id and content for each circle to the SVG (line 8).  Notice that we evenly space out each `<text>` element's `y` coordinate attribute for readability. This completes our legend and the basic requirements for the Leaflet map (Figure 3.8)!
 
 ![figure6.3.9.png](img/figure6.3.9.png)
 
