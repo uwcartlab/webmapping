@@ -130,7 +130,7 @@ An object-oriented approach instead assigns the variables as properties of an ob
 
 In the example above (Example 1.4), the keyword `this` refers to the function's **_prototype_** property. Think of the prototype as the immediate parent of the objects that are instantiated by the constructor function. Every JavaScript object has a prototype—its parent—which defines its properties and methods. Each object instance is created using the special `new` keyword to call the constructor, passing each required parameter to the constructor function. When new `popupContent` objects are instantiated in Example 1.4 on lines 21 and 29, these objects inherit the properties and methods assigned to the prototype using `this` in the constructor. Lines 3-8 assign properties to the prototype based on the parameters passed into the constructor function.
 
-Inheritance is a powerful feature of object-oriented JavaScript. Once an object is created from a constructor function, it has a set of default properties and methods. However, any of the defaults assigned by the constructor can be changed for individual objects created from it. For instance, imagine that you want to temporarily change the styling of your popups to just show the population and use a larger font. You can replace the `formatted` property of your `popupContent` object (Example 1.5).
+Inheritance is a powerful feature of object-oriented JavaScript. Once an object is created from a constructor function, it has a set of default properties and methods. However, any of the defaults assigned by the constructor can be changed for individual objects created from it. For instance, imagine that you want to temporarily change the styling of your popups to show just the population and use a larger font. You can replace the `formatted` property of your `popupContent` object (Example 1.5).
 
 ###### Example 1.5: Replacing popup content in _main.js_
 
@@ -152,7 +152,7 @@ Figure 1.1 shows the result of Example 1.5.
 
 ###### Figure 1.1: A modified popup object
 
-Further, imagine that you want to create two styles of popups, one that maintains the original formatting and another that replaces the formatting, given the user the option to switch between the two. You can create a second `popupContent2` with the first `popupContent` as its prototype using the `Object.create()` method (Example 1.6).
+Further, imagine that you want to create two styles of popups, one that maintains the original formatting and another that replaces the formatting, giving the user the option to switch between the two. You can create a second `popupContent2` with the first `popupContent` as its prototype using the `Object.create()` method (Example 1.6).
 
 ###### Example 1.6: A new type of popup in _main.js_
 
@@ -195,7 +195,7 @@ Hopefully, the previous discussion has made the workings of Leaflet a little cle
     };
 
 
-Each Leaflet class is created using an `extend()` method build into the `L.Class` constructor. The `extend` method in turn is inherited by the child class, its children, and so on. This means that new Leaflet classes can be created by _extending_ any class, and they inherit the methods and properties of all previous class "generations"—as in the case of the `L.LayerGroup`, `L.FeatureGroup`, and `L.GeoJSON` chain discussed in Chapter 4. It also means that _you_ can create custom Leaflet classes in your own script.
+Each Leaflet class is created using an `extend()` method built into the `L.Class` constructor. The `extend` method in turn is inherited by the child class, its children, and so on. This means that new Leaflet classes can be created by _extending_ any class, and they inherit the methods and properties of all previous class "generations"—as in the case of the `L.LayerGroup`, `L.FeatureGroup`, and `L.GeoJSON` chain discussed in Chapter 4. It also means that _you_ can create custom Leaflet classes in your own script.
 
 ### II. Custom Leaflet Controls
 
@@ -228,7 +228,7 @@ The value of the `extend()` method—as seen in the example above—is that it t
 
 The `onAdd()` method creates the HTML element and child elements for the Leaflet control, along with HTML attributes and event listeners for the Leaflet control. As the name of the method implies, this script is executed when the control is added to the map. Similarly, we can add an `onRemove()` method to remove elements and event listeners from the DOM when the control is removed. Since we only are adding the control to our map, we do not need to use `onRemove()`. However, `onAdd()` _always_ is required for a new Leaflet control.
 
-Following the documentation example, we create a new HTML `<div>` element within the `onAdd()` method using Leaflet's [DOM Utility](http://leafletjs.com/reference.html#domutil) and the [`L.DomUtil.create()`](http://leafletjs.com/reference.html#domutil-create) method. We also can create the `<div>` using JavaScript's native `document.createElement()` method, but `L.DomUtil.create()` is slightly more convenient because it automatically adds a class name (as in Example 2.2) and optionally assigns the new element to a parent element. We do <ins>_not_</ins> want to use jQuery for this, as we need to define the new Leaflet control  without adding it to the DOM immediately.
+Following the documentation example, we create a new HTML `<div>` element within the `onAdd()` method using Leaflet's [DOM Utility](http://leafletjs.com/reference.html#domutil) and the [`L.DomUtil.create()`](http://leafletjs.com/reference.html#domutil-create) method. We also can create the `<div>` using JavaScript's native `document.createElement()` method, but `L.DomUtil.create()` is slightly more convenient because it automatically adds a class name (as in Example 2.2) and optionally assigns the new element to a parent element. We do <ins>_not_</ins> want to use jQuery for this, as we need to define the new Leaflet control without adding it to the DOM immediately.
 
 We _can_ use jQuery for the next step, which is to place our `"range-slider"` _inside_ of the `SequenceControl`. To do this, we simply move the line that creates the `"range-slider"` into the `onAdd()` method, appending it to the `container` element using jQuery (Example 2.3).
 
@@ -278,7 +278,7 @@ Figure 2.2 shows the resulting step buttons as part of the extended `L.Control`.
 
 ###### Figure 2.2: Step buttons added
 
-We need to make several additional adjustment from our original code to have the _sequence_ UI controls extending `L.Control`. , rather than sit in a separate `<div>` element outside of the map. First, if you use the slider, you will notice that dragging the marker also causes the map to move—an undesirable response. Likewise, clicking the step buttons in rapid succession causes the map to zoom in. In both cases, executing of the _sequence_ operator triggers a second operator _(pan_ versus _zoom_) because the map's default event listeners still are active and `SequenceControl` is part of the map.
+We need to make several additional adjustment from our original code to have the _sequence_ UI controls extending `L.Control`, rather than sit in a separate `<div>` element outside of the map. First, if you use the slider, you will notice that dragging the marker also causes the map to move—an undesirable response. Likewise, clicking the step buttons in rapid succession causes the map to zoom in. In both cases, executing of the _sequence_ operator triggers a second operator _(pan_ versus _zoom_) because the map's default event listeners still are active and `SequenceControl` is part of the map.
 
 We can deactivate the map's mouse event listeners for the area covered by the `SequenceControl` control container using [`L.DomEvent.disableClickPropagation()`](https://leafletjs.com/reference-1.4.0.html#domevent-disableclickpropagation) (Example 2.5).
 
@@ -328,8 +328,8 @@ Second, we need to modify our styles in _style.css_ to better position our slide
     }  
     
     .step img {  
-    width: 100%;  
-    height: auto;  
+		width: 100%;  
+		height: auto;  
     } 
 
 Lastly, make sure you add the event listeners for your slider and step buttons **after** adding the controls- otherwise you're trying to attach listeners with to HTML elements that have not been created yet.
