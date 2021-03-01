@@ -328,8 +328,8 @@ Second, we need to modify our styles in _style.css_ to better position our slide
     }  
     
     .step img {  
-		width: 100%;  
-		height: auto;  
+	    width: 100%;  
+	    height: auto;  
     } 
 
 Lastly, make sure you add the event listeners for your slider and step buttons **after** adding the controls- otherwise you're trying to attach listeners with to HTML elements that have not been created yet.
