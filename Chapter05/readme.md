@@ -547,7 +547,7 @@ Step 3 of our _sequence_ pseudocode creates an array to hold all of the attribut
             success: function(response){
                 //create an attributes array
                 var attributes = processData(response);
-                            calcMinValue(response);
+                minValue = calcMinValue(response);
                 createPropSymbols(response, attributes);
                 createSequenceControls(attributes);
             }
