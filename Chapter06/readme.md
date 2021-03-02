@@ -695,7 +695,7 @@ Now we are ready for Step 4 of the pseudocode. We can create text within an SVG 
 
 This adds a `<text>` element with a unique id and content for each circle to the SVG (line 8).  Notice that we evenly space out each `<text>` element's `y` coordinate attribute for readability. This completes our legend and the basic requirements for the Leaflet map (Figure 3.8)!
 
-![figure6.3.9.png](img/figure6.3.9.png)
+![figure6.3.8.png](img/figure6.3.8.png)
 
 ###### Figure 3.8: Example Leaflet map with a finished legend
 

@@ -251,7 +251,7 @@ Then open GitHub Desktop, log in, and drag-and-drop your _unit-1_ directory to c
 
 Importantly, if you first navigate to your website directory instead of the folder above it, the application will create a new directory _inside_ your website directory with the same name. Check the path shown in the "local path" text field to ensure you are syncing from the correct location on your computer.
 
-![figure1.3.2(new).png](img/figure1.3.2(new).png)
+![figure1.3.2(new).png](img/figure1.3.2.png)
 
 ###### Figure 3.2: Creating a repository in your _unit-1_ directory
 

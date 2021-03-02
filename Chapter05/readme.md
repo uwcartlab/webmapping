@@ -340,7 +340,7 @@ You also may want to offset the popup based on its `radius` so that it does not 
         });
 
 
-![figure5.2.4.png](img/figure5.2.4.png)
+![figure5.2.3.png](img/figure5.2.3.png)
 
 ###### Figure 2.3: A vertically offset popup
 
@@ -805,21 +805,21 @@ You can implement the plugin to enable users to search for mapped features corre
 
 **_Arrange_** manipulates the layout of the map and linked views. _Arrange_ generally is not common on maps for presentation, and thus is rarely implemented with the mobile-friendly Leaflet library.
 
-_Arrange_ is more common for the highly-exploratory coordinated multiview visualization possible with D3, with a Leaflet map perhaps one window among coordinated views. Figure 4.7 shows a [ project](http://www.youtube.com/watch?v=Dlt3vU0ZBZ4&list=PLz9yX13m-GeL9tbxNN1tuOuMyx6wgkwb3) by a former Web Mapping workbook user using the jQuery UI library's [Draggable](https://jqueryui.com/draggable/) functionality.
+_Arrange_ is more common for the highly-exploratory coordinated multiview visualization possible with D3, with a Leaflet map perhaps one window among coordinated views. Figure 4.6 shows a [ project](http://www.youtube.com/watch?v=Dlt3vU0ZBZ4&list=PLz9yX13m-GeL9tbxNN1tuOuMyx6wgkwb3) by a former Web Mapping workbook user using the jQuery UI library's [Draggable](https://jqueryui.com/draggable/) functionality.
 
-![figure5.4.7.png](img/figure5.4.7.png)
+![figure5.4.6.png](img/figure5.4.6.png)
 
-###### Figure 4.7: G575 2013 final project making use of _arrange_
+###### Figure 4.6: G575 2013 final project making use of _arrange_
 
 ### IX. Calculate
 
 **_Calculate_** derives new informatoin about a map feature of interest. One way to implement _calculate_ would be to enable your users to perform mathematical operations on your spatiotemporal data, such as mapping the change between two years or calculating the average across years.
 
-A common calculation on slippy maps is distance and area measurement, which can be implemented on Leaflet maps using the [Leaflet Draw](https://github.com/Leaflet/Leaflet.draw) plugin. This set of tools is included in [geojson.io](http://geojson.io), which we used in Chapter 03. Figure 4.8 shows the plugin example, demonstrating measurement with the Leaflet Draw controls.
+A common calculation on slippy maps is distance and area measurement, which can be implemented on Leaflet maps using the [Leaflet Draw](https://github.com/Leaflet/Leaflet.draw) plugin. This set of tools is included in [geojson.io](http://geojson.io), which we used in Chapter 03. Figure 4.7 shows the plugin example, demonstrating measurement with the Leaflet Draw controls.
 
-![figure5.4.8.png](img/figure5.4.8.png)
+![figure5.4.7.png](img/figure5.4.7.png)
 
-###### Figure 4.8: Leaflet Draw plugin example
+###### Figure 4.7: Leaflet Draw plugin example
 
 ## Activity 6
 
