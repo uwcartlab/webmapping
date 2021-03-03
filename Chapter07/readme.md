@@ -42,23 +42,49 @@ Lesson 2: Setting Up Your Team's Final Project Repository
 
 Working in a team on GitHub is similar to other collaborative projects. First your team should assign roles to each team member. For example, someone may focus on Javascript mechanics, someone may focus on visual styling, etc. It helps to assign a "leader" or "facilitator" who will merge major code conflicts (more below). Keep in mind that it is OK if roles change a bit and that you should be helping your other teammates as they get stuck. Second, you should assign specific development tasks to each role. We will use GitHub _**milestones**_ to formalize these tasks after approval of your final project proposal. Third, your team should strive for good communication to coordinate efforts and ensure that each team member is working on a separate part of the code to maximize efficiency. It is recommended to form some sort of group communication via email, text messaging, or [slack](https://slack.com/features)—a work messaging platform. 
 
-To ensure that we have access to the final projects in case you lose your files, we created a repository for each team under the [uwcartlab](https://github.com/uwcartlab) GitHub account. We then added each member of your team as a _**collaborator**_ role with write permission levels. **_Write_** permissions enable collaborators to make updates to your final project, giving each student on your team the power to push, pull, merge, etc. while preventing access to sensitive and destructive actions such as deleting the repo.
+To get you started, we've creatd a repository [template](https://github.com/uwcartlab/webmapping-final-project) under the [uwcartlab](https://github.com/uwcartlab) GitHub account. 
 
-To access your team's repo, login to the email associated with your GitHub account to find the invitation to your team’s repo. If you cannot find the email, check your spam folder, or search "20\_g575" and the email should show up.  Click “view invitation” and, when redirected, “accept invitation”.
+<!--To ensure that we have access to the final projects in case you lose your files, we created a repository for each team under the [uwcartlab](https://github.com/uwcartlab) GitHub account. We then added each member of your team as a _**collaborator**_ role with write permission levels. **_Write_** permissions enable collaborators to make updates to your final project, giving each student on your team the power to push, pull, merge, etc. while preventing access to sensitive and destructive actions such as deleting the repo.
 
-### II. Cloning Your Team's Repo
+To access your team's repo, login to the email associated with your GitHub account to find the invitation to your team’s repo. If you cannot find the email, check your spam folder, or search "20\_g575" and the email should show up.  Click “view invitation” and, when redirected, “accept invitation”.-->
 
-Now that you have access to the repository, you need to clone it to your desktop server. Open GitHub Desktop and login. Select the repository for your final project “20\_g575\_\[team name\]” located under the header **uwcartlab**. Figure 2.1 illustrates cloning an existing course repo.
+### II. Forking and Renaming the Final Project Repo
+
+To begin, someone from your team will need to fork the final project template to their own GitHub Account. This could be the team "leader" or "facilitator", or whoever will be in charge of merging code conflicts. Log in to GitHub, then go to the [webmapping-final-project](https://github.com/uwcartlab/webmapping-final-project), and select "fork" in the upper right corner. After you fork, a version of the final project repository will be added to your GitHub accounts. Figure 2.1 illustrates the results of forking the final project repo. 
 
 ![figure7.2.1.png](img/figure7.2.1.png)
 
-###### Figure 2.1: Cloning your team's repo
+###### Figure 2.1: Results of forking the final project repository
 
-Select "clone" and follow the remaining instructions to clone your team's repo locally.
+After you fork, you'll notice that the final project repository now on your GitHub has retained its old name: **webmapping-final-project**. You'll want to rename the repo in accordance with your own project plans. Select the "Settings" tab at the top of your repo. One of the first things you should see is text input box labeled **Repository Name**. Rename the project "\[year]_\[projectname]" (Figure 2.2). Click "Rename" to confirm your changes.
+
+![figure7.2.2.png](img/figure7.2.2.png)
+
+###### Figure 2.2: Renaming final project repository
+
+### III. Adding Collaborators
+
+Next, you'll need to make sure all your teammates have access to the repository. You'll be adding everyone as a _**collaborator**_. To add collaborators, select the "Manage Access" tab in the "Settings" Menu. Click "Add a collaborator", and input the GitHub username of one of your teammates. You'll be prompted with the option to add them to the repository (Figure 2.3)
+
+![figure7.2.3.png](img/figure7.2.3.png)
+
+###### Figure 2.3: Adding a collaborator
+
+Repeat this process with each of your teammates. They will need to accept your invitation in order to clone the repository to their desktop. To do so, login to the email associated with your GitHub account to find the invitation to your team’s repo. If you cannot find the email, check your spam folder, or search "\[year]_\[projectname]" and the email should show up.  Click “view invitation” and, when redirected, “accept invitation”.
+
+### IV. Cloning the Final Project Repo to Your Desktop
+
+Finally, you'll need to clone the final project repository to your desktop server. Open GitHub Desktop and login, choose "Add", and then "Clone Repository". Select the repository **"\[year]_\[projectname]"** located under the header of the team facilitator's GitHub account. Figure 2.4 illustrates cloning the final project repo in GitHub desktop.
+
+![figure7.2.4.png](img/figure7.2.4.png)
+
+###### Figure 2.4: Cloning your team's repo
+
+Select "clone" and follow the remaining instructions to clone your team's repo locally. If prompted with a popup window entiteld "How are you planning to use this fork?" make sure select "For my own purposes" to ensure that your updates will go to the right place. 
 
 > ### **Confirm access to and clone your team's repo.**
 
-### III. Making Your First Commit with Markdown
+### V. Making Your First Commit with Markdown
 
 With your team repository cloned, let's add a first commit and push to the _readme.md_ file we have created as part of the repo. A _**readme**_ file acts as the metadata of software, datasets, or other coding libraries. Readme files often include information about authors and licensing as well as documentation and background description about the project. Per the final project instructions, you will use the _readme.md_ file to write your final project proposal. 
 
@@ -72,51 +98,51 @@ Using markdown is much like using HTML (the M standing for "markup"), with [slig
 *   If you want the text to be in paragraph form, you can simply type in what you want without adding any additional syntax.
 *   Finally, you can insert an images or external links using brackets (`[]`) for the hyperlink text and parentheses (`()`) for the link itself. If you insert an image, the image must be synced to your remote repository.
 
-Now that you know a bit about markdown, let’s start working on the final project proposal. In your code editor, open the _readme.md_ file from your cloned team repository. Add your name as an ordered list element and commit your changes with “Activity 7” in the commit summary (Figure 2.2).
-
-![figure7.2.2.png](img/figure7.2.2.png)
-
-###### Figure 2.2: Adding your name in markdown to _readme.md_
-
-> ### **Add your name to your cloned team repository. Commit and push your changes.**
-
-### IV. Dealing with Merge Conflicts
-
-Sooner or later, you will run into merge _**conflicts**_ between your local code and the code in the remote repository after updates from your team members. Efficiently management of merge conflicts is essential for successful collaborative coding. Luckily, Git provides a framework for identifying and resolving conflicts between code when merging.
-
-The first conflict you will need to resolve is integrating all team member names. After you have committed and pushed your name, fetch origin of the repository to check for updates. If your teammates have added their names, GitHub desktop will prompt you to resolve conflicts in the _readme.md_ file before you can merge the code (Figure 2.3).
-
-![figure7.2.3.png](img/figure7.2.3.png)
-
-###### Figure 2.3: An error warning triggered by a merge conflict
-
-When you reopen the _readme.md_ file, you will see that your teammates' names are now in the file as well, creating a conflict. In most text editors, these conflicts will be marked within the file with a random binary ID (Figure 2.3). For our purposes, the location of the conflict is more important than the ID assigned to it.
-
-![figure7.2.4.png.png](img/figure7.2.4.png)
-
-###### Figure 2.4: A conflict created when adding your team member names
-
-Accept the new additions to the code and merge the main branch with your local copy. GitHub desktop will no longer show any conflicts (Figure 2.5).
+Now that you know a bit about markdown, let’s start working on the final project proposal. In your code editor, open the _readme.md_ file from your cloned team repository. Add your name as an ordered list element and commit your changes with “Activity 7” in the commit summary (Figure 2.5).
 
 ![figure7.2.5.png](img/figure7.2.5.png)
 
-###### Figure 2.5: The revised message when conflicts are resolved, allowing a merge
+###### Figure 2.5: Adding your name in markdown to _readme.md_
 
-Now that you know a bit about markdown, work in your team during lab to insert a basic outline for your _readme.md_ file based on the [final project proposal guidelines](https://canvas.wisc.edu/courses/180498/pages/final-project-assignment "Final Project Assignment"). The final project proposal should include sections for your title + team members, your personas and scenarios (perhaps with subheadings separating the personas and scenarios), your requirements document as an numbered list (again separated by representation and interaction requirements), and your wireframes, embedded as images linked from an _img_ folder in your directory (Figure 2.6). It is worth experimenting with the collaborative coding process in class now, while your team is in the same location.
+> ### **Add your name to your cloned team repository. Commit and push your changes.**
 
-![figure7.2.6.png.png](img/figure7.2.6.png)
+### VI. Dealing with Merge Conflicts
 
-###### Figure 2.6: The final project proposal outline
+Sooner or later, you will run into merge _**conflicts**_ between your local code and the code in the remote repository after updates from your team members. Efficiently management of merge conflicts is essential for successful collaborative coding. Luckily, Git provides a framework for identifying and resolving conflicts between code when merging.
 
-As you collaboratively write and edit your proposal, you again will create conflicts that you will need to resolve before merging. For instance, Figure 2.7 shows a _search_ operator added by a teammate to the interaction requirements. Before adding a description to your _sequence_ operator, resolve this conflict so that your teammates can see your description to inform their own (Figure 2.8). The final project proposal is designed to get you in the habit of committing, pushing, and merging using the lower risk framework of markdown as practice for collaborative coding with JavaScript on the actual final project interactive.
+The first conflict you will need to resolve is integrating all team member names. After you have committed and pushed your name, fetch origin of the repository to check for updates. If your teammates have added their names, GitHub desktop will prompt you to resolve conflicts in the _readme.md_ file before you can merge the code (Figure 2.6).
+
+![figure7.2.6.png](img/figure7.2.6.png)
+
+###### Figure 2.6: An error warning triggered by a merge conflict
+
+When you reopen the _readme.md_ file, you will see that your teammates' names are now in the file as well, creating a conflict. In most text editors, these conflicts will be marked within the file with a random binary ID (Figure 2.7). For our purposes, the location of the conflict is more important than the ID assigned to it.
 
 ![figure7.2.7.png](img/figure7.2.7.png)
 
-###### Figure 2.7: A merge conflict in the interaction requirements
+###### Figure 2.7: A conflict created when adding your team member names
+
+Accept the new additions to the code and merge the main branch with your local copy. GitHub desktop will no longer show any conflicts (Figure 2.8).
 
 ![figure7.2.8.png](img/figure7.2.8.png)
 
-###### Figure 2.8. Resolving the merge conflict in the interaction requirements
+###### Figure 2.8: The revised message when conflicts are resolved, allowing a merge
+
+Now that you know a bit about markdown, work in your team during lab to insert a basic outline for your _readme.md_ file based on the [final project proposal guidelines](https://canvas.wisc.edu/courses/180498/pages/final-project-assignment "Final Project Assignment"). The final project proposal should include sections for your title + team members, your personas and scenarios (perhaps with subheadings separating the personas and scenarios), your requirements document as an numbered list (again separated by representation and interaction requirements), and your wireframes, embedded as images linked from an _img_ folder in your directory (Figure 2.9). It is worth experimenting with the collaborative coding process in class now, while your team is in the same location.
+
+![figure7.2.9.png](img/figure7.2.9.png)
+
+###### Figure 2.9: The final project proposal outline
+
+As you collaboratively write and edit your proposal, you again will create conflicts that you will need to resolve before merging. For instance, Figure 2.10 shows a _search_ operator added by a teammate to the interaction requirements. Before adding a description to your _sequence_ operator, resolve this conflict so that your teammates can see your description to inform their own (Figure 2.11). The final project proposal is designed to get you in the habit of committing, pushing, and merging using the lower risk framework of markdown as practice for collaborative coding with JavaScript on the actual final project interactive.
+
+![figure7.2.10.png](img/figure7.2.10.png)
+
+###### Figure 2.10: A merge conflict in the interaction requirements
+
+![figure7.2.11.png](img/figure7.2.11.png)
+
+###### Figure 2.11. Resolving the merge conflict in the interaction requirements
 
 > ### **Work with your team to add a the proposal outline that you will complete over the next two chapters, merging and resolving all conflicts.**
 
