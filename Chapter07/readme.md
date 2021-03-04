@@ -134,7 +134,7 @@ Now that you know a bit about markdown, work in your team to insert a basic outl
 
 ###### Figure 2.9: The final project proposal outline
 
-As you collaboratively write and edit your proposal, you again will create conflicts that you will need to resolve before merging. For instance, Figure 2.10 shows a _search_ operator added by a teammate to the interaction requirements. Before adding a description to your _sequence_ operator, resolve this conflict so that your teammates can see your description to inform their own (Figure 2.11). The final project proposal is designed to get you in the habit of committing, pushing, and merging using the lower risk framework of markdown as practice for collaborative coding with JavaScript on the actual final project interactive.
+As you collaboratively write and edit your proposal, you again will create conflicts that you will need to resolve before merging. For instance, Figure 2.10 shows a _search_ operator added by a teammate to the interaction requirements. Before adding a description to your _retrieve_ operator, resolve this conflict so that your teammates can see your description to inform their own (Figure 2.11). The final project proposal is designed to get you in the habit of committing, pushing, and merging using the lower risk framework of markdown as practice for collaborative coding with JavaScript on the actual final project interactive.
 
 ![figure7.2.10.png](img/figure7.2.10.png)
 
