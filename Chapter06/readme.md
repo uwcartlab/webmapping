@@ -3,11 +3,11 @@
 Chapter 6: The Internal Logic of Leaflet
 =======================================
 
-Your Leaflet lab should be coming along nicely after the Chapter 5 overview of interactions. In Chapter 6, we dive deeper into Leaflet's inner workings to introduce you to some advanced web programming concepts. Chapter 6 includes three lessons and culminates in the completion of your Leaflet lab.
+Your Leaflet map should be coming along nicely after the Chapter 5 overview of interactions. In Chapter 6, we dive deeper into Leaflet's inner workings to introduce you to some advanced web programming concepts. Chapter 6 includes three lessons and culminates in the completion of your Leaflet map.
 
 *   In Lesson 1, we contrast procedural versus object-oriented coding with JavaScript by refactoring some existing, suboptimal code from Chapter 4-5.
 *   In Lesson 2, we refresh our introduction of Leaflet to look at it as a library of classes and use several of these classes to implement UI controls and a temporal legend.
-*   In Lesson 3, we introduce scalable vector graphics (SVGs)—a graphics format we rely on with D3 in _unit-3—_and use SVG to build an attribute legend for our Leaflet Lab example.
+*   In Lesson 3, we introduce scamaple vector graphics (SVGs)—a graphics format we rely on with D3 in _unit-3_ and use SVG to build an attribute legend for our Leaflet map example.
 
 After this chapter, you should be able to:
 
@@ -20,13 +20,13 @@ Lesson 1: Procedural and Object-oriented JavaScript
 
 ### I. Procedural Code Refactoring
 
-JavaScript employs two different computer programming paradigms: [procedural programming](https://en.wikipedia.org/wiki/Procedural_programming) and [object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming) (OOP). ***Procedural programming*** uses individual variables, functions, and data structures to give step-by-step instructions to the processor. In contrast, ***object-oriented programming*** uses data and methods contained within complex data structures called objects. JavaScript is primarily a procedural language, but has some characteristics that allow advanced programmers to take an object-oriented approach. In the code for your Leaflet Lab, you have actually already used a bit of both.
+JavaScript employs two different computer programming paradigms: [procedural programming](https://en.wikipedia.org/wiki/Procedural_programming) and [object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming) (OOP). ***Procedural programming*** uses individual variables, functions, and data structures to give step-by-step instructions to the processor. In contrast, ***object-oriented programming*** uses data and methods contained within complex data structures called objects. JavaScript is primarily a procedural language, but has some characteristics that allow advanced programmers to take an object-oriented approach. In the code for your Leaflet map, you have actually already used a bit of both.
 
 The chapter tutorials use the term **_function_** to refer to a set of tasks or routines written into the _main.js_ custom script, and the term **_method_** to refer to functions that are part of a library such as jQuery or Leaflet. This is an important semantic distinction. Methods are routines that look like functions but are included as part of an object. Functions belong to the domain of procedural programming: they are a set of instructions that can be used anywhere to redirect the flow of execution, and are not designated as part of a particular code package. On the other hand, code libraries use an object-oriented approach to classes and their methods so that specific ***child*** classes _inherit_ (as introduced in Chapter 5), or make use of, broader ***parent*** classes, requiring the parent method to be written just once for efficiency. 
 
 To examine the difference, let's refactor some of the _main.js_ script from the end of Chapter 5. As you hone your programming skills, you will begin to notice places where your code is more lengthy than it needs to be and could be ***refactored***, or revised for efficiency. To start refactoring, look for code that occurs in a very similar form in multiple places in your script. In procedural programming, this repetition can be reduced by consolidating the duplicate code into its own function that can be called from multiple places to return the desired value.
 
-In the `updatePropSymbols()` function in _main.js_ of the Leaflet Lab example code, we recreate our popup content for each feature with script very similar to the initial creation of our popups in the `pointToLayer()` function (Example 1.1).
+In the `updatePropSymbols()` function in _main.js_ of the Leaflet map example code, we recreate our popup content for each feature with script very similar to the initial creation of our popups in the `pointToLayer()` function (Example 1.1).
 
 ###### Example 1.1: Duplicate code in _main.js_
 
@@ -38,11 +38,14 @@ In the `updatePropSymbols()` function in _main.js_ of the Leaflet Lab example co
         var year = attribute.split("_")[1];
         popupContent += "<p><b>Population in " + year + ":</b> " + feature.properties[attribute] + " million</p>";
     
-        /bind the popup to the circle marker    layer.bindPopup(popupContent, {          offset: new L.Point(0,-options.radius)    });
+        //bind the popup to the circle marker    
+        layer.bindPopup(popupContent, { 
+        	offset: new L.Point(0,-options.radius) 
+        });
     
     ...
     
-    //CODE FROM updatePropSymbols() FUNCTION
+    		//CODE FROM updatePropSymbols() FUNCTION
         //build new popup content string
         var popupContent = "<p><b>City:</b> " + props.City + "</p>";
     
@@ -50,8 +53,10 @@ In the `updatePropSymbols()` function in _main.js_ of the Leaflet Lab example co
         var year = attribute.split("_")[1];
         popupContent += "<p><b>Population in " + year + ":</b> " + props[attribute] + " million</p>";
     
-        //update popup with new content    popup = layer.getPopup();    popup.setContent(popupContent).update();
-    
+        //update popup with new content    
+        popup = layer.getPopup();    
+        popup.setContent(popupContent).update();
+
 
 Let's improve our script by consolidating the redundant code into one procedural function that can be called from both `pointToLayer()` and `updatePropSymbols()` (Example 1.2). First, note which variables should be passed into the function as parameters: `feature.properties` and the selected `attribute` from the dataset. If you assign a different parameter name for any of these variables, make sure you also change the variable name within the function to reflect the parameter name.
 
@@ -67,7 +72,7 @@ Let's improve our script by consolidating the redundant code into one procedural
     
         return popupContent;
     };
-    
+
 
 You then can replace the popup creation code in each of the functions where it appears (Example 1.3).
 
@@ -75,11 +80,15 @@ You then can replace the popup creation code in each of the functions where it a
 
         //Example 1.1 line 2...in pointToLayer()
         var popupContent = createPopupContent(feature.properties, attribute);
-        //bind the popup to the circle marker    layer.bindPopup(popupContent, {          offset: new L.Point(0,-options.radius)    });
+        //bind the popup to the circle marker    
+        layer.bindPopup(popupContent, {  offset: new L.Point(0,-options.radius)    });
         ...
     
         //Example 1.1 line 18...in updatePropSymbols()
-        var popupContent = createPopupContent(props, attribute);    //update popup with new content    popup = layer.getPopup();    popup.setContent(popupContent).update();
+        var popupContent = createPopupContent(props, attribute);    
+        //update popup with new content    
+        popup = layer.getPopup();    
+        popup.setContent(popupContent).update();
 
 ### II. Object-oriented Code Refactoring
 
@@ -104,19 +113,24 @@ An object-oriented approach instead assigns the variables as properties of an ob
         //create new popup content
         var popupContent = new PopupContent(feature.properties, attribute);
     
-        //bind the popup to the circle marker    layer.bindPopup(popupContent.formatted, {          offset: new L.Point(0,-options.radius)      });
+        //bind the popup to the circle marker    
+        layer.bindPopup(popupContent.formatted, { 
+        	offset: new L.Point(0,-options.radius)
+        });
     
     ...
     
         //Example 1.3 line 6...in UpdatePropSymbols()
         var popupContent = new PopupContent(props, attribute);
     
-        //update popup with new content    popup = layer.getPopup();    popup.setContent(popupContent.formatted).update();
-    
+        //update popup with new content    
+        popup = layer.getPopup();    
+        popup.setContent(popupContent.formatted).update();
+
 
 In the example above (Example 1.4), the keyword `this` refers to the function's **_prototype_** property. Think of the prototype as the immediate parent of the objects that are instantiated by the constructor function. Every JavaScript object has a prototype—its parent—which defines its properties and methods. Each object instance is created using the special `new` keyword to call the constructor, passing each required parameter to the constructor function. When new `popupContent` objects are instantiated in Example 1.4 on lines 21 and 29, these objects inherit the properties and methods assigned to the prototype using `this` in the constructor. Lines 3-8 assign properties to the prototype based on the parameters passed into the constructor function.
 
-Inheritance is a powerful feature of object-oriented JavaScript. Once an object is created from a constructor function, it has a set of default properties and methods. However, any of the defaults assigned by the constructor can be changed for individual objects created from it. For instance, imagine that you want to temporarily change the styling of your popups to just show the population and use a larger font. You can replace the `formatted` property of your `popupContent` object (Example 1.5).
+Inheritance is a powerful feature of object-oriented JavaScript. Once an object is created from a constructor function, it has a set of default properties and methods. However, any of the defaults assigned by the constructor can be changed for individual objects created from it. For instance, imagine that you want to temporarily change the styling of your popups to show just the population and use a larger font. You can replace the `formatted` property of your `popupContent` object (Example 1.5).
 
 ###### Example 1.5: Replacing popup content in _main.js_
 
@@ -126,8 +140,11 @@ Inheritance is a powerful feature of object-oriented JavaScript. Once an object 
         //change the formatting
         popupContent.formatted = "<h2>" + popupContent.population + " million</h2>";
     
-        //add popup to circle marker    layer.bindPopup(popupContent.formatted, {          offset: new L.Point(0,-options.radius)    });
-    
+        //add popup to circle marker    
+        layer.bindPopup(popupContent.formatted, {          
+        	offset: new L.Point(0,-options.radius)    
+        });
+
 
 Figure 1.1 shows the result of Example 1.5.
 
@@ -135,7 +152,7 @@ Figure 1.1 shows the result of Example 1.5.
 
 ###### Figure 1.1: A modified popup object
 
-Further, imagine that you want to create two styles of popups, one that maintains the original formatting and another that replaces the formatting, given the user the option to switch between the two. You can create a second `popupContent2` with the first `popupContent` as its prototype using the `Object.create()` method (Example 1.6).
+Further, imagine that you want to create two styles of popups, one that maintains the original formatting and another that replaces the formatting, giving the user the option to switch between the two. You can create a second `popupContent2` with the first `popupContent` as its prototype using the `Object.create()` method (Example 1.6).
 
 ###### Example 1.6: A new type of popup in _main.js_
 
@@ -148,10 +165,11 @@ Further, imagine that you want to create two styles of popups, one that maintain
         //change the formatting of popup 2
         popupContent2.formatted = "<h2>" + popupContent.population + " million</h2>";
     
-        //add popup to circle marker    layer.bindPopup(popupContent2.formatted);
+        //add popup to circle marker    
+        layer.bindPopup(popupContent2.formatted);
     
         console.log(popupContent.formatted) //original popup content
-    
+
 
 The `console.log()` statement shows that the first `popupContent` object has maintained its original format (Figure 1.2). The second `popupContent2` object inherits all of the properties and methods of the first, but then has its format changed on line 8 before binding this content to the circle marker `layer`.
 
@@ -159,7 +177,7 @@ The `console.log()` statement shows that the first `popupContent` object has mai
 
 ###### Figure 1.2: The prototype popup maintains its original content
 
-Prototypes and constructor functions are advanced JavaScript concepts, so we do not expect you to rely on them heavily for your Leaflet lab. However, consider how you can make use of prototypes and constructors as you begin to plan your final project.
+Prototypes and constructor functions are advanced JavaScript concepts, so we do not expect you to rely on them heavily for your Leaflet map. However, consider how you can make use of prototypes and constructors as you begin to plan your final project.
 
 > ### **Refactor any duplicate code in your script using either procedural or object-oriented programming.**
 
@@ -175,9 +193,9 @@ Hopefully, the previous discussion has made the workings of Leaflet a little cle
     L.map = function (id, options) {
         return new L.Map(id, options);
     };
-    
 
-Each Leaflet class is created using an `extend()` method build into the `L.Class` constructor. The `extend` method in turn is inherited by the child class, its children, and so on. This means that new Leaflet classes can be created by _extending_ any class, and they inherit the methods and properties of all previous class "generations"—as in the case of the `L.LayerGroup`, `L.FeatureGroup`, and `L.GeoJSON` chain discussed in Chapter 4. It also means that _you_ can create custom Leaflet classes in your own script.
+
+Each Leaflet class is created using an `extend()` method built into the `L.Class` constructor. The `extend` method in turn is inherited by the child class, its children, and so on. This means that new Leaflet classes can be created by _extending_ any class, and they inherit the methods and properties of all previous class "generations"—as in the case of the `L.LayerGroup`, `L.FeatureGroup`, and `L.GeoJSON` chain discussed in Chapter 4. It also means that _you_ can create custom Leaflet classes in your own script.
 
 ### II. Custom Leaflet Controls
 
@@ -210,7 +228,7 @@ The value of the `extend()` method—as seen in the example above—is that it t
 
 The `onAdd()` method creates the HTML element and child elements for the Leaflet control, along with HTML attributes and event listeners for the Leaflet control. As the name of the method implies, this script is executed when the control is added to the map. Similarly, we can add an `onRemove()` method to remove elements and event listeners from the DOM when the control is removed. Since we only are adding the control to our map, we do not need to use `onRemove()`. However, `onAdd()` _always_ is required for a new Leaflet control.
 
-Following the documentation example, we create a new HTML `<div>` element within the `onAdd()` method using Leaflet's [DOM Utility](http://leafletjs.com/reference.html#domutil) and the [`L.DomUtil.create()`](http://leafletjs.com/reference.html#domutil-create) method. We also can create the `<div>` using JavaScript's native `document.createElement()` method, but `L.DomUtil.create()` is slightly more convenient because it automatically adds a class name (as in Example 2.2) and optionally assigns the new element to a parent element. We do <ins>_not_</ins> want to use jQuery for this, as we need to define the new Leaflet control  without adding it to the DOM immediately.
+Following the documentation example, we create a new HTML `<div>` element within the `onAdd()` method using Leaflet's [DOM Utility](http://leafletjs.com/reference.html#domutil) and the [`L.DomUtil.create()`](http://leafletjs.com/reference.html#domutil-create) method. We also can create the `<div>` using JavaScript's native `document.createElement()` method, but `L.DomUtil.create()` is slightly more convenient because it automatically adds a class name (as in Example 2.2) and optionally assigns the new element to a parent element. We do <ins>_not_</ins> want to use jQuery for this, as we need to define the new Leaflet control without adding it to the DOM immediately.
 
 We _can_ use jQuery for the next step, which is to place our `"range-slider"` _inside_ of the `SequenceControl`. To do this, we simply move the line that creates the `"range-slider"` into the `onAdd()` method, appending it to the `container` element using jQuery (Example 2.3).
 
@@ -226,7 +244,7 @@ We _can_ use jQuery for the next step, which is to place our `"range-slider"` _i
     
                 return container;
             }
-    
+
 
 Figure 2.1 shows the resulting slider as an extended `L.Control` in the lower-left corner of your map .
 
@@ -252,7 +270,7 @@ You similarly can move the step buttons into the `SequenceControl` by placing th
     
                 return container;
             }
-    
+
 
 Figure 2.2 shows the resulting step buttons as part of the extended `L.Control`. Note that the slider and step buttons are now part of the same extended Leaflet control called `SequenceControl`. 
 
@@ -260,7 +278,7 @@ Figure 2.2 shows the resulting step buttons as part of the extended `L.Control`.
 
 ###### Figure 2.2: Step buttons added
 
-We need to make several additional adjustment from our original code to have the _sequence_ UI controls extending `L.Control`. , rather than sit in a separate `<div>` element outside of the map. First, if you use the slider, you will notice that dragging the marker also causes the map to move—an undesirable response. Likewise, clicking the step buttons in rapid succession causes the map to zoom in. In both cases, executing of the _sequence_ operator triggers a second operator _(pan_ versus _zoom_) because the map's default event listeners still are active and `SequenceControl` is part of the map.
+We need to make several additional adjustment from our original code to have the _sequence_ UI controls extending `L.Control`, rather than sit in a separate `<div>` element outside of the map. First, if you use the slider, you will notice that dragging the marker also causes the map to move—an undesirable response. Likewise, clicking the step buttons in rapid succession causes the map to zoom in. In both cases, executing of the _sequence_ operator triggers a second operator _(pan_ versus _zoom_) because the map's default event listeners still are active and `SequenceControl` is part of the map.
 
 We can deactivate the map's mouse event listeners for the area covered by the `SequenceControl` control container using [`L.DomEvent.disableClickPropagation()`](https://leafletjs.com/reference-1.4.0.html#domevent-disableclickpropagation) (Example 2.5).
 
@@ -278,7 +296,7 @@ We can deactivate the map's mouse event listeners for the area covered by the `S
     
                 return container;
             }
-    
+
 
 Second, we need to modify our styles in _style.css_ to better position our slider and buttons in the control container. We also remove the right panel. If any of the Example 2.6 styles are unfamiliar, remember that you can look them up on [W3Schools](http://www.w3schools.com/cssref/).
 
@@ -290,7 +308,7 @@ Second, we need to modify our styles in _style.css_ to better position our slide
         display: inline-block;
     }
     ...
-
+    
     .sequence-control-container {  
         width: 350px;  
         height: 30px;  
@@ -310,17 +328,16 @@ Second, we need to modify our styles in _style.css_ to better position our slide
     }  
     
     .step img {  
-    width: 100%;  
-    height: auto;  
+	    width: 100%;  
+	    height: auto;  
     } 
 
-Lastly, make sure you add the event listeners for your slider and step buttons **after** adding the controls- otherwise you're trying to attach listeners with to HTML elements that have not been created yet.
+Lastly, make sure you add the event listeners for your slider and step buttons **after** adding the controls; otherwise you are trying to attach listeners with to HTML elements that have not been created yet.
 
-    onAdd: function (){  
-    
-    //adding slider and step buttons  
-    
-    }  
+    	onAdd: function (){  
+    		//adding slider and step buttons
+      	.....
+    	}  
     });  
     
     map.addControl(new SequenceControl());  
@@ -337,7 +354,7 @@ Figure 2.3 shows our beautiful new UI controls.
 
 ### III. Temporal Legend
 
-The final requirement of the Leaflet Lab assignment is a temporal legend for the _sequence_ operator and an attribute legend for the proportional symbols. Let's start with the more straightforward temporal legend. We will build the attribute legend using SVG in Lesson 3.
+The final requirement of the Leaflet map assignment is a temporal legend for the _sequence_ operator and an attribute legend for the proportional symbols. Let's start with the more straightforward temporal legend. We will build the attribute legend using SVG in Lesson 3.
 
 First, create a new extended `L.Control` control for the temporal legend using a new `createLegend()` function (Example 2.7). Call the extended control `LegendControl` and place it in the bottom-right corner of the map. You can change the position of all controls to customize your design after you get their functionality working. Add a call to the new `createLegend()` function in the AJAX callback.
 
@@ -361,7 +378,7 @@ First, create a new extended `L.Control` control for the temporal legend using a
     
         map.addControl(new LegendControl());
     };
-    
+
 
 At this point, you should have a good idea of how to create the temporal legend based on the attribute names in your GeoJSON dataset. Rather than walking through all the steps here, we will let you adapt script for the popups to populate the temporal legend.
 
@@ -384,9 +401,9 @@ Lesson 3: Using SVG Graphics
 
 Thematic maps typical require an attribute legend to define the meaning of the map symbols. It is conventional for a proportional symbol map to include a legend of nested circles representing the minimum, maximum, and one or more intermediate values.
 
-You could create your attribute legend using static HTML `<div>` or `<img>` elements. However, Leaflet uses SVG graphics to dynamically create its circle markers and other vector linework, so it makes sense to replicate the circle markers using SVG for the legend. Additionally, you will need to understand how SVG works to complete the D3 Lab in the next unit, so a basic introduction to the SVG standard now will help you in the future.
+You could create your attribute legend using static HTML `<div>` or `<img>` elements. However, Leaflet uses SVG graphics to dynamically create its circle markers and other vector linework, so it makes sense to replicate the circle markers using SVG for the legend. Additionally, you will need to understand how SVG works to complete the D3 map in the next unit, so a basic introduction to the SVG standard now will help you in the future.
 
-***SVG***, or ***S***calable ***V***ector ***G***raphics, is the web standard vector graphics format. As with vector geospatial data introduced in Chapter 3, [_**vector graphics**_](https://gistbok.ucgis.org/bok-topics/vector-formats-and-sources) use points, lines, and polygon fills to represent image elements. In contrast, [<ins>_**raster graphics**_</ins>](https://gistbok.ucgis.org/bok-topics/raster-formats-and-sources) (such as the ***png*** or ***P***ortable ***N***etwork ***G***raphics format), much like raster geospatial data, use a continuous grid of pixels.
+***SVG***, or ***S***camaple ***V***ector ***G***raphics, is the web standard vector graphics format. As with vector geospatial data introduced in Chapter 3, [_**vector graphics**_](https://gistbok.ucgis.org/bok-topics/vector-formats-and-sources) use points, lines, and polygon fills to represent image elements. In contrast, [<ins>_**raster graphics**_</ins>](https://gistbok.ucgis.org/bok-topics/raster-formats-and-sources) (such as the ***png*** or ***P***ortable ***N***etwork ***G***raphics format), much like raster geospatial data, use a continuous grid of pixels.
 
 SVG uses XML markup, making it relatively human-readable and easy to integrate with HTML. Microsoft initially had its own Vector Markup Language (VML), and Internet Explorer was the last major browser to adopt SVG support. Accordingly, IE 8 and below do not support SVG, the primary reason most boilerplate websites check for this browser. Fortunately, there are increasingly fewer users of these older browser versions, so we will not be concerned with this problem in this workbook.
 
@@ -394,7 +411,7 @@ The [SVG standard](https://www.w3.org/TR/SVG11/) describes the [elements](https:
 
 ### II. Importing SVG from Adobe Illustrator
 
-SVG provides a link between vector artwork software such as Adobe Illustrator and web graphics. Illustrator can save graphics as SVG, which then can be added to a webpage. Although SVG circles are quite simple to code from scratch, we  start with Illustrator in this lesson to demonstrate how the SVG export works. This method can be applied to more complex graphics as well.
+SVG provides a link between vector artwork software such as Adobe Illustrator and web graphics. Illustrator can save graphics as SVG, which then can be added to a webpage. Although SVG circles are quite simple to code from scratch, we start with Illustrator in this lesson to demonstrate how the SVG export works. This method can be applied to more complex graphics as well.
 
 Let's start with a simple 180-pixel diameter circle drawn with the Ellipse Tool in Illustrator (Figure 3.1).
 
@@ -415,7 +432,7 @@ Once you have saved the SVG file, you can open it in your text editor to view th
          width="180px" height="180px" viewBox="0 0 180 180" enable-background="new 0 0 180 180" xml:space="preserve">
     <circle fill="#F47821" fill-opacity="0.8" stroke="#000000" stroke-miterlimit="10" cx="90" cy="90.001" r="89.5"/>
     </svg>
-    
+
 
 Compare this code to the circle example on the [Mozilla SVG documentation](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/circle) page. The SVG content starts with the opening `<svg>` tag (line 4), with the rest generated by Illustrator and thus can be deleted.
 
@@ -428,7 +445,7 @@ We can copy and paste this `<svg>` tag and insert it into the `<svg>` of our boi
             <circle fill="#F47821" fill-opacity="0.8" stroke="#000000" stroke-miterlimit="10" cx="90" cy="90.001" r="89.5"/>
         </svg>
     </body>
-    
+
 
 Figure 3.2 renders the circle in a browser.
 
@@ -472,9 +489,9 @@ An SVG [`<path>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/path)
 ###### Example 3.3: Leaflet circle marker path `d` attribute
 
     d="M341,186.92441514450513A15.07558485549488,15.07558485549488,0,1,1,340.9,186.92441514450513 z"
-    
 
-If you are interested in deconstructing this code, visit the Mozilla documentation page for the [`d` attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d). You will become more familiar with the `d` attribute in Unit 3 when using D3; we stick with the SVG `<circle>` element for our attribute legend.
+
+If you are interested in deconstructing this code, visit the Mozilla documentation page for the [`d` attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d). You will become more familiar with the `d` attribute in _unit-3_ when using D3; we stick with the SVG `<circle>` element for our attribute legend.
 
 In case you are wondering about the `<g>` elements in Figure 3.4, these are group elements that contain each `<path>`, but could contain more than one other element and be used to uniformly style all of their child elements.
 
@@ -522,7 +539,7 @@ Step 1 in Example 3.4 dynamically adds an `<svg>` element to the legend containe
     
         updateLegend(map, attributes[0]);
     };
-    
+
 
 Let's take a look at our legend control via the Inspector (Figure 3.5).
 
@@ -552,7 +569,7 @@ Step 2 of the pseudocode creates each example proportional circle for the legend
     
             //add attribute legend svg to container
             $(container).append(svg);
-    
+
 
 On line 10 of Example 3.6, we assign the circle `id` attribute based orean the current value of the array. Other attributes are similar to the code on line 3 of Example 3.2, except that we have left out the unnecessary `stroke-miterlimit` attribute as well as the necessary `cy` and `r` attributes. We have left out the latter two because these will be assigned dynamically depending on the dataset values for each attribute. Because they are left out, no circles will appear yet in the legend, but if you were to inspect the legend, you could see that the `<circle>` elements are all present in the DOM.
 
@@ -568,34 +585,28 @@ For Step 3 of our pseudocode, we want to size and center our legend's circles ba
     
     .....  
     
-    function calcStats(data){  
-        //create empty array to store all data values  
-        var allValues = \[\];  
+    function calcStats(data){
+        //create empty array to store all data values
+        var allValues = [];
+        //loop through each city
+        for(var city of data.features){
+            //loop through each year
+            for(var year = 1985; year <= 2015; year+=5){
+                  //get population for current year
+                  var value = city.properties["Pop_"+ String(year)];
+                  //add value to array
+                  allValues.push(value);
+            }
+        }
+        //get min, max, mean stats for our array
+        dataStats.min = Math.min(...allValues);
+        dataStats.max = Math.max(...allValues);
+        //calculate meanValue
+        var sum = allValues.reduce(function(a, b){return a+b;});
+        dataStats.mean = sum/ allValues.length;
     
-        //loop through each city  
-        for(var city of data.features){  
-        
-            //loop through each year  
-            for(var year = 1985; year <= 2015; year+=5){  
-            
-                //get population for current year  
-                var value = city.properties\["Pop\_"+ String(year)\];  
-    
-                //add value to array  
-                allValues.push(value);  
-            }  
-        }  
-    
-        //get min, max, mean stats for our array  
-        dataStats.min = Math.min(...allValues);  
-        dataStats.max = Math.max(...allValues);  
-    
-        //calculate mean  
-        var sum = allValues.reduce(function(a, b){return a+b;});  
-        dataStats.mean = sum/ allValues.length;  
-  
-    }     
-  
+    }    
+      
     .....  
     
     function getData(map){  
@@ -618,19 +629,19 @@ Now that we have calculated the statistics we need to size and center our circle
 ##### Example 3.8: Dynamically assigning the last two circle attributes in _createLegend_
 
             //array of circle names to base loop on  
-            var circles = \["max", "mean", "min"\];  
-  
+            var circles = ["max", "mean", "min"]; 
+      
             //Step 2: loop to add each circle and text to svg string  
             for (var i=0; i<circles.length; i++){  
-  
+      
                 //Step 3: assign the r and cy attributes  
-                var radius = calcPropRadius(dataStats\[circles\[i\]\]);  
+                var radius = calcPropRadius(dataStats[circles[i]]);  
                 var cy = 130 - radius;  
-  
+      
                 //circle string  
-                svg += '<circle class="legend-circle" id="' + circles\[i\] + '" r="' + radius + '"cy="' + cy + '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="65"/>';  
+                svg += '<circle class="legend-circle" id="' + circles[i] + '" r="' + radius + '"cy="' + cy + '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="65"/>';  
             };  
-  
+      
             //close svg string  
             svg += "</svg>"; 
 
@@ -675,16 +686,16 @@ Now we are ready for Step 4 of the pseudocode. We can create text within an SVG 
                 //text string            
                 svg += '<text id="' + circles[i] + '-text" x="65" y="' + textY + '">' + Math.round(dataStats[circles[i]]*100)/100 + " million" + '</text>';
             };
-
+    
             //close svg string
             svg += "</svg>";
-
+    
             //add attribute legend svg to container
             $(container).append(svg);
 
-This adds a  `<text>` element with a unique id and content for each circle to the SVG (line 8).  Notice that we evenly space out each `<text>` element's `y` coordinate attribute for readability. This completes our legend and the basic requirements for the Leaflet lab (Figure 3.8)!
+This adds a `<text>` element with a unique id and content for each circle to the SVG (line 8).  Notice that we evenly space out each `<text>` element's `y` coordinate attribute for readability. This completes our legend and the basic requirements for the Leaflet map (Figure 3.8)!
 
-![figure6.3.9.png](img/figure6.3.9.png)
+![figure6.3.8.png](img/figure6.3.8.png)
 
 ###### Figure 3.8: Example Leaflet map with a finished legend
 

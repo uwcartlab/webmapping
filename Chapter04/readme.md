@@ -147,9 +147,9 @@ In OSM and other tilesets:
 
 After getting a basic slippy map to load, complete the [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html) tutorial. The second tutorial integrates GeoJSON data—introduced last chapter—with your slippy map via Leaflet's `L.geoJson()` method. Note that the examples given by the tutorial utilize GeoJSON `features` arrays assigned to variables, rather than a `FeatureCollection` object imported via AJAX. 
 
-Figure 1.1 illustrates the expected slippy map resulting from the _Using GeoJSON with Leaflet_ tutorial. Lesson 2 describes how to integrate your GeoJSON data imported via AJAX with the `L.geoJson()` method.
+Figure 1.2 illustrates the expected slippy map resulting from the _Using GeoJSON with Leaflet_ tutorial. Lesson 2 describes how to integrate your GeoJSON data imported via AJAX with the `L.geoJson()` method.
 
-![figure4.1.1.5.png](img/figure4.1.1.5.png)
+![figure4.1.2.png](img/figure4.1.2.png)
 
 ###### Figure 1.2: An example slippy map created during the _Using GeoJSON with Leaflet_ tutorial
 
@@ -168,7 +168,7 @@ In general, API documentation provide:
 
 Leaflet's API documentation is organized as one long webpage, making it convenient to find a specific method using the browser Ctrl/Command+F feature. The Leaflet API documentation includes a persistent table of contents referencing different page sections (Figure 1.3).
 
-![figure4.1.2.5.png](img/figure4.1.2.5.png)
+![figure4.1.3.png](img/figure4.1.3.png)
 
 ###### Figure 1.3:The Leaflet API documentation.
 
@@ -181,13 +181,13 @@ Let's examine the Leaflet methods from the two tutorials you completed using the
 
 Let's take a look at [`L.map()`](http://leafletjs.com/reference.html#map-example) in the API. The first line under the section titled "Map" describes the method's parent class (`Map`), "\[t\]he central class of the API — it is used to create a map on a page and manipulate it". Definition of [`L.map()`](http://leafletjs.com/reference.html#map-example) begins with a "Usage example" (Figure 1.4).
 
-![figure4.1.2.PNG](img/figure4.1.2.PNG)
+![figure4.1.4.png](img/figure4.1.4.png)
 
 ###### Figure 1.4: Example map instantiation script in the Leaflet API documentation
 
-Note the difference between this usage of the method and its usage in the _Leaflet Quick Start Guide_ (Example 1.1, line 3). Figure 1.2 shows two parameters: a string (`'map'`) and an object consisting of a `center` property with an array of two coordinates (`[51.505, -0.09]`) and a `zoom` property with a number (`13`). To understand what these parameters do, examine the syntax demonstration under "Creation" (Figure 1.5).
+Note the difference between this usage of the method and its usage in the _Leaflet Quick Start Guide_ (Example 1.1, line 3). Figure 1.4 shows two parameters: a string (`'map'`) and an object consisting of a `center` property with an array of two coordinates (`[51.505, -0.09]`) and a `zoom` property with a number (`13`). To understand what these parameters do, examine the syntax demonstration under "Creation" (Figure 1.5).
 
-![figure4.1.3.PNG](img/figure4.1.3.PNG)
+![figure4.1.5.png](img/figure4.1.5.png)
 
 ###### Figure 1.5: Definition and syntax of `L.map()` in the Leaflet API documentation
 
@@ -202,7 +202,7 @@ The "Description" column describes in plain English what the method does. This t
 
 The "Options" section (Figure 1.6) includes all of the options available as properties of the _options_ parameter object, organized neatly as tables categorized as "Map State Options", "Interaction Options", "Keyboard Navigation Options", "Panning Inertia Options", "Control Options", and "Animation Options". Thus, these options set and constrain the cartographic interaction.
 
-![figure4.1.4.PNG](img/figure4.1.4.PNG)
+![figure4.1.6.png](img/figure4.1.6.png)
 
 ###### Figure 1.6: Map options presented in the Leaflet API documentation
 
@@ -210,7 +210,7 @@ Notice that `center` and `zoom` are the first two options in the Map State Optio
 
 Returning to the first line of the _Leaflet Quick Start Guide_ (Example 1.3), we see that `L.map()` includes only the first, required parameter—the `id` of the `<div>` designated to contain the map—and forgoes the _options_ object. However, it is chained to the `setView()` method, which contains two parameters: a two-value array and a single number. We quickly can lookup the `setView()` method using Ctrl/Command+F (Figure 1.7).
 
-![figure4.1.5.png](img/figure4.1.5.png)
+![figure4.1.7.png](img/figure4.1.7.png)
 
 ###### Figure 1.7: Definition and syntax of `setView()` method in the Leaflet API documentation
 
@@ -237,7 +237,7 @@ Let's take a look at the Leaflet API documentation for some of the methods used 
 
 We will return to classes and inheritance as key concepts in object-oriented programming in Chapter 6.
 
-![figure4.1.6.png](img/figure4.1.6.png)
+![figure4.1.8.png](img/figure4.1.8.png)
 
 ###### Figure 1.8: Types of Leaflet layer groups
 
@@ -256,7 +256,7 @@ Making use of tutorial examples requires figuring out how to integrate them into
 
 The _Using GeoJSON with Leaflet_ tutorial makes use of single GeoJSON features for its data (Figure 2.1).
 
-![figure4.2.1.PNG](img/figure4.2.1.PNG)
+![figure4.2.1.png](img/figure4.2.1.png)
 
 ###### Figure 2.1: Creation of a GeoJSON feature in the _Using GeoJSON with Leaflet_ tutorial
 
@@ -285,7 +285,7 @@ This object represents a point feature, essentially equivalent to one element in
 
 The _Using GeoJSON with Leaflet_ tutorial then maps the feature using the `.addTo()` method (Figure 2.2).
 
-![figure4.2.2.PNG](img/figure4.2.2.PNG)
+![figure4.2.2.png](img/figure4.2.2.png)
 
 ###### Figure 2.2: Script from the _Using GeoJSON with Leaflet_ tutorial to add the feature to the map
 
@@ -347,7 +347,7 @@ Since _megaCities.geojson_ comprises point data, we can adapt the additional sty
 
 **pointToLayer:** The `pointToLayer` option of `GeoJSON` defines a function to convert GeoJSON points into Leaflet layers. Figure 2.4 shows use of `pointToLayer` in _geojsonTutorial.js._
 
-![figure4.2.4.PNG](img/figure4.2.4.PNG)
+![figure4.2.4.png](img/figure4.2.4.png)
 
 ###### Figure 2.4: `pointToLayer` script from the _Using GeoJSON with Leaflet_ tutorial
 
@@ -382,7 +382,7 @@ Figure 2.5 illustrates the results of applying the modified use of `pointToLayer
 
 **onEachFeature:** The onEachFeature option of GeoJSON calls a function once for each feature contained in the created GeoJSON object. Figure 2.6 shows the use of onEachFeature in the _Using GeoJSON with Leaflet_ tutorial.
 
-![figure4.2.6.PNG](img/figure4.2.6.PNG)
+![figure4.2.6.png](img/figure4.2.6.png)
 
 ###### Figure 2.6: `onEachFeature` script from the _Using GeoJSON with Leaflet_ tutorial
 
@@ -430,17 +430,17 @@ Figure 2.7 illustrates the results of applying the modified use of `onEachFeatur
 
 Not all real-world web maps have such simple and tidy code, but you can always "View Page Source" to see if you can make heads or tails of it. Some websites will minify their back-end code so it becomes unreadable, but many allow you to easily discover their inner workings in keeping with the principles of FOSS.
 
-Figure 2.10 illustrates a project mapping the distance of Flickr images from major roads in the U.S. National Parks.
+Figure 2.8 illustrates a project mapping the distance of Flickr images from major roads in the U.S. National Parks.
 
-**![figure4.2.10.png](img/figure4.2.10.png)**
+**![figure4.2.8.png](img/figure4.2.8.png)**
 
-###### Figure 2.10: Project mapping Flickr photos in national parks.
+###### Figure 2.8: Project mapping Flickr photos in national parks.
 
-To examine and modify the code, you can right-click on the webpage, "Inspect Element" and select the _**Debugger**_ tab (This option may vary for different web browsers). This opens developer tools (Figure 2.11), offering a look at the HTML as well as links to other open source files, including stylesheets and scripts. 
+To examine and modify the code, you can right-click on the webpage, "Inspect Element" and select the _**Debugger**_ tab (This option may vary for different web browsers). This opens developer tools (Figure 2.9), offering a look at the HTML as well as links to other open source files, including stylesheets and scripts. 
 
-**![figure4.2.11.png](img/figure4.2.11.png)**
+**![figure4.2.9.png](img/figure4.2.9.png)**
 
-###### Figure 2.11: The website's Debugger tool offers access to the JS and CSS files loaded by the page.
+###### Figure 2.9: The website's Debugger tool offers access to the JS and CSS files loaded by the page.
 
 Learning how to code from example is a skill, and it takes continued practice to become proficient. Reading and understanding other developers' scripts—which often takes the use of `console.log` statements and other debugging measures—is a big first step to mastering the art of web mapping.
 

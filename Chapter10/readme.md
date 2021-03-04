@@ -23,7 +23,7 @@ The first step of creating a dynamic choropleth map is joining your attribute da
 
 We will accomplish the data "join" through a nested looping structure. Before writing the looping structure, check to ensure that your attribute data are correctly loading into the browser and are accessible within the DOM. Figure 1.1 shows a console log of one object from our attribute data on the left and the corresponding GeoJSON object in the DOM on the right. Confirm your attribute data have maintained their format from the CSV import.
 
-![figure9.1.1.png](img/figure9.1.1.png)
+![figure10.1.1.png](img/figure10.1.1.png)
 
 ###### Figure 1.1: Data from a `csvData` array object (left window) and the corresponding `franceRegions` GeoJSON object (right window) prior to joining the data in _main.js_
 
@@ -64,7 +64,7 @@ Note that both datasets contain the `adm1_code` and `name` attributes. Either of
 
 This is one of many possible ways to accomplish the data join. If you choose to experiment with other implementations, it is important that the outcome be similar to what is shown on the right side of Figure 1.2, which is the same GeoJSON feature as in Figure 1.1 after completing the join:
 
-![figure9.1.2.png](img/figure9.1.2.png)
+![figure10.1.2.png](img/figure10.1.2.png)
 
 ###### Figure 1.2: Data from a `csvData` array object (left window) and the corresponding `franceRegions` GeoJSON object (right window) after joining the data in _main.js_
 
@@ -290,7 +290,7 @@ In Example 1.6, we start with a call to `d3.scaleThreshold()` rather than `d3.sc
 
 Of the three classification schemes, which should we use? It depends on the distribution of our data. Figure 1.3 demonstrates the different bins created by the three classification schemes and shows where each enumeration unit's varA attribute value fits:
 
-![figure9.1.3.png](img/figure9.1.3.png)
+![figure10.1.3.png](img/figure10.1.3.png)
 
 ###### Figure 1.3: Difference between quantile and equal interval classification of the varA attribute
 
@@ -324,7 +324,7 @@ Once we have constructed our color scale generator, the final step in coloring o
 
 We now have a choropleth map (Figure 1.4)!
 
-![figure9.1.4.png](img/figure9.1.4.png)
+![figure10.1.4.png](img/figure10.1.4.png)
 
 ###### Figure 1.4: Colored enumeration units
 
@@ -365,7 +365,7 @@ Finally, we can visually highlight the color change between enumeration units by
 
 Figure 1.5 shows the resulting styled choropleth map.
 
-![figure9.1.5.png](img/figure9.1.5.png)
+![figure10.1.5.png](img/figure10.1.5.png)
 
 ###### Figure 1.5: The choropleth map with enumeration unit borders
 
@@ -411,7 +411,7 @@ The first step in creating our linked visualization is to build the chart contai
 
 In Example 2.1, we anticipate that we eventually will need the `csvData` and the `colorScale` to draw and color the bars, so we pass those variables as parameters to our new `setChart()` function (lines 5, 12). Within the `setChart()` function, we set a width and height for the chart (lines 14-15) and build its `<svg>` container using a `chart` block (lines 18-22). If we use the inspector, we can see our chart container on the browser page (Figure 2.1).
 
-![figure9.2.1.png](img/figure9.2.1.png)
+![figure10.2.1.png](img/figure10.2.1.png)
 
 ###### Figure 2.1: The bar chart container viewed with the Inspector
 
@@ -455,7 +455,7 @@ In Example 1.3, the map frame width is set to 50% of the `window.innerWidth` pro
 
 In Example 2.3, we add a 10-pixel top margin and 20-pixel left margin to the map frame (line 3). We similarly add a 10-pixel top margin and 20-pixel right margin to the chart frame (line 10). We also add a chart background color and border and make it adhere to the right side of the page, rather than abut the map frame (lines 7-9). Figure 2.2 displays the resulting responsive layout in the browser.
 
-![figure9.2.2.png](img/figure9.2.2.png)
+![figure10.2.2.png](img/figure10.2.2.png)
 
 ###### Figure 2.2: Even, responsive map and chart frames
 
@@ -494,7 +494,7 @@ To make our bars, we need to build a new `.selectAll()` block that appends a rec
 
 In Example 2.4, to make each bar just wide enough so that they fill the container horizontally but have gaps in between, we set the `width` attribute of each bar to _1/n - 1_ pixels, where _n_ is the number of bars, represented by the `length` of the `csvData` features array (line 16). To spread the bars evenly across the container, we set the `x` attribute of each bar to `i * (chartWidth / csvData.length)`, where i is the index of the datum; this has the effect of moving each bar to the right of the previous one (lines 17-19). Temporarily, we set an arbitrary bar `height`—the height of the chart container—and an arbitrary `y` attribute of 0, just so the bars are visible (lines 20-21). We deal more with the vertical attributes momentarily, but for now, let's take a look at our evenly-spaced bars (Figure 2.3).
 
-![figure9.2.3.png](img/figure9.2.3.png)
+![figure10.2.3.png](img/figure10.2.3.png)
 
 ###### Figure 2.3: Evenly-spaced bars in the bar chart frame
 
@@ -541,7 +541,7 @@ We also can use our bar chart to show users the position of our class breaks in 
 
 We can now see our attribute values represented by the bar height and classes shown by bar color (Figure 2.4).
 
-![figure9.2.4.png](img/figure9.2.4.png)
+![figure10.2.4.png](img/figure10.2.4.png)
 
 ###### Figure 2.4: Bar chart with vertical scale and choropleth classification applied
 
@@ -567,7 +567,7 @@ D3's `.sort()` method, like the [array sort method](http://www.w3schools.com/jsr
 
 We now have a nicely arranged bar chart (Figure 2.5).
 
-![figure9.2.5.png](img/figure9.2.5.png)
+![figure10.2.5.png](img/figure10.2.5.png)
 
 ###### Figure 2.5: A neatly arranged and classed bar chart
 
@@ -617,7 +617,7 @@ A minor stylistic addition is to change the default black text to white in _styl
 
 This creates tidy numbers in the bars showing the attribute values represented by each bar (Figure 2.6):
 
-![figure9.2.6.png](img/figure9.2.6.png)
+![figure10.2.6.png](img/figure10.2.6.png)
 
 ###### Figure 2.6: Bar chart with numerical attribute value annotation
 
@@ -648,7 +648,7 @@ The title should be big and bold, which means overriding the default styles for 
 
 We can now see our chart title (Figure 2.7).
 
-![figure9.2.7.png](img/figure9.2.7.png)
+![figure10.2.7.png](img/figure10.2.7.png)
 
 ###### Figure 2.7: Bar chart with dynamic title
 
@@ -658,7 +658,7 @@ An alternative annotation for the bar chart is a vertical axis. If you want to i
 
 If we want to add a vertical axis to our bar chart, we face a dilemma. Our bars currently expand horizontally to the edges of the `<svg>` container, but the axis numbers and tics must be inside the container to be visible, and so will overlap the bars without significant adjustment to the rest of the chart. We also should reverse the order of the bars so that the tallest bars are closest to the axis, making them easier to measure visually. Figure 2.8 shows our adjusted chart.
 
-![figure9.2.8.png](img/figure9.2.8.png)
+![figure10.2.8.png](img/figure10.2.8.png)
 
 ###### Figure 2.8: Bar chart with an axis
 
@@ -787,7 +787,7 @@ Rather than step through each of the necessary adjustments to the script and sty
     }
     
 
-![figure9.2.9.png](img/figure9.2.9.png)
+![figure10.2.9.png](img/figure10.2.9.png)
 
 ###### Figure 2.9: Comparing the two chart versions using the inspector
 

@@ -54,7 +54,7 @@ This selects the HTML `<body>` element from the DOM and returns it to the variab
 
 At this stage, if you were to issue the statement `console.log(container)`, you would see a nested array with the `body` as the only element (Figure 1.1).
 
-![figure7.1.1.png](img/figure7.1.1.png)
+![figure8.1.1.png](img/figure8.1.1.png)
 
 ###### Figure 1.1: The D3 `body` selection
 
@@ -72,7 +72,7 @@ Use D3's `.append()` operator to add the `<svg>` container, creating our first b
 
 Reload your _unit-3_ website and use the inspector to see the new SVG in the DOM (Figure 1.2).
 
-![figure7.1.2.png](img/figure7.1.2.png)
+![figure8.1.2.png](img/figure8.1.2.png)
 
 ###### Figure 1.2: An SVG created using D3
 
@@ -125,7 +125,7 @@ Before closing the block, add an inline style to the `<svg>` element, coloring 
 
 You now can see the SVG container on the page as well as using the Inspector (Figure 1.3).
 
-![figure7.1.4.png](img/figure7.1.4.png)
+![figure8.1.3.png](img/figure8.1.3.png)
 
 ###### Figure 1.3: The SVG container on the page and in the DOM
 
@@ -192,7 +192,7 @@ In a selection created with `d3.select()` (or their children, such as `innerRect
 
 If you examine the inner array of the `innerRect` selection in the console, you will see that there is a property called *`data`* attached to the `<rect>` element in the DOM. This property holds the datum. Figure 1.4 shows our new rectangle with a default black fill and the datum that is bound to it in the DOM.
 
-![figure7.1.5.png](img/figure7.1.5.png)
+![figure8.1.4.png](img/figure8.1.4.png)
 
 ###### Figure 1.4: A rectangle and its datum
 
@@ -234,7 +234,7 @@ To complete our rectangle, we will assign a few more [`<rect>`](https://develope
 
 Reload your browser window to view the white rectangle centered inside the SVG (Figure 1.5).
 
-![figure7.1.6.png](img/figure7.1.6.png)
+![figure8.1.5.png](img/figure8.1.5.png)
 
 ###### Figure 1.5: The finished inner rectangle
 
@@ -343,7 +343,7 @@ The next step is to feed in our data array as the parameter of the `.data()` ope
 
 If we now view the markup using the developer tools HTML tab, we can see our newly-created `<circle>` elements (Figure 2.1).
 
-![figure7.2.1.png](img/figure7.2.1.png)
+![figure8.2.1.png](img/figure8.2.1.png)
 
 ###### Figure 2.1: The circles exist!
 
@@ -373,7 +373,7 @@ Notice there are five circles, one for each datum. Using `.append()` after a dat
 
 In a block with a data join, the anonymous functions that return a second parameter to operators (such as on lines 9, 13, and 16 of Example 2.6) can make use of each datum (`d` in the example) as well as the index of the datum in the data array (`i`). The `console.log()` statement on line 10 prints each parameter to the console to make them easier to understand. Again, picture the entire block after `.enter()` as a loop—one in which you have immediate access to each array value and the array index within every anonymous function fed to an operator. In Example 2.6, we use each datum to set the radius and center y (vertical) coordinate of the circle, and the index to set the center x (horizontal) coordinate. Figure 2.2 shows the result along with the data and index values in the Firebug Console.
 
-![figure7.2.2.png](img/figure7.2.2.png)
+![figure8.2.2.png](img/figure8.2.2.png)
 
 ###### Figure 2.2: data-driven circles
 
@@ -452,7 +452,7 @@ We can make a bubble chart out of this data by combining it with our `circles` b
 
 Note that in Example 2.8, `d` still holds each of our array values, only now each value is an object with two properties (`city` and `population`). Thus, on on line 27, we use `d.city` to assign each city name as the circle `id`, and on lines 31 and 40, we use `d.population` to access the `population` value of each object. Figure 2.3 shows our city circles on the page and in the HTML.
 
-![figure7.2.3.png](img/figure7.2.3.png)
+![figure8.2.3.png](img/figure8.2.3.png)
 
 ###### Figure 2.3: A bubble chart of city populations
 
@@ -473,7 +473,7 @@ So far, we have seen how D3 uses data to dynamically draw and style markup eleme
 
 For now, we will focus on continuous scales. D3 offers several kinds of continuous scales, including linear scales, power scales, log scales, and others. You can explore these on the API documentation page linked above. The most used type of continuous scale is the _**[linear scale](https://github.com/d3/d3-scale/blob/master/README.md#linear-scales)**_, which simply interpolates values using linear algebra. It is important to note that there is nothing inherently _visual_ about a scale; it is merely a mathematical function used to derive a new data value from an input data value (Figure 3.1).
 
-![figure7.3.1.png](img/figure7.3.1.png)
+![figure8.3.1.png](img/figure8.3.1.png)
 
 ###### Figure 3.1: An example linear scale function with an input domain of \[0, 700000\] and output range of \[50, 450\]
 
@@ -489,7 +489,7 @@ How would we apply a scale? Let's say we wanted to space our circles more evenly
 
 The operand of `x` is not a single value, object, or array. Instead, `d3.scaleLinear()` method creates what is called a _**generator**_. This is a _custom function_ that will be used to decide where in the range each output value lies based on each input datum sent to it. We can see this function if we add the statement `console.log(x)` below the block (Figure 3.2).
 
-![figure7.3.2.png](img/figure7.3.2.png)
+![figure8.3.2.png](img/figure8.3.2.png)
 
 ###### Figure 3.2: Scale generator created by `d3.scaleLinear()`
 
@@ -540,7 +540,7 @@ Note that the range is flipped, with a "minimum" value of `440` and a "maximum" 
 
 Here are our much more evenly-spaced circles (Figure 3.3).
 
-![figure7.3.3.png](img/figure7.3.3.png)
+![figure8.3.3.png](img/figure8.3.3.png)
 
 ###### Figure 3.3: The bubble chart with scales applied
 
@@ -578,7 +578,7 @@ Since our color scale generator uses only two color values for the range (lines 
 
 Here is the output of our simple unclassed color scale (Figure 3.4).
 
-![figure7.3.4.png](img/figure7.3.4.png)
+![figure8.3.4.png](img/figure8.3.4.png)
 
 ###### Figure 3.4: Colored circles
 
@@ -624,7 +624,7 @@ Note that we use the `.call()` method to invert the order of the code, feeding t
 
 If you now refresh your browser, you will not see anything different unless you hunt for the axis in the developer tools HTML tab (Figure 3.5).
 
-![figure7.3.5.png](img/figure7.3.5.png)
+![figure8.3.5.png](img/figure8.3.5.png)
 
 ###### Figure 3.5: The hidden axis
 
@@ -641,7 +641,7 @@ Figure 3.5 shows that the axis in the DOM, but way off to the left, outside the 
 
 Now we can see our axis, lined up properly with our inner rectangle, 50 pixels in from the left edge of the container (Figure 3.6).
 
-![figure7.3.6.png](img/figure7.3.6.png)
+![figure8.3.6.png](img/figure8.3.6.png)
 
 ###### Figure 3.6: The axis, revealed
 
@@ -667,7 +667,7 @@ We can see our axis, but it is difficult to read. We need to style it properly t
 
 In Example 3.10, we give all `<path>` and `<line>` elements within the axis `<g>` element styles that render crisp, thin, black lines without any fill (lines 1-7). The `.axis text` style applies to the numbers, which we make smaller so they fit in the gray border of the chart. Here is the result (Figure 3.7).
 
-![figure7.3.7.png](img/figure7.3.7.png)
+![figure8.3.7.png](img/figure8.3.7.png)
 
 ###### Figure 3.7: A properly-styled y axis
 
@@ -683,7 +683,7 @@ The only disconcerting thing about our axis is that it does not reach from the b
 
 Figure 3.8 shows the more desirable axis.
 
-![figure7.3.8.png](img/figure7.3.8.png)
+![figure8.3.8.png](img/figure8.3.8.png)
 
 ###### Figure 3.8: The revised axis
 
@@ -717,7 +717,7 @@ In Example 3.12, the `"text-anchor"` attribute (line 4) center-justifies the tex
 
 We now have a nice title for our chart (Figure 3.9).
 
-![figure7.3.9.png](img/figure7.3.9.png)
+![figure8.3.9.png](img/figure8.3.9.png)
 
 ###### Figure 3.9: Chart title
 
@@ -747,7 +747,7 @@ A final useful touch is to label each circle with its corresponding city name an
 
 Figure 3.10 illustrates the result.
 
-![figure7.3.10.png](img/figure7.3.10.png)
+![figure8.3.10.png](img/figure8.3.10.png)
 
 ###### Figure 3.10: Circle labels
 
@@ -792,7 +792,7 @@ This works quite well, except that the labels are a bit long. Superior's even ov
 
 Figure 3.11 shows the result.
 
-![figure7.3.11.png](img/figure7.3.11.png)
+![figure8.3.11.png](img/figure8.3.11.png)
 
 ###### Figure 3.11: Label mush
 
@@ -814,7 +814,7 @@ We now have separated the city name and population into two separate lines, but 
 
 With this adjustment, both lines of each label should be visible (Figure 3.12).
 
-![figure7.3.12.png](img/figure7.3.12.png)
+![figure8.3.12.png](img/figure8.3.12.png)
 
 ###### Figure 3.12: Double-barrel labels
 
@@ -846,7 +846,7 @@ There are two other slight adjustments we will make to finish our chart:
 
 With these adjustments made, we have a complete, readable data graphic (Figure 3.13).
 
-![figure7.3.13.png](img/figure7.3.13.png)
+![figure8.3.13.png](img/figure8.3.13.png)
 
 ###### Figure 3.13: The finished bubble chart
 

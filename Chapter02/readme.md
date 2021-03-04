@@ -26,7 +26,7 @@ As introduced last chapter, _**forking**_ a Github repo creates a copy of an exi
 
 After you fork the repo, you should be able to see _unit-1_ in your own repository list. A benefit of forking versus cloning is that you can track the changes of the source repository and sync any updates to your own. For example, if we made changes to the _unit-1_ course repository (source repository), an alert will be added to your repository page. 
 
-![figure1.1.png](img/figure1.1.png)
+![figure2.0.1.png](img/figure2.0.1.png)
 
 ###### Figure 0.1: Forking the _unit-1_ repo from the _unit-1_ page.
 
@@ -34,7 +34,7 @@ You can sync an update by clicking the "Compare" button, which redirects you to 
 
 In the "Comparing Changes" page, you can review new updates by switching the "base repository" to your repository and the "head repository" to the course repository by clicking "switching the base". If there are new updates, click "Create Pull Request" to add the updates to your own, forked repository. Confirm that it is "Okay" to make pull changes and click "Merge pull request" to merge the changes in the course repository into your forked repository.
 
-![figure0.2.png](img/figure0.2.png)
+![figure2.0.2.png](img/figure2.0.2.png)
 
 ###### Figure 0.2: Example merging changes in the main branch to a forked branch. This is provided as reference, as you will not need to merge any updates immediately after forking in Chapter 2.
 

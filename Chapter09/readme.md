@@ -101,7 +101,7 @@ The next step is to navigate to [mapshaper.org](http://mapshaper.org/) and impor
 
 Once you see your data, select "Simplify" in the upper-right-hand corner of the web page. You will be presented with a choice of three simplification methods; their differences usually does not matter for simplified interactive web mapping, as they converge the more the linework is simplified. Click "Next" and then use the slider at the top of the page to simplify the linework (Figure 1.1). When you are satisfied with the appearance of the linework (use your cartographic judgement!), click on "Export" in the upper-right corner, then select "TopoJSON". Save the file in the _data_ folder of your _unit-3_ website directory and change the file extension from _.json_ to _.topojson._
 
-![figure8.1.1.png](img/figure8.1.1.png)
+![figure9.1.1.png](img/figure9.1.1.png)
 
 ###### Figure 1.1: Simplifying spatial data in MapShaper
 
@@ -111,7 +111,7 @@ Once you see your data, select "Simplify" in the upper-right-hand corner of the 
 
 At this point, you should have at least one TopoJSON file for your spatial data (this tutorial uses two) and one CSV file for your attribute data. The attribute CSV should be a table of geographic features that includes an identifying attribute shared with the spatial data (Figure 1.2, column C) and at least five quantitative attributes that are of interest to you (columns D-H). Replace the [dummy data](data/unitsData.csv "unitsData.csv") in Figure 1.2 with your own chosen dataset.
 
-![figure8.1.2.png](img/figure8.1.2.png)
+![figure9.1.2.png](img/figure9.1.2.png)
 
 ###### Figure 1.2: An example multivariate dataset
 
@@ -165,7 +165,7 @@ Once we have set up our `Promise.all()` block, we can write the callback functio
 
 The `console.log()` statements print the results to separate lines of the console. As you can see in Figure 1.3, `d3.csv()` automatically formats the imported CSV data as an array, and `d3.json()` formats the spatial data as an object.
 
-![figure8.1.3.png](img/figure8.1.3.png)
+![figure9.1.3.png](img/figure9.1.3.png)
 
 ###### Figure 1.3: Results of Promise.all() callback
 
@@ -196,7 +196,7 @@ As explained in the `topojson.js` [API Reference](https://github.com/topojson/to
 
 In Example 1.5, each TopoJSON object is passed as the first parameter to `topojson.feature()`. The second parameter is the object that holds the details unique to each dataset. In Example 1.2 (line 9), this object was named `"example"`; for our tutorial spatial data, it retains the name of the original file that was passed through MapShaper. Once the data has been translated and assigned to variables, we can examine those variables in the console and see that they are now GeoJSON `FeatureCollection`s:
 
-![figure8.1.4.png](img/figure8.1.4.png)
+![figure9.1.4.png](img/figure9.1.4.png)
 
 ###### Figure 1.4: GeoJSON data created in the DOM by topojson.js
 
@@ -215,7 +215,7 @@ Projections vary by the shape of the plane (_**class**_), by how many times the 
 
 Figure 2.1 demonstrates the distortion that occurs in even the simplest of projections, the Plate Carrée, an equidistant cylindrical projection. This projection is produced by the set of equations \[x = λ, y = ϕ\], where x and y are horizontal and vertical coordinates on a two-dimensional Cartesian grid, λ (lamda) is longitude, and ϕ (phi) is latitude.
 
-![figure8.2.1.gif](img/figure8.2.1.gif)
+![figure9.2.1.gif](img/figure9.2.1.gif)
 
 ###### Figure 2.1: Projecting the globe onto a two-dimensional surface using the Plate Carrée projection ([original graphic](http://bl.ocks.org/mbostock/5731632) by Mike Bostock)
 
@@ -225,7 +225,7 @@ Unfortunately for cartographers, with the advent of tile-based slippy maps—suc
 
 However, D3 presents an opportunity to break from Web Mercator, supporting supports hundreds of different map projections thanks to the collaboration between Mike Bostock and data visualization artist [Jason Davies](https://www.jasondavies.com/). Several common projections are included in D3 through the [Geo Projections](https://github.com/d3/d3-geo/blob/master/README.md#projections) portion of the library (Figure 2.2). But many others can be added through the [Extended Geographic Projections](https://github.com/d3/d3-geo-projection/) and [Polyhedral Geographic Projections](https://github.com/d3/d3-plugins/tree/master/geo/polyhedron) plugins. Not only can you choose which projection to use with your spatial data; you can change virtually any parameter that goes into each projection. D3 even enables you to smoothly transition between [different projections](http://bl.ocks.org/mbostock/3711652) and [projection parameters](https://www.jasondavies.com/maps/transition/).
 
-![figure8.2.2.png](img/figure8.2.2.png)
+![figure9.2.2.png](img/figure9.2.2.png)
 
 ###### Figure 2.2: Projections included in D3's Geo Projections module
 
@@ -336,7 +336,7 @@ To create our enumeration units, we use the `.selectAll().data().enter()` chain 
 
 Now we can see our geometries in the browser and use the inspector to distinguish each individual `<path>` element (Figure 2.3).
 
-![figure8.2.3.png](img/figure8.2.3.png)
+![figure9.2.3.png](img/figure9.2.3.png)
 
 ###### Figure 2.3: Spatial geometries drawn in the browser
 
@@ -355,7 +355,7 @@ Obviously, we do not want our map to be colored default black-and-white. We will
 
 Figure 2.4 shows the result of the styled surrounding country borders.
 
-![figure8.2.4.png](img/figure8.2.4.png)
+![figure9.2.4.png](img/figure9.2.4.png)
 
 ###### Figure 2.4: Styled country borders
 
@@ -414,7 +414,7 @@ In Example 2.6, we use the `.selectAll().data().enter()` chain to create a separ
 
 We should now be able to see our graticule lines (Figure 2.5).
 
-![figure8.2.5.png](img/figure8.2.5.png)
+![figure9.2.5.png](img/figure9.2.5.png)
 
 ###### Figure 2.5: Europe with background graticule lines.
 
@@ -458,7 +458,7 @@ One final touch we will add to the map background is a frame to neaten the map (
 
 Figure 2.6 shows the resulting basemap, ready to receive the choropleth symbolization next chapter!
 
-![figure8.2.6.png](img/figure8.2.6.png)
+![figure9.2.6.png](img/figure9.2.6.png)
 
 ###### Figure 2.6: D3 map of France
 
