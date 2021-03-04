@@ -205,17 +205,23 @@ After every commit, it is good practice to pull the remote repo to see if there 
 
 The GitHub online site offers many features not included on the GitHub desktop client. Notably, GitHub online offers a project management feature called "milestones". _**Milestones**_ are used to track progress on project goals and feature development. In this class, you should create a milestone for every feature of your functional scope. For instance, some milestones could include: "Search Box", "Sequencing slider", "Legend", etc. Milestones can be ranked to prioritize the order tasks should be completed. _**Note:**_ You are required to add all functional requirements as milestones _after_ approval of the final project proposal to make the collaborative work transparent to us.
 
-To create milestones for your final project, open your final project repository using GitHub online. Select the "issues" tab, and click the "milestones" button (Figure 3.4). 
+Before you can enable project milestones, you'll need to activate "issues" on your repository. Normally, GitHub repositories automatically enable issue tracking. Because this is a forked repository, however, you'll ned to do it manually. Open your final project repository using GitHub online. Select "Settings" then scroll to the "Features" area of the main page. Check the box next to "Issues" (Figure 3.4). When you do, you should see a new "Issues" tab at the top of your repository page.
 
 ![figure7.3.4.png](img/figure7.3.4.png)
 
-###### Figure 3.4: Adding milestones to your collaborative repo
+###### Figure 3.4: Enabling issues on your respository
 
-Next, click "create milestone" and fill in the details from your proposal, potentially assigning the milestone to a one or more team members (Figure 3.5).
+To create milestones for your final project, select the "issues" tab, and click the "milestones" button (Figure 3.5). 
 
 ![figure7.3.5.png](img/figure7.3.5.png)
 
-###### Figure 3.5: Creating a milestones
+###### Figure 3.5: Adding milestones to your collaborative repo
+
+Next, click "create milestone" and fill in the details from your proposal, potentially assigning the milestone to a one or more team members (Figure 3.6).
+
+![figure7.3.6.png](img/figure7.3.6.png)
+
+###### Figure 3.6: Creating a milestones
 
 More [information about milestones](https://docs.github.com/en/github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests) is available in the GitHub help information.
 
