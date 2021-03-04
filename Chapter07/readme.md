@@ -128,7 +128,7 @@ Accept the new additions to the code and merge the main branch with your local c
 
 ###### Figure 2.8: The revised message when conflicts are resolved, allowing a merge
 
-Now that you know a bit about markdown, work in your team during lab to insert a basic outline for your _readme.md_ file based on the [final project proposal guidelines](https://canvas.wisc.edu/courses/180498/pages/final-project-assignment "Final Project Assignment"). The final project proposal should include sections for your title + team members, your personas and scenarios (perhaps with subheadings separating the personas and scenarios), your requirements document as an numbered list (again separated by representation and interaction requirements), and your wireframes, embedded as images linked from an _img_ folder in your directory (Figure 2.9). It is worth experimenting with the collaborative coding process in class now, while your team is in the same location.
+Now that you know a bit about markdown, work in your team to insert a basic outline for your _readme.md_ file based on the [final project proposal guidelines](https://canvas.wisc.edu/courses/180498/pages/final-project-assignment "Final Project Assignment"). The final project proposal should include sections for your title + team members, your personas and scenarios (perhaps with subheadings separating the personas and scenarios), your requirements document as an numbered list (again separated by representation and interaction requirements), and your wireframes, embedded as images linked from an _img_ folder in your directory (Figure 2.9). It is worth experimenting with the collaborative coding process early on, perhaps over a video call with your teammates.
 
 ![figure7.2.9.png](img/figure7.2.9.png)
 
@@ -144,7 +144,11 @@ As you collaboratively write and edit your proposal, you again will create confl
 
 ###### Figure 2.11. Resolving the merge conflict in the interaction requirements
 
-> ### **Work with your team to add a the proposal outline that you will complete over the next two chapters, merging and resolving all conflicts.**
+As you move along in your project, you may want to create separate [branches](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-branches) to test features without committing them to the main branch. If you are happy with the features you tested, you can open a pull request to merge the changes from your head (current) branch to a base (different, perhaps the main) branch, similar to other pull requests. 
+
+During this preliminary stage, you will likely encounter simple merge conflicts that can be resolved using GitHub Desktop. However, some more complicated merge conflicts may need to be resolved using GitHub in your browser, where you can select portions of each version on your project. Alternatively, these conflicts can also be resolved using GitHub command line. Knowing how to use all three is important if you plan to use GitHub in your career.
+
+> ### **Work with your team to add to the proposal outline that you will complete over the next two chapters, merging and resolving all conflicts.**
 
 Lesson 3: Best Practices for Collaborative Coding
 =================================================
@@ -213,7 +217,15 @@ Next, click "create milestone" and fill in the details from your proposal, poten
 
 ###### Figure 3.5: Creating a milestones
 
-More [information about milestones](https://help.github.com/en/enterprise/2.18/user/github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests%C2%A0) is available in the GitHub help information.
+More [information about milestones](https://docs.github.com/en/github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests) is available in the GitHub help information.
+
+**8.\. Stay in Contact with Your Team**
+
+Use Slack and video conference platforms to stay in contact with your team. Determine whether you prefer to work at the same time or independently. Virtual collaboration is difficult, so don't be afraid to overcommunicate until you figure out a workflow.
+
+**9.\. Consult Documentation**
+
+In addition to discussing any issues with your team members, remember that GitHub has a number of instructional guides, such as [collaborating with issues and pull requests](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests) that may help resolve many common issues. You can also check online forums, like the [GitHub Support Community](https://github.community/) to see if anyone has asked a similar question before.
 
 ## Activity 7
 
