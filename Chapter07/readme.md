@@ -74,7 +74,7 @@ Repeat this process with each of your teammates. They will need to accept your i
 
 ### IV. Cloning the Final Project Repo to Your Desktop
 
-Finally, you'll need to clone the final project repository to your desktop server. Open GitHub Desktop and login, choose "Add", and then "Clone Repository". Select the repository **"\[year]_\[projectname]"** located under the header of the team facilitator's GitHub account. Figure 2.4 illustrates cloning the final project repo in GitHub desktop.
+Finally, you and your team members will need to clone the final project repository to your desktop server. Open GitHub Desktop and login, choose "Add", and then "Clone Repository". Select the repository **"\[year]_\[projectname]"** located under the header of the team facilitator's GitHub account. Figure 2.4 illustrates cloning the final project repo in GitHub desktop.
 
 ![figure7.2.4.png](img/figure7.2.4.png)
 
@@ -211,7 +211,7 @@ Before you can enable project milestones, you'll need to activate "issues" on yo
 
 ###### Figure 3.4: Enabling issues on your respository
 
-To create milestones for your final project, select the "issues" tab, and click the "milestones" button (Figure 3.5). 
+To create milestones for your final project, select the "Issues" tab, and click the "milestones" button (Figure 3.5). 
 
 ![figure7.3.5.png](img/figure7.3.5.png)
 
