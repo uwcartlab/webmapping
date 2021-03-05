@@ -65,7 +65,7 @@ After you fork, you'll notice that the final project repository now on your GitH
 
 ### III. Adding Collaborators
 
-Next, you'll need to make sure all your teammates have access to the repository. You'll be adding everyone as a _**collaborator**_. To add collaborators, select the "Manage Access" tab in the "Settings" Menu. Click "Add a collaborator", and input the GitHub username of one of your teammates. You'll be prompted with the option to add them to the repository (Figure 2.3)
+Next, you'll need to make sure all your teammates have access to the repository. You'll be adding everyone as a _**collaborator**_. To add collaborators, select the "Manage Access" tab in the "Settings" Menu. Click "Add a collaborator", and input the GitHub username of one of your teammates. You'll be prompted with the option to add them to the repository (Figure 2.3). If you are following this workbook by yourself, feel free to make a second "dummy" account on GitHub to practice the collaborative tasks associated with the final project.
 
 ![figure7.2.3.png](img/figure7.2.3.png)
 
