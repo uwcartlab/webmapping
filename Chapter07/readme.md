@@ -50,7 +50,7 @@ To access your team's repo, login to the email associated with your GitHub accou
 
 ### II. Forking and Renaming the Final Project Repo
 
-To begin, someone from your team will need to fork the final project template to their own GitHub Account. This could be the team "leader" or "facilitator", or whoever will be in charge of merging code conflicts. Log in to GitHub, then go to the [webmapping-final-project](https://github.com/uwcartlab/webmapping-final-project), and select "fork" in the upper right corner. After you fork, a version of the final project repository will be added to your GitHub accounts. Figure 2.1 illustrates the results of forking the final project repo. 
+To begin, someone from your team will need to fork the final project template to their own GitHub Account. This could be the team "leader" or "facilitator", or whoever will be in charge of merging code conflicts. Log in to GitHub, then go to the [webmapping-final-project](https://github.com/uwcartlab/webmapping-final-project), and select "fork" in the upper right corner. After you fork, a version of the final project repository will be added to your GitHub account. Figure 2.1 illustrates the results of forking the final project repo. 
 
 ![figure7.2.1.png](img/figure7.2.1.png)
 
