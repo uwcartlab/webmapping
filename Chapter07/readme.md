@@ -99,6 +99,8 @@ Using markdown is much like using HTML (the M standing for "markup"), with [slig
 *   If you want the text to be in paragraph form, you can simply type in what you want without adding any additional syntax.
 *   Finally, you can insert an images or external links using brackets (`[]`) for the hyperlink text and parentheses (`()`) for the link itself. If you insert an image, the image must be synced to your remote repository.
 
+Note that some elements of markdown, such as mentioning a user with the (`@`) symbol, are specific to GitHub. **_Vanilla_** markdown refers to styles that are consistent across platforms.
+
 Now that you know a bit about markdown, let’s start working on the final project proposal. In your code editor, open the _readme.md_ file from your cloned team repository. Add your name as an ordered list element and commit your changes with “Activity 7” in the commit summary (Figure 2.5).
 
 ![figure7.2.5.png](img/figure7.2.5.png)
