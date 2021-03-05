@@ -101,7 +101,9 @@ Using markdown is much like using HTML (the M standing for "markup"), with [slig
 
 Note that some elements of markdown, such as mentioning a user with the (`@`) symbol, are specific to GitHub. **_Vanilla_** markdown refers to styles that are consistent across platforms.
 
-Now that you know a bit about markdown, let’s start working on the final project proposal. In your code editor, open the _readme.md_ file from your cloned team repository. Add your name as an ordered list element and commit your changes with “Activity 7” in the commit summary (Figure 2.5).
+Now that you know a bit about markdown, practice by adding a _readme.md_ file to your Leaflet lab and include your name and project title. It is good to get into the habit of including a _readme.md_ file for every project.
+
+After practice with your own project, let’s start working on the final project proposal. In your code editor, open the _readme.md_ file from your cloned team repository. Add your name as an ordered list element and commit your changes with “Activity 7” in the commit summary (Figure 2.5).
 
 ![figure7.2.5.png](img/figure7.2.5.png)
 
@@ -131,9 +133,7 @@ Accept the new additions to the code and merge the main branch with your local c
 
 ###### Figure 2.8: The revised message when conflicts are resolved, allowing a merge
 
-Now that you know a bit about markdown, practice by adding a _readme.md_ file to your Leaflet lab and include your name and project title. It is good to get into the habit of including a _readme.md_ file for every project.
-
-After practice with your own project, work in your team to insert a basic outline for your _readme.md_ file based on the [final project proposal guidelines](https://canvas.wisc.edu/courses/180498/pages/final-project-assignment "Final Project Assignment"). The final project proposal should include sections for your title + team members, your personas and scenarios (perhaps with subheadings separating the personas and scenarios), your requirements document as an numbered list (again separated by representation and interaction requirements), and your wireframes, embedded as images linked from an _img_ folder in your directory (Figure 2.9). It is worth experimenting with the collaborative coding process early on, perhaps over a video call with your teammates.
+Now that you know a bit about markdown, work in your team to insert a basic outline for your _readme.md_ file based on the [final project proposal guidelines](https://canvas.wisc.edu/courses/180498/pages/final-project-assignment "Final Project Assignment"). The final project proposal should include sections for your title + team members, your personas and scenarios (perhaps with subheadings separating the personas and scenarios), your requirements document as an numbered list (again separated by representation and interaction requirements), and your wireframes, embedded as images linked from an _img_ folder in your directory (Figure 2.9). It is worth experimenting with the collaborative coding process early on, perhaps over a video call with your teammates.
 
 We are asking you to include a _**persona**_ and a _**scenario**_ to get you thinking about your audience early on. 
 
