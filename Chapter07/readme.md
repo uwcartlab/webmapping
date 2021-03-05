@@ -133,6 +133,12 @@ Accept the new additions to the code and merge the main branch with your local c
 
 Now that you know a bit about markdown, work in your team to insert a basic outline for your _readme.md_ file based on the [final project proposal guidelines](https://canvas.wisc.edu/courses/180498/pages/final-project-assignment "Final Project Assignment"). The final project proposal should include sections for your title + team members, your personas and scenarios (perhaps with subheadings separating the personas and scenarios), your requirements document as an numbered list (again separated by representation and interaction requirements), and your wireframes, embedded as images linked from an _img_ folder in your directory (Figure 2.9). It is worth experimenting with the collaborative coding process early on, perhaps over a video call with your teammates.
 
+We are asking you to include a _**persona**_ and a _**scenario**_ to get you thinking about your audience early on. 
+
+The persona should include a description of a prototypical, target user and includes discussion of their interests and responsibilities (e.g., their job description if a professional/scientist; their motivation if part of the general public), with a specific focus on their key needs, expertise levels (across domains and technologies), and motivation.
+
+The scenario then walks us through a hypothetical interaction session with your proposed interactive map, working through multiple stages of interaction loops.
+
 ![figure7.2.9.png](img/figure7.2.9.png)
 
 ###### Figure 2.9: The final project proposal outline
