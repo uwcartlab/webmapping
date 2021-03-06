@@ -5,14 +5,14 @@ Chapter 7: Collaborating with Github
 
 You have been working individually with GitHub for six chapters now, and are in the process of wrapping your first major interactive map with Leaflet that will be hosted through GitHub! Chapter 7 provides additional guidance for working _collaboratively_ with GitHub that supports your group group project. Chapter 7 includes three relatively short lessons and an activity to set-up a collaborative repository serving the basis of a group project.
 
-*   In Lesson 1, we briefly refresh your memory on GitHub concepts and terminology.
-*   In Lesson 2, we provide instructions for setting-up a group project collaborative repository, as well as overview on using markdown to build a readme file for your repository that will be used for your proposal.
+*   In Lesson 1, we briefly refresh your memory on GitHub concepts and introduce the Markdown language for documentation and collaboration on GitHub.
+*   In Lesson 2, we provide instructions for setting-up a group project collaborative repository, as well as overview on using Markdown to build a readme file for your repository that will be used for your proposal.
 *   In Lesson 3, we summarize best practices for collaboratively coding with GitHub.
 
 After this chapter, you should be able to:
 
 *   Access and commit to a collaborative GitHub repo
-*   Write a readme file in markdown
+*   Write a readme file in Markdown
 *   Use GitHub as a platform for collaborative coding
 
 Note: If you are working through this chapter by yourself and not in a classroom setting, create a second GitHub account using a dummy email address to practice the collaborative coding concepts described below.
@@ -86,9 +86,9 @@ Select "clone" and follow the remaining instructions to clone your team's repo l
 
 With your team repository cloned, let's add a first commit and push to the _readme.md_ file we have created as part of the repo. A _**readme**_ file acts as the metadata of software, datasets, or other coding libraries. Readme files often include information about authors and licensing as well as documentation and background description about the project. Per the group project instructions, you will use the _readme.md_ file to write your group project proposal. 
 
-The _.md_ extension standards for **_markdown_**, as simple text format similar to ._doc_, ._rtf_ and ._txt_ that makes it easy to format text on the web. The _readme.md_ file at the root level of the repo is rendered as styled text on a GitHub repo page beneath the directory structure, and thus serves as the repo's visual website. Markdown is useful for web development beyond GitHub as well; for instance, we wrote these lessons in markdown with Github applying our styles automatically upon upload!
+The _.md_ extension standards for **_Markdown_**, as simple text format similar to ._doc_, ._rtf_ and ._txt_ that makes it easy to format text on the web. The _readme.md_ file at the root level of the repo is rendered as styled text on a GitHub repo page beneath the directory structure, and thus serves as the repo's visual website. Markdown is useful for web development beyond GitHub as well; for instance, we wrote these lessons in Markdown with Github applying our styles automatically upon upload!
 
-Using markdown is much like using HTML (the M standing for "markup"), with [slightly nuanced syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to covert from plain text into HTML elements rather than vice versa. Common syntax includes:
+Using Markdown is much like using HTML (the M standing for "markup"), with [slightly nuanced syntax](https://github.com/adam-p/Markdown-here/wiki/Markdown-Cheatsheet) to covert from plain text into HTML elements rather than vice versa. Common syntax includes:
 
 *   Markdown styles header using the pound/number key (`#`) to indicate its importance with one (`#`) being `h1`, three (`#` `#` `#`) being `h3`, etc. 
 *   Markdown also affords emphasis styles including traditional _italics_ and **bold**. To italicize something, surround it in either a single asterisk (`*`) or underscore (`_`). To bold something, surround it in two asterisks (`*` `*`) or two underscores (`_` `_`) 
@@ -96,11 +96,11 @@ Using markdown is much like using HTML (the M standing for "markup"), with [slig
 *   If you want the text to be in paragraph form, you can simply type in what you want without adding any additional syntax.
 *   Finally, you can insert an images or external links using brackets (`[]`) for the hyperlink text and parentheses (`()`) for the link itself. If you insert an image, the image must be synced to your remote repository.
 
-Now that you know a bit about markdown, let’s start working on the group project proposal. In your code editor, open the _readme.md_ file from your cloned team repository. Add your name as an ordered list element and commit your changes with “Activity 7” in the commit summary (Figure 2.5).
+Now that you know a bit about Markdown, let’s start working on the group project proposal. In your code editor, open the _readme.md_ file from your cloned team repository. Add your name as an ordered list element and commit your changes with “Activity 7” in the commit summary (Figure 2.5).
 
 ![figure7.2.5.png](img/figure7.2.5.png)
 
-###### Figure 2.5: Adding your name in markdown to _readme.md_
+###### Figure 2.5: Adding your name in Markdown to _readme.md_
 
 > ### **Add your name to your cloned team repository. Commit and push your changes.**
 
@@ -126,13 +126,13 @@ Accept the new additions to the code and merge the main branch with your local c
 
 ###### Figure 2.8: The revised message when conflicts are resolved, allowing a merge
 
-Now that you know a bit about markdown, work in your team to insert a basic outline for your _readme.md_ file based on the [group project proposal guidelines](https://canvas.wisc.edu/courses/180498/pages/final-project-assignment "group project Assignment"). The group project proposal should include sections for your title + team members, your personas and scenarios (perhaps with subheadings separating the personas and scenarios), your requirements document as an numbered list (again separated by representation and interaction requirements), and your wireframes, embedded as images linked from an _img_ folder in your directory (Figure 2.9). It is worth experimenting with the collaborative coding process early on, perhaps over a video call with your teammates.
+Now that you know a bit about Markdown, work in your team to insert a basic outline for your _readme.md_ file based on the [group project proposal guidelines](https://canvas.wisc.edu/courses/180498/pages/final-project-assignment "group project Assignment"). The group project proposal should include sections for your title + team members, your personas and scenarios (perhaps with subheadings separating the personas and scenarios), your requirements document as an numbered list (again separated by representation and interaction requirements), and your wireframes, embedded as images linked from an _img_ folder in your directory (Figure 2.9). It is worth experimenting with the collaborative coding process early on, perhaps over a video call with your teammates.
 
 ![figure7.2.9.png](img/figure7.2.9.png)
 
 ###### Figure 2.9: The group project proposal outline
 
-As you collaboratively write and edit your proposal, you again will create conflicts that you will need to resolve before merging. For instance, Figure 2.10 shows a _search_ operator added by a teammate to the interaction requirements. Before adding a description to your _retrieve_ operator, resolve this conflict so that your teammates can see your description to inform their own (Figure 2.11). The group project proposal is designed to get you in the habit of committing, pushing, and merging using the lower risk framework of markdown as practice for collaborative coding with JavaScript on the actual group project interactive.
+As you collaboratively write and edit your proposal, you again will create conflicts that you will need to resolve before merging. For instance, Figure 2.10 shows a _search_ operator added by a teammate to the interaction requirements. Before adding a description to your _retrieve_ operator, resolve this conflict so that your teammates can see your description to inform their own (Figure 2.11). The group project proposal is designed to get you in the habit of committing, pushing, and merging using the lower risk framework of Markdown as practice for collaborative coding with JavaScript on the actual group project interactive.
 
 ![figure7.2.10.png](img/figure7.2.10.png)
 
