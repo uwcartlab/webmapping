@@ -3,10 +3,10 @@
 Chapter 7: Collaborating with Github
 ===================================
 
-You have been working individually with GitHub for six chapters now, and are in the process of wrapping your first major interactive map with Leaflet that will be hosted through GitHub! Chapter 7 provides additional guidance for working _collaboratively_ with GitHub that supports your group group project. Chapter 7 includes three relatively short lessons and an activity to set-up a collaborative repository serving the basis of a group project.
+You have been working individually with GitHub for six chapters now, and are in the process of wrapping your first major interactive map with Leaflet that will be hosted through GitHub! Chapter 7 provides additional guidance for working _collaboratively_ with GitHub to support a group project. Chapter 7 includes three relatively short lessons and an activity to set-up a collaborative repository serving the basis of a group project.
 
 *   In Lesson 1, we briefly refresh your memory on GitHub concepts and introduce the Markdown language for documentation and collaboration on GitHub.
-*   In Lesson 2, we provide instructions for setting-up a group project collaborative repository, as well as overview on using Markdown to build a readme file for your repository that will be used for your proposal.
+*   In Lesson 2, we provide instructions for setting-up a collaborative repository and using Markdown to plan a group project.
 *   In Lesson 3, we summarize best practices for collaboratively coding with GitHub.
 
 After this chapter, you should be able to:
@@ -15,7 +15,7 @@ After this chapter, you should be able to:
 *   Write a readme file in Markdown
 *   Use GitHub as a platform for collaborative coding
 
-Note: If you are working through this chapter by yourself and not in a classroom setting, create a second GitHub account using a dummy email address to practice the collaborative coding concepts described below.
+Note: If you are working through this chapter by yourself and not in a classroom setting, create a second GitHub account using a dummy email address to practice the collaborative coding concepts described below, as these will be valuable once entering a group work environment.
 
 Lesson 1: GitHub Refresher
 ==========================
