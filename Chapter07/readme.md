@@ -62,7 +62,7 @@ GitHub readme files use _.md_ extension standards for **_Markdown_**, a simple 
 
 ###### Figure 1.1: Using Markdown for the readme file of a GitHub repo
 
-Using Markdown is much like using HTML (the M standing for "markup"), with [slightly nuanced syntax](https://github.com/adam-p/Markdown-here/wiki/Markdown-Cheatsheet) to covert from plain text into HTML elements rather than vice versa. Common syntax includes:
+Using Markdown is much like using HTML (the M standing for "markup"), with [slightly nuanced syntax](https://github.com/adam-p/Markdown-here/wiki/Markdown-Cheatsheet) to covert from plain text into HTML elements rather than vice versa. Common styling syntax includes:
 
 *   Markdown styles header using the pound/number key (`#`) to indicate its importance with one (`#`) being `h1`, three (`#` `#` `#`) being `h3`, etc. 
 *   Markdown also affords emphasis styles including traditional _italics_ and **bold**. To italicize something, surround it in either a single asterisk (`*`) or underscore (`_`). To bold something, surround it in two asterisks (`*` `*`) or two underscores (`_` `_`) 
@@ -75,10 +75,10 @@ All GitHub repos should have a _readme.md_ for provenance and collaboration. Bef
 ![figure7.1.2.png](img/figure7.1.2.png)
 
 
-> ### **Add a _readme.md_ file as documentation for your Leaflet map repo. Try the Markdown style syntax as separate commits to get a feel for Markdown before finalizing the _readme.md_ file.**
+> ### **Add a _readme.md_ file as documentation for your Leaflet map repo. Try the Markdown styles shown above as separate commits to get a feel for Markdown before finalizing the _readme.md_ file.**
 
 
-###### Figure 1.2: Markdown readme for your Leaflet map repo
+###### Figure 1.2: Example _readme.md_ file for your Leaflet map repo.
 
 Lesson 2: Setting Up A Collaborative Repository for a Group Project
 =========================================================
