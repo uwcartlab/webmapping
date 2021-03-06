@@ -235,7 +235,7 @@ _**[GitHub](https://github.com/)**_ is a website and project hosting service tha
 
 ###### Figure 3.1: The GitHub repository for this workbook
 
-Take a moment to familiarize yourself with some foundational GitHub concepts:
+Take a moment to familiarize yourself with some [foundational GitHub terminology](https://help.github.com/en/github/getting-started-with-github/github-glossary):
 
 *   _**[Repository](https://help.github.com/en/github/getting-started-with-github/github-glossary#repository):**_ A repository is the most basic element of GitHub. They are easiest to imagine as a project's folder. A repository contains all of the project files (including documentation as a Markdown readme file, as introduced in Chapter 7), and stores each file's revision history. Repositories can have multiple collaborators and can be either public or private.
 *   _**[Clone](https://help.github.com/en/github/getting-started-with-github/github-glossary#clone):**_ A clone is a copy of a repository that lives on your computer instead of on a website's server somewhere, or the act of making that copy. With your clone you can edit the files in your preferred editor and use Git to keep track of your changes without having to be online. It is, however, connected to the remote version so that changes can be synced between the two. 
