@@ -442,14 +442,14 @@ To examine and modify the code, you can right-click on the webpage, "Inspect El
 
 ###### Figure 2.9: The website's Debugger tool offers access to the JS and CSS files loaded by the page.
 
-Learning how to code from example is a skill, and it takes continued practice to become proficient. Reading and understanding other developers' scripts—which often takes the use of `console.log` statements and other debugging measures—is a big first step to mastering the art of web mapping.
+Learning how to code from example is a skill, and it takes continued practice to become proficient. Reading and understanding other developers' scripts—which often takes the use of `console.log` statements and other debugging measures—is a big first step to harnessing the art of web mapping.
 
 Lesson 3: Using Help Forums
 ---------------------------
 
 ### I. Asking Questions
 
-"Google Fu" may sound like a martial art that takes years of training to master. However, knowing how to ask a question when searching for answers online is perhaps the most important skill when programming. Phrasing a question is more difficult than it seems: if you do not understand what is going wrong with your code, how are you supposed to ask a question about it?
+"Google Fu" may sound like a martial art that takes years of training. However, knowing how to ask a question when searching for answers online is perhaps the most important skill when programming. Phrasing a question is more difficult than it seems: if you do not understand what is going wrong with your code, how are you supposed to ask a question about it?
 
 The first step is using the API document to come up with a set of _**keywords**_ that you can use to describe your coding problem. How about these: "Leaflet", "web map", "object", "loop", "tile layer", "marker", "data", "coordinate", "array", "element", "AJAX", "variable", "GeoJSON". Then, think of other descriptive words for your coding issue and put them together in a sentence, such as:
 
