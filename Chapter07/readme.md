@@ -15,12 +15,12 @@ After this chapter, you should be able to:
 *   Write a readme file in Markdown
 *   Use GitHub as a platform for collaborative coding
 
-Note: If you are working through this chapter by yourself and not in a classroom setting, create a second GitHub account using a dummy email address to practice the collaborative coding concepts described below, as these will be valuable once entering a group work environment.
+Note: The Chapter 7 support what could be conceptualized as a group final project in a classroom setting, but cover skills important to collaborative coding on any group project. If you are working through this chapter by yourself and not in a classroom setting, create a second GitHub account using a dummy email address to practice the collaborative coding concepts described below, as these will be valuable once entering a group work environment.
 
-Lesson 1: Using Markdown for GitHub
+Lesson 1: Collaborating through GitHub
 ==========================
 
-### I. GitHub Refresher
+### I. GitHub Collaborative Coding Functionality
 
 As introduced in Chapter 1, _**[GitHub](https://github.com/)**_ is a website and project hosting service that uses the _**[Git](http://git-scm.com/)**_ version control system to take snapshots of your files at a given time, creating a backup that can be shared collaborative when multiple developers are coding at the same time on a group project. You have been using GitHub to commit your chapter activities throughout semester, but before discussing GitHub as a collaborative coding tool, it is helpful to refresh some [core GitHub terminology](https://help.github.com/en/github/getting-started-with-github/github-glossary). 
 
@@ -28,7 +28,7 @@ We primarily focused on GitHub concepts used for solo coding in Chapter 1:
 
 *   _**[Repository](https://help.github.com/en/github/getting-started-with-github/github-glossary#repository):**_ A repository is the most basic element of GitHub. They are easiest to imagine as a project's folder. A repository contains all of the project files (including documentation), and stores each file's revision history. Repositories can have multiple collaborators and can be either public or private.
 *   _**[Clone](https://help.github.com/en/github/getting-started-with-github/github-glossary#clone):**_ A clone is a copy of a repository that lives on your computer instead of on a website's server somewhere, or the act of making that copy. With your clone you can edit the files in your preferred editor and use Git to keep track of your changes without having to be online. It is, however, connected to the remote version so that changes can be synced between the two.
-*   _**[Commit](https://help.github.com/en/github/getting-started-with-github/github-glossary#commit):**_ [](https://help.github.com/en/github/getting-started-with-github/github-glossary#collaborator)A commit, or "revision", is an individual change to a file (or set of files). It's like when you _save_ a file, except with Git, every time you save it creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of what changes were made when and by who. Again commits should contain a commit message that succinctly describes what changes were made. Commit message along with pull requests become even more important when collaboratively coding.
+*   _**[Commit](https://help.github.com/en/github/getting-started-with-github/github-glossary#commit):**_ [](https://help.github.com/en/github/getting-started-with-github/github-glossary#collaborator)A commit, or "revision", is an individual change to a file (or set of files). It's like when you _save_ a file, except with Git, every time you save it creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of what changes were made when and by who. 
 *   _**[Push](https://help.github.com/en/github/getting-started-with-github/github-glossary#push):**_ Pushing refers to sending your committed changes to a remote repository, such as a repository hosted on GitHub. For instance, if you change something locally, you then _push_ those changes so that others may access them.
 
 You should be conformable with cloning, committing, and pushing through Chapter 6. In Chapter 7, we will combine these concepts with GitHub techniques supporting collaborative coding.
@@ -42,20 +42,50 @@ You should be conformable with cloning, committing, and pushing through Chapter 
 
 Specifically, a large focus for this chapter is on the additional features of GitHub, particularly forking, merging, and pulling.
 
-### II. GitHub & Markdown
+### II. GitHub Group Communication
+
+Collaborative coding, like other collective projects, relies on effective group communication. Some of this communication should occur outside of GitHub, either offline in person or online via email or (preferably) work messaging platforms like [slack](https://slack.com/features). As a first step, determine what communication platform your group will use and when you generally will be able to touch base about the group project.
+
+The next step in collaborative coding is assigning roles to each team member. For example, one member may focus on data loading and processing, another on interaction operators, and a third on layout and styling, etc. When first starting with a new collaboration, we also recommend assigning a group "facilitator" who "owns" the main branch of your code and will merge major code conflicts (more below) with the others submitting pull requests to the facilitator for review. Keep in mind that it is OK if roles change a bit and that you should be helping your other teammates as they get stuck.
+
+Finally, you should assign specific development tasks to each role. We recommend using GitHub _**milestones**_ to decompose a group project into its functional scope and important subtasks for completing each function, assigning these milestones to different roles.
+
+### II. GitHub Documentation with Markdown
+
+Collaborative coding with GitHub relies as much as functions like forking, merging, and pulling as it does on effective messaging and documentation. So far, we have emphasized the importance of commit message that succinctly describes what changes were made so that you can track your own changes. Commit message along with pull requests become even more important when collaboratively coding.
+
+As your projects grow in scale, you also will want to add documentation to explain repos to other collaborators (some which may be joining the project in the future) as well as to other interested coders who might draw on your work following the ethos of "libre" free and open source software. A _**readme**_ file acts as the metadata of software, datasets, or other repos posted to GitHub. Readme files often include information about authors and licensing, code versions and dependencies, as well as documentation and background description about the project.
+
+GitHub readme files use _.md_ extension standards for **_Markdown_**, a simple text format similar to ._doc_, ._rtf_ and ._txt_ that makes it easy to format text on the web. The _readme.md_ file at the root level of the repo is rendered as styled text on a GitHub repo page beneath the directory structure, and thus serves as the repo's visual website. Markdown is useful for web development beyond GitHub as well; for instance, we wrote these lessons in Markdown with Github applying our styles automatically upon upload (Figure 7.1.1)!
+
+![figure7.1.1.png](img/figure7.1.1.png)
+
+###### Figure 1.1: Using Markdown for the readme file of a GitHub repo
+
+Using Markdown is much like using HTML (the M standing for "markup"), with [slightly nuanced syntax](https://github.com/adam-p/Markdown-here/wiki/Markdown-Cheatsheet) to covert from plain text into HTML elements rather than vice versa. Common syntax includes:
+
+*   Markdown styles header using the pound/number key (`#`) to indicate its importance with one (`#`) being `h1`, three (`#` `#` `#`) being `h3`, etc. 
+*   Markdown also affords emphasis styles including traditional _italics_ and **bold**. To italicize something, surround it in either a single asterisk (`*`) or underscore (`_`). To bold something, surround it in two asterisks (`*` `*`) or two underscores (`_` `_`) 
+*   You also can add unordered and ordered lists. Unordered lists use a single asterisk (`*`) in front of the list elements. You can also add sub-items by adding an indent to the list item. Ordered lists simply use the number one plus a period (`1.`) in front of the list elements. Again, you can add sub-items by adding an indent to the list item. 
+*   If you want the text to be in paragraph form, you can simply type in what you want without adding any additional syntax.
+*   Finally, you can insert an images or external links using brackets (`[]`) for the hyperlink text and parentheses (`()`) for the link itself. If you insert an image, the image must be synced to your remote repository.
+
+All GitHub repos should have a _readme.md_ for provenance and collaboration. Before working starting a collaborative repo, add a readme file styled with Markdown as documentation for your Leaflet map.
+
+![figure7.1.2.png](img/figure7.1.2.png)
 
 
+> ### **Add a _readme.md_ file as documentation for your Leaflet map repo. Try the Markdown style syntax as separate commits to get a feel for Markdown before finalizing the _readme.md_ file.**
 
-Lesson 2: Setting Up Your Team's A Collaborative Repository for a Group Project
+
+###### Figure 1.2: Markdown readme for your Leaflet map repo
+
+Lesson 2: Setting Up A Collaborative Repository for a Group Project
 =========================================================
 
-### I. Working Collaboratively in GitHub
-
-Working in a team on GitHub is similar to other collaborative projects. First your team should assign roles to each team member. For example, someone may focus on Javascript mechanics, someone may focus on visual styling, etc. It helps to assign a "leader" or "facilitator" who will merge major code conflicts (more below). Keep in mind that it is OK if roles change a bit and that you should be helping your other teammates as they get stuck. Second, you should assign specific development tasks to each role. You also can use GitHub _**milestones**_ to decompose a group project into key tasks, assigning tasks to different roles. Third, your team should strive for good communication to coordinate efforts and ensure that each team member is working on a separate part of the code to maximize efficiency. It is recommended to form some sort of group communication via email, text messaging, or [slack](https://slack.com/features)—a work messaging platform. 
+### I. Forking and Renaming the group project Repo
 
 To get you started, we have created a [group repository template](https://github.com/uwcartlab/webmapping-final-project) under the [uwcartlab](https://github.com/uwcartlab) GitHub account.
-
-### II. Forking and Renaming the group project Repo
 
 To begin, someone from your team will need to fork the group project template to their own GitHub Account. This could be the team "leader" or "facilitator", or whoever will be in charge of merging code conflicts. Log in to GitHub, then go to the [webmapping-final-project](https://github.com/uwcartlab/webmapping-final-project), and select "fork" in the upper right corner. After you fork, a version of the group project repository will be added to your GitHub accounts. Figure 2.1 illustrates the results of forking the group project repo. 
 
@@ -93,17 +123,7 @@ Select "clone" and follow the remaining instructions to clone your team's repo l
 
 ### V. Making Your First Commit with Markdown
 
-With your team repository cloned, let's add a first commit and push to the _readme.md_ file we have created as part of the repo. A _**readme**_ file acts as the metadata of software, datasets, or other coding libraries. Readme files often include information about authors and licensing as well as documentation and background description about the project. Per the group project instructions, you will use the _readme.md_ file to write your group project proposal. 
-
-The _.md_ extension standards for **_Markdown_**, as simple text format similar to ._doc_, ._rtf_ and ._txt_ that makes it easy to format text on the web. The _readme.md_ file at the root level of the repo is rendered as styled text on a GitHub repo page beneath the directory structure, and thus serves as the repo's visual website. Markdown is useful for web development beyond GitHub as well; for instance, we wrote these lessons in Markdown with Github applying our styles automatically upon upload!
-
-Using Markdown is much like using HTML (the M standing for "markup"), with [slightly nuanced syntax](https://github.com/adam-p/Markdown-here/wiki/Markdown-Cheatsheet) to covert from plain text into HTML elements rather than vice versa. Common syntax includes:
-
-*   Markdown styles header using the pound/number key (`#`) to indicate its importance with one (`#`) being `h1`, three (`#` `#` `#`) being `h3`, etc. 
-*   Markdown also affords emphasis styles including traditional _italics_ and **bold**. To italicize something, surround it in either a single asterisk (`*`) or underscore (`_`). To bold something, surround it in two asterisks (`*` `*`) or two underscores (`_` `_`) 
-*   You also can add unordered and ordered lists. Unordered lists use a single asterisk (`*`) in front of the list elements. You can also add sub-items by adding an indent to the list item. Ordered lists simply use the number one plus a period (`1.`) in front of the list elements. Again, you can add sub-items by adding an indent to the list item. 
-*   If you want the text to be in paragraph form, you can simply type in what you want without adding any additional syntax.
-*   Finally, you can insert an images or external links using brackets (`[]`) for the hyperlink text and parentheses (`()`) for the link itself. If you insert an image, the image must be synced to your remote repository.
+With your team repository cloned, let's add a first commit and push to the _readme.md_ file we have created as part of the repo. 
 
 Now that you know a bit about Markdown, let’s start working on the group project proposal. In your code editor, open the _readme.md_ file from your cloned team repository. Add your name as an ordered list element and commit your changes with “Activity 7” in the commit summary (Figure 2.5).
 
