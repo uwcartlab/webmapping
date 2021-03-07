@@ -72,7 +72,7 @@ Using Markdown is much like using HTML (the M standing for "markup"), with [slig
 
 Markdown posted to GitHub is case sensitive, so make sure your folder references and file extensions (e.g., .png versus .PNG) are correct.
 
-All GitHub repos should have a _readme.md_ for provenance and collaboration. Before working starting a collaborative repo, add a readme file styled with Markdown as documentation for your Leaflet map. Adding the readme officially concludes _unit-2_!
+All GitHub repos should have a _readme.md_ for provenance and collaboration. Before working starting a collaborative repo, add a readme file styled with Markdown as documentation for your Leaflet map. Adding the readme officially concludes _unit-2_ and your Leaflet map!
 
 ![figure7.1.2.png](img/figure7.1.2.png)
 
@@ -93,13 +93,13 @@ To begin, the team facilitator should fork the group project template to their o
 
 ![figure7.2.1.png](img/figure7.2.1.png)
 
-###### Figure 2.1: Results of forking the group repository
+###### Figure 2.1: Results of forking the group repository.
 
 Notice that the group project repository on the facilitator's GitHub has retained its old name: **webmapping-final-project**. Rename the repo in accordance with your group project plans using the "Settings" tab at the top of your repo and then change the text input labeled **Repository Name**. For clarity in this lesson, we recommend renaming the repo "\[year]_\[projectname]" (Figure 2.2). Click "Rename" to confirm your changes.
 
 ![figure7.2.2.png](img/figure7.2.2.png)
 
-###### Figure 2.2: Renaming the group repo
+###### Figure 2.2: Renaming the group repo.
 
 ### II. Adding Collaborators
 
@@ -107,7 +107,7 @@ Next, the facilitator must give all team members access to the repository, addin
 
 ![figure7.2.3.png](img/figure7.2.3.png)
 
-###### Figure 2.3: Adding a collaborator
+###### Figure 2.3: Adding a collaborator.
 
 Repeat this process with each of your team members. Team members will need to accept the invitation in order to clone the repository to their desktop. To do so, team members should login to the email associated with their GitHub account to find the invitation to your group repo. If you cannot find the email, check your spam folder, or search "\[year]_\[projectname]" and the email should show up.  Click "view invitation" and, when redirected, "accept invitation".
 
@@ -117,7 +117,7 @@ Finally, each team member needs to clone the group project repository to their d
 
 ![figure7.2.4.png](img/figure7.2.4.png)
 
-###### Figure 2.4: Cloning your group repo
+###### Figure 2.4: Cloning your group repo.
 
 Select "clone" and follow the remaining instructions to clone your group repo locally. When prompted with "How are you planning to use this fork?" select "For my own purposes" to ensure that your updates will go to the right place. 
 
@@ -129,7 +129,7 @@ Now that you know a bit about Markdown, you are ready to start planning and orga
 
 ![figure7.2.5.png](img/figure7.2.5.png)
 
-###### Figure 2.5: Adding your name in Markdown to _readme.md_
+###### Figure 2.5: Adding your name in Markdown to _readme.md_.
 
 > ### **Add your name to your cloned group repository. Commit and push your changes.**
 
@@ -137,29 +137,29 @@ Now that you know a bit about Markdown, you are ready to start planning and orga
 
 Sooner or later, you will run into merge _**conflicts**_ between your local code and the code in the remote repository after updates from your team members. Efficient management of merge conflicts is essential for successful collaborative coding. Luckily, Git provides a framework for identifying and resolving conflicts between code when merging.
 
-The first conflict you will need to resolve is integrating all team member names. After you have committed and pushed your name, fetch origin of the repository to check for updates. If your team members have added their names, GitHub desktop will prompt you to resolve conflicts in the _readme.md_ file before you can merge the code (Figure 2.6).
+The first conflict you should resolve is integrating all team member names. After you have committed and pushed your name, fetch origin of the repository to check for updates. If your team members have added their names, GitHub desktop will prompt you to resolve conflicts in the _readme.md_ file before you can merge the code (Figure 2.6).
 
 ![figure7.2.6.png](img/figure7.2.6.png)
 
-###### Figure 2.6: An error warning triggered by a merge conflict
+###### Figure 2.6: An error warning triggered by a merge conflict.
 
-When you reopen the _readme.md_ file, you will see that your team members' names are now in the file as well, creating a conflict. In most text editors, these conflicts will be marked within the file with a random binary ID (Figure 2.7). For our purposes, the location of the conflict is more important than the ID assigned to it.
+When you reopen the _readme.md_ file, your team members' names are now in the file as well, creating a conflict. In most text editors, these conflicts are marked within the file with a random binary ID (Figure 2.7). For our purposes, the location of the conflict is more important than the ID assigned to it.
 
 ![figure7.2.7.png](img/figure7.2.7.png)
 
-###### Figure 2.7: A conflict created when adding your team member names
+###### Figure 2.7: A conflict created when adding your team member names.
 
-Accept the new additions to the code and merge the main branch with your local copy. GitHub desktop will no longer show any conflicts (Figure 2.8).
+Accept the new additions to the code and merge the main branch with your local copy. GitHub desktop no longer shows any conflicts (Figure 2.8)!
 
 ![figure7.2.8.png](img/figure7.2.8.png)
 
-###### Figure 2.8: The revised message when conflicts are resolved, allowing a merge
+###### Figure 2.8: The revised message when conflicts are resolved, allowing a merge.
 
-Now that you know a bit about Markdown, work in your team to insert a basic outline for your _readme.md_ file based on the [group project proposal guidelines](https://canvas.wisc.edu/courses/180498/pages/final-project-assignment "group project Assignment"). The group project proposal should include sections for your title + team members, your personas and scenarios (perhaps with subheadings separating the personas and scenarios), your requirements document as an numbered list (again separated by representation and interaction requirements), and your wireframes, embedded as images linked from an _img_ folder in your directory (Figure 2.9). It is worth experimenting with the collaborative coding process early on, perhaps over a video call with your team members.
+Now that you know a bit about Markdown, use the _readme.md_ to begin planning the group project (e.g., Figure 2.9). It is worth experimenting with the collaborative coding process early on, perhaps over a video call with your team members.
 
 ![figure7.2.9.png](img/figure7.2.9.png)
 
-###### Figure 2.9: The group project proposal outline
+###### Figure 2.9: An example readme used for collaborative project planning. This example supports a group final project proposal for the Geography 575 course at UW-Madison and includes three components: (1) use case personas and scenarios informing the user experience design, (2) a list of functional requirements for the group project separated by representation and interaction requirements (this also should be logged as milestones in GitHub), and (3) wireframes embedded as images linked from an _img_ folder in your directory (Figure 2.9). 
 
 As you collaboratively write and edit your proposal, you again will create conflicts that you will need to resolve before merging. For instance, Figure 2.10 shows a _search_ operator added by a team member to the interaction requirements. Before adding a description to your _retrieve_ operator, resolve this conflict so that your team members can see your description to inform their own (Figure 2.11). The group project proposal is designed to get you in the habit of committing, pushing, and merging using the lower risk framework of Markdown as practice for collaborative coding with JavaScript on the actual group project interactive.
 
