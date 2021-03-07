@@ -58,6 +58,12 @@ As your projects grow in scale, you also should add documentation to explain the
 
 GitHub readme files use _.md_ extension standards for **_Markdown_**, a simple text format similar to ._doc_, ._rtf_ and ._txt_ that makes it easy to format text on the web. The _readme.md_ file at the root level of the repo is rendered as styled text on a GitHub repo page beneath the directory structure, and thus serves as the repo's visual website. Markdown is useful for web development beyond GitHub as well; for instance, we wrote these lessons in Markdown with Github applying our styles automatically upon upload (Figure 7.1.1)!
 
+###### Example 1.1: Markdown code for this workbook
+
+    GitHub readme files use _.md_ extension standards for **_Markdown_**, a simple text format similar to ._doc_, ._rtf_ and ._txt_ that makes it easy to format text on the web. The _readme.md_ file at the root level of the repo is rendered as styled text on a GitHub repo page beneath the directory structure, and thus serves as the repo's visual website. Markdown is useful for web development beyond GitHub as well; for instance, we wrote these lessons in Markdown with Github applying our styles automatically upon upload (Figure 7.1.1)!
+
+    ![figure7.1.1.png](img/figure7.1.1.png)
+
 ![figure7.1.1.png](img/figure7.1.1.png)
 
 ###### Figure 1.1: Using Markdown for the readme file of a GitHub repo
