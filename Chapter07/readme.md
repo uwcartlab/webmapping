@@ -62,12 +62,12 @@ GitHub readme files use _.md_ extension standards for **_Markdown_**, a simple 
 
     ### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter02)
 
-        Chapter 1: Setting Up Your Workspace
-        =====================================
+    Chapter 1: Setting Up Your Workspace
+    =====================================
 
-        Welcome to the first chapter of Web Mapping! Chapter 1 includes three lessons and Activities 1 & 2:
+    Welcome to the first chapter of Web Mapping! Chapter 1 includes three lessons and Activities 1 & 2:
 
-        *   In Lesson 1, we will introduce text editors and some basic "boilerplate" HTML used to structure your website.
+    *   In Lesson 1, we will introduce text editors and some basic "boilerplate" HTML used to structure your website.
 
 ![figure7.1.1.png](img/figure7.1.1.png)
 
