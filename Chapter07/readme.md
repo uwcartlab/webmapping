@@ -69,6 +69,8 @@ GitHub readme files use _.md_ extension standards for **_Markdown_**, a simple 
 
     *   In Lesson 1, we will introduce text editors and some basic "boilerplate" HTML used to structure your website.
 
+    *   In Lesson 2, we will discuss how to efficiently set up your web directory and host it through a localhost development server.
+
 ![figure7.1.1.png](img/figure7.1.1.png)
 
 ###### Figure 1.1: Using Markdown for the readme file of a GitHub repo
