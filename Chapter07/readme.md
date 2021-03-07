@@ -161,11 +161,11 @@ Now that you know a bit about Markdown, use the _readme.md_ to begin planning th
 
 ###### Figure 2.9: An example readme used for collaborative project planning. This example supports a group final project proposal for the Geography 575 course at UW-Madison and includes three components: (1) use case personas and scenarios informing the user experience design, (2) a list of functional requirements for the group project separated by representation and interaction requirements (this also should be logged as milestones in GitHub), and (3) wireframes embedded as images linked from an _img_ folder in your directory (Figure 2.9). 
 
-As you collaboratively write and edit your proposal, you again will create conflicts that you will need to resolve before merging. For instance, Figure 2.10 shows a _search_ operator added by a team member to the interaction requirements. Before adding a description to your _retrieve_ operator, resolve this conflict so that your team members can see your description to inform their own (Figure 2.11). The group project proposal is designed to get you in the habit of committing, pushing, and merging using the lower risk framework of Markdown as practice for collaborative coding with JavaScript on the actual group project interactive.
+Conflicts occur throughout collaborative coding and it is important to resolve them as they occur. For instance, Figure 2.10 shows a _search_ operator added by a team member to the interaction requirements. Before adding a description to your _retrieve_ operator, resolve this conflict so that your team members can see your description to inform their future work (Figure 2.11). Conflicts grow in complexity when moving away from the simple Markdown format and into complex JavaScript coding, so experiment with the committing, pushing, and merging workflow with the _readme.md_ now to make it easier to interpret and resolve your conflicts with JavaScript later.
 
 ![figure7.2.10.png](img/figure7.2.10.png)
 
-###### Figure 2.10: A merge conflict in the interaction requirements
+###### Figure 2.10: A merge conflict in the interaction requirements.
 
 ![figure7.2.11.png](img/figure7.2.11.png)
 
@@ -173,9 +173,9 @@ As you collaboratively write and edit your proposal, you again will create confl
 
 As you move along in your project, you may want to create separate [branches](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-branches) to test features without committing them to the main branch. If you are happy with the features you tested, you can open a pull request to merge the changes from your head (current) branch to a base (different, perhaps the main) branch, similar to other pull requests. 
 
-During this preliminary stage, you will likely encounter simple merge conflicts that can be resolved using GitHub Desktop. However, some more complicated merge conflicts may need to be resolved using GitHub in your browser, where you can select portions of each version on your project. Alternatively, these conflicts can also be resolved using GitHub command line. Knowing how to use all three is important if you plan to use GitHub in your career.
+As you get started with collaborative coding, you will likely encounter simple merge conflicts that can be resolved using GitHub Desktop. However, more complicated merge conflicts may need to be resolved using GitHub in your browser, where you can select portions of each version to retain in the group project. Alternatively, these conflicts can be resolved using [GitHub command line] (https://cli.github.com/manual/), a more advanced use of the Git framework that is outside the scope of this workbook but helpful as you continue to grow your skills.
 
-> ### **Work with your team to add to the proposal outline that you will complete over the next two chapters, merging and resolving all conflicts.**
+> ### **Work with your team to build the _readme.md_ file supporting your group project, merging and resolving all conflicts.**
 
 Lesson 3: Best Practices for Collaborative Coding
 =================================================
