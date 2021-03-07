@@ -72,7 +72,7 @@ Using Markdown is much like using HTML (the M standing for "markup"), with [slig
 
 Markdown posted to GitHub is case sensitive, so make sure your folder references and file extensions (e.g., .png versus .PNG) are correct.
 
-All GitHub repos should have a _readme.md_ for provenance and collaboration. Before working starting a collaborative repo, add a readme file styled with Markdown as documentation for your Leaflet map.
+All GitHub repos should have a _readme.md_ for provenance and collaboration. Before working starting a collaborative repo, add a readme file styled with Markdown as documentation for your Leaflet map. Adding the readme officially concludes _unit-2_!
 
 ![figure7.1.2.png](img/figure7.1.2.png)
 
@@ -89,13 +89,13 @@ Lesson 2: Setting Up A Collaborative Repository for a Group Project
 
 To get you started on your group project, we have created a [group repository template](https://github.com/uwcartlab/webmapping-final-project) under the [UWCartLab](https://github.com/uwcartlab) GitHub account.
 
-To begin, the team facilitator should fork the group project template to their own GitHub Account. To fork, log in to GitHub, navigate to the [webmapping-final-project](https://github.com/uwcartlab/webmapping-final-project), and select "fork" in the upper right corner. After the facilitator forks the template, a version of the group project repository will be added into the facilator GitHub account. Figure 2.1 illustrates the results of forking the group project repo by the facilitator. 
+To begin, the team facilitator should fork the group project template to their own GitHub Account. To fork, log into GitHub, navigate to the [webmapping-final-project](https://github.com/uwcartlab/webmapping-final-project), and select "fork" in the upper right corner. After the facilitator forks the template, a version of the group project repository is added into the facilator GitHub account. Figure 2.1 illustrates the results of forking the group project repo by the facilitator. 
 
 ![figure7.2.1.png](img/figure7.2.1.png)
 
 ###### Figure 2.1: Results of forking the group repository
 
-Notice that the group project repository on the facilitator's GitHub has retained its old name: **webmapping-final-project**. Rename the repo in accordance with your group project plans using the "Settings" tab at the top of your repo and changing the text input labeled **Repository Name**. For clarity in this lesson, we recommend renaming the repo "\[year]_\[projectname]" (Figure 2.2). Click "Rename" to confirm your changes.
+Notice that the group project repository on the facilitator's GitHub has retained its old name: **webmapping-final-project**. Rename the repo in accordance with your group project plans using the "Settings" tab at the top of your repo and then change the text input labeled **Repository Name**. For clarity in this lesson, we recommend renaming the repo "\[year]_\[projectname]" (Figure 2.2). Click "Rename" to confirm your changes.
 
 ![figure7.2.2.png](img/figure7.2.2.png)
 
