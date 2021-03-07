@@ -22,7 +22,7 @@ Lesson 1: Collaborating through GitHub
 
 ### I. GitHub Collaborative Coding Functionality
 
-As introduced in Chapter 1, _**[GitHub](https://github.com/)**_ is a website and project hosting service that uses the _**[Git](http://git-scm.com/)**_ version control system to take snapshots of your files at a given time, creating a backup that can be shared collaborative when multiple developers are coding at the same time on a group project. Before discussing GitHub as a collaborative coding tool, it is helpful to refresh some [core GitHub terminology](https://help.github.com/en/github/getting-started-with-github/github-glossary). 
+As introduced in Chapter 1, _**[GitHub](https://github.com/)**_ is a website and project hosting service that uses the _**[Git](http://git-scm.com/)**_ version control system to take snapshots of your files at a given time, creating a backup that can be shared collaborative when multiple developers are coding at the same time on a group project. Before discussing GitHub as a collaborative coding tool, it is helpful to refresh [core GitHub terminology](https://help.github.com/en/github/getting-started-with-github/github-glossary). 
 
 We primarily focused on GitHub concepts used for solo coding in Chapter 1:
 
