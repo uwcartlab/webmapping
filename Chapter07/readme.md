@@ -15,7 +15,7 @@ After this chapter, you should be able to:
 *   Write a readme file in Markdown
 *   Use GitHub as a platform for collaborative coding
 
-Note: The Chapter 7 support what could be conceptualized as a group final project in a classroom setting, but cover skills important to collaborative coding on any group project. If you are working through this chapter by yourself and not in a classroom setting, create a second GitHub account using a dummy email address to practice the collaborative coding concepts described below, as these will be valuable once entering a group work environment.
+Note: The Chapter 7 support what could be conceptualized as a group final project in a classroom setting, but covers skills important to collaborative coding on any group project. If you are working through this chapter by yourself and not in a classroom setting, create a second GitHub account using an alternate email address to practice the collaborative coding concepts described below, as these will be valuable once entering a group work environment. This lesson is not required to continue with solo coding in D3 in _unit-3_.
 
 Lesson 1: Collaborating through GitHub
 ==========================
@@ -46,7 +46,7 @@ Specifically, a large focus for this chapter is on the additional features of Gi
 
 Collaborative coding, like other collective projects, relies on effective group communication. Some of this communication should occur outside of GitHub, either offline in person or online via email or (preferably) work messaging platforms like [slack](https://slack.com/features). As a first step, determine what communication platform your group will use and when you generally will be able to touch base about the group project.
 
-The next step in collaborative coding is assigning roles to each team member. For example, one member may focus on data loading and processing, another on interaction operators, and a third on layout and styling, etc. When first starting with a new collaboration, we also recommend assigning a group "facilitator" who "owns" the main branch of your code and will merge major code conflicts (more below) with the others submitting pull requests to the facilitator for review. Keep in mind that it is OK if roles change a bit and that you should be helping your other teammates as they get stuck.
+The next step in collaborative coding is assigning roles to each team member. For example, one member may focus on data loading and processing, another on interaction operators, and a third on layout and styling, etc. When first starting with a new collaboration, we also recommend assigning a group "facilitator" who "owns" the main branch of your code and will merge major code conflicts (more below) with the others submitting pull requests to the facilitator for review. Keep in mind that it is OK if roles change a bit and that you should be helping your other team members as they get stuck.
 
 Finally, you should assign specific development tasks to each role. We recommend using GitHub _**milestones**_ to decompose a group project into its functional scope and important subtasks for completing each function, assigning these milestones to different roles.
 
@@ -85,65 +85,63 @@ Lesson 2: Setting Up A Collaborative Repository for a Group Project
 
 ### I. Forking and Renaming the group project Repo
 
-To get you started, we have created a [group repository template](https://github.com/uwcartlab/webmapping-final-project) under the [uwcartlab](https://github.com/uwcartlab) GitHub account.
+To get you started on your group project, we have created a [group repository template](https://github.com/uwcartlab/webmapping-final-project) under the [UWCartLab](https://github.com/uwcartlab) GitHub account.
 
-To begin, someone from your team will need to fork the group project template to their own GitHub Account. This could be the team "leader" or "facilitator", or whoever will be in charge of merging code conflicts. Log in to GitHub, then go to the [webmapping-final-project](https://github.com/uwcartlab/webmapping-final-project), and select "fork" in the upper right corner. After you fork, a version of the group project repository will be added to your GitHub accounts. Figure 2.1 illustrates the results of forking the group project repo. 
+To begin, the team facilitator should fork the group project template to their own GitHub Account. To fork, log in to GitHub, navigate to the [webmapping-final-project](https://github.com/uwcartlab/webmapping-final-project), and select "fork" in the upper right corner. After the facilitator forks the template, a version of the group project repository will be added into the facilator GitHub account. Figure 2.1 illustrates the results of forking the group project repo by the facilitator. 
 
 ![figure7.2.1.png](img/figure7.2.1.png)
 
-###### Figure 2.1: Results of forking the group project repository
+###### Figure 2.1: Results of forking the group repository
 
-After you fork, you will notice that the group project repository now on your GitHub has retained its old name: **webmapping-final-project**. You'll want to rename the repo in accordance with your own project plans. Select the "Settings" tab at the top of your repo. One of the first things you should see is text input box labeled **Repository Name**. Rename the project "\[year]_\[projectname]" (Figure 2.2). Click "Rename" to confirm your changes.
+Notice that the group project repository on the facilitator's GitHub has retained its old name: **webmapping-final-project**. Rename the repo in accordance with your group project plans using the "Settings" tab at the top of your repo and changing the text input labeled **Repository Name**. For clarity in this lesson, we recommend renaming the repo "\[year]_\[projectname]" (Figure 2.2). Click "Rename" to confirm your changes.
 
 ![figure7.2.2.png](img/figure7.2.2.png)
 
-###### Figure 2.2: Renaming group project repository
+###### Figure 2.2: Renaming the group repo
 
-### III. Adding Collaborators
+### II. Adding Collaborators
 
-Next, you'll need to make sure all your teammates have access to the repository. You'll be adding everyone as a _**collaborator**_. To add collaborators, select the "Manage Access" tab in the "Settings" Menu. Click "Add a collaborator", and input the GitHub username of one of your teammates. You'll be prompted with the option to add them to the repository (Figure 2.3)
+Next, the facilitator must give all team members access to the repository, adding each additional team member as a _**collaborator**_. To add collaborators, the facilitator should select the "Manage Access" tab in the "Settings" menu and click the "Add a collaborator" option, inputting each team member GitHub username one at a time (Figure 2.3).	
 
 ![figure7.2.3.png](img/figure7.2.3.png)
 
 ###### Figure 2.3: Adding a collaborator
 
-Repeat this process with each of your teammates. They will need to accept your invitation in order to clone the repository to their desktop. To do so, login to the email associated with your GitHub account to find the invitation to your team’s repo. If you cannot find the email, check your spam folder, or search "\[year]_\[projectname]" and the email should show up.  Click “view invitation” and, when redirected, “accept invitation”.
+Repeat this process with each of your team members. Team members will need to accept the invitation in order to clone the repository to their desktop. To do so, team members should login to the email associated with their GitHub account to find the invitation to your group repo. If you cannot find the email, check your spam folder, or search "\[year]_\[projectname]" and the email should show up.  Click "view invitation" and, when redirected, "accept invitation".
 
-### IV. Cloning the group project Repo to Your Desktop
+### III. Cloning the Group Repo to Your Desktop
 
-Finally, you and your team members will need to clone the group project repository to your desktop server. Open GitHub Desktop and login, choose "Add", and then "Clone Repository". Select the repository **"\[year]_\[projectname]"** located under the header of the team facilitator's GitHub account. Figure 2.4 illustrates cloning the group project repo in GitHub desktop.
+Finally, each team member needs to clone the group project repository to their desktop server. Open GitHub Desktop and login, choose "Add", and then "Clone Repository". Select the repository **"\[year]_\[projectname]"** located under the header of the team facilitator's GitHub account. Figure 2.4 illustrates cloning the group project repo in GitHub desktop.
 
 ![figure7.2.4.png](img/figure7.2.4.png)
 
-###### Figure 2.4: Cloning your team's repo
+###### Figure 2.4: Cloning your group repo
 
-Select "clone" and follow the remaining instructions to clone your team's repo locally. If prompted with a popup window entiteld "How are you planning to use this fork?" make sure select "For my own purposes" to ensure that your updates will go to the right place. 
+Select "clone" and follow the remaining instructions to clone your group repo locally. When prompted with "How are you planning to use this fork?" select "For my own purposes" to ensure that your updates will go to the right place. 
 
-> ### **Confirm access to and clone your team's repo.**
+> ### **Confirm access to and clone your group repo.**
 
-### V. Making Your First Commit with Markdown
+### IV. Making Your First Commit with Markdown
 
-With your team repository cloned, let's add a first commit and push to the _readme.md_ file we have created as part of the repo. 
-
-Now that you know a bit about Markdown, let’s start working on the group project proposal. In your code editor, open the _readme.md_ file from your cloned team repository. Add your name as an ordered list element and commit your changes with “Activity 7” in the commit summary (Figure 2.5).
+Now that you know a bit about Markdown, you are ready to start planning and organizing the group project using the _readme.md_ file. In your code editor, open the _readme.md_ file from your cloned group repository. Add your name as an ordered list element and commit your changes with “Activity 7” in the commit summary (Figure 2.5).
 
 ![figure7.2.5.png](img/figure7.2.5.png)
 
 ###### Figure 2.5: Adding your name in Markdown to _readme.md_
 
-> ### **Add your name to your cloned team repository. Commit and push your changes.**
+> ### **Add your name to your cloned group repository. Commit and push your changes.**
 
-### VI. Dealing with Merge Conflicts
+### V. Dealing with Merge Conflicts
 
-Sooner or later, you will run into merge _**conflicts**_ between your local code and the code in the remote repository after updates from your team members. Efficiently management of merge conflicts is essential for successful collaborative coding. Luckily, Git provides a framework for identifying and resolving conflicts between code when merging.
+Sooner or later, you will run into merge _**conflicts**_ between your local code and the code in the remote repository after updates from your team members. Efficient management of merge conflicts is essential for successful collaborative coding. Luckily, Git provides a framework for identifying and resolving conflicts between code when merging.
 
-The first conflict you will need to resolve is integrating all team member names. After you have committed and pushed your name, fetch origin of the repository to check for updates. If your teammates have added their names, GitHub desktop will prompt you to resolve conflicts in the _readme.md_ file before you can merge the code (Figure 2.6).
+The first conflict you will need to resolve is integrating all team member names. After you have committed and pushed your name, fetch origin of the repository to check for updates. If your team members have added their names, GitHub desktop will prompt you to resolve conflicts in the _readme.md_ file before you can merge the code (Figure 2.6).
 
 ![figure7.2.6.png](img/figure7.2.6.png)
 
 ###### Figure 2.6: An error warning triggered by a merge conflict
 
-When you reopen the _readme.md_ file, you will see that your teammates' names are now in the file as well, creating a conflict. In most text editors, these conflicts will be marked within the file with a random binary ID (Figure 2.7). For our purposes, the location of the conflict is more important than the ID assigned to it.
+When you reopen the _readme.md_ file, you will see that your team members' names are now in the file as well, creating a conflict. In most text editors, these conflicts will be marked within the file with a random binary ID (Figure 2.7). For our purposes, the location of the conflict is more important than the ID assigned to it.
 
 ![figure7.2.7.png](img/figure7.2.7.png)
 
@@ -155,13 +153,13 @@ Accept the new additions to the code and merge the main branch with your local c
 
 ###### Figure 2.8: The revised message when conflicts are resolved, allowing a merge
 
-Now that you know a bit about Markdown, work in your team to insert a basic outline for your _readme.md_ file based on the [group project proposal guidelines](https://canvas.wisc.edu/courses/180498/pages/final-project-assignment "group project Assignment"). The group project proposal should include sections for your title + team members, your personas and scenarios (perhaps with subheadings separating the personas and scenarios), your requirements document as an numbered list (again separated by representation and interaction requirements), and your wireframes, embedded as images linked from an _img_ folder in your directory (Figure 2.9). It is worth experimenting with the collaborative coding process early on, perhaps over a video call with your teammates.
+Now that you know a bit about Markdown, work in your team to insert a basic outline for your _readme.md_ file based on the [group project proposal guidelines](https://canvas.wisc.edu/courses/180498/pages/final-project-assignment "group project Assignment"). The group project proposal should include sections for your title + team members, your personas and scenarios (perhaps with subheadings separating the personas and scenarios), your requirements document as an numbered list (again separated by representation and interaction requirements), and your wireframes, embedded as images linked from an _img_ folder in your directory (Figure 2.9). It is worth experimenting with the collaborative coding process early on, perhaps over a video call with your team members.
 
 ![figure7.2.9.png](img/figure7.2.9.png)
 
 ###### Figure 2.9: The group project proposal outline
 
-As you collaboratively write and edit your proposal, you again will create conflicts that you will need to resolve before merging. For instance, Figure 2.10 shows a _search_ operator added by a teammate to the interaction requirements. Before adding a description to your _retrieve_ operator, resolve this conflict so that your teammates can see your description to inform their own (Figure 2.11). The group project proposal is designed to get you in the habit of committing, pushing, and merging using the lower risk framework of Markdown as practice for collaborative coding with JavaScript on the actual group project interactive.
+As you collaboratively write and edit your proposal, you again will create conflicts that you will need to resolve before merging. For instance, Figure 2.10 shows a _search_ operator added by a team member to the interaction requirements. Before adding a description to your _retrieve_ operator, resolve this conflict so that your team members can see your description to inform their own (Figure 2.11). The group project proposal is designed to get you in the habit of committing, pushing, and merging using the lower risk framework of Markdown as practice for collaborative coding with JavaScript on the actual group project interactive.
 
 ![figure7.2.10.png](img/figure7.2.10.png)
 
@@ -226,7 +224,7 @@ In the description, it is good practice to elaborate briefly on your summary. Yo
 
 Pull again after you’ve committed, but before you’ve tried pushing your changes to the current branch.
 
-After every commit, it is good practice to pull the remote repo to see if there were changes made _and then_ push your changes to the remote repo. Why do this? First, if something goes wrong with your computer and you just committed an update, you are at risk of losing it since it is not backed up to the remote repo. Second, pushing after each commit helps reduce merge conflicts because your teammates can pull your changes often and make sure that they are working on the most up to date stuff.
+After every commit, it is good practice to pull the remote repo to see if there were changes made _and then_ push your changes to the remote repo. Why do this? First, if something goes wrong with your computer and you just committed an update, you are at risk of losing it since it is not backed up to the remote repo. Second, pushing after each commit helps reduce merge conflicts because your team members can pull your changes often and make sure that they are working on the most up to date stuff.
 
 **7\. Use Milestones to Monitor Progress**
 
