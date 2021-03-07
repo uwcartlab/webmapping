@@ -46,15 +46,15 @@ Specifically, a large focus for this chapter is on the additional features of Gi
 
 Collaborative coding, like other collective projects, relies on effective group communication. Some of this communication should occur outside of GitHub, either offline in person or online via email or (preferably) work messaging platforms like [slack](https://slack.com/features). As a first step, determine what communication platform your group will use and when you generally will be able to touch base about the group project.
 
-The next step in collaborative coding is assigning roles to each team member. For example, one member may focus on data loading and processing, another on interaction operators, and a third on layout and styling, etc. When first starting with a new collaboration, we also recommend assigning a group "facilitator" who "owns" the main branch of your code and will merge major code conflicts (more below) with the others submitting pull requests to the facilitator for review. Keep in mind that it is OK if roles change a bit and that you should be helping your other team members as they get stuck.
+The next step in collaborative coding is assigning roles to each team member. For example, one member may focus on data loading and processing, another on interaction operators, and a third on layout and styling, etc. When first starting with a new collaboration, we also recommend assigning a group "facilitator" who "owns" the main branch of your code and merges major code conflicts (more below) with the others submitting pull requests to the facilitator for review. Keep in mind that it is OK if roles change a bit and that you should be helping your other team members as they get stuck.
 
 Finally, you should assign specific development tasks to each role. We recommend using GitHub _**milestones**_ to decompose a group project into its functional scope and important subtasks for completing each function, assigning these milestones to different roles.
 
 ### II. GitHub Documentation with Markdown
 
-Collaborative coding with GitHub relies as much as functions like forking, merging, and pulling as it does on effective messaging and documentation. So far, we have emphasized the importance of commit message that succinctly describes what changes were made so that you can track your own changes. Commit message along with pull requests become even more important when collaboratively coding.
+Collaborative coding with GitHub relies as much on functions like forking, merging, and pulling as it does on effective messaging and documentation. So far, we have emphasized the importance of commit messages that succinctly describe what changes were made so that you can track your own changes. Commit messages along with pull requests become even more important when collaboratively coding.
 
-As your projects grow in scale, you also will want to add documentation to explain repos to other collaborators (some which may be joining the project in the future) as well as to other interested coders who might draw on your work following the ethos of "libre" free and open source software. A _**readme**_ file acts as the metadata of software, datasets, or other repos posted to GitHub. Readme files often include information about authors and licensing, code versions and dependencies, as well as documentation and background description about the project.
+As your projects grow in scale, you also should add documentation to explain the repos to other collaborators (some of whom may be joining the project in the future) as well as to other interested coders who might draw on your work following the ethos of "libre" free and open source software. A _**readme**_ file acts as the metadata of software, datasets, or other repos posted to GitHub. Readme files often include information about authors and licensing, code versions and dependencies, as well as documentation and background description about the project.
 
 GitHub readme files use _.md_ extension standards for **_Markdown_**, a simple text format similar to ._doc_, ._rtf_ and ._txt_ that makes it easy to format text on the web. The _readme.md_ file at the root level of the repo is rendered as styled text on a GitHub repo page beneath the directory structure, and thus serves as the repo's visual website. Markdown is useful for web development beyond GitHub as well; for instance, we wrote these lessons in Markdown with Github applying our styles automatically upon upload (Figure 7.1.1)!
 
@@ -70,12 +70,14 @@ Using Markdown is much like using HTML (the M standing for "markup"), with [slig
 *   If you want the text to be in paragraph form, you can simply type in what you want without adding any additional syntax.
 *   Finally, you can insert an images or external links using brackets (`[]`) for the hyperlink text and parentheses (`()`) for the link itself. If you insert an image, the image must be synced to your remote repository.
 
+Markdown posted to GitHub is case sensitive, so make sure your folder references and file extensions (e.g., .png versus .PNG) are correct.
+
 All GitHub repos should have a _readme.md_ for provenance and collaboration. Before working starting a collaborative repo, add a readme file styled with Markdown as documentation for your Leaflet map.
 
 ![figure7.1.2.png](img/figure7.1.2.png)
 
 
-> ### **Add a _readme.md_ file as documentation for your Leaflet map repo. Try the Markdown styles shown above as separate commits to get a feel for Markdown before finalizing the _readme.md_ file.**
+> ### **Add a _readme.md_ file as documentation for your Leaflet map repo that includes information about authors and licensing, code versions and dependencies, as well as documentation and background description about the project. Try the Markdown styles shown above as separate commits to get a feel for Markdown before finalizing the _readme.md_ file.**
 
 
 ###### Figure 1.2: Example _readme.md_ file for your Leaflet map repo.
