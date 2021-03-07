@@ -3,95 +3,66 @@
 Chapter 7: Collaborating with Github
 ===================================
 
-You have been working individually with GitHub for six chapters now, and are in the process of wrapping your first major interactive map with Leaflet that will be hosted through GitHub! Chapter 7 provides additional guidance for working _collaboratively_ with GitHub that supports your group final project. Chapter 7 includes three relatively short lessons and an activity to set-up a collaborative repository that will house your final project proposal and (eventually) your final project interactive.
+You have been working individually with GitHub for six chapters now, and completed your first major interactive map with Leaflet hosted through GitHub! Chapter 7 provides additional guidance for working _collaboratively_ with GitHub to support a group project. Chapter 7 includes three relatively short lessons and an activity to set-up a collaborative repository serving the basis of a group project.
 
-*   In Lesson 1, we briefly refresh your memory on GitHub concepts and terminology.
-*   In Lesson 2, we provide instructions for setting-up your final project collaborative repository, as well as overview on using markdown to build a readme file for your repository that will be used for your proposal.
+*   In Lesson 1, we briefly refresh your memory on GitHub concepts and introduce the Markdown language for documentation and collaboration on GitHub.
+*   In Lesson 2, we provide instructions for setting-up a collaborative repository and using Markdown to plan a group project.
 *   In Lesson 3, we summarize best practices for collaboratively coding with GitHub.
 
 After this chapter, you should be able to:
 
 *   Access and commit to a collaborative GitHub repo
-*   Write a readme file in markdown
+*   Write a readme file in Markdown
 *   Use GitHub as a platform for collaborative coding
 
-Lesson 1: GitHub Refresher
+Note: The Chapter 7 support what could be conceptualized as a group final project in a classroom setting, but covers skills important to collaborative coding on any group project. If you are working through this chapter by yourself and not in a classroom setting, create a second GitHub account using an alternate email address to practice the collaborative coding concepts described below, as these will be valuable once entering a group work environment. This lesson is not required to continue with solo coding in D3 in _unit-3_.
+
+Lesson 1: Collaborating through GitHub
 ==========================
 
-As introduced in Chapter 1, _**[GitHub](https://github.com/)**_ is a website and project hosting service that uses the _**[Git](http://git-scm.com/)**_ version control system to take snapshots of your files at a given time, creating a backup that can be shared collaborative when multiple developers are coding at the same time (e.g., your final project). 
+### I. GitHub Collaborative Coding Functionality
 
-You have been using GitHub to commit your chapter activities throughout semester, but before discussing GitHub as a collaborative coding tool, it is helpful to refresh some [core GitHub terminology](https://help.github.com/en/github/getting-started-with-github/github-glossary):
+As introduced in Chapter 1, _**[GitHub](https://github.com/)**_ is a website and project hosting service that uses the _**[Git](http://git-scm.com/)**_ version control system to take snapshots of your files at a given time, creating a backup that can be shared collaborative when multiple developers are coding at the same time on a group project. Before discussing GitHub as a collaborative coding tool, it is helpful to refresh some [core GitHub terminology](https://help.github.com/en/github/getting-started-with-github/github-glossary). 
+
+We primarily focused on GitHub concepts used for solo coding in Chapter 1:
 
 *   _**[Repository](https://help.github.com/en/github/getting-started-with-github/github-glossary#repository):**_ A repository is the most basic element of GitHub. They are easiest to imagine as a project's folder. A repository contains all of the project files (including documentation), and stores each file's revision history. Repositories can have multiple collaborators and can be either public or private.
 *   _**[Clone](https://help.github.com/en/github/getting-started-with-github/github-glossary#clone):**_ A clone is a copy of a repository that lives on your computer instead of on a website's server somewhere, or the act of making that copy. With your clone you can edit the files in your preferred editor and use Git to keep track of your changes without having to be online. It is, however, connected to the remote version so that changes can be synced between the two.
-*   _**[Fork](https://help.github.com/en/github/getting-started-with-github/github-glossary#fork):**_ A fork is a personal copy of another user's repository that lives on your account. Forks allow you to freely make changes to a project without affecting the original. Forks remain attached to the original, allowing you to submit a pull request to the original's author to update with your changes. You can also keep your fork up to date by pulling in updates from the original.
-*   _**[Main](https://docs.github.com/en/github/getting-started-with-github/github-glossary#main):**_ The default development branch. Whenever you create a Git repository, a branch named main is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required. Some older repositories may use "master" instead of main, but all new projects now use "main" to avoid connotations with slavery.
-*   _**[Branch](https://help.github.com/en/github/getting-started-with-github/github-glossary#branch):**_ A branch is a parallel version of a repository. It is contained within the repository, but does not affect the primary or `master` branch allowing you to work freely without disrupting the "live" version. When you've made the changes you want to make, you can merge your branch back into the `master` branch to publish your changes.
-*   _**[Commit](https://help.github.com/en/github/getting-started-with-github/github-glossary#commit):**_ [](https://help.github.com/en/github/getting-started-with-github/github-glossary#collaborator)A commit, or "revision", is an individual change to a file (or set of files). It's like when you _save_ a file, except with Git, every time you save it creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of what changes were made when and by who. Commits usually contain a commit message which is a brief description of what changes were made.
+*   _**[Commit](https://help.github.com/en/github/getting-started-with-github/github-glossary#commit):**_ [](https://help.github.com/en/github/getting-started-with-github/github-glossary#collaborator) A commit, or "revision", is an individual change to a file (or set of files). A commit is like when you _save_ a file, except with Git, every time you save it creates a unique ID (a.k.a., the "SHA" or "hash") that allows you to keep record of what changes were made when and by whom. 
 *   _**[Push](https://help.github.com/en/github/getting-started-with-github/github-glossary#push):**_ Pushing refers to sending your committed changes to a remote repository, such as a repository hosted on GitHub. For instance, if you change something locally, you then _push_ those changes so that others may access them.
-*   _**[Fetch](https://help.github.com/en/github/getting-started-with-github/github-glossary#fetch):**_ Fetching refers to getting the latest changes from an online repository without merging them in. Once these changes are fetched you can compare them to your local branches (the code residing on your local machine).
+
+You should be conformable with cloning, committing, and pushing through Chapter 6. In Chapter 7, we combine these concepts with GitHub techniques supporting collaborative coding.
+
+*   _**[Fork](https://help.github.com/en/github/getting-started-with-github/github-glossary#fork):**_ A fork is a personal copy of another user's repository that lives on your account. Forks allow you to freely make changes to a project without affecting the original. Forks remain attached to the original, allowing you to submit a pull request to the original author to update with your changes. You can also keep your fork up to date by pulling in updates from the original.
+*   _**[Branch](https://help.github.com/en/github/getting-started-with-github/github-glossary#branch):**_ A branch is a parallel version of a repository. It is contained within the repository, but does not affect the primary or `main` branch allowing you to work freely without disrupting the "live" version. When you've made the changes you want to make, you can merge your branch back into the `main` branch to publish your changes.
+*   _**[Fetch](https://help.github.com/en/github/getting-started-with-github/github-glossary#fetch):**_ Fetching refers to getting the latest changes from an online repository without merging them. Once these changes are fetched you can compare them to your local branches (the code residing on your local machine).
 *   _**[Merge](https://help.github.com/en/github/getting-started-with-github/github-glossary#merge):**_ Merging takes the changes from one branch (in the same repository or from a fork), and applies them into another. This often happens as a pull request (which can be thought of as a request to merge), or via the command line. A merge can be done automatically via a pull request via the GitHub web interface if there are no conflicting changes, or can always be done via the command line. 
-*   _**[Pull](https://help.github.com/en/github/getting-started-with-github/github-glossary#pull):**_ Pull refers to when you are fetching _in_ changes _and_ merging them. For instance, if someone has edited the remote file you're both working on, you'll want to _pull_ in those changes to your local copy so that it's up to date.
+*   _**[Pull](https://help.github.com/en/github/getting-started-with-github/github-glossary#pull):**_ Pull refers to when you are fetching _in_ changes _and_ merging them. For instance, if someone has edited the remote file you are both working on, you should _pull_ in those changes to your local copy so that it is up to date.
 *   _**[Pull request](https://help.github.com/en/github/getting-started-with-github/github-glossary#pull-request):**_ Pull requests are proposed changes to a repository submitted by a user and accepted or rejected by a repository's collaborators.
 
-You should be conformable with cloning, committing, and pushing through Chapter 6. A large focus for this chapter is on the additional features of GitHub, particularly forking, merging, and pulling.
+Specifically, a large focus for this chapter is on the additional features of GitHub, particularly forking, merging, and pulling.
 
-Lesson 2: Setting Up Your Team's Final Project Repository
-=========================================================
+### II. GitHub Group Communication
 
-### I. Working Collaboratively in GitHub
+Collaborative coding, like other collective projects, relies on effective group communication. Some of this communication should occur outside of GitHub, either offline in person or online via email or (preferably) work messaging platforms like [slack](https://slack.com/features). As a first step, determine what communication platform your group will use and when you generally are able to touch base about the group project.
 
-Working in a team on GitHub is similar to other collaborative projects. First your team should assign roles to each team member. For example, someone may focus on Javascript mechanics, someone may focus on visual styling, etc. It helps to assign a "leader" or "facilitator" who will merge major code conflicts (more below). Keep in mind that it is OK if roles change a bit and that you should be helping your other teammates as they get stuck. Second, you should assign specific development tasks to each role. We will use GitHub _**milestones**_ to formalize these tasks after approval of your final project proposal. Third, your team should strive for good communication to coordinate efforts and ensure that each team member is working on a separate part of the code to maximize efficiency. It is recommended to form some sort of group communication via email, text messaging, or [slack](https://slack.com/features)—a work messaging platform. 
+The next step in collaborative coding is assigning roles to each team member. For example, one member may focus on data loading and processing, another on interaction operators, and a third on layout and styling, etc. When first starting with a new collaboration, we also recommend assigning a group "facilitator" who "owns" the main branch of your code and merges major code conflicts (more below) with the others submitting pull requests to the facilitator for review. Keep in mind that it is OK if roles change a bit and that you should be helping your other team members as they get stuck.
 
-To get you started, we've creatd a repository [template](https://github.com/uwcartlab/webmapping-final-project) under the [uwcartlab](https://github.com/uwcartlab) GitHub account. 
+Finally, you should assign specific development tasks to each role. We recommend using GitHub _**milestones**_ to decompose a group project into its functional scope and important subtasks for completing each function, assigning these milestones to different roles.
 
-<!--To ensure that we have access to the final projects in case you lose your files, we created a repository for each team under the [uwcartlab](https://github.com/uwcartlab) GitHub account. We then added each member of your team as a _**collaborator**_ role with write permission levels. **_Write_** permissions enable collaborators to make updates to your final project, giving each student on your team the power to push, pull, merge, etc. while preventing access to sensitive and destructive actions such as deleting the repo.
+### II. GitHub Documentation with Markdown
 
-To access your team's repo, login to the email associated with your GitHub account to find the invitation to your team’s repo. If you cannot find the email, check your spam folder, or search "20\_g575" and the email should show up.  Click “view invitation” and, when redirected, “accept invitation”.-->
+Collaborative coding with GitHub relies as much on functions like forking, merging, and pulling as it does on effective messaging and documentation. So far, we have emphasized the importance of commit messages that succinctly describe what changes were made so that you can track your own changes. Commit messages along with pull requests become even more important when collaboratively coding.
 
-### II. Forking and Renaming the Final Project Repo
+As your projects grow in scale, you also should add documentation to explain the repos to other collaborators (some of whom may be joining the project in the future) as well as to other interested coders who might draw on your work following the ethos of "libre" free and open source software. A _**readme**_ file acts as the metadata of software, datasets, or other repos posted to GitHub. Readme files often include information about authors and licensing, code versions and dependencies, as well as documentation and background description about the project.
 
-To begin, someone from your team will need to fork the final project template to their own GitHub Account. This could be the team "leader" or "facilitator", or whoever will be in charge of merging code conflicts. Log in to GitHub, then go to the [webmapping-final-project](https://github.com/uwcartlab/webmapping-final-project), and select "fork" in the upper right corner. After you fork, a version of the final project repository will be added to your GitHub account. Figure 2.1 illustrates the results of forking the final project repo. 
+GitHub readme files use _.md_ extension standards for **_Markdown_**, a simple text format similar to ._doc_, ._rtf_ and ._txt_ that makes it easy to format text on the web. The _readme.md_ file at the root level of the repo is rendered as styled text on a GitHub repo page beneath the directory structure, and thus serves as the repo's visual website. Markdown is useful for web development beyond GitHub as well; for instance, we wrote these lessons in Markdown with Github applying our styles automatically upon upload (Figure 7.1.1)!
 
-![figure7.2.1.png](img/figure7.2.1.png)
+![figure7.1.1.png](img/figure7.1.1.png)
 
-###### Figure 2.1: Results of forking the final project repository
+###### Figure 1.1: Using Markdown for the readme file of a GitHub repo
 
-After you fork, you'll notice that the final project repository now on your GitHub has retained its old name: **webmapping-final-project**. You'll want to rename the repo in accordance with your own project plans. Select the "Settings" tab at the top of your repo. One of the first things you should see is text input box labeled **Repository Name**. Rename the project "\[year]_\[projectname]" (Figure 2.2). Click "Rename" to confirm your changes.
-
-![figure7.2.2.png](img/figure7.2.2.png)
-
-###### Figure 2.2: Renaming final project repository
-
-### III. Adding Collaborators
-
-Next, you'll need to make sure all your teammates have access to the repository. You'll be adding everyone as a _**collaborator**_. To add collaborators, select the "Manage Access" tab in the "Settings" Menu. Click "Add a collaborator", and input the GitHub username of one of your teammates. You'll be prompted with the option to add them to the repository (Figure 2.3). If you are following this workbook by yourself, feel free to make a second "dummy" account on GitHub to practice the collaborative tasks associated with the final project.
-
-![figure7.2.3.png](img/figure7.2.3.png)
-
-###### Figure 2.3: Adding a collaborator
-
-Repeat this process with each of your teammates. They will need to accept your invitation in order to clone the repository to their desktop. To do so, login to the email associated with your GitHub account to find the invitation to your team’s repo. If you cannot find the email, check your spam folder, or search "\[year]_\[projectname]" and the email should show up.  Click “view invitation” and, when redirected, “accept invitation”.
-
-### IV. Cloning the Final Project Repo to Your Desktop
-
-Finally, you and your team members will need to clone the final project repository to your desktop server. Open GitHub Desktop and login, choose "Add", and then "Clone Repository". Select the repository **"\[year]_\[projectname]"** located under the header of the team facilitator's GitHub account. Figure 2.4 illustrates cloning the final project repo in GitHub desktop.
-
-![figure7.2.4.png](img/figure7.2.4.png)
-
-###### Figure 2.4: Cloning your team's repo
-
-Select "clone" and follow the remaining instructions to clone your team's repo locally. If prompted with a popup window entiteld "How are you planning to use this fork?" make sure select "For my own purposes" to ensure that your updates will go to the right place. 
-
-> ### **Confirm access to and clone your team's repo.**
-
-### V. Making Your First Commit with Markdown
-
-With your team repository cloned, let's add a first commit and push to the _readme.md_ file we have created as part of the repo. A _**readme**_ file acts as the metadata of software, datasets, or other coding libraries. Readme files often include information about authors and licensing as well as documentation and background description about the project. Per the final project instructions, you will use the _readme.md_ file to write your final project proposal. 
-
-The _.md_ extension standards for **_markdown_**, as simple text format similar to ._doc_, ._rtf_ and ._txt_ that makes it easy to format text on the web. The _readme.md_ file at the root level of the repo is rendered as styled text on a GitHub repo page beneath the directory structure, and thus serves as the repo's visual website. Markdown is useful for web development beyond GitHub as well; for instance, we wrote these lessons in markdown with Github applying our styles automatically upon upload!
-
-Using markdown is much like using HTML (the M standing for "markup"), with [slightly nuanced syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to covert from plain text into HTML elements rather than vice versa. Common syntax includes:
+Using Markdown is much like using HTML (the M standing for "markup"), with [slightly nuanced syntax](https://github.com/adam-p/Markdown-here/wiki/Markdown-Cheatsheet) to covert from plain text into HTML elements rather than vice versa. Common styling syntax includes:
 
 *   Markdown styles header using the pound/number key (`#`) to indicate its importance with one (`#`) being `h1`, three (`#` `#` `#`) being `h3`, etc. 
 *   Markdown also affords emphasis styles including traditional _italics_ and **bold**. To italicize something, surround it in either a single asterisk (`*`) or underscore (`_`). To bold something, surround it in two asterisks (`*` `*`) or two underscores (`_` `_`) 
@@ -99,57 +70,102 @@ Using markdown is much like using HTML (the M standing for "markup"), with [slig
 *   If you want the text to be in paragraph form, you can simply type in what you want without adding any additional syntax.
 *   Finally, you can insert an images or external links using brackets (`[]`) for the hyperlink text and parentheses (`()`) for the link itself. If you insert an image, the image must be synced to your remote repository.
 
-Note that some elements of markdown, such as mentioning a user with the (`@`) symbol, are specific to GitHub. **_Vanilla_** markdown refers to styles that are consistent across platforms.
+Markdown posted to GitHub is case sensitive, so make sure your folder references and file extensions (e.g., .png versus .PNG) are correct.
 
-Now that you know a bit about markdown, practice by adding a _readme.md_ file to your Leaflet lab and include your name and project title. It is good to get into the habit of including a _readme.md_ file for every project.
+All GitHub repos should have a _readme.md_ for provenance and collaboration. Before working starting a collaborative repo, add a readme file styled with Markdown as documentation for your Leaflet map. Adding the readme officially concludes _unit-2_ and your Leaflet map!
 
-After practice with your own project, let’s start working on the final project proposal. In your code editor, open the _readme.md_ file from your cloned team repository. Add your name as an ordered list element and commit your changes with “Activity 7” in the commit summary (Figure 2.5).
+![figure7.1.2.png](img/figure7.1.2.png)
+
+
+> ### **Add a _readme.md_ file as documentation for your Leaflet map repo that includes information about authors and licensing, code versions and dependencies, as well as documentation and background description about the project. Try the Markdown styles shown above as separate commits to get a feel for Markdown before finalizing the _readme.md_ file.**
+
+
+###### Figure 1.2: Example _readme.md_ file for your Leaflet map repo.
+
+Lesson 2: Setting Up A Collaborative Repository for a Group Project
+=========================================================
+
+### I. Forking and Renaming the group project Repo
+
+To get you started on your group project, we have created a [group repository template](https://github.com/uwcartlab/webmapping-final-project) under the [UWCartLab](https://github.com/uwcartlab) GitHub account.
+
+To begin, the team facilitator should fork the group project template to their own GitHub Account. To fork, log into GitHub, navigate to the [webmapping-final-project](https://github.com/uwcartlab/webmapping-final-project), and select "fork" in the upper right corner. After the facilitator forks the template, a version of the group project repository is added into the facilator GitHub account. Figure 2.1 illustrates the results of forking the group project repo by the facilitator. 
+
+![figure7.2.1.png](img/figure7.2.1.png)
+
+###### Figure 2.1: Results of forking the group repository.
+
+Notice that the group project repository on the facilitator's GitHub has retained its old name: **webmapping-final-project**. Rename the repo in accordance with your group project plans using the "Settings" tab at the top of your repo and then change the text input labeled **Repository Name**. For clarity in this lesson, we recommend renaming the repo "\[year]_\[projectname]" (Figure 2.2). Click "Rename" to confirm your changes.
+
+![figure7.2.2.png](img/figure7.2.2.png)
+
+###### Figure 2.2: Renaming the group repo.
+
+### II. Adding Collaborators
+
+Next, the facilitator must give all team members access to the repository, adding each additional team member as a _**collaborator**_. To add collaborators, the facilitator should select the "Manage Access" tab in the "Settings" menu and click the "Add a collaborator" option, inputting each team member GitHub username one at a time (Figure 2.3).	
+
+![figure7.2.3.png](img/figure7.2.3.png)
+
+###### Figure 2.3: Adding a collaborator.
+
+Repeat this process with each of your team members. Team members need to accept the invitation in order to clone the repository to their desktop. To do so, team members should login to the email associated with their GitHub account to find the invitation to your group repo. If you cannot find the email, check your spam folder, or search "\[year]_\[projectname]" and the email should show up.  Click "view invitation" and, when redirected, "accept invitation".
+
+### III. Cloning the Group Repo to Your Desktop
+
+Finally, each team member needs to clone the group project repository to their desktop server. Open GitHub Desktop and login, choose "Add", and then "Clone Repository". Select the repository **"\[year]_\[projectname]"** located under the header of the team facilitator's GitHub account. Figure 2.4 illustrates cloning the group project repo in GitHub desktop.
+
+![figure7.2.4.png](img/figure7.2.4.png)
+
+###### Figure 2.4: Cloning your group repo.
+
+Select "clone" and follow the remaining instructions to clone your group repo locally. When prompted with "How are you planning to use this fork?" select "For my own purposes" to ensure that your updates go to the right place. 
+
+> ### **Confirm access to and clone your group repo.**
+
+### IV. Making Your First Commit with Markdown
+
+Now that you know a bit about Markdown, you are ready to start planning and organizing the group project using the _readme.md_ file. In your code editor, open the _readme.md_ file from your cloned group repository. Add your name as an ordered list element and commit your changes with “Activity 7” in the commit summary (Figure 2.5).
 
 ![figure7.2.5.png](img/figure7.2.5.png)
 
-###### Figure 2.5: Adding your name in markdown to _readme.md_
+###### Figure 2.5: Adding your name in Markdown to _readme.md_.
 
-> ### **Add your name to your cloned team repository. Commit and push your changes.**
+> ### **Add your name to your cloned group repository. Commit and push your changes.**
 
-### VI. Dealing with Merge Conflicts
+### V. Dealing with Merge Conflicts
 
-Sooner or later, you will run into merge _**conflicts**_ between your local code and the code in the remote repository after updates from your team members. Efficiently management of merge conflicts is essential for successful collaborative coding. Luckily, Git provides a framework for identifying and resolving conflicts between code when merging.
+Sooner or later, you will run into merge _**conflicts**_ between your local code and the code in the remote repository after updates from your team members. Efficient management of merge conflicts is essential for successful collaborative coding. Luckily, Git provides a framework for identifying and resolving conflicts between code when merging.
 
-The first conflict you will need to resolve is integrating all team member names. After you have committed and pushed your name, fetch origin of the repository to check for updates. If your teammates have added their names, GitHub desktop will prompt you to resolve conflicts in the _readme.md_ file before you can merge the code (Figure 2.6).
+The first conflict you should resolve is integrating all team member names. After you have committed and pushed your name, fetch origin of the repository to check for updates. If your team members have added their names, GitHub desktop will prompt you to resolve conflicts in the _readme.md_ file before you can merge the code (Figure 2.6).
 
 ![figure7.2.6.png](img/figure7.2.6.png)
 
-###### Figure 2.6: An error warning triggered by a merge conflict
+###### Figure 2.6: An error warning triggered by a merge conflict.
 
-When you reopen the _readme.md_ file, you will see that your teammates' names are now in the file as well, creating a conflict. In most text editors, these conflicts will be marked within the file with a random binary ID (Figure 2.7). For our purposes, the location of the conflict is more important than the ID assigned to it.
+When you reopen the _readme.md_ file, your team members' names are now in the file as well, creating a conflict. In most text editors, these conflicts are marked within the file with a random binary ID (Figure 2.7). For our purposes, the location of the conflict is more important than the ID assigned to it.
 
 ![figure7.2.7.png](img/figure7.2.7.png)
 
-###### Figure 2.7: A conflict created when adding your team member names
+###### Figure 2.7: A conflict created when adding your team member names.
 
-Accept the new additions to the code and merge the main branch with your local copy. GitHub desktop will no longer show any conflicts (Figure 2.8).
+Accept the new additions to the code and merge the main branch with your local copy. GitHub desktop no longer shows any conflicts (Figure 2.8)!
 
 ![figure7.2.8.png](img/figure7.2.8.png)
 
-###### Figure 2.8: The revised message when conflicts are resolved, allowing a merge
+###### Figure 2.8: The revised message when conflicts are resolved, allowing a merge.
 
-Now that you know a bit about markdown, work in your team to insert a basic outline for your _readme.md_ file based on the [final project proposal guidelines](https://canvas.wisc.edu/courses/180498/pages/final-project-assignment "Final Project Assignment"). The final project proposal should include sections for your title + team members, your personas and scenarios (perhaps with subheadings separating the personas and scenarios), your requirements document as an numbered list (again separated by representation and interaction requirements), and your wireframes, embedded as images linked from an _img_ folder in your directory (Figure 2.9). It is worth experimenting with the collaborative coding process early on, perhaps over a video call with your teammates.
-
-We are asking you to include a _**persona**_ and a _**scenario**_ to get you thinking about your audience early on. 
-
-The persona should include a description of a prototypical, target user and includes discussion of their interests and responsibilities (e.g., their job description if a professional/scientist; their motivation if part of the general public), with a specific focus on their key needs, expertise levels (across domains and technologies), and motivation.
-
-The scenario then walks us through a hypothetical interaction session with your proposed interactive map, working through multiple stages of interaction loops.
+Now that you know a bit about Markdown, use the _readme.md_ to begin planning the group project (e.g., Figure 2.9). It is worth experimenting with the collaborative coding process early on, perhaps over a video call with your team members.
 
 ![figure7.2.9.png](img/figure7.2.9.png)
 
-###### Figure 2.9: The final project proposal outline
+###### Figure 2.9: An example readme used for collaborative project planning. This example supports a group final project proposal for the Geography 575 course at UW-Madison and includes three components: (1) use case personas and scenarios informing the user experience design, (2) a list of functional requirements for the group project separated by representation and interaction requirements (this also should be logged as milestones in GitHub), and (3) wireframes embedded as images linked from an _img_ folder in your directory (Figure 2.9). 
 
-As you collaboratively write and edit your proposal, you again will create conflicts that you will need to resolve before merging. For instance, Figure 2.10 shows a _search_ operator added by a teammate to the interaction requirements. Before adding a description to your _retrieve_ operator, resolve this conflict so that your teammates can see your description to inform their own (Figure 2.11). The final project proposal is designed to get you in the habit of committing, pushing, and merging using the lower risk framework of markdown as practice for collaborative coding with JavaScript on the actual final project interactive.
+Conflicts occur throughout collaborative coding and it is important to resolve them as they occur. For instance, Figure 2.10 shows a _search_ operator added by a team member to the interaction requirements. Before adding a description to your _retrieve_ operator, resolve this conflict so that your team members can see your description to inform their future work (Figure 2.11). Conflicts grow in complexity when moving away from the simple Markdown format and into complex JavaScript coding, so experiment with the committing, pushing, and merging workflow with the _readme.md_ now to make it easier to interpret and resolve your conflicts with JavaScript later.
 
 ![figure7.2.10.png](img/figure7.2.10.png)
 
-###### Figure 2.10: A merge conflict in the interaction requirements
+###### Figure 2.10: A merge conflict in the interaction requirements.
 
 ![figure7.2.11.png](img/figure7.2.11.png)
 
@@ -157,9 +173,9 @@ As you collaboratively write and edit your proposal, you again will create confl
 
 As you move along in your project, you may want to create separate [branches](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-branches) to test features without committing them to the main branch. If you are happy with the features you tested, you can open a pull request to merge the changes from your head (current) branch to a base (different, perhaps the main) branch, similar to other pull requests. 
 
-During this preliminary stage, you will likely encounter simple merge conflicts that can be resolved using GitHub Desktop. However, some more complicated merge conflicts may need to be resolved using GitHub in your browser, where you can select portions of each version on your project. Alternatively, these conflicts can also be resolved using GitHub command line. Knowing how to use all three is important if you plan to use GitHub in your career.
+As you get started with collaborative coding, you likely will encounter simple merge conflicts that can be resolved using GitHub Desktop. However, more complicated merge conflicts may need to be resolved using GitHub in your browser, where you can select portions of each version to retain in the group project. Alternatively, these conflicts can be resolved using [GitHub command line] (https://cli.github.com/manual/), a more advanced use of the Git framework that is outside the scope of this workbook but helpful as you continue to grow your skills.
 
-> ### **Work with your team to add to the proposal outline that you will complete over the next two chapters, merging and resolving all conflicts.**
+> ### **Work with your team to build the _readme.md_ file supporting your group project, merging and resolving all conflicts.**
 
 Lesson 3: Best Practices for Collaborative Coding
 =================================================
@@ -210,19 +226,19 @@ In the description, it is good practice to elaborate briefly on your summary. Yo
 
 Pull again after you’ve committed, but before you’ve tried pushing your changes to the current branch.
 
-After every commit, it is good practice to pull the remote repo to see if there were changes made _and then_ push your changes to the remote repo. Why do this? First, if something goes wrong with your computer and you just committed an update, you are at risk of losing it since it is not backed up to the remote repo. Second, pushing after each commit helps reduce merge conflicts because your teammates can pull your changes often and make sure that they are working on the most up to date stuff.
+After every commit, it is good practice to pull the remote repo to see if there were changes made _and then_ push your changes to the remote repo. Why do this? First, if something goes wrong with your computer and you just committed an update, you are at risk of losing it since it is not backed up to the remote repo. Second, pushing after each commit helps reduce merge conflicts because your team members can pull your changes often and make sure that they are working on the most up to date stuff.
 
 **7\. Use Milestones to Monitor Progress**
 
-The GitHub online site offers many features not included on the GitHub desktop client. Notably, GitHub online offers a project management feature called "milestones". _**Milestones**_ are used to track progress on project goals and feature development. In this class, you should create a milestone for every feature of your functional scope. For instance, some milestones could include: "Search Box", "Sequencing slider", "Legend", etc. Milestones can be ranked to prioritize the order tasks should be completed. _**Note:**_ You are required to add all functional requirements as milestones _after_ approval of the final project proposal to make the collaborative work transparent to us.
+The GitHub online site offers many features not included on the GitHub desktop client. Notably, GitHub online offers a project management feature called "milestones". _**Milestones**_ are used to track progress on project goals and feature development. In this class, you should create a milestone for every feature of your functional scope. For instance, some milestones could include: "Search Box", "Sequencing slider", "Legend", etc. Milestones can be ranked to prioritize the order tasks should be completed. _**Note:**_ You are required to add all functional requirements as milestones _after_ approval of the group project proposal to make the collaborative work transparent to us.
 
-Before you can enable project milestones, you'll need to activate "issues" on your repository. Normally, GitHub repositories automatically enable issue tracking. Because this is a forked repository, however, you'll ned to do it manually. Open your final project repository using GitHub online. Select "Settings" then scroll to the "Features" area of the main page. Check the box next to "Issues" (Figure 3.4). When you do, you should see a new "Issues" tab at the top of your repository page.
+Before you can enable project milestones, you'll need to activate "issues" on your repository. Normally, GitHub repositories automatically enable issue tracking. Because this is a forked repository, however, you'll ned to do it manually. Open your group project repository using GitHub online. Select "Settings" then scroll to the "Features" area of the main page. Check the box next to "Issues" (Figure 3.4). When you do, you should see a new "Issues" tab at the top of your repository page.
 
 ![figure7.3.4.png](img/figure7.3.4.png)
 
 ###### Figure 3.4: Enabling issues on your respository
 
-To create milestones for your final project, select the "Issues" tab, and click the "milestones" button (Figure 3.5). 
+To create milestones for your group project, select the "Issues" tab, and click the "milestones" button (Figure 3.5). 
 
 ![figure7.3.5.png](img/figure7.3.5.png)
 
@@ -248,7 +264,7 @@ In addition to discussing any issues with your team members, remember that GitHu
 
 1.  Clone the collaborative repository we created for you.
 2.  Add your name to the top of the _readme.md_ file, using a commit message "Activity 7"
-3.  Add an outline based on the final project proposal requirements. You will fill in this outline over the next two weeks.
+3.  Add an outline based on the group project proposal requirements.
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
