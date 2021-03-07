@@ -15,7 +15,7 @@ After this chapter, you should be able to:
 *   Write a readme file in Markdown
 *   Use GitHub as a platform for collaborative coding
 
-Note: The Chapter 7 support what could be conceptualized as a group final project in a classroom setting, but covers skills important to collaborative coding on any group project. If you are working through this chapter by yourself and not in a classroom setting, create a second GitHub account using an alternate email address to practice the collaborative coding concepts described below, as these will be valuable once entering a group work environment. This lesson is not required to continue with solo coding in D3 in _unit-3_.
+Note: The Chapter 7 lessons support what could be conceptualized as a group final project in a classroom setting, but cover skills important to collaborative coding on any group project. If you are working through this chapter by yourself and not in a classroom setting, create a second GitHub account using an alternate email address to practice the collaborative coding concepts described below, as these will be valuable once entering a group work environment. This lesson is not required to continue with solo coding in D3 in _unit-3_.
 
 Lesson 1: Collaborating through GitHub
 ==========================
@@ -184,7 +184,7 @@ Conflicts occur throughout collaborative coding and it is important to resolve t
 
 As you move along in your project, you may want to create separate [branches](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-branches) to test features without committing them to the main branch. If you are happy with the features you tested, you can open a pull request to merge the changes from your head (current) branch to a base (different, perhaps the main) branch, similar to other pull requests. 
 
-As you get started with collaborative coding, you likely will encounter simple merge conflicts that can be resolved using GitHub Desktop. However, more complicated merge conflicts may need to be resolved using GitHub in your browser, where you can select portions of each version to retain in the group project. Alternatively, these conflicts can be resolved using [GitHub command line] (https://cli.github.com/manual/), a more advanced use of the Git framework that is outside the scope of this workbook but helpful as you continue to grow your skills.
+As you get started with collaborative coding, you likely will encounter simple merge conflicts that can be resolved using GitHub Desktop. However, more complicated merge conflicts may need to be resolved using GitHub in your browser, where you can select portions of each version to retain in the group project. Alternatively, these conflicts can be resolved using [GitHub command line](https://cli.github.com/manual/), a more advanced use of the Git framework that is outside the scope of this workbook but helpful as you continue to grow your skills.
 
 > ### **Work with your team to build the _readme.md_ file supporting your group project, merging and resolving all conflicts.**
 
