@@ -22,7 +22,7 @@ Lesson 1: Collaborating through GitHub
 
 ### I. GitHub Collaborative Coding Functionality
 
-As introduced in Chapter 1, _**[GitHub](https://github.com/)**_ is a website and project hosting service that uses the _**[Git](http://git-scm.com/)**_ version control system to take snapshots of your files at a given time, creating a backup that can be shared collaborative when multiple developers are coding at the same time on a group project. Before discussing GitHub as a collaborative coding tool, it is helpful to refresh [core GitHub terminology](https://help.github.com/en/github/getting-started-with-github/github-glossary). 
+As introduced in Chapter 1, _**[GitHub](https://github.com/)**_ is a website and project hosting service that uses the _**[Git](http://git-scm.com/)**_ version control system to take snapshots of your files at a given time, creating a backup that can be shared collaboratively when multiple developers are coding at the same time on a group project. Before discussing GitHub as a collaborative coding tool, it is helpful to refresh [core GitHub terminology](https://help.github.com/en/github/getting-started-with-github/github-glossary). 
 
 We primarily focused on GitHub concepts used for solo coding in Chapter 1:
 
@@ -44,11 +44,11 @@ Specifically, a large focus for this chapter is on the additional features of Gi
 
 ### II. GitHub Group Communication
 
-Collaborative coding, like other collective projects, relies on effective group communication. Some of this communication should occur outside of GitHub, either offline in person or online via email or (preferably) work messaging platforms like [slack](https://slack.com/features). As a first step, determine what communication platform your group will use and when you generally are able to touch base about the group project.
+Collaborative coding, like other collective projects, relies on effective group communication. Some of this communication should occur outside of GitHub, either offline in person or online via email or (preferably) work messaging platforms like [Slack](https://slack.com/features). As a first step, determine what communication platform your group will use and when you generally are able to touch base about the group project.
 
 The next step in collaborative coding is assigning roles to each team member. For example, one member may focus on data loading and processing, another on interaction operators, and a third on layout and styling, etc. When first starting with a new collaboration, we also recommend assigning a group "facilitator" who "owns" the main branch of your code and merges major code conflicts (more below) with the others submitting pull requests to the facilitator for review. Keep in mind that it is OK if roles change a bit and that you should be helping your other team members as they get stuck.
 
-Finally, you should assign specific development tasks to each role. We recommend using GitHub _**milestones**_ to decompose a group project into its functional scope and important subtasks for completing each function, assigning these milestones to different roles.
+Finally, you should assign specific development tasks to each role. We recommend using GitHub _**milestones**_ (more on these later) to decompose a group project into its functional scope and important subtasks for completing each function, assigning these milestones to different roles.
 
 ### II. GitHub Documentation with Markdown
 
@@ -252,13 +252,13 @@ In the description, it is good practice to elaborate briefly on your summary. Yo
 
 Pull again after you’ve committed, but before you’ve tried pushing your changes to the current branch.
 
-After every commit, it is good practice to pull the remote repo to see if there were changes made _and then_ push your changes to the remote repo. Why do this? First, if something goes wrong with your computer and you just committed an update, you are at risk of losing it since it is not backed up to the remote repo. Second, pushing after each commit helps reduce merge conflicts because your team members can pull your changes often and make sure that they are working on the most up to date stuff.
+After every commit, it is good practice to pull the remote repo to see if there were changes made _and then_ push your changes to the remote repo. Why do this? First, if something goes wrong with your computer and you just committed an update, you are at risk of losing it since it is not backed up to the remote repo. Second, pushing after each commit helps reduce merge conflicts because your team members can pull your changes often and make sure that they are working on the most up to date version.
 
 **7\. Use Milestones to Monitor Progress**
 
 The GitHub online site offers many features not included on the GitHub desktop client. Notably, GitHub online offers a project management feature called "milestones". _**Milestones**_ are used to track progress on project goals and feature development. In this class, you should create a milestone for every feature of your functional scope. For instance, some milestones could include: "Search Box", "Sequencing slider", "Legend", etc. Milestones can be ranked to prioritize the order tasks should be completed. _**Note:**_ You are required to add all functional requirements as milestones _after_ approval of the group project proposal to make the collaborative work transparent to us.
 
-Before you can enable project milestones, you'll need to activate "issues" on your repository. Normally, GitHub repositories automatically enable issue tracking. Because this is a forked repository, however, you'll ned to do it manually. Open your group project repository using GitHub online. Select "Settings" then scroll to the "Features" area of the main page. Check the box next to "Issues" (Figure 3.4). When you do, you should see a new "Issues" tab at the top of your repository page.
+Before you can enable project milestones, you'll need to activate "issues" on your repository. Normally, GitHub repositories automatically enable issue tracking. Because this is a forked repository, however, you'll need to do it manually. Open your group project repository using GitHub online. Select "Settings" then scroll to the "Features" area of the main page. Check the box next to "Issues" (Figure 3.4). When you do, you should see a new "Issues" tab at the top of your repository page.
 
 ![figure7.3.4.png](img/figure7.3.4.png)
 
@@ -270,7 +270,7 @@ To create milestones for your group project, select the "Issues" tab, and click 
 
 ###### Figure 3.5: Adding milestones to your collaborative repo
 
-Next, click "create milestone" and fill in the details from your proposal, potentially assigning the milestone to a one or more team members (Figure 3.6).
+Next, click "create milestone" and fill in the details from your proposal, potentially assigning the milestone to one or more team members (Figure 3.6).
 
 ![figure7.3.6.png](img/figure7.3.6.png)
 
