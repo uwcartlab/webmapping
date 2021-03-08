@@ -328,8 +328,8 @@ Second, we need to modify our styles in _style.css_ to better position our slide
     }  
     
     .step img {  
-	    width: 100%;  
-	    height: auto;  
+        width: 100%;  
+        height: auto;  
     } 
 
 Lastly, make sure you add the event listeners for your slider and step buttons **after** adding the controls; otherwise you are trying to attach listeners with to HTML elements that have not been created yet.
@@ -512,18 +512,17 @@ Step 1 in Example 3.4 dynamically adds an `<svg>` element to the legend containe
 ###### Example 3.5: Starting an SVG string in _main.js_
 
     //Example 2.7 line 1...function to create the legend
-    function createLegend(map, attributes){
+    function createLegend(attributes){
         var LegendControl = L.Control.extend({
             options: {
                 position: 'bottomright'
             },
     
-            onAdd: function (map) {
+            onAdd: function () {
                 // create the control container with a particular class name
                 var container = L.DomUtil.create('div', 'legend-control-container');
     
-                //add temporal legend div to container
-                $(container).append('<div id="temporal-legend">')
+                $(container).append('<div class="temporalLegend">Population in <span class="year">1980</span></div>');
     
                 //Step 1: start attribute legend svg string
                 var svg = '<svg id="attribute-legend" width="130px" height="130px">';
@@ -536,8 +535,6 @@ Step 1 in Example 3.4 dynamically adds an `<svg>` element to the legend containe
         });
     
         map.addControl(new LegendControl());
-    
-        updateLegend(map, attributes[0]);
     };
 
 
