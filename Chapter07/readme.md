@@ -15,7 +15,7 @@ After this chapter, you should be able to:
 *   Write a readme file in Markdown
 *   Use GitHub as a platform for collaborative coding
 
-Note: The Chapter 7 support what could be conceptualized as a group final project in a classroom setting, but covers skills important to collaborative coding on any group project. If you are working through this chapter by yourself and not in a classroom setting, create a second GitHub account using an alternate email address to practice the collaborative coding concepts described below, as these will be valuable once entering a group work environment. This lesson is not required to continue with solo coding in D3 in _unit-3_.
+Note: The Chapter 7 lessons support what could be conceptualized as a group final project in a classroom setting, but cover skills important to collaborative coding on any group project. If you are working through this chapter by yourself and not in a classroom setting, create a second GitHub account using an alternate email address to practice the collaborative coding concepts described below, as these will be valuable once entering a group work environment. This lesson is not required to continue with solo coding in D3 in _unit-3_.
 
 Lesson 1: Collaborating through GitHub
 ==========================
@@ -57,6 +57,19 @@ Collaborative coding with GitHub relies as much on functions like forking, mergi
 As your projects grow in scale, you also should add documentation to explain the repos to other collaborators (some of whom may be joining the project in the future) as well as to other interested coders who might draw on your work following the ethos of "libre" free and open source software. A _**readme**_ file acts as the metadata of software, datasets, or other repos posted to GitHub. Readme files often include information about authors and licensing, code versions and dependencies, as well as documentation and background description about the project.
 
 GitHub readme files use _.md_ extension standards for **_Markdown_**, a simple text format similar to ._doc_, ._rtf_ and ._txt_ that makes it easy to format text on the web. The _readme.md_ file at the root level of the repo is rendered as styled text on a GitHub repo page beneath the directory structure, and thus serves as the repo's visual website. Markdown is useful for web development beyond GitHub as well; for instance, we wrote these lessons in Markdown with Github applying our styles automatically upon upload (Figure 7.1.1)!
+
+###### Example 1.1: Markdown code for Chapter 1
+
+    ### [Return Home](../../../) | [Previous Chapter](../Introduction) | [Next Chapter](../Chapter02)
+
+    Chapter 1: Setting Up Your Workspace
+    =====================================
+
+    Welcome to the first chapter of Web Mapping! Chapter 1 includes three lessons and Activities 1 & 2:
+
+    *   In Lesson 1, we will introduce text editors and some basic "boilerplate" HTML used to structure your website.
+
+    *   In Lesson 2, we will discuss how to efficiently set up your web directory and host it through a localhost development server.
 
 ![figure7.1.1.png](img/figure7.1.1.png)
 
@@ -173,7 +186,7 @@ Conflicts occur throughout collaborative coding and it is important to resolve t
 
 As you move along in your project, you may want to create separate [branches](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-branches) to test features without committing them to the main branch. If you are happy with the features you tested, you can open a pull request to merge the changes from your head (current) branch to a base (different, perhaps the main) branch, similar to other pull requests. 
 
-As you get started with collaborative coding, you likely will encounter simple merge conflicts that can be resolved using GitHub Desktop. However, more complicated merge conflicts may need to be resolved using GitHub in your browser, where you can select portions of each version to retain in the group project. Alternatively, these conflicts can be resolved using [GitHub command line] (https://cli.github.com/manual/), a more advanced use of the Git framework that is outside the scope of this workbook but helpful as you continue to grow your skills.
+As you get started with collaborative coding, you likely will encounter simple merge conflicts that can be resolved using GitHub Desktop. However, more complicated merge conflicts may need to be resolved using GitHub in your browser, where you can select portions of each version to retain in the group project. Alternatively, these conflicts can be resolved using [GitHub command line](https://cli.github.com/manual/), a more advanced use of the Git framework that is outside the scope of this workbook but helpful as you continue to grow your skills.
 
 > ### **Work with your team to build the _readme.md_ file supporting your group project, merging and resolving all conflicts.**
 
