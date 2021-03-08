@@ -87,13 +87,26 @@ Markdown posted to GitHub is case sensitive, so make sure your folder references
 
 All GitHub repos should have a _readme.md_ for provenance and collaboration. Before working starting a collaborative repo, add a readme file styled with Markdown as documentation for your Leaflet map. Adding the readme officially concludes _unit-2_ and your Leaflet map!
 
-![figure7.1.2.png](img/figure7.1.2.png)
+###### Example 1.2: Example code for Leaflet lab
 
+    ### **Title:** *Number of Cartographers by U.S. City*
+
+    ### **Author:** Lambert Molleweide
+
+    ### **Dependencies:**
+    * [JQuery 3.6.0](https://jquery.com/)
+    * [Leaflet 1.6](https://leafletjs.com/reference-1.6.0.html)
+
+    ### **Code Version:**
+    Last Updated: 7 March, 2021
+
+    ### **Description:**
+    This interactive proportional symbol map, built using Leaflet, demonstrates the growth of cartographers by major U.S. city from 2010 to 2020.
 
 > ### **Add a _readme.md_ file as documentation for your Leaflet map repo that includes information about authors and licensing, code versions and dependencies, as well as documentation and background description about the project. Try the Markdown styles shown above as separate commits to get a feel for Markdown before finalizing the _readme.md_ file.**
 
-
-###### Figure 1.2: Example _readme.md_ file for your Leaflet map repo.
+![figure7.1.2.png](img/figure7.1.2.png)
+###### Figure 1.2: Example _readme.md_ file for your Leaflet map repo, in GitHub
 
 Lesson 2: Setting Up A Collaborative Repository for a Group Project
 =========================================================
