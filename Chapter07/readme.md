@@ -187,15 +187,31 @@ Now that you know a bit about Markdown, use the _readme.md_ to begin planning th
 
 ###### Figure 2.9: An example readme used for collaborative project planning. This example supports a group final project proposal for the Geography 575 course at UW-Madison and includes three components: (1) use case personas and scenarios informing the user experience design, (2) a list of functional requirements for the group project separated by representation and interaction requirements (this also should be logged as milestones in GitHub), and (3) wireframes embedded as images linked from an _img_ folder in your directory (Figure 2.9). 
 
-Conflicts occur throughout collaborative coding and it is important to resolve them as they occur. For instance, Figure 2.10 shows a _search_ operator added by a team member to the interaction requirements. Before adding a description to your _retrieve_ operator, resolve this conflict so that your team members can see your description to inform their future work (Figure 2.11). Conflicts grow in complexity when moving away from the simple Markdown format and into complex JavaScript coding, so experiment with the committing, pushing, and merging workflow with the _readme.md_ now to make it easier to interpret and resolve your conflicts with JavaScript later.
+Conflicts occur throughout collaborative coding and it is important to resolve them as they occur. For instance, Figure 2.10 shows a _search_ operator added by a team member to the interaction requirements in the exact same place as your _retrieve_ operator. Before adding a description to your _retrieve_ operator, resolve this conflict so that your team members can see your description to inform their future work (Figure 2.11). Conflicts grow in complexity when moving away from the simple Markdown format and into complex JavaScript coding, so experiment with the committing, pushing, and merging workflow with the _readme.md_ now to make it easier to interpret and resolve your conflicts with JavaScript later.
+
+Instead of using a code editor, you can also resolve conflicts directly in GitHub desktop.
 
 ![figure7.2.10.png](img/figure7.2.10.png)
 
 ###### Figure 2.10: A merge conflict in the interaction requirements.
 
+Lines highlighted blue will be preserved when you make the commit. 
+
 ![figure7.2.11.png](img/figure7.2.11.png)
 
-###### Figure 2.11. Resolving the merge conflict in the interaction requirements
+###### Figure 2.11. A view of the merge conflict with the added _search_ operator selected for preservation.
+
+Depending on the nature of the conflict, you may need to remove the other lines added by GitHub manually. Right-click on each added line and select "Discard Changes".
+
+![figure7.2.12.png](img/figure7.2.12.png)
+
+###### Figure 2.12. Discarding unwanted changes in GitHub Desktop.
+
+![figure7.2.13.png](img/figure7.2.13.png)
+
+###### Figure 2.13. Resolved conflict.
+
+There are multiple ways to resolve conflicts in GitHub, so use whichever approach works best for you.
 
 As you move along in your project, you may want to create separate [branches](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-branches) to test features without committing them to the main branch. If you are happy with the features you tested, you can open a pull request to merge the changes from your head (current) branch to a base (different, perhaps the main) branch, similar to other pull requests. 
 
