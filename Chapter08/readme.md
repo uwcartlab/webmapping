@@ -611,7 +611,7 @@ The next step is to create a new SVG element to hold the axis. The axis generato
             .call(yAxis);
     
 
-Note that we use the `.call()` method to invert the order of the code, feeding the `axis` selection to the `yAxis`. This is a useful shorthand for generator that does not return anything; it is functionally equivalent to (Example 3.8).
+Note that we use the `.call()` method to invert the order of the code, feeding the `axis` selection to the `yAxis`. This is a useful shorthand for generator that does not return anything (Example 3.8).
 
 ###### Example 3.8: Inverting `.call(yAxis)` in _main.js_
 
@@ -663,7 +663,7 @@ We can see our axis, but it is difficult to read. We need to style it properly t
     }
     
 
-*   **_Rule:_** _assign static or default styles in \*style.css_.\*
+*   **_Rule:_** _Assign static or default styles in \*style.css_.\*
 
 In Example 3.10, we give all `<path>` and `<line>` elements within the axis `<g>` element styles that render crisp, thin, black lines without any fill (lines 1-7). The `.axis text` style applies to the numbers, which we make smaller so they fit in the gray border of the chart. Here is the result (Figure 3.7).
 
@@ -691,7 +691,7 @@ Figure 3.8 shows the more desirable axis.
 
 ### IV. Text
 
-Our bubble chart is almost complete. It could use a title, though. Since SVG is mainly for drawing, most SVG elements do not support text content. An exception is the `<text>` element. We can add a block to append one (Example 3.12).
+Our bubble chart is almost complete. It could use a title, though. Since SVG is mainly for drawing shapes, most SVG elements do not support text content. An exception is the `<text>` element. We can add a block to append one (Example 3.12).
 
 ###### Example 3.12: Adding a title to the chart
 
