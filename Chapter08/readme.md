@@ -303,7 +303,7 @@ In Chapter 9, we will find that D3 allows us to map GeoJSON geometries by making
 
 In Lesson 1, we looked at how to bind a single datum to a selection for styling a markup element. But what if you want to create a _set_ of new elements and style them in a way that corresponds to a bunch of different data values? Say we want to create a bubble chart, with several circles styled according to a dataset. D3 supports manipulation and rendering of multiple data elements through a  _[**join**](http://bost.ocks.org/mike/join/)_, as a result "joining" an array of data to an array of markup elements in the DOM.
 
-The first thing we need to create a join is a data array, such as those presented in Example 2.1. To our existing script from Lesson 1, let's add a simple array of numbers (Example 2.3).
+The first thing we need to create a join is a data array, such as those presented in Example 2.1. Add a simple array of numbers to the existing script from Lesson 1 (Example 2.3).
 
 ###### Example 2.3: A data array in _main.js_
 
@@ -347,7 +347,7 @@ If we now view the markup using the developer tools HTML tab, we can see our new
 
 ###### Figure 2.1: The circles exist!
 
-Notice there are five circles, one for each datum. Using `.append()` after a data join always creates the same number of new HTML elements as data values in the dataset. The circles are not visible on the page because, as you may recall from Chapter 6, they require `r`, `cx`, and `cy` attributes. We can use our joined data to position the circles (Example 2.6).
+Notice there are five circles, one for each datum. Using `.append()` after a data join always creates the same number of new HTML elements as data values in the dataset. The `svg` circles are not visible on the page because, as you may recall from Chapter 6, they require `r`, `cx`, and `cy` attributes. We can use our joined data to position the circles (Example 2.6).
 
 ###### Example 2.6: Using the joined data in _main.js_
 
@@ -375,7 +375,7 @@ In a block with a data join, the anonymous functions that return a second parame
 
 ![figure8.2.2.png](img/figure8.2.2.png)
 
-###### Figure 2.2: data-driven circles
+###### Figure 2.2: Data-driven circles
 
 ### III. Complex Data
 
