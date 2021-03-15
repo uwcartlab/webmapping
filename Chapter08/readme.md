@@ -467,9 +467,9 @@ So far, we have seen how D3 uses data to dynamically draw and style markup eleme
 
 *   [**_Continuous scales_**](https://github.com/d3/d3-scale/blob/master/README.md#continuous-scales) map the domain to a continuous _**range**_ of output (y) values; these are useful for linear, power, and log scales (see below), axes, and [time scales](https://github.com/d3/d3-scale/blob/master/README.md#time-scales).
 *   [_**Sequential scales**_](https://github.com/d3/d3-scale/blob/master/README.md#sequential-scales) are similar, but map the domain to an interpolator, or specific range function. These are most useful for creating color ramps.
-*   [_**Quantize scales**_](https://github.com/d3/d3-scale/blob/master/README.md#sequential-scales) have a discrete range, or set of specific output values; we'll use those to create classed choropleths in the next module.
-*   _**Threshold scales**_ subdivide the continuous domain according to specified class breaks and map the subsets to discreet range values.
-*   _**[Ordinal scales](https://github.com/d3/d3-scale/blob/master/README.md#ordinal-scales)**_ have a discreet domain, such as names or categories, and a discreet range.
+*   [_**Quantize scales**_](https://github.com/d3/d3-scale/blob/master/README.md#sequential-scales) have a discrete range, or set of specific output values; we'll use those to create classed choropleths in Chapter 9.
+*   [_**Threshold scales**_](https://github.com/d3/d3-scale/blob/master/README.md#threshold-scales) subdivide the continuous domain according to specified class breaks and map the subsets to discrete range values.
+*   [_**Ordinal scales**_](https://github.com/d3/d3-scale/blob/master/README.md#ordinal-scales) have a discrete domain, such as names or categories, and a discrete range.
 
 For now, we will focus on continuous scales. D3 offers several kinds of continuous scales, including linear scales, power scales, log scales, and others. You can explore these on the API documentation page linked above. The most used type of continuous scale is the _**[linear scale](https://github.com/d3/d3-scale/blob/master/README.md#linear-scales)**_, which simply interpolates values using linear algebra. It is important to note that there is nothing inherently _visual_ about a scale; it is merely a mathematical function used to derive a new data value from an input data value (Figure 3.1).
 
@@ -479,7 +479,7 @@ For now, we will focus on continuous scales. D3 offers several kinds of continu
 
 How would we apply a scale? Let's say we wanted to space our circles more evenly along the horizontal axis of the bubble chart. As our script stands, we are using a simple mathematical equation with the array index value as an input domain to return each circle's center x position (Example 2.8 line 36). Instead, we can create a linear scale with an array of the minimum and maximum index values as the domain and an array with our desired minimum and maximum x coordinates as the range. Note that we must create our scale _above_ the `circles` block and assign it to a variable to use it in the block (Example 3.1).
 
-###### Example 3.1: x coordinate linear scale in _main.js_
+###### Example 3.1: The x coordinate linear scale in _main.js_
 
         //above Example 2.8 line 20
         var x = d3.scaleLinear() //create the scale
