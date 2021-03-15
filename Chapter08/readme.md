@@ -82,7 +82,7 @@ Note that both jQuery and D3 have `.append()` methods. In this case, we know tha
 
 ### III. Operands
 
-In Example 1.1, the block chain is assigned to an `<svg>` variable called `container`. In other words, this variable stores the data-driven _**operand**_ receiving the D3 operators, much like [the use of operand in UX design] (https://gistbok.ucgis.org/bok-topics/user-interface-and-user-experience-uiux-design). To make the purpose of each block clear, assign each block to a variable based on the operand that is returned when the end of the block is reached. The operand variable serves as the _**block name**_. Remember that it is important to place a semicolon _only_ at the _end_ of a block, and not on each line, as a semicolon tells the browser that it has reached the end of a statement, breaking your method chain to conclude a block.
+In Example 1.1, the block chain is assigned to an `<svg>` variable called `container`. In other words, this variable stores the data-driven _**operand**_ receiving the D3 operators, much like [the use of "operand" in UX design](https://gistbok.ucgis.org/bok-topics/user-interface-and-user-experience-uiux-design). To make the purpose of each block clear, assign each block to a variable based on the operand that is returned when the end of the block is reached. The operand variable serves as the _**block name**_. Remember that it is important to place a semicolon _only_ at the _end_ of a block, and not on each line, as a semicolon tells the browser that it has reached the end of a statement, breaking your method chain to conclude a block.
 
 *   **_Rule:_** _Only place a semicolon after the last line of a block. If your code results in errors, look for a wayward semicolon._
     
