@@ -3,7 +3,7 @@
 Chapter 2: Scripting and Debugging
 =================================
 
-Congratulations on your first successful chapter of Web Mapping! You now have created your first Github repo (Activity 1) and completed foundational tutorials for developing on the Open Web (Activity 2). Chapter 2 includes four lab lessons and ends with Activity 3, a debugging exercise to test your knowledge on JavaScript.
+Congratulations on your first successful chapter of Web Mapping! You now have created your first GitHub repo (Activity 1) and completed foundational tutorials for developing on the Open Web (Activity 2). Chapter 2 includes four lab lessons and ends with Activity 3, a debugging exercise to test your knowledge on JavaScript.
 
 *   In Lesson 1, we review the Document Object Model (DOM) and the ways that browsers interpret content on the web.
 *   In Lesson 2, we review JavaScript basics, including syntax rules for variables, functions, and the flow of execution. Lessons 1 and 2 are largely review from the Codecademy tutorials.
@@ -20,9 +20,9 @@ After this chapter, you should be able to:
 Getting Started
 ---------------
 
-Begin Chapter 2 by forking _unit-1_ from the [workbook Unit 1 Github page](https://github.com/uwcartlab/unit-1). To do so, navigate to the Unit 1 repository on GitHub and click the "Fork" button in the upper-right corner (Figure 0.1).
+Begin Chapter 2 by forking _unit-1_ from the [workbook Unit 1 GitHub page](https://github.com/uwcartlab/unit-1). To do so, navigate to the Unit 1 repository on GitHub and click the "Fork" button in the upper-right corner (Figure 0.1).
 
-As introduced last chapter, _**forking**_ a Github repo creates a copy of an existing repository for personal use, creating a _**branch**_ in the code. Forking typically is used to add functionality or propose changes to the _**main branch**_ of an existing project that you do not control (e.g., you can fork the Leaflet and D3 web mapping libraries we use later in the semester), meaning that cloning your own new project generally is more common than forking an existing project. We will use forking to start each unit from a common repository.
+As introduced last chapter, _**forking**_ a GitHub repo creates a copy of an existing repository for personal use, creating a _**branch**_ in the code. Forking typically is used to add functionality or propose changes to the _**main branch**_ of an existing project that you do not control (e.g., you can fork the Leaflet and D3 web mapping libraries we use later in the semester), meaning that cloning your own new project generally is more common than forking an existing project. We will use forking to start each unit from a common repository.
 
 After you fork the repo, you should be able to see _unit-1_ in your own repository list. A benefit of forking versus cloning is that you can track the changes of the source repository and sync any updates to your own. For example, if we made changes to the _unit-1_ course repository (source repository), an alert will be added to your repository page. 
 
@@ -40,7 +40,7 @@ In the "Comparing Changes" page, you can review new updates by switching the "ba
 
 These steps may seem to be a lot of work compared to a simple download, but they allow you to experiment with GitHub's version control system that you will rely on more heavily when creating larger projects. While it is tempting to ignore version control, learning and using it now will save you time in the long-run.
 
-> ### **Fork the _unit-1_ repo from the [workbook Unit 1 Github page](https://github.com/uwcartlab/unit-1). The repo includes the HTML boilerplate from Chapter 1 and additional code snippets for the Chapter 2 lessons, including your debugging assignment.**
+> ### **Fork the _unit-1_ repo from the [workbook Unit 1 GitHub page](https://github.com/uwcartlab/unit-1). The repo includes the HTML boilerplate from Chapter 1 and additional code snippets for the Chapter 2 lessons, including your debugging assignment.**
 
 Lesson 1: Exploring the DOM
 ---------------------------
