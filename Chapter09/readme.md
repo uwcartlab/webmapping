@@ -54,7 +54,7 @@ Examples 1.1 and 1.2 show a single, relatively simple polygon feature stored as 
             }
         ]
     }
-    
+
 
 ###### Example 1.2: The same polygon feature as in Example 1.1, stored as TopoJSON
 
@@ -81,7 +81,7 @@ Examples 1.1 and 1.2 show a single, relatively simple polygon feature stored as 
             }
         }
     }
-    
+
 
 In Example 1.1, all data related to the polygon feature is stored in a single `"Feature"` object within the `"features"` array (lines 4-14). In Example 1.2, identifying data related to the polygon feature is stored in a `"Polygon"` object within the '"geometries"' array (lines 12-19), while the `"arcs"` used by that feature are stored in a separate array that contains other arrays with integers (line 7). Since each decimal must be stored in the computer's memory as an 8-bit character, storing integers rather than float values further reduces the file size in addition to the reduction achieved by eliminating line duplication. The `"transform"` (Example 1.2 lines 3-6)—like the information stored in the ._prj_ file of a shapefile—is a mathematical function applied to each integer to turn it into a geographic coordinate.
 
@@ -135,7 +135,7 @@ Create a promise to load your datasets within a `setMap()` function in _main.js
                         ];    
         Promise.all(promises).then(callback);
     };
-    
+
 
 In Example 1.3, the methods [`d3.csv()`](https://github.com/d3/d3-request/blob/master/README.md#csv) and [`d3.json()`](https://github.com/d3/d3-request/blob/master/README.md#json) are AJAX methods similar to `$.ajax()` and `$.getJSON()` in jQuery. D3 provides many convenient [AJAX methods](https://github.com/d3/d3-request/blob/master/README.md) that can be used individually or as part of a promise. These normally are called with a URL and callback as their own parameters, but `Prosemise.all()` only uses the AJAX method name and takes care of the rest.
 
@@ -161,7 +161,7 @@ Once we have set up our `Promise.all()` block, we can write the callback functio
                 console.log(france);    
             };
     };
-    
+
 
 The `console.log()` statements print the results to separate lines of the console. As you can see in Figure 1.3, `d3.csv()` automatically formats the imported CSV data as an array, and `d3.json()` formats the spatial data as an object.
 
@@ -183,7 +183,9 @@ As explained in the `topojson.js` [API Reference](https://github.com/topojson/to
 
 ###### Example 1.5: Converting TopoJSON to GeoJSON in _main.js_
 
-        function callback(data){        ...
+        function callback(data){        
+        		...
+        		
             //translate europe TopoJSON
             var europeCountries = topojson.feature(europe, europe.objects.EuropeCountries),
                 franceRegions = topojson.feature(france, france.objects.FranceRegions);
@@ -192,7 +194,7 @@ As explained in the `topojson.js` [API Reference](https://github.com/topojson/to
             console.log(europeCountries);
             console.log(franceRegions);
         };
-    
+
 
 In Example 1.5, each TopoJSON object is passed as the first parameter to `topojson.feature()`. The second parameter is the object that holds the details unique to each dataset. In Example 1.2 (line 9), this object was named `"example"`; for our tutorial spatial data, it retains the name of the original file that was passed through MapShaper. Once the data has been translated and assigned to variables, we can examine those variables in the console and see that they are now GeoJSON `FeatureCollection`s:
 
@@ -298,7 +300,7 @@ Having created a projection function, we can now apply it to our spatial data to
     
         var path = d3.geoPath()
             .projection(projection);
-    
+
 
 Creating the path generator is straightforward—we just create a two-line block, first calling `d3.geoPath()`, then using the `.projection()` operator to pass it our projection generator as the parameter (lines 9-10). The variable `path` now holds the path generator. Now let's apply it to draw the geometries from our spatial data (Example 2.3).
 
@@ -328,7 +330,7 @@ Creating the path generator is straightforward—we just create a two-line block
                 })
                 .attr("d", path);
     };
-    
+
 
 In Example 2.3, we add two blocks: one for the background countries (lines 8-11) and one for the regions that will become our choropleth enumeration units (lines 14-21). Because the `countries` block takes the `europeCountries` GeoJSON `FeatureCollection` as a single datum, all of its spatial data is drawn as a single feature. A single SVG `<path>` element is appended to the map container, and its `d` attribute is assigned the `path` generator. This automatically passes the datum to the `path` generator, which returns an SVG path coordinate string to the `<path>` element's `d` attribute. (Do not confuse the `<path> d` attribute with the variable `d` that iteratively holds each datum in a `.data()` block, such as on line 18 of Example 2.3). To recall what a path coordinate string looks like, review Chapter 6 or see Figure 2.3.
 
@@ -351,7 +353,7 @@ Obviously, we do not want our map to be colored default black-and-white. We will
         stroke: #CCC;
         stroke-width: 2px;
     }
-    
+
 
 Figure 2.4 shows the result of the styled surrounding country borders.
 
@@ -376,13 +378,13 @@ If you want to include a graticule, D3 provides a convenient [`d3.geoGraticule()
 
         //Example 2.3 line 1
         function callback(data){   
-
+    
             ...
             
             //create graticule generator
             var graticule = d3.geoGraticule()
                 .step([5, 5]); //place graticule lines every 5 degrees of longitude and latitude
-    
+
 
 The [`.step()`](https://github.com/d3/d3-geo/blob/master/README.md#graticule_step) operator (line 5) tells the generator to place a graticule line every five degrees of longitude and latitude. Next, use the `graticule` generator to give us the geospatial data for the graticule lines we will place on the map, and our `path` generator to draw the `<path>` element `d` strings for them (Example 2.6).
 
@@ -399,7 +401,7 @@ The [`.step()`](https://github.com/d3/d3-geo/blob/master/README.md#graticule_ste
                 .append("path") //append each element to the svg as a path element
                 .attr("class", "gratLines") //assign class for styling
                 .attr("d", path); //project graticule lines
-    
+
 
 In Example 2.6, we use the `.selectAll().data().enter()` chain to create a separate `<path>` element for each line of the graticule. The data is provided by the [`graticule.lines()`](https://github.com/d3/d3-geo/blob/master/README.md#graticule_lines) method (line 7), which builds and returns a GeoJSON features array with all of the graticule lines selected by the `.step()` operator (line 3). To actually see the lines instead of a default black fill, we need to add another set of styles to _style.css_ (Example 2.7).
 
@@ -410,7 +412,7 @@ In Example 2.6, we use the `.selectAll().data().enter()` chain to create a separ
         stroke: #999;
         stroke-width: 1px;
     }
-    
+
 
 We should now be able to see our graticule lines (Figure 2.5).
 
@@ -434,7 +436,12 @@ Finally, we can add contrast between land and water by coloring the background o
     
             //Example 2.6 line 5...create graticule lines
             var gratLines = map.selectAll(".gratLines") //select graticule elements that will be created
-    
+                .data(graticule.lines()) //bind graticule lines to each element to be created
+                .enter() //create an element for each datum
+                .append("path") //append each element to the svg as a path element
+                .attr("class", "gratLines") //assign class for styling
+                .attr("d", path); //project graticule lines
+
 
 We can then style the `gratBackground <path>` element to symbolize water (Example 2.9).
 
@@ -443,7 +450,7 @@ We can then style the `gratBackground <path>` element to symbolize water (Exampl
     .gratBackground {
         fill: #D5E3FF;
     }
-    
+
 
 Note that separating the `gratBackground` and `gratLines` blocks allows us to reorder the drawing of our graticule and spatial data if we so choose. If we wanted our graticule lines to appear on top of our other geometries, we could leave the `gratBackground` block where it is and move the `gratLines` block below the `countries` and `regions` blocks. The interpreter will add the `<path>` elements from each of these blocks in the order they appear in the script.
 
@@ -454,7 +461,7 @@ One final touch we will add to the map background is a frame to neaten the map (
     .map {
         border: medium solid #999;
     }
-    
+
 
 Figure 2.6 shows the resulting basemap, ready to receive the choropleth symbolization next chapter!
 
