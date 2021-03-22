@@ -107,6 +107,8 @@ Once you see your data, select "Simplify" in the upper-right-hand corner of the 
 
 > ### **Simplify your spatial data and convert it to TopoJSON format using mapshaper. Save the resulting TopoJSON in the _data_ folder of your _unit-3_ directory, changing the file extension to _.topojson_.**
 
+Note: For Mac users, you may need to right click the file, go to "Get Info" and rename it in "Name & Extension" to change the file extension from .json to .topojson.
+
 ### III. Using Promises to Load Data into the DOM
 
 At this point, you should have at least one TopoJSON file for your spatial data (this tutorial uses two) and one CSV file for your attribute data. The attribute CSV should be a table of geographic features that includes an identifying attribute shared with the spatial data (Figure 1.2, column C) and at least five quantitative attributes that are of interest to you (columns D-H). Replace the [dummy data](data/unitsData.csv "unitsData.csv") in Figure 1.2 with your own chosen dataset.
