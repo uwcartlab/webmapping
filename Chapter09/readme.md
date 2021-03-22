@@ -370,7 +370,7 @@ Lesson 3: The D3 Graticule Generator
 
 ### I. Drawing a Graticule
 
-With our geometries drawn, we could add a flat background color to the `<svg>` map container. But on a small-scale map such as our example, it is helpful to include a graticule to represent the projection distortion and provide an indication of north. Providing a graticule is <ins>_**optional**_</ins> for your D3 map, and probably does not make sense unless you are showing both land and water.
+With our geometries drawn, we could add a flat background color to the `<svg>` map container. But on a small-scale map such as our example, it is helpful to include a graticule to represent the projection distortion and provide an indication of north. Providing a graticule is <ins>_**optional**_</ins> for your D3 map, and probably only makes sense if your mapped geography is abuts large water bodies.
 
 If you want to include a graticule, D3 provides a convenient [`d3.geoGraticule()`](https://github.com/d3/d3-geo/blob/master/README.md#geoGraticule) method for creating a _**graticule generator**_. To use it, first create the graticule generator (Example 2.5).
 
