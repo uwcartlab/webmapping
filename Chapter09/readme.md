@@ -6,7 +6,7 @@ Chapter 9: Mapping with D3
 Now that you have a basic understanding of some foundational D3 concepts, it is time to make a map! Chapter 9 includes three shorter lessons (one optional) as you work on your final project proposal and ends with Activity 9, creating your first D3 map.
 
 -   In Lesson 1, we cover some useful ancillary tools and techniques, including the TopoJSON data format, the MapShaper web application, and `Promise.all()` for combining multiple AJAX calls.
--   In Lesson 2, we tackle the somewhat complex but vital topic of D3 map projections, walking through D3's projection and path generators to map spatial data as vector linework in the browser..
+-   In Lesson 2, we tackle the somewhat complex but vital topic of D3 map projections, walking through D3's projection and path generators to map spatial data as vector linework in the browser.
 -   In the optional Lesson 3, we add a background graticule to our web map to provide additional spatial context.
 
 After this chapter, you should be able to:
@@ -23,16 +23,16 @@ _**[TopoJSON](https://github.com/mbostock/topojson/wiki)**_ is the first geospat
 
 For desktop GIS software, [topology](http://webhelp.esri.com/arcgisserver/9.3/java/index.htm#geodatabases/topology_basics.htm) is encoded by coverage and geodatabase file formats but not in shapefiles. The advantages of topological data formats over "spaghetti model" data formats such as shapefiles and GeoJSON are threefold:
 
-1.  Data integrity can be maintained when features are edited; in other words, editing feature boundaries will not result in gaps or overlaps between features;
+1.  Data integrity can be maintained when features are edited; in other words, editing feature boundaries will not result in gaps or overlaps between features.
     
-2.  Spatial analysis using the relationships between features is easier to perform;
+2.  Spatial analysis using the relationships between features is easier to perform.
     
 3.  File size is significantly reduced because overlapping vertices and feature edges are eliminated.
     
 
-This last point is especially important for mapping vector data on the Web. While bandwidths and processors are constantly improving, datasets also are growing in size and a significant performance penalty remains for loading very large datasets into the browser, particularly on mobile networks. The GeoJSON format was designed based on the [Simple Features standard](http://www.opengeospatial.org/standards/sfa), and stores points, lines, and polygons as individual features in a `FeatureCollection`. Thus, in any polygon dataset, each line that forms an edge between two polygons is duplicated—it's stored separately for each feature that uses it.
+This last point is especially important for mapping vector data on the Open Web. While bandwidths and processors are constantly improving, datasets also are growing in size and a significant performance penalty remains for loading very large datasets into the browser, particularly on mobile networks. The GeoJSON format was designed based on the [Simple Features standard](http://www.opengeospatial.org/standards/sfa), and stores points, lines, and polygons as individual features in a `FeatureCollection`. Thus, in any polygon dataset, each line that forms an edge between two polygons is duplicated—it is stored separately for each feature that uses it.
 
-The TopoJSON format, created by D3 creator Mike Bostock, eliminates all of this duplicate data by implementing topology using JSON syntax. TopoJSON files are a fraction of the size of the equivalent data as GeoJSON, making them much faster to draw in the browser. Rather than store all of the vertices as coordinate arrays for each feature, TopoJSON stores a list of Arcs for each feature, a separate list of arc coordinates, and a mathematical transform to georeference those coordinates within the [EPSG:4326/WGS 84](https://spatialreference.org/ref/epsg/wgs-84/) coordinate reference system.
+The TopoJSON format, created by D3 creator Mike Bostock, eliminates all of this duplicate data by implementing topology using JSON syntax. TopoJSON files are a fraction of the size of the equivalent data as GeoJSON, making them much faster to draw in the browser. Rather than storing all of the vertices as coordinate arrays for each feature, TopoJSON stores a list of Arcs for each feature, a separate list of arc coordinates, and a mathematical transform to georeference those coordinates within the [EPSG:4326/WGS 84](https://spatialreference.org/ref/epsg/wgs-84/) coordinate reference system.
 
 Examples 1.1 and 1.2 show a single, relatively simple polygon feature stored as GeoJSON and TopoJSON, respectively. Compare these two examples and notice the differences in data structure.
 
@@ -54,7 +54,7 @@ Examples 1.1 and 1.2 show a single, relatively simple polygon feature stored as 
             }
         ]
     }
-    
+
 
 ###### Example 1.2: The same polygon feature as in Example 1.1, stored as TopoJSON
 
@@ -81,7 +81,7 @@ Examples 1.1 and 1.2 show a single, relatively simple polygon feature stored as 
             }
         }
     }
-    
+
 
 In Example 1.1, all data related to the polygon feature is stored in a single `"Feature"` object within the `"features"` array (lines 4-14). In Example 1.2, identifying data related to the polygon feature is stored in a `"Polygon"` object within the '"geometries"' array (lines 12-19), while the `"arcs"` used by that feature are stored in a separate array that contains other arrays with integers (line 7). Since each decimal must be stored in the computer's memory as an 8-bit character, storing integers rather than float values further reduces the file size in addition to the reduction achieved by eliminating line duplication. The `"transform"` (Example 1.2 lines 3-6)—like the information stored in the ._prj_ file of a shapefile—is a mathematical function applied to each integer to turn it into a geographic coordinate.
 
@@ -89,23 +89,25 @@ While Example 1.2 appears to contain more lines of code, keep in mind that the l
 
 ### II. Using Mapshaper to Simplify and Convert Spatial Data
 
-The major downside to using TopoJSON is that it is under-supported by major desktop GIS software, making converting data to TopoJSON a bit tricky. There is a [command-line tool](https://github.com/topojson/topojson/blob/master/README.md#command-line-reference) available, but it can be difficult to install and work with. Fortunately, there are now at least two Web applications that can do the work for us. You already know about one of them, [geojson.io](http://geojson.io/), from Chapter 3. In this tutorial, we will make use of the second: [MapShaper](http://mapshaper.org/).
+The major downside to using TopoJSON is that it is under-supported by major desktop GIS software, making converting data to TopoJSON a bit tricky. There is a [command-line tool](https://github.com/topojson/topojson/blob/master/README.md#command-line-reference) available, but it can be difficult to install and work with. Fortunately, there are now at least two web applications that can do the work for us. You already know about one of them, [geojson.io](http://geojson.io/), from Chapter 3. In this tutorial, we will make use of the second: [MapShaper](http://mapshaper.org/).
 
-_**MapShaper**_ is a line and polygon simplification tool developed and maintained by New York Times Graphics Editor (and UW-Madison alum!) Matthew Bloch. As discussed in lecture, geospatial data often need to be generalized for interactive web maps, sometimes at different scales for slippy web maps. Line generalization is especially important for mobile-first design to simplify overly-complex geometry. For the D3 lab assignment, you will want to balance keeping your geographic areas recognizable with minimizing the data size to maximize the speed of drawing and interaction in the browser. This tradeoff almost certaintly requires simplifying your chosen spatial data. MapShaper has the added benefit of converting from shapefiles, GeoJSON, or other "flat" files without topology (e.g., DBF and CSV) into TopoJSON as part of the generalization export process.
+_**MapShaper**_ is a line and polygon simplification tool developed and maintained by New York Times Graphics Editor (and UW-Madison alum!) Matthew Bloch. As discussed in lecture, geospatial data often need to be generalized for interactive web maps, sometimes at different scales for slippy web maps. Line generalization is especially important for mobile-first design to simplify overly-complex geometry. For the D3 map, you will want to balance keeping your geographic areas recognizable with minimizing the data size to maximize the speed of drawing and interaction in the browser. This tradeoff almost certaintly requires simplifying your chosen spatial data. MapShaper has the added benefit of converting from shapefiles, GeoJSON, or other "flat" files without topology (e.g., DBF and CSV) into TopoJSON as part of the generalization export process.
 
-The following lessons make use of two GeoJSON files: [_EuropeCountries.geojson_](data/EuropeCountries.geojson "EuropeCountries.geojson") and [_FranceRegions.geojson_](data/FranceRegions.geojson "FranceRegions.geojson"). You should replace these with your own chosen geospatial datasets gathered for your D3 Lab Assignment as part of Activity 8. If you are still searching for polygonal linework, a good source for global- and country-scale data for D3 mapping is [Natural Earth](http://www.naturalearthdata.com/). Other sources may require that you first convert the coordinate system to EPSG:4326/WGS 84 using desktop GIS (try some Google Fu to determine how to do this in your preferred GIS software). If you are working with shapefiles, delete any extra attributes from your dataset to reduce the file size, leaving just the attribute field you will use for joining your multivariate CSV data prepared for Activity 8.
+The following lessons make use of two GeoJSON files: [_EuropeCountries.geojson_](data/EuropeCountries.geojson "EuropeCountries.geojson") and [_FranceRegions.geojson_](data/FranceRegions.geojson "FranceRegions.geojson"). You should replace these with your own chosen geospatial datasets gathered for your D3 map as part of Activity 8. If you are still searching for polygonal linework, a good source for global- and country-scale data for D3 mapping is [Natural Earth](http://www.naturalearthdata.com/). Other sources may require that you first convert the coordinate system to EPSG:4326/WGS 84 using desktop GIS (try some Google Fu to determine how to do this in your preferred GIS software). If you are working with shapefiles, delete any extra attributes from your dataset to reduce the file size, leaving just the attribute field you will use for joining your multivariate CSV data prepared for Activity 8.
 
 > **Find your polygon data, confirm it is in EPSG:4326 in desktop GIS, and strip extra attributes.**
 
 The next step is to navigate to [mapshaper.org](http://mapshaper.org/) and import your geospatial dataset(s) by dragging them into the browser. Shapefiles should be dragged into the browser as a single, compressed _.zip_ file. If formatted correctly, your data should appear immediately as linework against a blank backdrop. If it does not appear, go back to your desktop GIS software and check that you have removed any projection information by assigning EPSG:4326 as the CRS.
 
-Once you see your data, select "Simplify" in the upper-right-hand corner of the web page. You will be presented with a choice of three simplification methods; their differences usually does not matter for simplified interactive web mapping, as they converge the more the linework is simplified. Click "Next" and then use the slider at the top of the page to simplify the linework (Figure 1.1). When you are satisfied with the appearance of the linework (use your cartographic judgement!), click on "Export" in the upper-right corner, then select "TopoJSON". Save the file in the _data_ folder of your _unit-3_ website directory and change the file extension from _.json_ to _.topojson._
+Once you see your data, select "Simplify" in the upper-right-hand corner of the web page. You are presented with a choice of three simplification methods; their differences usually does not matter for simplified interactive web mapping, as they converge the more the linework is simplified. Click "Next" and then use the slider at the top of the page to simplify the linework (Figure 1.1). When you are satisfied with the appearance of the linework (use your cartographic judgement!), click on "Export" in the upper-right corner, then select "TopoJSON". Save the file in the _data_ folder of your _unit-3_ website directory and change the file extension from _.json_ to _.topojson._
 
 ![figure9.1.1.png](img/figure9.1.1.png)
 
 ###### Figure 1.1: Simplifying spatial data in MapShaper
 
-> ### **Simplify your spatial data and convert it to TopoJSON format using mapshaper. Save the resulting TopoJSON in the _data_ folder of your _unit-3_ directory.**
+> ### **Simplify your spatial data and convert it to TopoJSON format using mapshaper. Save the resulting TopoJSON in the _data_ folder of your _unit-3_ directory, changing the file extension to _.topojson_.**
+
+Note: For Mac users, you may need to right click the file, go to "Get Info" and rename it in "Name & Extension" to change the file extension from .json to .topojson.
 
 ### III. Using Promises to Load Data into the DOM
 
@@ -115,7 +117,7 @@ At this point, you should have at least one TopoJSON file for your spatial data 
 
 ###### Figure 1.2: An example multivariate dataset
 
-The next task is to load _all_ of our data files into the DOM using the AJAX concepts first introduced in Chapter 3. In particular, think about how AJAX callbacks work: after each data file is loaded, the data is passed to a callback function. It only can be accessed within that function because it is loaded asynchronously with the rest of the script. But what if you want to access data from multiple external files or continuous data streams? You could load the files in series, calling an AJAX method for the third file within the callback of the second file and calling the AJAX method for the second file within the callback of the first—in essence, nesting the callback functions and accessing the data from the innermost callback. However, it quickly becomes unwieldy to keep track of the scripts within these nested callback methods. Further, one dataset in the series may load but others  may not, producing potential errors when rendering and interacting with the map.
+The next task is to load _all_ of our data files into the DOM using the AJAX concepts first introduced in Chapter 3. In particular, think about how AJAX callbacks work: after each data file is loaded, the data is passed to a callback function. It only can be accessed within that function because it is loaded asynchronously with the rest of the script. But what if you want to access data from multiple external files or continuous data streams? You could load the files in series, calling an AJAX method for the third file within the callback of the second file and calling the AJAX method for the second file within the callback of the first—in essence, nesting the callback functions and accessing the data from the innermost callback. However, it quickly becomes unwieldy to keep track of the scripts within these nested callback methods. Further, one dataset in the series may load but others may not, producing potential errors when rendering and interacting with the map.
 
 There is a simpler _and_ more efficient way to load multiple datasets into the browser using JavaScript: promises. A **_promise_** is a placeholder JavaScript object that represents and eventually stores the completion of asynchronous processes, such as loading data. The [Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) method supports multiple AJAX calls, firing a single callback function containing all loaded datasets once the final dataset is loaded.
 
@@ -135,7 +137,7 @@ Create a promise to load your datasets within a `setMap()` function in _main.js
                         ];    
         Promise.all(promises).then(callback);
     };
-    
+
 
 In Example 1.3, the methods [`d3.csv()`](https://github.com/d3/d3-request/blob/master/README.md#csv) and [`d3.json()`](https://github.com/d3/d3-request/blob/master/README.md#json) are AJAX methods similar to `$.ajax()` and `$.getJSON()` in jQuery. D3 provides many convenient [AJAX methods](https://github.com/d3/d3-request/blob/master/README.md) that can be used individually or as part of a promise. These normally are called with a URL and callback as their own parameters, but `Prosemise.all()` only uses the AJAX method name and takes care of the rest.
 
@@ -161,7 +163,7 @@ Once we have set up our `Promise.all()` block, we can write the callback functio
                 console.log(france);    
             };
     };
-    
+
 
 The `console.log()` statements print the results to separate lines of the console. As you can see in Figure 1.3, `d3.csv()` automatically formats the imported CSV data as an array, and `d3.json()` formats the spatial data as an object.
 
@@ -173,7 +175,7 @@ The `console.log()` statements print the results to separate lines of the consol
 
 ### IV. Using Topojson.js to Translate TopoJSON
 
-D3, Leaflet, and other web mapping libraries do not natively support TopoJSON data. Rather, to use our TopoJSON, we need to convert it _back_ to GeoJSON within the DOM. It may seem counterintuitive to use TopoJSON at all. However, we still saved the user's bandwidth and data plan by loading the smaller TopoJSON file, and still can make use of the topology in the original TopoJSON to speed more advanced spatial analyses in browser.
+D3, Leaflet, and other web mapping libraries do not natively support TopoJSON data. Rather, to use our TopoJSON, we need to convert it _back_ to GeoJSON within the DOM. Accordingly, it may seem counterintuitive to use TopoJSON at all. However, we still saved the user's bandwidth and data plan by loading the smaller TopoJSON file, and still can make use of the topology in the original TopoJSON to speed more advanced spatial analyses in browser.
 
 We will use Mike Bostock's small `topojson.js` library to convert TopoJSON to GeoJSON in browser.
 
@@ -183,7 +185,9 @@ As explained in the `topojson.js` [API Reference](https://github.com/topojson/to
 
 ###### Example 1.5: Converting TopoJSON to GeoJSON in _main.js_
 
-        function callback(data){        ...
+        function callback(data){        
+        		...
+        		
             //translate europe TopoJSON
             var europeCountries = topojson.feature(europe, europe.objects.EuropeCountries),
                 franceRegions = topojson.feature(france, france.objects.FranceRegions);
@@ -192,7 +196,7 @@ As explained in the `topojson.js` [API Reference](https://github.com/topojson/to
             console.log(europeCountries);
             console.log(franceRegions);
         };
-    
+
 
 In Example 1.5, each TopoJSON object is passed as the first parameter to `topojson.feature()`. The second parameter is the object that holds the details unique to each dataset. In Example 1.2 (line 9), this object was named `"example"`; for our tutorial spatial data, it retains the name of the original file that was passed through MapShaper. Once the data has been translated and assigned to variables, we can examine those variables in the console and see that they are now GeoJSON `FeatureCollection`s:
 
@@ -207,7 +211,7 @@ Lesson 2: D3 Projections and Path Generators
 
 ### I. Creating a D3 Projection
 
-Now that you have imported your geospatial data, the next step is to project it. Let's start by reviewing map projections, one of the more complex topics in cartography. 
+Now that you have imported your geospatial data, the next step is to project it. Start by reviewing map projections, one of the more complex topics in cartography. 
 
 A _**projection**_ is a mathematical translation from a 3D model of the Earth (called the _reference globe_) to a two-dimensional surface (called the _developable surface_). Projection equations stretch geographic coordinates based on a spheroid, ellipsoid, or geoid model of Earth so that they can be displayed on a planar (two-dimensional) surface, such as your computer screen.
 
@@ -221,7 +225,7 @@ Figure 2.1 demonstrates the distortion that occurs in even the simplest of proje
 
 Fortunately for us, modern desktop GIS software does the dirty work of applying projections to our chosen spatial datasets, meaning we usually do not have to learn the complex math behind projections. We instead select the projection that is cartographically appropriate given the type and scale of the map we want to make. We recommend [Projection Wizard](https://projectionwizard.org/) to help inform an appropriate projection for your Lab 2 map, making sure it is equal-area given we are making a choropleth map!
 
-Unfortunately for cartographers, with the advent of tile-based slippy maps—such as the one you created for your Leaflet lab assignment—one projection became dominant on the Web: so-called [Web Mercator](https://en.wikipedia.org/wiki/Web_Mercator). This projection was created and popularized by Google in the mid-2000's; before it was assigned an official EPSG code (now 3857), it was unofficially referenced using the code EPSG:900913—a clever pun. It was chosen by Google for its technical advantages: it is a relatively simple equation, a cylindrical projection that can be made infinitely continuous to the east and west, and conformal so it preserves angles at high latitudes, making it good for navigation at high zoom levels anywhere on the planet. But for thematic mapping, it suffers from the disadvantage of severe area distortion at high latitudes, exaggerating the land area of the northern hemisphere (e.g., Greenland appears to be larger than Africa when in reality it is much smaller). While it is possible to make slippy map tilesets in other projections, it remains rare.
+Unfortunately for cartographers, with the advent of tile-based slippy maps—such as the one you created for your Leaflet map—one projection became dominant on the Web: so-called [Web Mercator](https://en.wikipedia.org/wiki/Web_Mercator). This projection was created and popularized by Google in the mid-2000's; before it was assigned an official EPSG code (now 3857), it was unofficially referenced using the code EPSG:900913—a clever pun. It was chosen by Google for its technical advantages: it is a relatively simple equation, a cylindrical projection that can be made infinitely continuous to the east and west, and approximately conformal so it preserves angles at high latitudes, making it good for navigation at local zoom levels anywhere on the planet. But for thematic mapping, it suffers from the disadvantage of severe area distortion at high latitudes, exaggerating the land area of the northern hemisphere (e.g., Greenland appears to be larger than Africa when in reality it is much smaller). While it is possible to make slippy map tilesets in other projections, it remains rare.
 
 However, D3 presents an opportunity to break from Web Mercator, supporting supports hundreds of different map projections thanks to the collaboration between Mike Bostock and data visualization artist [Jason Davies](https://www.jasondavies.com/). Several common projections are included in D3 through the [Geo Projections](https://github.com/d3/d3-geo/blob/master/README.md#projections) portion of the library (Figure 2.2). But many others can be added through the [Extended Geographic Projections](https://github.com/d3/d3-geo-projection/) and [Polyhedral Geographic Projections](https://github.com/d3/d3-plugins/tree/master/geo/polyhedron) plugins. Not only can you choose which projection to use with your spatial data; you can change virtually any parameter that goes into each projection. D3 even enables you to smoothly transition between [different projections](http://bl.ocks.org/mbostock/3711652) and [projection parameters](https://www.jasondavies.com/maps/transition/).
 
@@ -298,9 +302,9 @@ Having created a projection function, we can now apply it to our spatial data to
     
         var path = d3.geoPath()
             .projection(projection);
-    
 
-Creating the path generator is straightforward—we just create a two-line block, first calling `d3.geoPath()`, then using the `.projection()` operator to pass it our projection generator as the parameter (lines 9-10). The variable `path` now holds the path generator. Now let's apply it to draw the geometries from our spatial data (Example 2.3).
+
+Creating the path generator is straightforward—we just create a two-line block, first calling `d3.geoPath()`, then using the `.projection()` operator to pass it our projection generator as the parameter (lines 9-10). The variable `path` now holds the path generator. Apply it to draw the geometries from our spatial data (Example 2.3).
 
 ###### Example 2.3: Drawing geometries from spatial data in _main.js_
 
@@ -328,11 +332,11 @@ Creating the path generator is straightforward—we just create a two-line block
                 })
                 .attr("d", path);
     };
-    
+
 
 In Example 2.3, we add two blocks: one for the background countries (lines 8-11) and one for the regions that will become our choropleth enumeration units (lines 14-21). Because the `countries` block takes the `europeCountries` GeoJSON `FeatureCollection` as a single datum, all of its spatial data is drawn as a single feature. A single SVG `<path>` element is appended to the map container, and its `d` attribute is assigned the `path` generator. This automatically passes the datum to the `path` generator, which returns an SVG path coordinate string to the `<path>` element's `d` attribute. (Do not confuse the `<path> d` attribute with the variable `d` that iteratively holds each datum in a `.data()` block, such as on line 18 of Example 2.3). To recall what a path coordinate string looks like, review Chapter 6 or see Figure 2.3.
 
-To create our enumeration units, we use the `.selectAll().data().enter()` chain to draw each feature corresponding to a region of France separately (lines 14-16. Recall that `.data()` requires its parameter to be in the form of an array, whereas `topojson.feature()` converts the TopoJSON object into a GeoJSON `FeatureCollection` object. For our `regions` block to work, we need to pull the array of features out of the `FeatureCollection` and pass that array to `.data()`, so we tack on `.features` to the end of line 5 to access it. Once that is done, a new `<path>` element is appended to the map container for each region (line 17). Two class names are assigned to each `<path>`: the generic class name `regions` for all enumeration units and a unique class name based on the region's `adm1_code` attribute (lines 18-20). Each `<path>` is then drawn with the region geometry by the `path` generator (line 21).
+To create our enumeration units, we use the `.selectAll().data().enter()` chain to draw each feature corresponding to a region of France separately (lines 14-16). Recall that `.data()` requires its parameter to be in the form of an array, whereas `topojson.feature()` converts the TopoJSON object into a GeoJSON `FeatureCollection` object. For our `regions` block to work, we need to pull the array of features out of the `FeatureCollection` and pass that array to `.data()`, so we tack on `.features` to the end of line 5 to access it. Once that is done, a new `<path>` element is appended to the map container for each region (line 17). Two class names are assigned to each `<path>`: the generic class name `regions` for all enumeration units and a unique class name based on the region's `adm1_code` attribute (lines 18-20). Each `<path>` is then drawn with the region geometry by the `path` generator (line 21).
 
 Now we can see our geometries in the browser and use the inspector to distinguish each individual `<path>` element (Figure 2.3).
 
@@ -351,7 +355,7 @@ Obviously, we do not want our map to be colored default black-and-white. We will
         stroke: #CCC;
         stroke-width: 2px;
     }
-    
+
 
 Figure 2.4 shows the result of the styled surrounding country borders.
 
@@ -368,7 +372,7 @@ Lesson 3: The D3 Graticule Generator
 
 ### I. Drawing a Graticule
 
-With our geometries drawn, we could add a flat background color to the `<svg>` map container. But on a small-scale map such as our example, it is helpful to include a graticule to represent the projection distortion and provide an indication of north. Providing a graticule is <ins>_**optional**_</ins> for your D3 lab assignment, and probably does not make sense unless you are showing both land and water.
+With our geometries drawn, we could add a flat background color to the `<svg>` map container. But on a small-scale map such as our example, it is helpful to include a graticule to represent the projection distortion and provide an indication of north. Providing a graticule is <ins>_**optional**_</ins> for your D3 map, and probably only makes sense if your mapped geography is abuts large water bodies.
 
 If you want to include a graticule, D3 provides a convenient [`d3.geoGraticule()`](https://github.com/d3/d3-geo/blob/master/README.md#geoGraticule) method for creating a _**graticule generator**_. To use it, first create the graticule generator (Example 2.5).
 
@@ -376,13 +380,13 @@ If you want to include a graticule, D3 provides a convenient [`d3.geoGraticule()
 
         //Example 2.3 line 1
         function callback(data){   
-
+    
             ...
             
             //create graticule generator
             var graticule = d3.geoGraticule()
                 .step([5, 5]); //place graticule lines every 5 degrees of longitude and latitude
-    
+
 
 The [`.step()`](https://github.com/d3/d3-geo/blob/master/README.md#graticule_step) operator (line 5) tells the generator to place a graticule line every five degrees of longitude and latitude. Next, use the `graticule` generator to give us the geospatial data for the graticule lines we will place on the map, and our `path` generator to draw the `<path>` element `d` strings for them (Example 2.6).
 
@@ -399,7 +403,7 @@ The [`.step()`](https://github.com/d3/d3-geo/blob/master/README.md#graticule_ste
                 .append("path") //append each element to the svg as a path element
                 .attr("class", "gratLines") //assign class for styling
                 .attr("d", path); //project graticule lines
-    
+
 
 In Example 2.6, we use the `.selectAll().data().enter()` chain to create a separate `<path>` element for each line of the graticule. The data is provided by the [`graticule.lines()`](https://github.com/d3/d3-geo/blob/master/README.md#graticule_lines) method (line 7), which builds and returns a GeoJSON features array with all of the graticule lines selected by the `.step()` operator (line 3). To actually see the lines instead of a default black fill, we need to add another set of styles to _style.css_ (Example 2.7).
 
@@ -410,7 +414,7 @@ In Example 2.6, we use the `.selectAll().data().enter()` chain to create a separ
         stroke: #999;
         stroke-width: 1px;
     }
-    
+
 
 We should now be able to see our graticule lines (Figure 2.5).
 
@@ -434,7 +438,12 @@ Finally, we can add contrast between land and water by coloring the background o
     
             //Example 2.6 line 5...create graticule lines
             var gratLines = map.selectAll(".gratLines") //select graticule elements that will be created
-    
+                .data(graticule.lines()) //bind graticule lines to each element to be created
+                .enter() //create an element for each datum
+                .append("path") //append each element to the svg as a path element
+                .attr("class", "gratLines") //assign class for styling
+                .attr("d", path); //project graticule lines
+
 
 We can then style the `gratBackground <path>` element to symbolize water (Example 2.9).
 
@@ -443,7 +452,7 @@ We can then style the `gratBackground <path>` element to symbolize water (Exampl
     .gratBackground {
         fill: #D5E3FF;
     }
-    
+
 
 Note that separating the `gratBackground` and `gratLines` blocks allows us to reorder the drawing of our graticule and spatial data if we so choose. If we wanted our graticule lines to appear on top of our other geometries, we could leave the `gratBackground` block where it is and move the `gratLines` block below the `countries` and `regions` blocks. The interpreter will add the `<path>` elements from each of these blocks in the order they appear in the script.
 
@@ -454,7 +463,7 @@ One final touch we will add to the map background is a frame to neaten the map (
     .map {
         border: medium solid #999;
     }
-    
+
 
 Figure 2.6 shows the resulting basemap, ready to receive the choropleth symbolization next chapter!
 
