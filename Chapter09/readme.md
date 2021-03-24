@@ -273,7 +273,7 @@ In Example 2.1, before we can create the projection, we first write a `map` bloc
 
 -   [`.center()`](https://github.com/d3/d3-geo/blob/master/README.md#projection_center) specifies the \[longitude, latitude\] coordinates of the center of the developable surface.
     
--   [`.rotate()`](https://github.com/d3/d3-geo/blob/master/README.md#projection_rotate) specifies the \[longitude, latitude, and roll\] angles by which to [rotate the reference globe](http://bl.ocks.org/mbostock/4282586).
+-   [`.rotate()`](https://github.com/d3/d3-geo/blob/master/README.md#projection_rotate) specifies the \[longitude, latitude, and roll\] angles by which to [rotate the reference globe](http://bl.ocks.org/mbostock/4282586). 
     
 -   [`.parallels()`](https://github.com/d3/d3-geo/blob/master/README.md#conic_parallels) specifies the two standard parallels of a conic projection. If the two array values are the same, the projection is a _**tangent**_ case (the plane intersects the globe at one line of latitude); if they are different, it is a _**secant**_ case (the plane intersects the globe at two lines of latitude, slicing through it).
     
@@ -445,7 +445,7 @@ Finally, we can add contrast between land and water by coloring the background o
                 .attr("d", path); //project graticule lines
 
 
-We can then style the `gratBackground <path>` element to symbolize water (Example 2.9).
+We can then style the `gratBackground <path>` element to symbolize water (Example 2.9). Note that the `.rotate()` latitude of your projection has to be set as `0` for this to work.
 
 ###### Example 2.9: Graticule background style in _style.css_
 
