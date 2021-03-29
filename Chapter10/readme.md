@@ -16,6 +16,7 @@ After this chapter, you should be able to:
 -   Draw a bar chart representing the same attribute values visualized on the map, with the bars automatically sorted from smallest to largest.
 
 Lesson 1: Dynamic Choropleth Symbolization
+----------------------------------------
 
 ### I. Joining Your Data
 
