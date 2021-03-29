@@ -146,23 +146,25 @@ Once we have set up our `Promise.all()` block, we can write the callback functio
 ###### Example 1.4: Adding a callback to `setMap()` in _main.js_
 
     //Example 1.3 line 4...set up choropleth map
-    function setMap(){
+    function setMap() {
         //use Promise.all to parallelize asynchronous data loading
-        var promises = [d3.csv("data/unitsData.csv"),                    
-                        d3.json("data/EuropeCountries.topojson"),                    
-                        d3.json("data/FranceRegions.topojson")                   
-                        ];    
-            Promise.all(promises).then(callback);    
-            
-            function callback(data){	
-                csvData = data[0];	
-                europe = data[1];	
+    
+        var promises = [
+            d3.csv("data/unitsData.csv"),
+            d3.json("data/EuropeCountries.topojson"),
+            d3.json("data/FranceRegions.topojson"),
+        ];
+        Promise.all(promises).then(callback);
+    
+        function callback(data) {
+            var csvData = data[0],
+                europe = data[1],
                 france = data[2];
-                console.log(csvData);
-                console.log(europe);
-                console.log(france);    
-            };
-    };
+            console.log(csvData);
+            console.log(europe);
+            console.log(france);
+        }
+    }
 
 
 The `console.log()` statements print the results to separate lines of the console. As you can see in Figure 1.3, `d3.csv()` automatically formats the imported CSV data as an array, and `d3.json()` formats the spatial data as an object.
