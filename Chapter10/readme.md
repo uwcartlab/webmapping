@@ -34,7 +34,7 @@ Note that both datasets contain the `adm1_code` and `name` attributes. Either of
 
         //translate europe and France TopoJSONs
         var europeCountries = topojson.feature(europe, europe.objects.EuropeCountries),
-            franceRegions = topojson.feature(france, france.objects.FranceRegions).features;
+        var franceRegions = topojson.feature(france, france.objects.FranceRegions).features;
     
         //variables for data join
         var attrArray = ["varA", "varB", "varC", "varD", "varE"];
