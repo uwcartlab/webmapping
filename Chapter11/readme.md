@@ -49,7 +49,7 @@ Menu selection has the added advantage of being easy to implement compared to di
             .attr("value", function(d){ return d })
             .text(function(d){ return d });
     };
-    
+
 
 In Example 1.1, we create a new function, `createDropdown()`, which is called from the end of the `callback()` function (not shown). The first block appends the `<select>` element to the `<body>` (lines 4-6). The `titleOption` block creates an `<option>` element with no `value` attribute and instructional text to serve as an affordance alerting users that they should interact with the dropdown menu (lines 9-12). Disabling the title option ensures that the user cannot mistakenly select it (line 11). Finally, the `attrOptions` block uses the `.selectAll().data().enter()` sequence with the `attrArray` pseudo-global variable that holds an array of our attribute names, creating one `<option>` element for each attribute (lines 15-18). Each option element is assigned a `value` attribute that holds the name of the attribute, and its text content (what the user sees) is also assigned the name of the attribute (lines 19-20).
 
@@ -73,7 +73,7 @@ Once we have created the dropdown menu, we need to do a little styling so that i
     option {
         font-weight: normal;
     }
-    
+
 
 In Example 1.2, we position the menu `<select>` element absolutely so that it is not affected by other elements on the page (line 2). We then use `top` and `left` styles to offset the menu `<select>` element from the top-left corner of the page (lines 3-4). Adding a `z-index` of 10 ensures that the menu `<select>` element floats to the top of all other elements on the page (line 5). We then add `font` styles and `padding` around the text (lines 6-9). Finally, a `border` and `box-shadow` make the `<select>` element visually float above the map, making it more obvious to the user (lines 10-11). The `option` style simply reduces the text of the `<option>` elements in the menu to normal weight so they are not emboldened by the `font-weight` of the `<select>` element (lines 14-16).
 
@@ -96,7 +96,7 @@ Once implemented, we need to enable our _reexpress_ menu selection by adding an 
     // Step 4. Re-sort each bar on the bar chart
     // Step 5. Resize each bar on the bar chart
     // Step 6. Recolor each bar on the bar chart
-    
+
 
 Steps 1-3 are relatively simple to take care of within a listener handler function (Example 1.4).
 
@@ -116,7 +116,7 @@ Steps 1-3 are relatively simple to take care of within a listener handler functi
     };
     
     //dropdown change listener handler
-    function changeAttribute(attribute, csvData){
+    function changeAttribute(attribute, csvData) {
         //change the expressed attribute
         expressed = attribute;
     
@@ -124,17 +124,16 @@ Steps 1-3 are relatively simple to take care of within a listener handler functi
         var colorScale = makeColorScale(csvData);
     
         //recolor enumeration units
-        var regions = d3.selectAll(".regions")
-            .style("fill", function(d){            
-                var value = d.properties[expressed];            
-                if(value) {            	
-                    return colorScale(value);            
-                } else {            	
-                    return "#ccc";            
-                }    
-            });
-    };
-    
+        var regions = d3.selectAll(".regions").style("fill", function (d) {
+            var value = d.properties[expressed];
+            if (value) {
+                return colorScale(d.properties[expressed]);
+            } else {
+                return "#ccc";
+            }
+        });
+    }
+
 
 In Example 1.4, we add a [`.on()`](https://github.com/d3/d3-selection#handling-events) operator to the end of the `dropdown` block to listen for a `"change"` interaction on the `<select>` element (line 7). In this context, `.on()` is a D3 method, but it works similarly to Leaflet's `.on()` method. We pass it an anonymous function, within which we call our new listener handler, `changeAttribute()` (lines 7-9). The parameters of `changeAttribute()` are the `value` of the `<select>` element (referenced by `this`), which holds the attribute selected by the user, as well as our `csvData`. The `csvData` will be used to recreate the color scale. Note that we also need to add it as a parameter to the `createDropdown()` function (line 2) and its function call within the `callback()` (not shown).
 
@@ -194,7 +193,7 @@ Restyling the dynamic visualization (Steps 4-6) is more challenging, but we can 
                 }    
         });
     };
-    
+
 
 In Example 1.5, we use `.sort()` to sort the data values for the new attribute from greatest to least (lines 18-20), then reset the `x` attribute of each bar to position the bars in the new order of the data (lines 21-23). To resize the bars, we reset the `height` attribute using our `yScale` with the new expressed attribute values (lines 25-27), then position the bars vertically by resetting the `y` attribute (lines 28-30). Finally, we recolor the bars by resetting the `fill` just as we did for the choropleth enumeration units in Example 1.4.
 
@@ -228,7 +227,7 @@ Note that much of this code is duplicated in the `setChart()` function we create
     window.onload = setMap();
     
     //...the rest of the script
-    
+
 
 Once we have done this, these variables are available for use by _any_ function in the script. Since we copy-pasted the `bars` block from `setChart()`, we now have a number of repetitive lines in our _main.js_ script. We can clean up the script by moving these lines into their own function, called from both `setChart()` and `changeAttribute()` (Example 1.7).
 
@@ -288,7 +287,7 @@ Once we have done this, these variables are available for use by _any_ function 
                 }    
         });
     };
-    
+
 
 In Example 1.7, the positioning, sizing, and coloring of the bars has been moved into a new `updateChart()` function, which is called from within both `setChart()` and `changeAttribute()` (lines 17 and 29). This function receives the `bars` selection, the length of the `csvData` which corresponds to the number of bars, and the `colorScale`. Note that although it is still repeated in `updateChart()` and `changeAttribute()`, we did not move the `.sort()` operator into `updateChart()` because it necessarily comes before the `class` and `width` attribute assignments in `setChart()`, which should not be repeated when the attribute is changed (lines 6-12 and 25-27).
 
@@ -299,7 +298,7 @@ The final step to updating the chart is to change the chart title. For this, we 
         //at the bottom of updateChart()...add text to chart title
         var chartTitle = d3.select(".chartTitle")
             .text("Number of Variable " + expressed[3] + " in each region");
-    
+
 
 We now have a fully interactive choropleth map and linked visualization, with the affordance of a dropdown menu selection interface and the feedback of updated enumeration units and bars (Figure 1.3).
 
@@ -333,7 +332,7 @@ Let's start by implementing a transition on the choropleth map (Example 1.9).
                     return "#ccc";            
                 }    
         });
-    
+
 
 In Example 1.9, we modify the `regions` block in the `changeAttribute()` function, adding a `.transition()` operator and a `.duration()` operator above the `.style()` operator (lines 3-4). The [`.duration()`](https://github.com/d3/d3-transition#transition_duration) operator specifies a duration in milliseconds; hence the transition will last 1000 milliseconds or 1 second. The effect is to smoothly animate between colors when the color of each enumeration units is changed in response to user input.
 
@@ -352,7 +351,7 @@ The bars of our bar chart can also be animated within `changeAttribute()` (Examp
             .duration(500);
     
         updateChart(bars, csvData.length, colorScale);
-    
+
 
 In Example 1.10, we add a `.transition()` after the data has been re-sorted according to the new expressed attribute (line 7). We then add a [`.delay`](https://github.com/d3/d3-transition#transition_delay) operator with an anonymous function that delays the start of animations 20 additional milliseconds for each bar in the sequence (lines 8-10). This gives the appearance that the bars consciously rearrange themselves. The `.duration()` operator gives each bar half a second to complete its transition (line 11). When the `bars` selection is passed to `updateChart()`, the transition is passed with it, so that each of the changing attributes and the `fill` style are animated when the attribute changes (Figure 1.4).
 
@@ -384,7 +383,7 @@ First, let's write the `highlight()` function, which will restyle the stroke of 
             .style("stroke", "blue")
             .style("stroke-width", "2");
     };
-    
+
 
 In Example 2.1, `props` is the properties object of the selected element from the GeoJSON data or the attributes object from the CSV data, depending on whether the selected element is an enumeration unit on the map or a bar on the chart (line 2). Since the `adm1_code` attribute should be the same for the matching region and bar, our class selector in the `.selectAll()` method should select both matching elements (line 4). We can then apply a wider blue stroke to both elements with two `.style()` adjustments, one for the stroke color and one for the stroke width (lines 5-6).
 
@@ -430,9 +429,9 @@ In order to make this function work, we need to call it from `"mouseover"` event
             .on("mouseover", function(event, d){
                 highlight(d);
             });
-    
 
-In Example 2.2, the event listener added to the `regions` block uses an anonymous function to call the `highlight()` function so that the `properties` object can be passed to it without passing the entire GeoJSON feature (lines 13-15). The listener on the `bars` block, on the other hand, uses `CsvData`, and therefore only passes the datum (`d`) as it is already equivalent to the `properties` object within the GeoJSON feature.
+
+In Example 2.2, the event listener added to the `regions` block uses an anonymous function to call the `highlight()` function so that the `properties` object can be passed to it without passing the entire GeoJSON feature (lines 13-15). The listener on the `bars` block, on the other hand, uses `csvData`, and therefore only passes the datum (`d`) as it is already equivalent to the `properties` object within the GeoJSON feature.
 
 If we now test our highlighting, we can see it working (Figure 2.1). The brushed features are highlighted when probed, but they still retain their blue borders after the mouse is removed, quickly making a mess of the visualization! This is why we need a `dehighlight()` function as well as a `highlight()` function.
 
@@ -459,7 +458,7 @@ The implementation shown here uses a third method: it takes advantage of the SVG
         //below Example 2.2 line 31...add style descriptor to each rect
         var desc = bars.append("desc")
             .text('{"stroke": "none", "stroke-width": "0px"}');
-    
+
 
 In Example 2.3, note that each style descriptor string adheres to a JSON format (lines 3 and 9). This makes the information easier to parse in the `dehighlight()` function. Be aware that JSON formatting uses even stricter syntax than regular JavaScript: each property and value _must_ be encased by _double-quotes_. The JSON parser will fail if single quotes are used, if necessary quotes are left our, or if there are excess or missing punctuation marks.
 
@@ -493,7 +492,7 @@ We now can make use of the contents of these `<desc>` elements in our `dehighlig
             return styleObject[styleName];
         };
     };
-    
+
 
 In Example 2.4, the `dehighlight()` function begins much the same as the `highlight()` function, creating a `selected` block that restyles the `stroke` and `stroke-width` styles (lines 3-9). However, we cannot pass one value for each style, since we are resetting both enumeration units and bars, which have different styles. Instead, each style calls an anonymous function, which in turn calls a separate `getStyle()` function to retrieve the information stored in the `<desc>` element for that style. The `getStyle()` function takes as parameters the current element in the DOM—represented by the keyword `this`—and the style property being manipulated (lines 5 and 8). The results returned by `getStyle()` are passed along to the style object and in turn to the `.style()` operator, which applies them to each element.
 
@@ -520,7 +519,7 @@ This completes the `dehighlight()` function, which we can add event listeners to
             .on("mouseover", function(event, d){
                 dehighlight(d);
             });
-    
+
 
 We now have working linked highlighting and dehighlighting, allowing only one feature to be selected at a time (Figure 2.3).
 
@@ -553,7 +552,7 @@ The final assigned task in support of the _retrieve_ interaction operator is to 
             .attr("class", "labelname")
             .html(props.name);
     };
-    
+
 
 In Example 2.6, within the `setLabel()` function, we first create an HTML string containing an `<h1>` element with the selected attribute value and a `<b>` element with the attribute name (lines 4-5). If these elements needed attributes, it quickly becomes unwieldy to include them in an HTML string, but since they do not, writing an HTML string is a handy shortcut. Next, we create the actual label `<div>` element, giving it `class` and `id` attributes and assigning our HTML string with the `.html()` operator (lines 8-12). Finally, we add a child `<div>` to the label to contain the name of the selected region.
 
@@ -564,7 +563,7 @@ Since we want our label to show up whenever the user highlights a region or bar,
         //below Example 2.4 line 21...remove info label
         d3.select(".infolabel")
             .remove();
-    
+
 
 Without any styles applied to it, the label will look pretty messy. Let's style it in _style.css_ (Example 2.8).
 
@@ -586,7 +585,7 @@ Without any styles applied to it, the label will look pretty messy. Let's style 
         display: inline-block;
         line-height: 1em;
     }
-    
+
 
 These styles create a simple black label with white text (Figure 2.4).
 
@@ -608,7 +607,7 @@ The next step, of course, is to  reposition the label to the cursor. D3 provide
             .style("left", x + "px")
             .style("top", y + "px");
     };
-    
+
 
 In Example 2.8, we retrieve the coordinates of the `mousemove` event and manipulate them to set the bottom-left corner of the label above and to the right of the mouse (lines 4-5). We then pass those coordinate values to the `left` and `top` styles of the label—which we use instead of `margin-left` and `margin-top` because the label's position is set to `absolute` instead of `relative` (lines 7-9). We now need to call this function as a listener handler for a `mousemove` event on both the map and chart (Example 2.9).
 
@@ -633,7 +632,7 @@ In Example 2.8, we retrieve the coordinates of the `mousemove` event and manipu
                 dehighlight(d);
             });
             .on("mousemove", moveLabel);
-    
+
 
 This should cause our info label to follow our mouse. However, there are two minor issues we need to resolve. First, if the mouse gets too high or too far to the right, the label may overflow the page. Second, depending on your browser speed, you may notice that sometimes the label is added to the page before the position styles take affect, causing it to flash briefly in the corner.
 
@@ -666,7 +665,7 @@ For the horizontal (`x`) coordinate, since the label is to the right of the mous
             .style("left", x + "px")
             .style("top", y + "px");
     };
-    
+
 
 In Example 2.10, to get the width of the label, we select the label then use the [`.node()`](https://github.com/d3/d3-selection/blob/master/README.md#selection_node) operator to return its DOM node (lines 4-5). From there, we can use the native JavaScript [`.getBoundingClientRect()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) method to return an object containing the size of the label, from which we access its `width` property (lines 6-7). We use this value to set the backup x coordinate that will shift the label to the left of the mouse when it approaches the right side of the page (line 12). After setting our default coordinates (`x1` and `y1`) and backup coordinates (`x2` and `y2`), we perform each overflow test, assigning the backup coordinates if the defaults would overflow the page, and the default coordinates if not (lines 16 and 18).
 
@@ -683,7 +682,7 @@ Finally, the flicker issue is not really worth solving in the script; instead we
         padding: 5px 10px;
         top: -75px;
     }
-    
+
 
 We now have a label that follows the mouse and switches sides to avoid overflow (Figure 2.5).
 
@@ -697,7 +696,7 @@ We now have a label that follows the mouse and switches sides to avoid overflow 
 
 Here ends the tutorials related to constructing your multivariate coordinated visualization...but your work is not over! If you chose to begin by following the tutorial examples, it is now time to implement your own custom UI/UX design. You should use the principles of cartographic design and interaction that you have learned up to this point to push beyond the basic requirements of the D3 lab assignment and make your final product visually stunning and an experience your users will remember.
 
-Consider implementing the following components that have not been covered in these modules:
+Consider implementing the following components that have not been covered in these chapters:
 
 *   A dynamic choropleth legend that updates on attribute sequencing
     
