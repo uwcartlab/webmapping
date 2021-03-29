@@ -8,7 +8,7 @@ Congratulations on building your first basemap with D3! In Chapter 10, we will w
 -   In Lesson 1, we walkthrough the steps needed to dynamically join your attribute and geospatial data and then symbolize your choropleth map using a color scale. The choropleth map is added atop the basemap you completed for Activity 9. 
 -   In Lesson 2, we describe how to draw a complementary bar chart, modifying the bubblechart example from Chapter 8.
 
-In completing the previous module, you should have loaded your spatial and attribute data into the browser and used projection and path generators to draw a basemap from your spatial data. 
+In completing the previous chapter, you should have loaded your spatial and attribute data into the browser and used projection and path generators to draw a basemap from your spatial data. 
 
 After this chapter, you should be able to:
 
@@ -105,7 +105,7 @@ Let's also tidy up our script by moving some of our code that performs specific 
     //set up choropleth map
     function setMap(){
     
-        //...MAP, PROJECTION, PATH, AND QUEUE BLOCKS FROM MODULE 8
+        //...MAP, PROJECTION, PATH, AND QUEUE BLOCKS FROM CHAPTER 8
     
         function callback(data){	
 			csvData = data[0];	
@@ -134,7 +134,7 @@ Let's also tidy up our script by moving some of our code that performs specific 
     }; //end of setMap()
     
     function setGraticule(map, path){
-        //...GRATICULE BLOCKS FROM MODULE 8
+        //...GRATICULE BLOCKS FROM CHAPTER 8
     };
     
     function joinData(franceRegions, csvData){
@@ -144,7 +144,7 @@ Let's also tidy up our script by moving some of our code that performs specific 
     };
     
     function setEnumerationUnits(franceRegions, map, path){
-        //...REGIONS BLOCK FROM MODULE 8
+        //...REGIONS BLOCK FROM CHAPTER 8
     };
     
 
@@ -154,7 +154,7 @@ In Example 1.3, we moved three tasks into their own functions. The three blocks 
 
 ### III. Creating a Color Scale
 
-The next step toward creating our choropleth map is to build a color scale that we will use to visualize our attribute data on the map. You worked with a linear color scale in Module 7, Lesson 3 that created an unclassed color scheme. You should use a classed color scheme for your D3 map using 4-7 classes based on recommendations in cartography. There are multiple classification methods for classed choropleth maps. Three common schemes are easy to implement in D3: quantile, equal interval, and natural breaks. Your choropleth map should be classed, but which classification method you choose should depend on the structure of your data. 
+The next step toward creating our choropleth map is to build a color scale that we will use to visualize our attribute data on the map. You worked with a linear color scale in Chapter 7, Lesson 3 that created an unclassed color scheme. You should use a classed color scheme for your D3 map using 4-7 classes based on recommendations in cartography. There are multiple classification methods for classed choropleth maps. Three common schemes are easy to implement in D3: quantile, equal interval, and natural breaks. Your choropleth map should be classed, but which classification method you choose should depend on the structure of your data. 
 
 -   _**Quantile**_ classification places an equal number of data values in each class, and works best when you want to create a map with the same number of enumeration units in each class but do not care about how wide the class ranges are. Quantile also works well for data measured on an ordinal scale as well as for comparison of multiple variables measured in different units (which might be the case for your D3 map multivariate dataset).
     
@@ -209,7 +209,7 @@ We start by building a quantile color scale. To keep our code neat, we can creat
     };
     
 
-In Example 1.4, we implement the color scale using [`d3.scaleQuantile()`](https://github.com/d3/d3-scale/blob/master/README.md#quantile-scales) to create a quantile scale generator (line 22). The generator takes an input domain that is either continuous or a discrete set of values and maps it to an output range of discrete values. When the domain is continuous, the output is an equal interval scale; when the domain is discrete , a true quantile scale is generated. For the range, rather than letting D3 interpolate between two colors as we did in Module 7, we pass an array of five color values derived from [ColorBrewer](http://colorbrewer2.org/) to the `.range()` operator (lines 13-19 and 23). These will be our five class colors in our classification scheme. (Note: You can also reference ColorBrewer scales using [ColorBrewer.js](https://github.com/axismaps/colorbrewer/) or the [d3-scale-chromatic](https://github.com/d3/d3-scale-chromatic) plugin).
+In Example 1.4, we implement the color scale using [`d3.scaleQuantile()`](https://github.com/d3/d3-scale/blob/master/README.md#quantile-scales) to create a quantile scale generator (line 22). The generator takes an input domain that is either continuous or a discrete set of values and maps it to an output range of discrete values. When the domain is continuous, the output is an equal interval scale; when the domain is discrete , a true quantile scale is generated. For the range, rather than letting D3 interpolate between two colors as we did in Chapter 7, we pass an array of five color values derived from [ColorBrewer](http://colorbrewer2.org/) to the `.range()` operator (lines 13-19 and 23). These will be our five class colors in our classification scheme. (Note: You can also reference ColorBrewer scales using [ColorBrewer.js](https://github.com/axismaps/colorbrewer/) or the [d3-scale-chromatic](https://github.com/d3/d3-scale-chromatic) plugin).
 
 To build a quantile scale, we need to assign all of the attribute values for the currently expressed attribute in our multivariate dataset as the scale's domain (line 33). This requires us to build an array of these values using a loop to access the value for each feature in the dataset (lines 26-30). The function then returns the scale generator. Within the callback, we create a `colorScale` variable to accept the scale generator from the `makeColorScale()` function, passing the `csvData` into the function (line 2). We also add the `colorScale` as a parameter sent to `setEnumerationUnits()` (line 5).
 
