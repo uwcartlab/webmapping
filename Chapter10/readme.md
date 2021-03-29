@@ -34,7 +34,7 @@ Note that both datasets contain the `adm1_code` and `name` attributes. Either of
 
         //translate europe and France TopoJSONs
         var europeCountries = topojson.feature(europe, europe.objects.EuropeCountries),
-			franceRegions = topojson.feature(france, france.objects.FranceRegions).features;
+    				franceRegions = topojson.feature(france, france.objects.FranceRegions).features;
     
         //variables for data join
         var attrArray = ["varA", "varB", "varC", "varD", "varE"];
@@ -61,7 +61,7 @@ Note that both datasets contain the `adm1_code` and `name` attributes. Either of
                 };
             };
         };
-    
+
 
 This is one of many possible ways to accomplish the data join. If you choose to experiment with other implementations, it is important that the outcome be similar to what is shown on the right side of Figure 1.2, which is the same GeoJSON feature as in Figure 1.1 after completing the join:
 
@@ -96,7 +96,7 @@ If you want a more thorough understanding, there are many online resources that 
     ... //the rest of the script
     
     })(); //last line of main.js
-    
+
 
 Let's also tidy up our script by moving some of our code that performs specific tasks out of the callback function and into separate functions (Example 1.3).
 
@@ -108,9 +108,8 @@ Let's also tidy up our script by moving some of our code that performs specific 
         //...MAP, PROJECTION, PATH, AND QUEUE BLOCKS FROM CHAPTER 8
     
         function callback(data){	
-			var csvData = data[0],
-				europe = data[1],
-				france = data[2];
+
+            var csvData = data[0], europe = data[1], france = data[2];
     
             //place graticule on the map
             setGraticule(map, path);
@@ -146,7 +145,7 @@ Let's also tidy up our script by moving some of our code that performs specific 
     function setEnumerationUnits(franceRegions, map, path){
         //...REGIONS BLOCK FROM CHAPTER 8
     };
-    
+
 
 In Example 1.3, we moved three tasks into their own functions. The three blocks to create the background graticule are moved to `setGraticule()` (lines 8-9 and 29-31). The loops used to accomplish the CSV to GeoJSON attribute data transfer are moved to `joinData()` (lines 21-22 and 33-37), which returns the updated `franceRegions` GeoJSON features array. Finally, the `regions` block that adds our enumeration units to the map is moved to its own `setEnumerationUnits()` function (lines 24-25 and 39-41). For each of these functions, the variables needed by the script within the function are passed to it as function parameters.
 
@@ -207,7 +206,7 @@ We start by building a quantile color scale. To keep our code neat, we can creat
     
         return colorScale;
     };
-    
+
 
 In Example 1.4, we implement the color scale using [`d3.scaleQuantile()`](https://github.com/d3/d3-scale/blob/master/README.md#quantile-scales) to create a quantile scale generator (line 22). The generator takes an input domain that is either continuous or a discrete set of values and maps it to an output range of discrete values. When the domain is continuous, the output is an equal interval scale; when the domain is discrete, a true quantile scale is generated. For the range, rather than letting D3 interpolate between two colors as we did in Chapter 7, we pass an array of five color values derived from [ColorBrewer](http://colorbrewer2.org/) to the `.range()` operator (lines 13-19 and 23). These will be our five class colors in our classification scheme. (Note: You can also reference ColorBrewer scales using [ColorBrewer.js](https://github.com/axismaps/colorbrewer/) or the [d3-scale-chromatic](https://github.com/d3/d3-scale-chromatic) plugin).
 
@@ -241,7 +240,7 @@ When the quantile scale generator provides all values in the dataset (the `domai
     
         return colorScale;
     };
-    
+
 
 Given a two-value input domain and a range array with five output values, the generator will create five bins with a equal ranges of values between the minimum and maximum. For either the quantile or equal interval scale generator, you can use the console to discover the class breaks that the scale creates by adding the statement `console.log(colorScale.quantiles())` at the bottom of the function.
 
@@ -288,7 +287,7 @@ To create the breaks, you will need a clustering algorithm. The Jenks algorithm 
     
         return colorScale;
     };
-    
+
 
 In Example 1.6, we start with a call to `d3.scaleThreshold()` rather than `d3.scaleQuantile()` (line 12). The range remains the same (line 13), and we build a `domainArray` from all expressed attribute values as if we were implementing a quantile scale (lines 16-20). The extra step not present in the other classification schemes is to use the Simple Statistics [`ckmeans()`](http://simplestatistics.org/docs/#ckmeans) method to generate five clusters from our attribute values (line 23). These clusters are returned in the form of a nested array, which you can see in the console if you pass `clusters` to a `console.log()` statement. We then reset the `domainArray` to a new array of break points, using JavaScript's [`.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) method to build a new array out of each cluster's minimum value (lines 25-27). Since the threshold scale includes each break point in the class above it, we want our array of break points to be class minimums, which we select using `d3.min()` (line 26). The final step in formatting the `domainArray` is to remove the first value of the array using the JavaScript [`.shift()`](http://www.w3schools.com/jsref/jsref_shift.asp) method, leaving the correct number of break points (4)—each of which is included by the class above it—in the `domainArray`.
 
@@ -324,7 +323,7 @@ Once we have constructed our color scale generator, the final step in coloring o
                 return colorScale(d.properties[expressed]);
             });
     };
-    
+
 
 We now have a choropleth map (Figure 1.4)!
 
@@ -365,7 +364,7 @@ Finally, we can visually highlight the color change between enumeration units by
         stroke-width: 0.5px;
         stroke-linecap: round;
     }
-    
+
 
 Figure 1.5 shows the resulting styled choropleth map.
 
@@ -411,7 +410,7 @@ The first step in creating the coordinated visualization is to build the chart c
             .attr("height", chartHeight)
             .attr("class", "chart");
     };
-    
+
 
 In Example 2.1, we anticipate that we eventually will need the `csvData` and the `colorScale` to draw and color the bars, so we pass those variables as parameters to our new `setChart()` function (lines 5, 12). Within the `setChart()` function, we set a width and height for the chart (lines 14-15) and build its `<svg>` container using a `chart` block (lines 18-22). If we use the inspector, we can see our chart container on the browser page (Figure 2.1).
 
@@ -438,7 +437,7 @@ We can make the widths of the chart and map responsive to each other by setting 
         //chart frame dimensions
         var chartWidth = window.innerWidth * 0.425,
             chartHeight = 460;
-    
+
 
 In Example 1.3, the map frame width is set to 50% of the `window.innerWidth` property (line 4) and the chart frame width is set to 42.5% (line 12). The 7.5% gap between the two frames leaves space for a margin on either side of the page and ensures a break point (the window width at which the chart falls below the map) that is in between common device display sizes. To make it easier to see our chart frame and fine-tune the appearance of the two frames, we can add some styles in _style.css_ (Example 2.3).
 
@@ -455,7 +454,7 @@ In Example 1.3, the map frame width is set to 50% of the `window.innerWidth` pro
         float: right;
         margin: 10px 20px 0 0;
     }
-    
+
 
 In Example 2.3, we add a 10-pixel top margin and 20-pixel left margin to the map frame (line 3). We similarly add a 10-pixel top margin and 20-pixel right margin to the chart frame (line 10). We also add a chart background color and border and make it adhere to the right side of the page, rather than abut the map frame (lines 7-9). Figure 2.2 displays the resulting responsive layout in the browser.
 
@@ -494,7 +493,7 @@ To make our bars, we need to build a new `.selectAll()` block that appends a rec
             })
             .attr("height", 460)
             .attr("y", 0);
-    
+
 
 In Example 2.4, to make each bar just wide enough so that they fill the container horizontally but have gaps in between, we set the `width` attribute of each bar to _1/n - 1_ pixels, where _n_ is the number of bars, represented by the `length` of the `csvData` features array (line 16). To spread the bars evenly across the container, we set the `x` attribute of each bar to `i * (chartWidth / csvData.length)`, where i is the index of the datum; this has the effect of moving each bar to the right of the previous one (lines 17-19). Temporarily, we set an arbitrary bar `height`—the height of the chart container—and an arbitrary `y` attribute of 0, just so the bars are visible (lines 20-21). We deal more with the vertical attributes momentarily, but for now, let's take a look at our evenly-spaced bars (Figure 2.3).
 
@@ -529,7 +528,7 @@ Now let's take a look at bar `height` and `y` coordinate. We want each bar's hei
             .attr("y", function(d){
                 return chartHeight - yScale(parseFloat(d[expressed]));
             });
-    
+
 
 In Example 2.5, we create a linear `yScale`, assigning a range from 0 to the height of the chart and a domain that encompasses all of our sample data attribute values (lines 2-4). We then apply the `yScale` to each attribute value to set the bar `height` (lines 18-20). We subtract the scale output from the chart height to set the `y` attribute to ensure that the bars "grow" up from the bottom rather than "fall" down from the top of the chart (lines 21-23).
 
@@ -541,7 +540,7 @@ We also can use our bar chart to show users the position of our class breaks in 
             .style("fill", function(d){
                 return colorScale(d[expressed]);
             });
-    
+
 
 We can now see our attribute values represented by the bar height and classes shown by bar color (Figure 2.4).
 
@@ -565,7 +564,7 @@ We are making good progress, but the chart is still a little messy. We can polis
                 return "bars " + d.adm1_code;
             })
             //...
-    
+
 
 D3's `.sort()` method, like the [array sort method](http://www.w3schools.com/jsref/jsref_sort.asp) native to JavaScript, compares each value in the data array to the next value in the array and rearrange the array elements if the returned value is positive (lines 6-8). Subtracting the second value from the first in the function (line 7) orders the bars from smallest to largest, making the chart more readable. Note that if you want to order the bars from largest to smallest, you simply can reverse the two values in the function.
 
@@ -605,7 +604,7 @@ One approach we can take is to add the attribute values as numerical text to the
             .text(function(d){
                 return d[expressed];
             });
-    
+
 
 In Example 2.8, we construct our `numbers` block following the same pattern as our `bars` block but append `<text>` elements (line 5) and alter their attributes. The `text-anchor` attribute center-justifies the text (line 12). The `x` attribute adds half of the bar's width to the formula for the horizontal coordinate used in the `bars` block so that each number is centered in the bar (lines 13-16). The `y` attribute accesses the `yScale` using the same formula as in the `bars` block, but adds 15 pixels to lower the text so it appears inside of, rather than on top of, each bar (lines 17-19). Finally, the `.text()` operator places the expressed attribute value in each `<text>` element.
 
@@ -617,7 +616,7 @@ A minor stylistic addition is to change the default black text to white in _styl
         fill: white;
         font-family: sans-serif;
     }
-    
+
 
 This creates tidy numbers in the bars showing the attribute values represented by each bar (Figure 2.6):
 
@@ -635,7 +634,7 @@ While we are on the subject of text, we may as well give our chart a title that 
             .attr("y", 40)
             .attr("class", "chartTitle")
             .text("Number of Variable " + expressed[3] + " in each region");
-    
+
 
 In Example 2.10, we append a `<text>` element to the chart container and position it 20 pixels to the right and 40 pixels below the top-left corner of the container (lines 2-4). For the title itself, we create a string that includes the fourth character from the currently `expressed` attribute name (effectively changing "varA" to "Variable A"; line 6). <ins>_**Note**_</ins> that you need to change the formatting of this title string to make sense given the attribute names in your dataset, and are likely to use the full `expressed` attribute name rather than a subset of characters.
 
@@ -648,7 +647,7 @@ The title should be big and bold, which means overriding the default styles for 
         font-size: 1.5em;
         font-weight: bold;
     }
-    
+
 
 We can now see our chart title (Figure 2.7).
 
@@ -750,7 +749,7 @@ Rather than step through each of the necessary adjustments to the script and sty
             .attr("height", chartInnerHeight)
             .attr("transform", translate);
     };
-    
+
 
 ###### Example 2.13: Styles for bar chart with axis in _style.css_
 
@@ -789,7 +788,7 @@ Rather than step through each of the necessary adjustments to the script and sty
         font-size: 0.8em;
         fill: #999;
     }
-    
+
 
 ![figure10.2.9.png](img/figure10.2.9.png)
 
