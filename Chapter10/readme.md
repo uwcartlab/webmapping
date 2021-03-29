@@ -151,9 +151,9 @@ In Example 1.3, we moved three tasks into their own functions. The three blocks 
 
 ### III. Creating a Color Scale
 
-The next step toward creating our choropleth map is to build a color scale that we will use to visualize our attribute data on the map. You worked with a linear color scale in Module 7, Lesson 3 that created an unclassed color scheme. You should use a classed color scheme for your D3 lab assignment using 4-7 classes based on recommendations in cartography. There are multiple classification methods for classed choropleth maps. Three common schemes are easy to implement in D3: quantile, equal interval, and natural breaks. Your choropleth map should be classed, but which classification method you choose should depend on the structure of your data. 
+The next step toward creating our choropleth map is to build a color scale that we will use to visualize our attribute data on the map. You worked with a linear color scale in Module 7, Lesson 3 that created an unclassed color scheme. You should use a classed color scheme for your D3 map using 4-7 classes based on recommendations in cartography. There are multiple classification methods for classed choropleth maps. Three common schemes are easy to implement in D3: quantile, equal interval, and natural breaks. Your choropleth map should be classed, but which classification method you choose should depend on the structure of your data. 
 
--   _**Quantile**_ classification places an equal number of data values in each class, and works best when you want to create a map with the same number of enumeration units in each class but do not care about how wide the class ranges are. Quantile also works well for data measured on an ordinal scale as well as for comparison of multiple variables measured in different units (which might be the case for your Lab 2 multivariate dataset).
+-   _**Quantile**_ classification places an equal number of data values in each class, and works best when you want to create a map with the same number of enumeration units in each class but do not care about how wide the class ranges are. Quantile also works well for data measured on an ordinal scale as well as for comparison of multiple variables measured in different units (which might be the case for your D3 map multivariate dataset).
     
 -   _**Equal interval**_ classification breaks the data into classes with equal ranges (e.g., 0-10, 10-20, 20-30, etc.). Equal interval produces the easiest to understand legend but works best for data that are spread uniformly across the entire data range.
     
@@ -377,11 +377,11 @@ Lesson 2: Drawing a Coordinated Visualization
 
 ### I. Responsively Framing a Data Visualization
 
-For the D3 lab assignment, you are required to create a _**coordinated visualization**_, linking the _reexpress_ and _retrieve_ interaction operators between the choropleth map and a second visual isomorph communicating different aspects of the attribute information. In Lesson 2, we will create a simple bar chart as our coordinated visualization; logic for linking user interactions between the map and graphic are covered in Chapter 11.
+Next, create a _**coordinated visualization**_, linking the _reexpress_ and _retrieve_ interaction operators between the choropleth map and a second visual isomorph communicating different aspects of the attribute information. In Lesson 2, we will create a simple bar chart as our coordinated visualization; logic for linking user interactions between the map and graphic are covered in Chapter 11.
 
-You should not feel limited to the bar chart as your only coordinated option. If you are feeling adventurous and want to try implementing a different type of visualization, revisit the [D3 Examples Gallery](https://github.com/mbostock/d3/wiki/Gallery) for inspiration, looking for examples that work well with Shneiderman's multidimensional data type (i.e., multiple variables). If you do decide to stick with a bar chart, make sure you customize its look and feel. Do _not_ simply use the default styles shown in this tutorial. You may copy-paste example code to get started, but simply implementing the default visual appearance of the map or chart will not receive full points for the Lab 2 assignment grade.
+You should not feel limited to the bar chart as your only coordinated option. If you are feeling adventurous and want to try implementing a different type of visualization, revisit the [D3 Examples Gallery](https://github.com/mbostock/d3/wiki/Gallery) for inspiration, looking for examples that work well with Shneiderman's multidimensional data type (i.e., multiple variables). If you do decide to stick with a bar chart, make sure you customize its look and feel. Do _not_ simply use the default styles shown in this tutorial.
 
-The first step in creating our linked visualization is to build the chart container in _main.js_. We can do this in a new function called from within the `callback()` function (Example 2.1).
+The first step in creating our coordinated visualization is to build the chart container in _main.js_. We can do this in a new function called from within the `callback()` function (Example 2.1).
 
 ###### Example 2.1: Creating the bar chart container in _main.js_
 
