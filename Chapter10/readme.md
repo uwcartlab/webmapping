@@ -108,6 +108,7 @@ Let's also tidy up our script by moving some of our code that performs specific 
         //...MAP, PROJECTION, PATH, AND QUEUE BLOCKS FROM CHAPTER 8
     
         function callback(data){	
+
             var csvData = data[0], europe = data[1], france = data[2];
     
             //place graticule on the map
