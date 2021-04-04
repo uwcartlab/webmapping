@@ -306,15 +306,15 @@ We now have a fully interactive choropleth map and linked visualization, with th
 
 ###### Figure 1.3: Interactive choropleth map and chart
 
-> ### **Implement a visual affordance allowing the user to change the expressed attribute, and feedback updating your choropleth map and data visualization in response to user input.**
+> ### **Implement a visual affordance that allows the user to change the expressed attribute and visual feedback that updates your choropleth map and data visualization in response to user input.**
 
 ### III. Transitions
 
-Although our map and visualization now change their state in response to user input, that change is not always noticeable when the attributes are correlated and thus maintain relatively similar class breaks. To make the change more noticeable, we can add additional feedback to the user in the form of a D3 [transition](https://github.com/d3/d3-transition#d3-transition). _**Transitions**_ take advantage of the [animation capabilities](http://www.w3.org/TR/SVG/animate.html) built into the SVG specification to animate between visual states. Animation guides the user's eye from one visual state to another, allowing time for the change to register cognitively. It also improves the aesthetic appeal of the graphics by making them appear to react and flow smoothly in response to user input.
+Although our map and visualization now change their state in response to user input, that change is not always noticeable when the attributes are correlated and thus maintain relatively similar class breaks. To make the change more noticeable, we can add additional visual feedback to the user in the form of a D3 [transition](https://github.com/d3/d3-transition#d3-transition). _**Transitions**_ take advantage of the [animation capabilities](http://www.w3.org/TR/SVG/animate.html) built into the SVG specification to animate between visual states. Animated transitions guide the user's eye from one visual state to another, allowing time for the change to register cognitively. It also improves the aesthetic appeal of the graphics by making them appear to react and flow smoothly in response to user input.
 
 We will cover only basic transitions here. You may wish to explore more deeply into transition options such as different types of [easing](https://github.com/d3/d3-ease#d3-ease) and [interpolation](https://github.com/d3/d3-interpolate#d3-interpolate). Each of these options has a default behavior that D3 implements automatically on any transition if they are not set manually.
 
-The simplest and most common way to create a D3 transition is to call the `.transition()` method in a selection block with no parameters. Every `.attr()` and `.style()` applied to the selection after calling `.transition()` is implemented through the transition; that is, the current values for those element attributes and styles are replaced gradually with the new values according to the default easing function or a different easing function that is specified by the `.ease()` operator. In-between values will be created by an interpolator to form the animation.
+The simplest and most common way to create a D3 transition is to call the `.transition()` method in a selection block with no parameters. Every `.attr()` and `.style()` applied to the selection after calling `.transition()` is implemented through the transition; that is, the current values for those element attributes and styles are replaced gradually with the new values according to the default easing function or a different easing function that is specified by the `.ease()` operator. Values in between are created by an interpolator to form the animation.
 
 Let's start by implementing a transition on the choropleth map (Example 1.9).
 
@@ -336,7 +336,7 @@ Let's start by implementing a transition on the choropleth map (Example 1.9).
 
 In Example 1.9, we modify the `regions` block in the `changeAttribute()` function, adding a `.transition()` operator and a `.duration()` operator above the `.style()` operator (lines 3-4). The [`.duration()`](https://github.com/d3/d3-transition#transition_duration) operator specifies a duration in milliseconds; hence the transition will last 1000 milliseconds or 1 second. The effect is to smoothly animate between colors when the color of each enumeration units is changed in response to user input.
 
-The bars of our bar chart can also be animated within `changeAttribute()` (Example 1.10).
+The bars of our bar chart also can be animated within `changeAttribute()` (Example 1.10).
 
         //Example 1.7 line 22...Sort, resize, and recolor bars
         var bars = d3.selectAll(".bar")
@@ -353,7 +353,7 @@ The bars of our bar chart can also be animated within `changeAttribute()` (Examp
         updateChart(bars, csvData.length, colorScale);
 
 
-In Example 1.10, we add a `.transition()` after the data has been Sorted according to the new expressed attribute (line 7). We then add a [`.delay`](https://github.com/d3/d3-transition#transition_delay) operator with an anonymous function that delays the start of animations 20 additional milliseconds for each bar in the sequence (lines 8-10). This gives the appearance that the bars consciously rearrange themselves. The `.duration()` operator gives each bar half a second to complete its transition (line 11). When the `bars` selection is passed to `updateChart()`, the transition is passed with it, so that each of the changing attributes and the `fill` style are animated when the attribute changes (Figure 1.4).
+In Example 1.10, we add a `.transition()` after the data has been sorted according to the new expressed attribute (line 7). We then add a [`.delay`](https://github.com/d3/d3-transition#transition_delay) operator with an anonymous function that delays the start of animations 20 additional milliseconds for each bar in the sequence (lines 8-10). This gives the appearance that the bars consciously rearrange themselves. The `.duration()` operator gives each bar half a second to complete its transition (line 11). When the `bars` selection is passed to `updateChart()`, the transition is passed with it, so that each of the changing attributes and the `fill` style are animated when the attribute changes (Figure 1.4).
 
 ![figure11.1.4.gif](img/figure11.1.4.gif)
 
