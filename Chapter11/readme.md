@@ -3,9 +3,9 @@
 Chapter 11: Coordinated Interactions
 =================================
 
-Welcome to Chapter 11, the final set of lessons in Web Mapping! In Chapter 11, we discuss linking interactions in D3 between your map and additional visualization. Chapter 11 includes two lessons and concludes with your final Lab 2 coordinated visualization: 
+Welcome to Chapter 11, the final set of lessons in the Web Mapping workbook! In Chapter 11, we discuss coordinating interactions in D3 between your choropleth map and linked visualization. Chapter 11 includes two lessons and concludes with your final D3 coordinated visualization: 
 
-*   In Lesson 1, we implement the _reexpress_ operator for changing the visualized attribute using the menu selection interface style. Lesson 1 also introduces you to D3 transitions that add visual  feedback as the user interacts with the coordinated visualizations.
+*   In Lesson 1, we implement the _reexpress_ operator for changing the visualized attribute using the menu selection interface style. Lesson 1 also introduces you to D3 transitions that add visual feedback as the user interacts with the coordinated visualizations.
 *   In Lesson 2, we implement a _retrieve_ operator linked between the map and visualization.
 
 After this chapter, you should be able to:
@@ -18,11 +18,11 @@ Lesson 1: Dynamic Attribute Selection
 
 ### I. Menu Selection
 
-So far, we have worked with one attribute to create the map and data visualization for the D3 lab assignment. However, your dataset includes least five attributes, and we want the user to be able to _reexpress_ among these attributes. In this lesson, we discuss how to implement the _reexpress_ operator the menu selection interface style.
+So far, we have worked with one attribute to create the map and data visualization for the D3 coordinated visualization. However, your dataset includes least five attributes, and we want the user to be able to _reexpress_ among these attributes. In this lesson, we discuss how to implement the _reexpress_ operator the menu selection interface style.
 
-For Lab 1, you implemented the _**direct manipulation**_ interface style for your interaction operators, enabling the user to probe, drag, or click/tap graphic (non-text) interface controls or the map itself. Specifically, _retrieve_ was implemented with direct manipulation of individual map features, _pan_ and _zoom_ were implemented with direct manipulation of the entire map, and _sequence_ (and possibly _zoom_) was implemented with direct manipulation of a non-map, non-legend, non-isomorphic interface widget (i.e., the slider control).
+For your Leaflet map, you implemented the _**direct manipulation**_ interface style for your interaction operators, enabling the user to probe, drag, or click/tap graphic (non-text) interface controls or the map itself. Specifically, _retrieve_ was implemented with direct manipulation of individual map features, _pan_ and _zoom_ were implemented with direct manipulation of the entire map, and _sequence_ (and possibly _zoom_) was implemented with direct manipulation of a non-map, non-legend, non-isomorphic interface widget (i.e., the slider control).
 
-For Lab 2, we use _menu selection_ to select one of your multivariate attributes from a list. Menu selection is considered "slightly less direct than direct", as it typically uses text rather than graphics as the _visual affordance_ for list items. However, men selection can include graphics alongside text, such as icons representing different list items (common for mobile), or replace text entirely with graphics (e.g., a map preview). Menu selection has the advantages of lower pointing mileage and great pointing efficiency while also constraining user interaction to a subset of options (versus the more free form fill-in).
+For your D3 map, we use _menu selection_ to select one of your multivariate attributes from a list. Menu selection is considered "slightly less direct than direct", as it typically uses text rather than graphics as the _visual affordance_ for list items. However, men selection can include graphics alongside text, such as icons representing different list items (common for mobile), or replace text entirely with graphics (e.g., a map preview). Menu selection has the advantages of lower pointing mileage and great pointing efficiency while also constraining user interaction to a subset of options (versus the more free form fill-in).
 
 Menu selection has the added advantage of being easy to implement compared to direct manipulation. We make use of a simple HTML `<select>` element for _reexpress_, which provides a basic dropdown menu for attribute selection. Start by adding a [`<select>`](http://www.w3schools.com/tags/tag_select.asp) dropdown menu to the DOM. Note that the `<select>` element is merely a container for the menu; we also need to add each value we want in the menu as an [`<option>`](http://www.w3schools.com/tags/tag_option.asp) child element. By now, you probably have some idea of how to accomplish both of these tasks using D3 selections. Example 1.1 illustrates one possible set of selection blocks.
 
@@ -366,9 +366,9 @@ Lesson 2: Linked Retrieve Interactions
 
 ### I. Highlighting
 
-The final required components of your D3 laboratory assignment are linked highlighting and dynamic labels, both components of the _retrieve_ interaction operator. _**Highlighting**_ is visual feedback provided across views when selecting or "brushing" elements of the visualization. **_Linking_** is the coupling of any interaction operator performed on one view to feedback given in all views. Linking is a distinguising feature of coordinated visualizations that allows the user to easily compare data across different types of visualizations.
+The final components of your D3 map are linked highlighting and dynamic labels, both components of the _retrieve_ interaction operator. _**Highlighting**_ is visual feedback provided across views when selecting or "brushing" elements of the visualization. **_Linking_** is the coupling of any interaction operator performed on one view to feedback given in all views. Linking is a distinguising feature of coordinated visualizations that allows the user to easily compare data across different types of visualizations.
 
-_**Dynamic labels**_, or popups as discussed in Chapter 5 for the Leaflet lab, are brief labels with critical information about the selected feature that follow the cursor. We will tackle adding these in the third section of this lesson. You may choose to implement other forms of the _retrieve_ operator as well, such as an information window or panel.
+_**Dynamic labels**_, or popups as discussed in Chapter 5 for the Leaflet map, are brief labels with critical information about the selected feature that follow the cursor. We will tackle adding these in the third section of this lesson. You may choose to implement other forms of the _retrieve_ operator as well, such as an information window or panel.
 
 In order to highlight the enumeration units on our map and the bars in our bar chart, we need two separate functions: a `highlight()` function that changes the style of the linked features and a `dehighlight()` function that returns the elements to their original style. In the examples below, the highlighting strategy we implement is to add a blue stroke to each feature. You should choose the highlighting strategy based on lecture that is most appropriate for your design.
 
@@ -694,7 +694,7 @@ We now have a label that follows the mouse and switches sides to avoid overflow 
 
 ### IV. Extending Your Coordinated Visualization
 
-Here ends the tutorials related to constructing your multivariate coordinated visualization...but your work is not over! If you chose to begin by following the tutorial examples, it is now time to implement your own custom UI/UX design. You should use the principles of cartographic design and interaction that you have learned up to this point to push beyond the basic requirements of the D3 lab assignment and make your final product visually stunning and an experience your users will remember.
+Here ends the tutorials related to constructing your multivariate coordinated visualization...but your work is not over! If you chose to begin by following the tutorial examples, it is now time to implement your own custom UI/UX design. You should use the principles of cartographic design and interaction that you have learned up to this point to push beyond the basic requirements of the D3 map and make your final product visually stunning and an experience your users will remember.
 
 Consider implementing the following components that have not been covered in these chapters:
 
