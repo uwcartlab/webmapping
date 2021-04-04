@@ -443,7 +443,7 @@ If we now test our highlighting, we can see it working (Figure 2.1). The brushed
 
 ### II. Dehighlighting
 
-The `dehighlight()` function is more challenging to implement than the `highlight()` function because the enumeration units and bars have different original border styles. One solution is to use the exact same style for both map and chart; this may not be possible depending on the type of linked visualization you choose to implement. Another choice is to hardcode each style as a global variable and create separate selections for map elements and chart elements to restyle each.
+The `dehighlight()` function is more challenging to implement than the `highlight()` function because the enumeration units and bars have different original border styles. One solution is to use the exact same style for both map and chart; this may not be possible depending on the type of linked visualization you chose to implement. Another choice is to hardcode each style as a global variable and create separate selections for map elements and chart elements to restyle each.
 
 The implementation shown here uses a third method: it takes advantage of the SVG [`<desc>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/desc) element, a simple element that only holds text content, remains invisible to the user, and can be appended to any other kind of SVG element. We can add a `<desc>` element containing a text description of the original style to each of our map's `<path>` elements and our chart's `<rect>` elements (Example 2.3).
 
@@ -460,7 +460,7 @@ The implementation shown here uses a third method: it takes advantage of the SVG
             .text('{"stroke": "none", "stroke-width": "0px"}');
 
 
-In Example 2.3, note that each style descriptor string adheres to a JSON format (lines 3 and 9). This makes the information easier to parse in the `dehighlight()` function. Be aware that JSON formatting uses even stricter syntax than regular JavaScript: each property and value _must_ be encased by _double-quotes_. The JSON parser will fail if single quotes are used, if necessary quotes are left our, or if there are excess or missing punctuation marks.
+In Example 2.3, note that each style descriptor string adheres to a JSON format (lines 3 and 9). This makes the information easier to parse in the `dehighlight()` function. Be aware that JSON formatting uses even stricter syntax than regular JavaScript: each property and value _must_ be encased by _double-quotes_. The JSON parser will fail if single quotes are used, if necessary quotes are left out, or if there are excess or missing punctuation marks.
 
 Using the inspector, we can see that each `<path>` element and each `<rect>` element now have child `<desc>` elements with our pseudo-object string (Figure 2.2).
 
@@ -468,7 +468,7 @@ Using the inspector, we can see that each `<path>` element and each `<rect>` ele
 
 ###### Figure 2.2: Inspecting the `<desc>` elements
 
-We now can make use of the contents of these `<desc>` elements in our `dehighlight()` function. It still takes a bit of doing to retrieve the information stored in the `<desc>` elements, so we will step carefully through the `dehighlight()` example below (Example 2.4).
+We now can make use of the contents of these `<desc>` elements in our `dehighlight()` function. It still takes a bit of doing to retrieve the information stored in the `<desc>` elements, so we step carefully through the `dehighlight()` example below (Example 2.4).
 
 ###### Example 2.4: Adding a `dehighlight()` function in _main.js_
 
@@ -498,7 +498,7 @@ In Example 2.4, the `dehighlight()` function begins much the same as the `highli
 
 Within the `getStyle()` function, we retrieve the `<desc>` content by creating a selection of the current DOM element, selecting its `<desc>` element, and returning the text content using the `.text()` operator with no parameters (lines 14-16). We then parse the JSON string to create a JSON object (line 18) and return the correct style property's value (line 20).
 
-This completes the `dehighlight()` function, which we can add event listeners to call (Example 2.5).
+This completes the `dehighlight()` function, which needs its own event listeners to call (Example 2.5).
 
 ###### Example 2.5: Adding `mouseout` event listeners in _main.js_
 
@@ -531,7 +531,7 @@ We now have working linked highlighting and dehighlighting, allowing only one fe
 
 ### III. Dynamic Labels
 
-The final assigned task in support of the _retrieve_ interaction operator is to implement a dynamic label (or popup) showing the attribute values for each region of France. For this tutorial, we implement a simple label that moves with the cursor. To create the dynamic label, we can write a new `setLabel()` function that makes use of the feature properties (Example 2.6).
+The final task in support of the _retrieve_ interaction operator is implementing a dynamic label (or popup) showing the attribute values for each region of France. For this tutorial, we implement a simple label that moves with the cursor. To create the dynamic label, write a new `setLabel()` function that makes use of the feature properties (Example 2.6).
 
 ###### Example 2.6: Creating the dynamic label in _main.js_
 
@@ -554,9 +554,9 @@ The final assigned task in support of the _retrieve_ interaction operator is to 
     };
 
 
-In Example 2.6, within the `setLabel()` function, we first create an HTML string containing an `<h1>` element with the selected attribute value and a `<b>` element with the attribute name (lines 4-5). If these elements needed attributes, it quickly becomes unwieldy to include them in an HTML string, but since they do not, writing an HTML string is a handy shortcut. Next, we create the actual label `<div>` element, giving it `class` and `id` attributes and assigning our HTML string with the `.html()` operator (lines 8-12). Finally, we add a child `<div>` to the label to contain the name of the selected region.
+In Example 2.6, within the `setLabel()` function, first create an HTML string containing an `<h1>` element with the selected attribute value and a `<b>` element with the attribute name (lines 4-5). If these elements needed attributes, it quickly becomes unwieldy to include them in an HTML string, but since they do not, writing an HTML string is a handy shortcut. Next, create the actual label `<div>` element, giving it `class` and `id` attributes and assigning our HTML string with the `.html()` operator (lines 8-12). Finally, add a child `<div>` to the label to contain the name of the selected region.
 
-Since we want our label to show up whenever the user highlights a region or bar, we now can call `setLabel()` from within `highlight()`, passing it the `props` variable as a parameter. To make sure our labels do not stack up in the DOM, we need to remove each new label on `dehighlight()` as well (Example 2.7).
+Since we want our label to show up whenever the user highlights a region or bar, now can call `setLabel()` from within `highlight()`, passing it the `props` variable as a parameter. To make sure our labels do not stack up in the DOM, we need to remove each new label on `dehighlight()` as well (Example 2.7).
 
 ###### Example 2.7: Removing the info label on dehighlight in _main.js_
 
@@ -593,7 +593,7 @@ These styles create a simple black label with white text (Figure 2.4).
 
 ###### Figure 2.4: Styled info label
 
-The next step, of course, is to  reposition the label to the cursor. D3 provides a handy object, [`event`](https://github.com/d3/d3-selection/blob/master/README.md#handling-events), that holds the position of the mouse whenever an event is fired on the page. We can use [`event`](https://github.com/d3/d3-selection/blob/master/README.md#handling-events),to set the position of our info label in a function that is called on any `mousemove` event (Example 2.8).
+The next step, of course, is to  reposition the label to the cursor. D3 provides a handy object, [`event`](https://github.com/d3/d3-selection/blob/master/README.md#handling-events), that holds the position of the mouse whenever an event is fired on the page. We can use [`event`](https://github.com/d3/d3-selection/blob/master/README.md#handling-events) to set the position of our info label in a function that is called on any `mousemove` event (Example 2.8).
 
 ###### Example 2.8: Adding movement to the info label in _main.js_
 
@@ -609,7 +609,7 @@ The next step, of course, is to  reposition the label to the cursor. D3 provide
     };
 
 
-In Example 2.8, we retrieve the coordinates of the `mousemove` event and manipulate them to set the bottom-left corner of the label above and to the right of the mouse (lines 4-5). We then pass those coordinate values to the `left` and `top` styles of the label—which we use instead of `margin-left` and `margin-top` because the label's position is set to `absolute` instead of `relative` (lines 7-9). We now need to call this function as an event handler for a `mousemove` event on both the map and chart (Example 2.9).
+In Example 2.8, we retrieve the coordinates of the `mousemove` event and manipulate them to set the bottom-left corner of the label above and to the right of the mouse (lines 4-5). We then pass those coordinate values to the `left` and `top` styles of the label, which we use instead of `margin-left` and `margin-top` because the label's position is set to `absolute` instead of `relative` (lines 7-9). We now need to call this function as an event handler for a `mousemove` event on both the map and chart (Example 2.9).
 
 ###### Example 2.9. Adding `mousemove` event listeners in _main.js_
 
