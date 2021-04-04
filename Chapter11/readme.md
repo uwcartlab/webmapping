@@ -368,11 +368,11 @@ Lesson 2: Linked Retrieve Interactions
 
 The final components of your D3 map are linked highlighting and dynamic labels, both components of the _retrieve_ interaction operator. _**Highlighting**_ is visual feedback provided across views when selecting or "brushing" elements of the visualization. **_Linking_** is the coupling of any interaction operator performed on one view to feedback given in all views. Linking is a distinguising feature of coordinated visualizations that allows the user to easily compare data across different types of visualizations.
 
-_**Dynamic labels**_, or popups as discussed in Chapter 5 for the Leaflet map, are brief labels with critical information about the selected feature that follow the cursor. We will tackle adding these in the third section of this lesson. You may choose to implement other forms of the _retrieve_ operator as well, such as an information window or panel.
+_**Dynamic labels**_, or popups as discussed in Chapter 5 for the Leaflet map, are brief labels with critical information about the selected feature that follow the cursor. We tackle adding these in the third section of this lesson. You may choose to implement other forms of the _retrieve_ operator as well, such as an information window or panel.
 
-In order to highlight the enumeration units on our map and the bars in our bar chart, we need two separate functions: a `highlight()` function that changes the style of the linked features and a `dehighlight()` function that returns the elements to their original style. In the examples below, the highlighting strategy we implement is to add a blue stroke to each feature. You should choose the highlighting strategy based on lecture that is most appropriate for your design.
+In order to highlight the enumeration units on our map and the bars in our bar chart, we need two separate functions: a `highlight()` function that changes the style of the linked features and a `dehighlight()` function that returns the elements to their original style. In the examples below, the highlighting strategy we implement is to add a blue stroke to each feature. You should choose the highlighting strategy that is most appropriate for your design.
 
-First, let's write the `highlight()` function, which will restyle the stroke of each enumeration unit and bar (Example 2.1).
+First, write the `highlight()` function, which restyles each enumeration unit and bar (Example 2.1).
 
 ###### Example 2.1: Adding a `highlight()` function in _main.js_
 
@@ -385,7 +385,7 @@ First, let's write the `highlight()` function, which will restyle the stroke of 
     };
 
 
-In Example 2.1, `props` is the properties object of the selected element from the GeoJSON data or the attributes object from the CSV data, depending on whether the selected element is an enumeration unit on the map or a bar on the chart (line 2). Since the `adm1_code` attribute should be the same for the matching region and bar, our class selector in the `.selectAll()` method should select both matching elements (line 4). We can then apply a wider blue stroke to both elements with two `.style()` adjustments, one for the stroke color and one for the stroke width (lines 5-6).
+In Example 2.1, `props` is the properties object of the selected element from the GeoJSON data or the attributes object from the CSV data, depending on whether the selected element is an enumeration unit on the map or a bar on the chart (line 2). Since the `adm1_code` attribute should be the same for the matching region and bar, our class selector in the `.selectAll()` method should select both matching elements (line 4). We then can apply a wider blue stroke to both elements with two `.style()` adjustments, one for the stroke color and one for the stroke width (lines 5-6).
 
 In order to make this function work, we need to call it from `"mouseover"` event listeners attached to our `regions` block and our `bars` block (Example 2.2), a common solution for coordinated visualizations, but one that is not mobile-friendly.
 
