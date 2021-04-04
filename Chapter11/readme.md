@@ -85,7 +85,7 @@ We can now see our dropdown menu with each of our attribute options atop the map
 
 ### II. Menu Selection Feedback
 
-Once implemented, we need to enable our _reexpress_ menu selection by adding an event listener to the script to listen for a user interaction and a listener handler function to respond by changing the expressed attribute, thus giving _visual feedback_ to the user. Let's pseudocode the feedback tasks (Example 1.3).
+Once implemented, we need to enable our _reexpress_ menu selection by adding an event listener to the script to listen for a user interaction and an event handler function to respond by changing the expressed attribute, thus giving _visual feedback_ to the user. Start by pseudocoding the feedback tasks (Example 1.3).
 
 ###### Example 1.3: Pseudo-code for attribute change listener
 
@@ -93,12 +93,12 @@ Once implemented, we need to enable our _reexpress_ menu selection by adding an 
     // Step 1. Change the expressed attribute
     // Step 2. Recreate the color scale with new class breaks
     // Step 3. Recolor each enumeration unit on the map
-    // Step 4. Re-sort each bar on the bar chart
+    // Step 4. Sort each bar on the bar chart
     // Step 5. Resize each bar on the bar chart
     // Step 6. Recolor each bar on the bar chart
 
 
-Steps 1-3 are relatively simple to take care of within a listener handler function (Example 1.4).
+Steps 1-3 are relatively simple to take care of within an event handler function (Example 1.4).
 
 ###### Example 1.4: Adding a change listener and handler function in _main.js_
 
@@ -115,7 +115,7 @@ Steps 1-3 are relatively simple to take care of within a listener handler functi
         //OPTIONS BLOCKS FROM EXAMPLE 1.1 LINES 8-19
     };
     
-    //dropdown change listener handler
+    //dropdown change event handler
     function changeAttribute(attribute, csvData) {
         //change the expressed attribute
         expressed = attribute;
@@ -135,7 +135,7 @@ Steps 1-3 are relatively simple to take care of within a listener handler functi
     }
 
 
-In Example 1.4, we add a [`.on()`](https://github.com/d3/d3-selection#handling-events) operator to the end of the `dropdown` block to listen for a `"change"` interaction on the `<select>` element (line 7). In this context, `.on()` is a D3 method, but it works similarly to Leaflet's `.on()` method. We pass it an anonymous function, within which we call our new listener handler, `changeAttribute()` (lines 7-9). The parameters of `changeAttribute()` are the `value` of the `<select>` element (referenced by `this`), which holds the attribute selected by the user, as well as our `csvData`. The `csvData` will be used to recreate the color scale. Note that we also need to add it as a parameter to the `createDropdown()` function (line 2) and its function call within the `callback()` (not shown).
+In Example 1.4, we add a [`.on()`](https://github.com/d3/d3-selection#handling-events) operator to the end of the `dropdown` block to listen for a `"change"` interaction on the `<select>` element (line 7). In this context, `.on()` is a D3 method, but it works similarly to Leaflet's `.on()` method. We pass it an anonymous function, within which we call our new event handler, `changeAttribute()` (lines 7-9). The parameters of `changeAttribute()` are the `value` of the `<select>` element (referenced by `this`), which holds the attribute selected by the user, as well as our `csvData`. The `csvData` will be used to recreate the color scale. Note that we also need to add it as a parameter to the `createDropdown()` function (line 2) and its function call within the `callback()` (not shown).
 
 Within `changeAttribute()`, we complete Step 1 in our pseudocode by simply assigning the user-selected attribute to the `expressed` pseudo-global variable (line 17). For Step 2, we repeat the call to `makeColorScale()`, passing the scale generator our `csvData` and assigning the returned scale to a new `colorScale` variable (line 20). For Step 3, we create a selection of all enumeration units (line 23). Since the enumeration units already have our GeoJSON data attached to them as a property in the DOM, we can re-use their GeoJSON `properties` with the new `colorScale` function to reset each enumeration unit's `fill` attribute (lines 24-30).
 
@@ -145,11 +145,11 @@ The map should now recolor itself when a new attribute is selected from the drop
 
 ###### Figure 1.2: Dynamic attribute selection changes the choropleth
 
-Restyling the dynamic visualization (Steps 4-6) is more challenging, but we can use the same principle of recycling a multi-element selection we used for recoloring the enumeration units on the map in Steps 1-3. The block that we build should contain a selection of all visualization elements (bars in the bar chart) and each operator that affects an aspect of the element we want to change when a new attribute is selected. For re-sorting the bars (Step 4), we need `.sort()` and the `x` attribute. For resizing the bars (Step 5), we need the `height` and `y` attributes. Finally, for recoloring the bars (Step 6), we need the `fill` style (Example 1.5).
+Restyling the dynamic visualization (Steps 4-6) is more challenging, but we can use the same principle of recycling a multi-element selection we used for recoloring the enumeration units on the map in Steps 1-3. The new block should contain a selection of all visualization elements (bars in the bar chart) and each operator that affects an aspect of the element we want to change when a new attribute is selected. For sorting the bars (Step 4), we need `.sort()` and the `x` attribute. For resizing the bars (Step 5), we need the `height` and `y` attributes. Finally, for recoloring the bars (Step 6), we need the `fill` style (Example 1.5).
 
 ###### Example 1.5: Manipulating the chart bars on attribute change in _main.js_
 
-    //Example 1.4 line 14...dropdown change listener handler
+    //Example 1.4 line 14...dropdown change event handler
     function changeAttribute(attribute, csvData){
         //change the expressed attribute
         expressed = attribute;
@@ -167,9 +167,9 @@ Restyling the dynamic visualization (Steps 4-6) is more challenging, but we can 
                     return "#ccc";            
                 }    
             });
-        //re-sort, resize, and recolor bars
+        //Sort, resize, and recolor bars
         var bars = d3.selectAll(".bar")
-            //re-sort bars
+            //Sort bars
             .sort(function(a, b){
                 return b[expressed] - a[expressed];
             })
@@ -254,9 +254,9 @@ Once we have done this, these variables are available for use by _any_ function 
     
         //...
     
-        //in changeAttribute()...Example 1.5 line 15...re-sort bars
+        //in changeAttribute()...Example 1.5 line 15...Sort bars
         var bars = d3.selectAll(".bar")
-            //re-sort bars
+            //Sort bars
             .sort(function(a, b){
                 return b[expressed] - a[expressed];
             });
@@ -289,7 +289,7 @@ Once we have done this, these variables are available for use by _any_ function 
     };
 
 
-In Example 1.7, the positioning, sizing, and coloring of the bars has been moved into a new `updateChart()` function, which is called from within both `setChart()` and `changeAttribute()` (lines 17 and 29). This function receives the `bars` selection, the length of the `csvData` which corresponds to the number of bars, and the `colorScale`. Note that although it is still repeated in `updateChart()` and `changeAttribute()`, we did not move the `.sort()` operator into `updateChart()` because it necessarily comes before the `class` and `width` attribute assignments in `setChart()`, which should not be repeated when the attribute is changed (lines 6-12 and 25-27).
+In Example 1.7, the positioning, sizing, and coloring of the bars has been moved into a new `updateChart()` function, which is called from within both `setChart()` and `changeAttribute()` (lines 17 and 29). This function receives the `bars` selection, the length of the `csvData` that corresponds to the number of bars, and the `colorScale`. Note that although it is still repeated in `updateChart()` and `changeAttribute()`, we did not move the `.sort()` operator into `updateChart()` because it necessarily comes before the `class` and `width` attribute assignments in `setChart()`, which should not be repeated when the attribute is changed (lines 6-12 and 25-27).
 
 The final step to updating the chart is to change the chart title. For this, we can move the `.text()` operator from the `chartTitle` block in `setChart()` into `updateChart()` (Example 1.8).
 
@@ -338,9 +338,9 @@ In Example 1.9, we modify the `regions` block in the `changeAttribute()` functio
 
 The bars of our bar chart can also be animated within `changeAttribute()` (Example 1.10).
 
-        //Example 1.7 line 22...re-sort, resize, and recolor bars
+        //Example 1.7 line 22...Sort, resize, and recolor bars
         var bars = d3.selectAll(".bar")
-            //re-sort bars
+            //Sort bars
             .sort(function(a, b){
                 return b[expressed] - a[expressed];
             })
@@ -353,7 +353,7 @@ The bars of our bar chart can also be animated within `changeAttribute()` (Examp
         updateChart(bars, csvData.length, colorScale);
 
 
-In Example 1.10, we add a `.transition()` after the data has been re-sorted according to the new expressed attribute (line 7). We then add a [`.delay`](https://github.com/d3/d3-transition#transition_delay) operator with an anonymous function that delays the start of animations 20 additional milliseconds for each bar in the sequence (lines 8-10). This gives the appearance that the bars consciously rearrange themselves. The `.duration()` operator gives each bar half a second to complete its transition (line 11). When the `bars` selection is passed to `updateChart()`, the transition is passed with it, so that each of the changing attributes and the `fill` style are animated when the attribute changes (Figure 1.4).
+In Example 1.10, we add a `.transition()` after the data has been Sorted according to the new expressed attribute (line 7). We then add a [`.delay`](https://github.com/d3/d3-transition#transition_delay) operator with an anonymous function that delays the start of animations 20 additional milliseconds for each bar in the sequence (lines 8-10). This gives the appearance that the bars consciously rearrange themselves. The `.duration()` operator gives each bar half a second to complete its transition (line 11). When the `bars` selection is passed to `updateChart()`, the transition is passed with it, so that each of the changing attributes and the `fill` style are animated when the attribute changes (Figure 1.4).
 
 ![figure11.1.4.gif](img/figure11.1.4.gif)
 
@@ -609,7 +609,7 @@ The next step, of course, is to  reposition the label to the cursor. D3 provide
     };
 
 
-In Example 2.8, we retrieve the coordinates of the `mousemove` event and manipulate them to set the bottom-left corner of the label above and to the right of the mouse (lines 4-5). We then pass those coordinate values to the `left` and `top` styles of the label—which we use instead of `margin-left` and `margin-top` because the label's position is set to `absolute` instead of `relative` (lines 7-9). We now need to call this function as a listener handler for a `mousemove` event on both the map and chart (Example 2.9).
+In Example 2.8, we retrieve the coordinates of the `mousemove` event and manipulate them to set the bottom-left corner of the label above and to the right of the mouse (lines 4-5). We then pass those coordinate values to the `left` and `top` styles of the label—which we use instead of `margin-left` and `margin-top` because the label's position is set to `absolute` instead of `relative` (lines 7-9). We now need to call this function as an event handler for a `mousemove` event on both the map and chart (Example 2.9).
 
 ###### Example 2.9. Adding `mousemove` event listeners in _main.js_
 
