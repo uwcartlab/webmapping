@@ -62,14 +62,15 @@ The Local Focus geocoder attempts to disambiguate all text strings into geograph
 
 The geocoded output includes _**latitude**_ (the "Y" value north and south from the equator) and _**longitude**_ (the "X" value east and west from the prime meridian in Greenwich) columns. Many programs and websites recognize CSV data as geospatial if it contains these two column headers, so it is a good idea to always use these names for your coordinate columns. Note that the coordinate values are in **_decimal degrees_**, with positive values denoting north latitude or east longitude and negatives denoting south/west.
 
-Your final spreadsheet should have the name, lat/long coordinates, and population data for each city (Figure 1.5)  Once the spreadsheet is ready, save it using the ._csv_ option to your _unit-1_ _data_ folder. _Note_: Choose "UTF-8" for the character encoding when saving to ensure all characters are universally recognized.
+Your final spreadsheet should have the name, lat/long coordinates, and population data for each city (Figure 1.5)  Once the spreadsheet is ready, save it using the ._csv_ option to your _Chapter03_ _data_ folder (within your _unit-1_ repository). _Note_: Choose "UTF-8" for the character encoding when saving to ensure all characters are universally recognized.
+
+Additionally, copy the contents from _Chapter02_ to _Chapter03_. Doing so will allow you to access everything that you copied from _boilerplate_ to _Chapter02_, as well as build on the script that you began writing in Chapter 2.
 
 ![figure3.1.5.png](img/figure3.1.5.png)
 
 ###### Figure 1.5: Georeferenced data
 
-> **Download [MegaCities.csv](data/MegaCities.csv "MegaCities.csv"); the file also is included in _Chapter03_ of the _unit-1_ folder. Run its contents through a batch geocoder to add latitude and 
-longitude columns. Fill in any missing coordinate values.**
+> **Open _MegaCities.csv_ located in _Chapter03_ of the _unit-1_ folder. Run its contents through a batch geocoder to add latitude and longitude columns. Fill in any missing coordinate values.**
 
 ### II. JSON and GeoJSON
 
@@ -87,7 +88,7 @@ Note that data appears in GeoJSON format in the right-side panel. There are no v
 
 Once you have imported your data, you have two options for saving it as a GeoJSON file. If you want to keep the data neatly formatted as it is in the side panel, you can simply select all of the text in the side panel, copy it, paste into a new blank file in your text editor, and save it with a _.geojson_ extension from there. For a minified file, use the Save menu in the upper-left corner of the map and choose "GeoJSON". A file called _map.geojson_ will download automatically; retrieve this file from your downloads folder, move it to the data folder in your website directory, and rename it appropriately.
 
-> ### **Use [geojson.io](http://geojson.io/) to convert your CSV to a GeoJSON. Save your GeoJSON file to your _data_ folder in your _unit-1/boilerplate_ directory.**
+> ### **Use [geojson.io](http://geojson.io/) to convert your CSV to a GeoJSON. Save your GeoJSON file to your _data_ folder in your _Chapter03_ subdirectory.**
 
 Lesson 2: AJAX Concepts and Syntax
 ----------------------------------
@@ -195,7 +196,7 @@ We also can view the response as plain text using JavaScript's built-in JSON lib
 
 ###### Figure 2.2: The console showing the JSON data as a string
 
-> ### **Switch the script in _boilerplate/index.html_ back to _main.js_. Print the _MegaCities.geojson_ file to the console in _main.js_ using native JavaScript functions shown in Example 2.3.**
+> ### **With your _index.html_ linked to _main.js_, print the _MegaCities.geojson_ file to the console in _main.js_ using native JavaScript functions shown in Example 2.3.**
 
 ### III. jQuery AJAX Requests
 
