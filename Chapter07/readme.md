@@ -56,7 +56,7 @@ Collaborative coding with GitHub relies as much on functions like forking, mergi
 
 As your projects grow in scale, you also should add documentation to explain the repos to other collaborators (some of whom may be joining the project in the future) as well as to other interested coders who might draw on your work following the ethos of "libre" free and open source software. A _**readme**_ file acts as the metadata of software, datasets, or other repos posted to GitHub. Readme files often include information about authors and licensing, code versions and dependencies, as well as documentation and background description about the project.
 
-GitHub readme files use _.md_ extension standards for **_Markdown_**, a simple text format similar to ._doc_, ._rtf_ and ._txt_ that makes it easy to format text on the web. The _readme.md_ file at the root level of the repo is rendered as styled text on a GitHub repo page beneath the directory structure, and thus serves as the repo's visual website. Markdown is useful for web development beyond GitHub as well; for instance, we wrote these lessons in Markdown with Github applying our styles automatically upon upload (Figure 7.1.1)!
+GitHub readme files use _.md_ extension standards for **_Markdown_**, a simple text format similar to ._doc_, ._rtf_ and ._txt_ that makes it easy to format text on the web. The _readme.md_ file at the root level of the repo is rendered as styled text on a GitHub repo page beneath the directory structure, and thus serves as the repo's visual website. Markdown is useful for web development beyond GitHub as well; for instance, we wrote these lessons in Markdown with GitHub applying our styles automatically upon upload (Figure 7.1.1)!
 
 ###### Example 1.1: Markdown code for Chapter 1
 
@@ -258,7 +258,7 @@ When you make a commit, you are provided with a form fill-in interface allowing 
 
 ###### Figure 3.3: Adding a meaningful commit summary is essential for collaborative coding
 
-The top fill-in area is for the title of your commit message and the bottom is for the description of the commit. _**Never**_ commit with the default summary listed such as “Changed main.js”, as this making locating a specific commit difficult if you need to revert to it later. Instead, write a concise summary of what changes were made. We recommend using the following action verbs:  "Fix", "Add", or "Change": "Fix the calculateRadius function", "Add the legend feature"; "Change the initial zoom level"
+The top fill-in area is for the title of your commit message and the bottom is for the description of the commit. _**Never**_ commit with the default summary listed such as “Changed main.js”, as this making locating a specific commit difficult if you need to revert to it later. Instead, write a concise summary of what changes were made. We recommend using the following action verbs:  "Fix", "Add", or "Change": "Fix the calculateRadius function", "Add the legend feature"; "Change the initial zoom level".
 
 **5\. Add a Short Description to Your Commits**
 
