@@ -146,23 +146,25 @@ Once we have set up our `Promise.all()` block, we can write the callback functio
 ###### Example 1.4: Adding a callback to `setMap()` in _main.js_
 
     //Example 1.3 line 4...set up choropleth map
-    function setMap(){
+    function setMap() {
         //use Promise.all to parallelize asynchronous data loading
-        var promises = [d3.csv("data/unitsData.csv"),                    
-                        d3.json("data/EuropeCountries.topojson"),                    
-                        d3.json("data/FranceRegions.topojson")                   
-                        ];    
-            Promise.all(promises).then(callback);    
-            
-            function callback(data){	
-                csvData = data[0];	
-                europe = data[1];	
+    
+        var promises = [
+            d3.csv("data/unitsData.csv"),
+            d3.json("data/EuropeCountries.topojson"),
+            d3.json("data/FranceRegions.topojson"),
+        ];
+        Promise.all(promises).then(callback);
+    
+        function callback(data) {
+            var csvData = data[0],
+                europe = data[1],
                 france = data[2];
-                console.log(csvData);
-                console.log(europe);
-                console.log(france);    
-            };
-    };
+            console.log(csvData);
+            console.log(europe);
+            console.log(france);
+        }
+    }
 
 
 The `console.log()` statements print the results to separate lines of the console. As you can see in Figure 1.3, `d3.csv()` automatically formats the imported CSV data as an array, and `d3.json()` formats the spatial data as an object.
@@ -273,7 +275,7 @@ In Example 2.1, before we can create the projection, we first write a `map` bloc
 
 -   [`.center()`](https://github.com/d3/d3-geo/blob/master/README.md#projection_center) specifies the \[longitude, latitude\] coordinates of the center of the developable surface.
     
--   [`.rotate()`](https://github.com/d3/d3-geo/blob/master/README.md#projection_rotate) specifies the \[longitude, latitude, and roll\] angles by which to [rotate the reference globe](http://bl.ocks.org/mbostock/4282586).
+-   [`.rotate()`](https://github.com/d3/d3-geo/blob/master/README.md#projection_rotate) specifies the \[longitude, latitude, and roll\] angles by which to [rotate the reference globe](http://bl.ocks.org/mbostock/4282586). 
     
 -   [`.parallels()`](https://github.com/d3/d3-geo/blob/master/README.md#conic_parallels) specifies the two standard parallels of a conic projection. If the two array values are the same, the projection is a _**tangent**_ case (the plane intersects the globe at one line of latitude); if they are different, it is a _**secant**_ case (the plane intersects the globe at two lines of latitude, slicing through it).
     
@@ -445,7 +447,7 @@ Finally, we can add contrast between land and water by coloring the background o
                 .attr("d", path); //project graticule lines
 
 
-We can then style the `gratBackground <path>` element to symbolize water (Example 2.9).
+We can then style the `gratBackground <path>` element to symbolize water (Example 2.9). Note that the `.rotate()` latitude of your projection has to be set as `0` for this to work.
 
 ###### Example 2.9: Graticule background style in _style.css_
 
