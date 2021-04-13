@@ -8,7 +8,7 @@ Congratulations on building your first basemap with D3! In Chapter 10, we will w
 -   In Lesson 1, we walkthrough the steps needed to dynamically join your attribute and geospatial data and then symbolize your choropleth map using a color scale. The choropleth map is added atop the basemap you completed for Activity 9. 
 -   In Lesson 2, we describe how to draw a complementary bar chart, modifying the bubblechart example from Chapter 8.
 
-In completing the previous module, you should have loaded your spatial and attribute data into the browser and used projection and path generators to draw a basemap from your spatial data. 
+In completing the previous chapter, you should have loaded your spatial and attribute data into the browser and used projection and path generators to draw a basemap from your spatial data. 
 
 After this chapter, you should be able to:
 
@@ -16,6 +16,7 @@ After this chapter, you should be able to:
 -   Draw a bar chart representing the same attribute values visualized on the map, with the bars automatically sorted from smallest to largest.
 
 Lesson 1: Dynamic Choropleth Symbolization
+----------------------------------------
 
 ### I. Joining Your Data
 
@@ -33,7 +34,7 @@ Note that both datasets contain the `adm1_code` and `name` attributes. Either of
 
         //translate europe and France TopoJSONs
         var europeCountries = topojson.feature(europe, europe.objects.EuropeCountries),
-            franceRegions = topojson.feature(france, france.objects.FranceRegions).features;
+    				franceRegions = topojson.feature(france, france.objects.FranceRegions).features;
     
         //variables for data join
         var attrArray = ["varA", "varB", "varC", "varD", "varE"];
@@ -60,7 +61,7 @@ Note that both datasets contain the `adm1_code` and `name` attributes. Either of
                 };
             };
         };
-    
+
 
 This is one of many possible ways to accomplish the data join. If you choose to experiment with other implementations, it is important that the outcome be similar to what is shown on the right side of Figure 1.2, which is the same GeoJSON feature as in Figure 1.1 after completing the join:
 
@@ -76,9 +77,9 @@ Compare the other attributes that have appeared in the GeoJSON feature propertie
 
 We will now take a brief but important diversion into computer programming best practice. Starting with our color scale, we are building a number of functions that make use of the array of attribute names (`attrArray`) and the `expressed` attribute. Passing these variables between functions as parameters quickly becomes overly complicated. For convenience, we can move these variables to the top of the script to make them globally accessible. While this seems straightforward, it actually brings up a hidden, generally not-well-understood aspect of JavaScript. To become a skilled web developer and avoid problems when building more complicated web apps down the road, it is important to grasp this next part.
 
-Advanced web programmers consider it bad practice to use global variables and functions. The reason has to do with the concept of [**scope**](https://en.wikipedia.org/wiki/Scope_(computer_science)) in JavaScript. So far, we have succumbed to this less-than-ideal practice by defining most of our functions in the _**global scope**_, the segment of code execution where any entity in it is visible to the entire program. Every variable and function defined within a function is automatically moved to the _**local scope**_ (also called the _**function scope**_), in which it is only visible to other functions and variables within the parent function. There are times when you may want to keep variables in the global scope—as when you want them to be accessible from multiple _.js_ files all linked to _index.html_. Doing this also can prevent these variables from being "cleaned up" when they are no longer needed, resulting in an unnecessary demand on your computer memory that slows down your application.
+Advanced web programmers consider it bad practice to use global variables and functions. The reason has to do with the concept of [**scope**](https://en.wikipedia.org/wiki/Scope_(computer_science)) in JavaScript. So far, we have succumbed to this less-than-ideal practice by defining most of our functions in the _**global scope**_, the segment of code execution where any entity is visible to the entire program. Every variable and function defined within a function is automatically moved to the _**local scope**_ (also called the _**function scope**_), in which it is only visible to other functions and variables within the parent function. There are times when you may want to keep variables in the global scope—as when you want them to be accessible from multiple _.js_ files all linked to _index.html_. Doing this also can prevent these variables from being "cleaned up" when they are no longer needed, resulting in an unnecessary demand on your computer memory that slows down your application.
 
-If you want a more thorough understanding, there many online resources that explain the difference between global and local in JavaScript and why defining variables in the global scope is generally a not a good idea. [This W3C wiki page](http://www.w3.org/wiki/JavaScript_best_practices#Avoid_globals) makes the case concisely and lays out a few alternatives for when you need variables to be globally available. In Example 1.2, we implement the last alternative listed, wrapping all of our script in a self-executing anonymous function to move our script from the global scope into the local scope. Our "global" variables—which will really be operating in the local scope—then can be defined immediately within the wrapper function.
+If you want a more thorough understanding, there are many online resources that explain the difference between global and local in JavaScript and why defining variables in the global scope is generally a not a good idea. [This W3C wiki page](http://www.w3.org/wiki/JavaScript_best_practices#Avoid_globals) makes the case concisely and lays out a few alternatives for when you need variables to be globally available. In Example 1.2, we implement the last alternative listed, wrapping all of our script in a self-executing anonymous function to move our script from the global scope into the local scope. Our "global" variables—which will really be operating in the local scope—then can be defined immediately within the wrapper function.
 
 ###### Example 1.2: Defining `attrArray` and `expressed` as pseudo-global variables in _main.js_
 
@@ -95,7 +96,7 @@ If you want a more thorough understanding, there many online resources that expl
     ... //the rest of the script
     
     })(); //last line of main.js
-    
+
 
 Let's also tidy up our script by moving some of our code that performs specific tasks out of the callback function and into separate functions (Example 1.3).
 
@@ -104,9 +105,11 @@ Let's also tidy up our script by moving some of our code that performs specific 
     //set up choropleth map
     function setMap(){
     
-        //...MAP, PROJECTION, PATH, AND QUEUE BLOCKS FROM MODULE 8
+        //...MAP, PROJECTION, PATH, AND QUEUE BLOCKS FROM CHAPTER 8
     
-        function callback(data){	csvData = data[0];	europe = data[1];	france = data[2];
+        function callback(data){	
+
+            var csvData = data[0], europe = data[1], france = data[2];
     
             //place graticule on the map
             setGraticule(map, path);
@@ -130,7 +133,7 @@ Let's also tidy up our script by moving some of our code that performs specific 
     }; //end of setMap()
     
     function setGraticule(map, path){
-        //...GRATICULE BLOCKS FROM MODULE 8
+        //...GRATICULE BLOCKS FROM CHAPTER 8
     };
     
     function joinData(franceRegions, csvData){
@@ -140,9 +143,9 @@ Let's also tidy up our script by moving some of our code that performs specific 
     };
     
     function setEnumerationUnits(franceRegions, map, path){
-        //...REGIONS BLOCK FROM MODULE 8
+        //...REGIONS BLOCK FROM CHAPTER 8
     };
-    
+
 
 In Example 1.3, we moved three tasks into their own functions. The three blocks to create the background graticule are moved to `setGraticule()` (lines 8-9 and 29-31). The loops used to accomplish the CSV to GeoJSON attribute data transfer are moved to `joinData()` (lines 21-22 and 33-37), which returns the updated `franceRegions` GeoJSON features array. Finally, the `regions` block that adds our enumeration units to the map is moved to its own `setEnumerationUnits()` function (lines 24-25 and 39-41). For each of these functions, the variables needed by the script within the function are passed to it as function parameters.
 
@@ -150,9 +153,9 @@ In Example 1.3, we moved three tasks into their own functions. The three blocks 
 
 ### III. Creating a Color Scale
 
-The next step toward creating our choropleth map is to build a color scale that we will use to visualize our attribute data on the map. You worked with a linear color scale in Module 7, Lesson 3 that created an unclassed color scheme. You should use a classed color scheme for your D3 lab assignment using 4-7 classes based on recommendations in cartography. There are multiple classification methods for classed choropleth maps. Three common schemes are easy to implement in D3: quantile, equal interval, and natural breaks. Your choropleth map should be classed, but which classification method you choose should depend on the structure of your data. 
+The next step toward creating our choropleth map is to build a color scale that we will use to visualize our attribute data on the map. You worked with a linear color scale in Chapter 7, Lesson 3 that created an unclassed color scheme. You should use a classed color scheme for your D3 map using 4-7 classes based on recommendations in cartography. There are multiple classification methods for classed choropleth maps. Three common schemes are easy to implement in D3: quantile, equal interval, and natural breaks. Your choropleth map should be classed, but which classification method you choose depends on the structure of your data. 
 
--   _**Quantile**_ classification places an equal number of data values in each class, and works best when you want to create a map with the same number of enumeration units in each class but do not care about how wide the class ranges are. Quantile also works well for data measured on an ordinal scale as well as for comparison of multiple variables measured in different units (which might be the case for your Lab 2 multivariate dataset).
+-   _**Quantile**_ classification places an equal number of data values in each class, and works best when you want to create a map with the same number of enumeration units in each class but do not care about how wide the class ranges are. Quantile also works well for data measured on an ordinal scale as well as for comparison of multiple variables measured in different units (which might be the case for your D3 map multivariate dataset).
     
 -   _**Equal interval**_ classification breaks the data into classes with equal ranges (e.g., 0-10, 10-20, 20-30, etc.). Equal interval produces the easiest to understand legend but works best for data that are spread uniformly across the entire data range.
     
@@ -203,9 +206,9 @@ We start by building a quantile color scale. To keep our code neat, we can creat
     
         return colorScale;
     };
-    
 
-In Example 1.4, we implement the color scale using [`d3.scaleQuantile()`](https://github.com/d3/d3-scale/blob/master/README.md#quantile-scales) to create a quantile scale generator (line 22). The generator takes an input domain that is either continuous or a discrete set of values and maps it to an output range of discrete values. When the domain is continuous, the output is an equal interval scale; when the domain is discrete , a true quantile scale is generated. For the range, rather than letting D3 interpolate between two colors as we did in Module 7, we pass an array of five color values derived from [ColorBrewer](http://colorbrewer2.org/) to the `.range()` operator (lines 13-19 and 23). These will be our five class colors in our classification scheme. (Note: You can also reference ColorBrewer scales using [ColorBrewer.js](https://github.com/axismaps/colorbrewer/) or the [d3-scale-chromatic](https://github.com/d3/d3-scale-chromatic) plugin).
+
+In Example 1.4, we implement the color scale using [`d3.scaleQuantile()`](https://github.com/d3/d3-scale/blob/master/README.md#quantile-scales) to create a quantile scale generator (line 22). The generator takes an input domain that is either continuous or a discrete set of values and maps it to an output range of discrete values. When the domain is continuous, the output is an equal interval scale; when the domain is discrete, a true quantile scale is generated. For the range, rather than letting D3 interpolate between two colors as we did in Chapter 7, we pass an array of five color values derived from [ColorBrewer](http://colorbrewer2.org/) to the `.range()` operator (lines 13-19 and 23). These will be our five class colors in our classification scheme. (Note: You can also reference ColorBrewer scales using [ColorBrewer.js](https://github.com/axismaps/colorbrewer/) or the [d3-scale-chromatic](https://github.com/d3/d3-scale-chromatic) plugin).
 
 To build a quantile scale, we need to assign all of the attribute values for the currently expressed attribute in our multivariate dataset as the scale's domain (line 33). This requires us to build an array of these values using a loop to access the value for each feature in the dataset (lines 26-30). The function then returns the scale generator. Within the callback, we create a `colorScale` variable to accept the scale generator from the `makeColorScale()` function, passing the `csvData` into the function (line 2). We also add the `colorScale` as a parameter sent to `setEnumerationUnits()` (line 5).
 
@@ -237,13 +240,13 @@ When the quantile scale generator provides all values in the dataset (the `domai
     
         return colorScale;
     };
-    
+
 
 Given a two-value input domain and a range array with five output values, the generator will create five bins with a equal ranges of values between the minimum and maximum. For either the quantile or equal interval scale generator, you can use the console to discover the class breaks that the scale creates by adding the statement `console.log(colorScale.quantiles())` at the bottom of the function.
 
 The third major classification scheme, Natural Breaks, tries for a happy medium between quantile and equal interval classification, avoiding the disadvantages of each by finding "natural" clusterings of the data. If the distributions of your attribute values have long tails or several outliers, you should consider implementing a Natural Breaks classification.
 
-To create a Natural Breaks color scale generator, we need to use a D3 [threshold scale](https://github.com/d3/d3-scale/blob/master/README.md#threshold-scales) instead of a quantile scale. The threshold scale generator takes the same discrete array of color strings for its range, but requires a set of specified class breaks for the domain Thus, a threshold scale also is how you can create a scale with arbitrary class breaks. The number of class breaks in the domain array should be one less than the number of range output values. Any data values that are the same as a class break value are included in the class _above_ the break.
+To create a Natural Breaks color scale generator, we need to use a D3 [threshold scale](https://github.com/d3/d3-scale/blob/master/README.md#threshold-scales) instead of a quantile scale. The threshold scale generator takes the same discrete array of color strings for its range, but requires a set of specified class breaks for the domain. Thus, a threshold scale also is how you can create a scale with arbitrary class breaks. The number of class breaks in the domain array should be one less than the number of range output values. Any data values that are the same as a class break value are included in the class _above_ the break.
 
 To create the breaks, you will need a clustering algorithm. The Jenks algorithm commonly used by cartographers formerly was included in the [Simple Statistics](http://simplestatistics.org/) code library, although now is replaced by the [Cartesian k-means](http://www.cs.toronto.edu/~norouzi/research/papers/ckmeans.pdf) (Ckmeans) algorithm. Ckmeans does an excellent job for our purposes. If you wish to implement a Natural Breaks classification, download _simple-statistics.js_ from the link above, place it in your _lib_ folder, and add a script link to it in your _index.html_. Example 1.6 is an update from Tom MacWright's [Natural Breaks choropleth example](http://bl.ocks.org/tmcw/4969184) that uses the newer Ckmeans algorithm.
 
@@ -284,9 +287,9 @@ To create the breaks, you will need a clustering algorithm. The Jenks algorithm 
     
         return colorScale;
     };
-    
 
-In Example 1.6, we start with a call to `d3.scaleThreshold()` rather than `d3.scaleQuantile()` (line 12). The range remains the same (line 13), and we build a `domainArray` from all expressed attribute values as if we were implementing a quantile scale (lines 16-20). The extra step not present in the other classification schemes is to use the Simple Statistics [`ckmeans()`](http://simplestatistics.org/docs/#ckmeans) method to generate five clusters from our attribute values (line 23). These clusters are returned in the form of a nested array, which you can see in the Console if you pass `clusters` to a `console.log()` statement. We then reset the `domainArray` to a new array of break points, using JavaScript's [`.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) method to build a new array out of each cluster's minimum value (lines 25-27). Since the threshold scale includes each break point in the class above it, we want our array of break points to be class minimums, which we select using `d3.min()` (line 26). The final step in formatting the `domainArray` is to remove the first value of the array using the JavaScript [`.shift()`](http://www.w3schools.com/jsref/jsref_shift.asp) method, leaving the correct number of break points (4)—each of which is included by the class above it—in the `domainArray`.
+
+In Example 1.6, we start with a call to `d3.scaleThreshold()` rather than `d3.scaleQuantile()` (line 12). The range remains the same (line 13), and we build a `domainArray` from all expressed attribute values as if we were implementing a quantile scale (lines 16-20). The extra step not present in the other classification schemes is to use the Simple Statistics [`ckmeans()`](http://simplestatistics.org/docs/#ckmeans) method to generate five clusters from our attribute values (line 23). These clusters are returned in the form of a nested array, which you can see in the console if you pass `clusters` to a `console.log()` statement. We then reset the `domainArray` to a new array of break points, using JavaScript's [`.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) method to build a new array out of each cluster's minimum value (lines 25-27). Since the threshold scale includes each break point in the class above it, we want our array of break points to be class minimums, which we select using `d3.min()` (line 26). The final step in formatting the `domainArray` is to remove the first value of the array using the JavaScript [`.shift()`](http://www.w3schools.com/jsref/jsref_shift.asp) method, leaving the correct number of break points (4)—each of which is included by the class above it—in the `domainArray`.
 
 Of the three classification schemes, which should we use? It depends on the distribution of our data. Figure 1.3 demonstrates the different bins created by the three classification schemes and shows where each enumeration unit's varA attribute value fits:
 
@@ -320,7 +323,7 @@ Once we have constructed our color scale generator, the final step in coloring o
                 return colorScale(d.properties[expressed]);
             });
     };
-    
+
 
 We now have a choropleth map (Figure 1.4)!
 
@@ -361,7 +364,7 @@ Finally, we can visually highlight the color change between enumeration units by
         stroke-width: 0.5px;
         stroke-linecap: round;
     }
-    
+
 
 Figure 1.5 shows the resulting styled choropleth map.
 
@@ -376,11 +379,11 @@ Lesson 2: Drawing a Coordinated Visualization
 
 ### I. Responsively Framing a Data Visualization
 
-For the D3 lab assignment, you are required to create a _**coordinated visualization**_, linking the _reexpress_ and _retrieve_ interaction operators between the choropleth map and a second visual isomorph communicating different aspects of the attribute information. In Lesson 2, we will create a simple bar chart as our coordinated visualization; logic for linking user interactions between the map and graphic are covered in Chapter 11.
+Next, create a _**coordinated visualization**_, linking the _reexpress_ and _retrieve_ interaction operators between the choropleth map and a second visual isomorph communicating different aspects of the attribute information. In Lesson 2, we create a simple bar chart as our coordinated visualization; logic for linking user interactions between the map and graphic are covered in Chapter 11.
 
-You should not feel limited to the bar chart as your only coordinated option. If you are feeling adventurous and want to try implementing a different type of visualization, revisit the [D3 Examples Gallery](https://github.com/mbostock/d3/wiki/Gallery) for inspiration, looking for examples that work well with Shneiderman's multidimensional data type (i.e., multiple variables). If you do decide to stick with a bar chart, make sure you customize its look and feel. Do _not_ simply use the default styles shown in this tutorial. You may copy-paste example code to get started, but simply implementing the default visual appearance of the map or chart will not receive full points for the Lab 2 assignment grade.
+You should not feel limited to the bar chart as your only coordinated option. If you are feeling adventurous and want to try implementing a different type of visualization, revisit the [D3 Examples Gallery](https://github.com/mbostock/d3/wiki/Gallery) for inspiration, looking for examples that work well with multivariate data (i.e., multiple attributes). If you do decide to stick with a bar chart, make sure you customize its look and feel. Do _not_ simply use the default styles shown in this tutorial.
 
-The first step in creating our linked visualization is to build the chart container in _main.js_. We can do this in a new function called from within the `callback()` function (Example 2.1).
+The first step in creating the coordinated visualization is to build the chart container in _main.js_. We can do this in a new function called from within the `callback()` function (Example 2.1).
 
 ###### Example 2.1: Creating the bar chart container in _main.js_
 
@@ -407,7 +410,7 @@ The first step in creating our linked visualization is to build the chart contai
             .attr("height", chartHeight)
             .attr("class", "chart");
     };
-    
+
 
 In Example 2.1, we anticipate that we eventually will need the `csvData` and the `colorScale` to draw and color the bars, so we pass those variables as parameters to our new `setChart()` function (lines 5, 12). Within the `setChart()` function, we set a width and height for the chart (lines 14-15) and build its `<svg>` container using a `chart` block (lines 18-22). If we use the inspector, we can see our chart container on the browser page (Figure 2.1).
 
@@ -415,7 +418,7 @@ In Example 2.1, we anticipate that we eventually will need the `csvData` and the
 
 ###### Figure 2.1: The bar chart container viewed with the Inspector
 
-It is poor UI design to have our chart appear immediately below our map on the page. Much of the utility of a coordinated visualization is in the ability of the users to see both the map and visualization at the same time so as to compare the two. Thus, our map has to become smaller so that the chart can fit next to it. While we could simply adjust the map `width` variable with a guess as to how wide the map should be, it is better to use some principles of _**responsive web design**_ to adapt the content and styling of the webpage to the user's device. If you're unfamiliar with responsive design, it may be worth reviewing the [Mobile Maps & Responsive Design](https://gistbok.ucgis.org/bok-topics/mobile-maps-and-responsive-design) entry of the GIS&T Body of Knowledge.
+It is poor UI design to have our chart appear immediately below our map on the page. Much of the utility of a coordinated visualization is in the ability of the users to see both the map and visualization at the same time so as to compare the two. Thus, our map has to become smaller so that the chart can fit next to it. While we could simply adjust the map `width` variable with a guess as to how wide the map should be, it is better to use some principles of _**responsive web design**_ to adapt the content and styling of the webpage to the user's device. If you are unfamiliar with responsive design, it may be worth reviewing the [Mobile Maps & Responsive Design](https://gistbok.ucgis.org/bok-topics/mobile-maps-and-responsive-design) entry of the GIS&T Body of Knowledge.
 
 We can make the widths of the chart and map responsive to each other by setting each to a fraction of the browser window's `innerWidth` property, which reflects the internal width of the browser frame (Example 2.2).
 
@@ -434,7 +437,7 @@ We can make the widths of the chart and map responsive to each other by setting 
         //chart frame dimensions
         var chartWidth = window.innerWidth * 0.425,
             chartHeight = 460;
-    
+
 
 In Example 1.3, the map frame width is set to 50% of the `window.innerWidth` property (line 4) and the chart frame width is set to 42.5% (line 12). The 7.5% gap between the two frames leaves space for a margin on either side of the page and ensures a break point (the window width at which the chart falls below the map) that is in between common device display sizes. To make it easier to see our chart frame and fine-tune the appearance of the two frames, we can add some styles in _style.css_ (Example 2.3).
 
@@ -451,7 +454,7 @@ In Example 1.3, the map frame width is set to 50% of the `window.innerWidth` pro
         float: right;
         margin: 10px 20px 0 0;
     }
-    
+
 
 In Example 2.3, we add a 10-pixel top margin and 20-pixel left margin to the map frame (line 3). We similarly add a 10-pixel top margin and 20-pixel right margin to the chart frame (line 10). We also add a chart background color and border and make it adhere to the right side of the page, rather than abut the map frame (lines 7-9). Figure 2.2 displays the resulting responsive layout in the browser.
 
@@ -490,7 +493,7 @@ To make our bars, we need to build a new `.selectAll()` block that appends a rec
             })
             .attr("height", 460)
             .attr("y", 0);
-    
+
 
 In Example 2.4, to make each bar just wide enough so that they fill the container horizontally but have gaps in between, we set the `width` attribute of each bar to _1/n - 1_ pixels, where _n_ is the number of bars, represented by the `length` of the `csvData` features array (line 16). To spread the bars evenly across the container, we set the `x` attribute of each bar to `i * (chartWidth / csvData.length)`, where i is the index of the datum; this has the effect of moving each bar to the right of the previous one (lines 17-19). Temporarily, we set an arbitrary bar `height`—the height of the chart container—and an arbitrary `y` attribute of 0, just so the bars are visible (lines 20-21). We deal more with the vertical attributes momentarily, but for now, let's take a look at our evenly-spaced bars (Figure 2.3).
 
@@ -525,7 +528,7 @@ Now let's take a look at bar `height` and `y` coordinate. We want each bar's hei
             .attr("y", function(d){
                 return chartHeight - yScale(parseFloat(d[expressed]));
             });
-    
+
 
 In Example 2.5, we create a linear `yScale`, assigning a range from 0 to the height of the chart and a domain that encompasses all of our sample data attribute values (lines 2-4). We then apply the `yScale` to each attribute value to set the bar `height` (lines 18-20). We subtract the scale output from the chart height to set the `y` attribute to ensure that the bars "grow" up from the bottom rather than "fall" down from the top of the chart (lines 21-23).
 
@@ -537,7 +540,7 @@ We also can use our bar chart to show users the position of our class breaks in 
             .style("fill", function(d){
                 return colorScale(d[expressed]);
             });
-    
+
 
 We can now see our attribute values represented by the bar height and classes shown by bar color (Figure 2.4).
 
@@ -561,7 +564,7 @@ We are making good progress, but the chart is still a little messy. We can polis
                 return "bars " + d.adm1_code;
             })
             //...
-    
+
 
 D3's `.sort()` method, like the [array sort method](http://www.w3schools.com/jsref/jsref_sort.asp) native to JavaScript, compares each value in the data array to the next value in the array and rearrange the array elements if the returned value is positive (lines 6-8). Subtracting the second value from the first in the function (line 7) orders the bars from smallest to largest, making the chart more readable. Note that if you want to order the bars from largest to smallest, you simply can reverse the two values in the function.
 
@@ -573,9 +576,9 @@ We now have a nicely arranged bar chart (Figure 2.5).
 
 ### III. Chart Annotation
 
-As it stands, the bar chart gives the user a better sense of the shape of our attribute dataset for the mapped attribute. However, it would be difficult to tell anything about the attribute _values_ without contextual informatoin. Some of this information will be given to the user via the _retrieve_ operator in Chapter 11. However, just a glance at the chart should give the user a basic overview of the data range. Thus, we need to annotate the chart, adding the important contextual information that supports interpretation of the visualization.
+As it stands, the bar chart gives the user a better sense of the shape of our attribute dataset for the mapped attribute. However, it would be difficult to tell anything about the attribute _values_ without contextual information. Some of this information will be given to the user via the _retrieve_ operator in Chapter 11. However, just a glance at the chart should give the user a basic overview of the data range. Thus, we need to annotate the chart, adding the important contextual information that supports interpretation of the visualization.
 
-One approach we can take is to add the attribute values as numerical text to the bars themselves. Recall from Chapter 8 that only can be added within `<text>` elements in an SVG graphic. We can add our bar values by creating a new `.selectAll()` selection similar to our `bars` block, but appending `<text>` elements instead of `<rect>` elements (Example 2.8).
+One approach we can take is to add the attribute values as numerical text to the bars themselves. Recall from Chapter 8 that text only can be added within `<text>` elements in an SVG graphic. We can add our bar values by creating a new `.selectAll()` selection similar to our `bars` block, but appending `<text>` elements instead of `<rect>` elements (Example 2.8).
 
 ###### Example 2.8: Adding text to the bars in _main.js_
 
@@ -601,7 +604,7 @@ One approach we can take is to add the attribute values as numerical text to the
             .text(function(d){
                 return d[expressed];
             });
-    
+
 
 In Example 2.8, we construct our `numbers` block following the same pattern as our `bars` block but append `<text>` elements (line 5) and alter their attributes. The `text-anchor` attribute center-justifies the text (line 12). The `x` attribute adds half of the bar's width to the formula for the horizontal coordinate used in the `bars` block so that each number is centered in the bar (lines 13-16). The `y` attribute accesses the `yScale` using the same formula as in the `bars` block, but adds 15 pixels to lower the text so it appears inside of, rather than on top of, each bar (lines 17-19). Finally, the `.text()` operator places the expressed attribute value in each `<text>` element.
 
@@ -613,7 +616,7 @@ A minor stylistic addition is to change the default black text to white in _styl
         fill: white;
         font-family: sans-serif;
     }
-    
+
 
 This creates tidy numbers in the bars showing the attribute values represented by each bar (Figure 2.6):
 
@@ -631,7 +634,7 @@ While we are on the subject of text, we may as well give our chart a title that 
             .attr("y", 40)
             .attr("class", "chartTitle")
             .text("Number of Variable " + expressed[3] + " in each region");
-    
+
 
 In Example 2.10, we append a `<text>` element to the chart container and position it 20 pixels to the right and 40 pixels below the top-left corner of the container (lines 2-4). For the title itself, we create a string that includes the fourth character from the currently `expressed` attribute name (effectively changing "varA" to "Variable A"; line 6). <ins>_**Note**_</ins> that you need to change the formatting of this title string to make sense given the attribute names in your dataset, and are likely to use the full `expressed` attribute name rather than a subset of characters.
 
@@ -644,7 +647,7 @@ The title should be big and bold, which means overriding the default styles for 
         font-size: 1.5em;
         font-weight: bold;
     }
-    
+
 
 We can now see our chart title (Figure 2.7).
 
@@ -746,7 +749,7 @@ Rather than step through each of the necessary adjustments to the script and sty
             .attr("height", chartInnerHeight)
             .attr("transform", translate);
     };
-    
+
 
 ###### Example 2.13: Styles for bar chart with axis in _style.css_
 
@@ -785,7 +788,7 @@ Rather than step through each of the necessary adjustments to the script and sty
         font-size: 0.8em;
         fill: #999;
     }
-    
+
 
 ![figure10.2.9.png](img/figure10.2.9.png)
 

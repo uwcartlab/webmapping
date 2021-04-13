@@ -58,7 +58,7 @@ At this stage, if you were to issue the statement `console.log(container)`, you 
 
 ###### Figure 1.1: The D3 `body` selection
 
-Having first created the `<body>` selection, you can alter the selection by applying operators to it. In the context of D3, _**operators**_ are methods that work on selections and typically are chained together to reduce the code. Thus, for D3, operators describe actions that can be both system-driven (e.g., loading, processing, and rendering data) as well as user-driven (e.g., "interaction" operators as used in lecture). However, the formatting convention for D3 places each operator on its own line, indented one tab width from the initial line of the method chain. Because this tends to result in code that appears squarish or rectangular, a multi-line chain of D3 operators is referred to as a _**code block**_ or just **_block_**.
+Having first created the `<body>` selection, you can alter the selection by applying operators to it. In the context of D3, _**operators**_ are methods that work on selections and typically are chained together to reduce the code. Thus, for D3, operators describe actions that can be both system-driven (e.g., loading, processing, and rendering data) as well as user-driven (e.g., [interaction "operators" as used in UX design](https://gistbok.ucgis.org/bok-topics/user-interface-and-user-experience-uiux-design)). However, the formatting convention for D3 places each operator on its own line, indented one tab width from the initial line of the method chain. Because this tends to result in code that appears squarish or rectangular, a multi-line chain of D3 operators is referred to as a _**code block**_ or just **_block_**.
 
 *   **_Rule:_** _Place each operator applied to a selection on its own line, indented one tab from the first line of the code block._
 
@@ -82,7 +82,7 @@ Note that both jQuery and D3 have `.append()` methods. In this case, we know tha
 
 ### III. Operands
 
-In Example 1.1, the block chain is assigned to an `<svg>` variable called `container`. In other words, this variable stores the data-driven _**operand**_ receiving the D3 operators, much like the use of operand in lecture. To make the purpose of each block clear, assign each block to a variable based on the operand that is returned when the end of the block is reached. The operand variable serves as the _**block name**_. Remember that it is important to place a semicolon _only_ at the _end_ of a block, and not on each line, as a semicolon tells the browser that it has reached the end of a statement, breaking your method chain to conclude a block.
+In Example 1.1, the block chain is assigned to an `<svg>` variable called `container`. In other words, this variable stores the data-driven _**operand**_ receiving the D3 operators, much like [the use of "operand" in UX design](https://gistbok.ucgis.org/bok-topics/user-interface-and-user-experience-uiux-design). To make the purpose of each block clear, assign each block to a variable based on the operand that is returned when the end of the block is reached. The operand variable serves as the _**block name**_. Remember that it is important to place a semicolon _only_ at the _end_ of a block, and not on each line, as a semicolon tells the browser that it has reached the end of a statement, breaking your method chain to conclude a block.
 
 *   **_Rule:_** _Only place a semicolon after the last line of a block. If your code results in errors, look for a wayward semicolon._
     
@@ -129,7 +129,7 @@ You now can see the SVG container on the page as well as using the Inspector (Fi
 
 ###### Figure 1.3: The SVG container on the page and in the DOM
 
-Once you have added the SVG `container` element, let's try drawing additional SVG graphics within it. For example, to add an inner rectangle to frame our graphics, you might try adding to the `container` block by appending a new rectangle and adding operators to style it (Example 1.5).
+Once you have added the SVG `container` element, try drawing additional SVG graphics within it. For example, to add an inner rectangle to frame our graphics, you might try adding to the `container` block by appending a new rectangle and adding operators to style it (Example 1.5).
 
 ###### Example 1.5: A block with too many operands in _main.js_
 
@@ -281,7 +281,7 @@ Beyond a single datum, D3 requires multiple data items to be formatted as an arr
 
 *   **_Rule:_** _All data passed to the `.data()` operator must be formatted as an array._
 
-Let's think about how this might relate to mapping for a moment. In the Leaflet Lab, you used geographic data in GeoJSON format to place proportional symbols on your map. A GeoJSON starts with an outer object, not an array. But what's the main thing _inside_ the GeoJSON object? A `"features"` array (Example 2.2 line 3).
+Let's think about how this might relate to mapping for a moment. In the Leaflet map, you used geographic data in GeoJSON format to place proportional symbols on your map. A GeoJSON starts with an outer object, not an array. But what's the main thing _inside_ the GeoJSON object? A `"features"` array (Example 2.2 line 3).
 
 ###### Example 2.2: The start and end of _MegaCities.geojson_
 
@@ -303,7 +303,7 @@ In Chapter 9, we will find that D3 allows us to map GeoJSON geometries by making
 
 In Lesson 1, we looked at how to bind a single datum to a selection for styling a markup element. But what if you want to create a _set_ of new elements and style them in a way that corresponds to a bunch of different data values? Say we want to create a bubble chart, with several circles styled according to a dataset. D3 supports manipulation and rendering of multiple data elements through a  _[**join**](http://bost.ocks.org/mike/join/)_, as a result "joining" an array of data to an array of markup elements in the DOM.
 
-The first thing we need to create a join is a data array, such as those presented in Example 2.1. To our existing script from Lesson 1, let's add a simple array of numbers (Example 2.3).
+The first thing we need to create a join is a data array, such as those presented in Example 2.1. Add a simple array of numbers to the existing script from Lesson 1 (Example 2.3).
 
 ###### Example 2.3: A data array in _main.js_
 
@@ -347,7 +347,7 @@ If we now view the markup using the developer tools HTML tab, we can see our new
 
 ###### Figure 2.1: The circles exist!
 
-Notice there are five circles, one for each datum. Using `.append()` after a data join always creates the same number of new HTML elements as data values in the dataset. The circles are not visible on the page because, as you may recall from Chapter 6, they require `r`, `cx`, and `cy` attributes. We can use our joined data to position the circles (Example 2.6).
+Notice there are five circles, one for each datum. Using `.append()` after a data join always creates the same number of new HTML elements as data values in the dataset. The `svg` circles are not visible on the page because, as you may recall from Chapter 6, they require `r`, `cx`, and `cy` attributes. We can use our joined data to position the circles (Example 2.6).
 
 ###### Example 2.6: Using the joined data in _main.js_
 
@@ -375,7 +375,7 @@ In a block with a data join, the anonymous functions that return a second parame
 
 ![figure8.2.2.png](img/figure8.2.2.png)
 
-###### Figure 2.2: data-driven circles
+###### Figure 2.2: Data-driven circles
 
 ### III. Complex Data
 
@@ -467,9 +467,9 @@ So far, we have seen how D3 uses data to dynamically draw and style markup eleme
 
 *   [**_Continuous scales_**](https://github.com/d3/d3-scale/blob/master/README.md#continuous-scales) map the domain to a continuous _**range**_ of output (y) values; these are useful for linear, power, and log scales (see below), axes, and [time scales](https://github.com/d3/d3-scale/blob/master/README.md#time-scales).
 *   [_**Sequential scales**_](https://github.com/d3/d3-scale/blob/master/README.md#sequential-scales) are similar, but map the domain to an interpolator, or specific range function. These are most useful for creating color ramps.
-*   [_**Quantize scales**_](https://github.com/d3/d3-scale/blob/master/README.md#sequential-scales) have a discrete range, or set of specific output values; we'll use those to create classed choropleths in the next module.
-*   _**Threshold scales**_ subdivide the continuous domain according to specified class breaks and map the subsets to discreet range values.
-*   _**[Ordinal scales](https://github.com/d3/d3-scale/blob/master/README.md#ordinal-scales)**_ have a discreet domain, such as names or categories, and a discreet range.
+*   [_**Quantize scales**_](https://github.com/d3/d3-scale/blob/master/README.md#sequential-scales) have a discrete range, or set of specific output values; we'll use those to create classed choropleths in Chapter 9.
+*   [_**Threshold scales**_](https://github.com/d3/d3-scale/blob/master/README.md#threshold-scales) subdivide the continuous domain according to specified class breaks and map the subsets to discrete range values.
+*   [_**Ordinal scales**_](https://github.com/d3/d3-scale/blob/master/README.md#ordinal-scales) have a discrete domain, such as names or categories, and a discrete range.
 
 For now, we will focus on continuous scales. D3 offers several kinds of continuous scales, including linear scales, power scales, log scales, and others. You can explore these on the API documentation page linked above. The most used type of continuous scale is the _**[linear scale](https://github.com/d3/d3-scale/blob/master/README.md#linear-scales)**_, which simply interpolates values using linear algebra. It is important to note that there is nothing inherently _visual_ about a scale; it is merely a mathematical function used to derive a new data value from an input data value (Figure 3.1).
 
@@ -479,7 +479,7 @@ For now, we will focus on continuous scales. D3 offers several kinds of continu
 
 How would we apply a scale? Let's say we wanted to space our circles more evenly along the horizontal axis of the bubble chart. As our script stands, we are using a simple mathematical equation with the array index value as an input domain to return each circle's center x position (Example 2.8 line 36). Instead, we can create a linear scale with an array of the minimum and maximum index values as the domain and an array with our desired minimum and maximum x coordinates as the range. Note that we must create our scale _above_ the `circles` block and assign it to a variable to use it in the block (Example 3.1).
 
-###### Example 3.1: x coordinate linear scale in _main.js_
+###### Example 3.1: The x coordinate linear scale in _main.js_
 
         //above Example 2.8 line 20
         var x = d3.scaleLinear() //create the scale
@@ -546,7 +546,7 @@ Here are our much more evenly-spaced circles (Figure 3.3).
 
 ### II. Color Scales
 
-One nice feature of D3 scales is that they support interpolation for just about any kind of value that can be interpolated—including color. For your D3 Lab assignment, you will be creating a choropleth map, which will require the use of a color scale. Let's try out an easy one for the circles on our bubble chart, with color value corresponding to population size. We will again make use of `d3.scaleLinear()` with the same domain as the `y` scale, but this time the range will be colors (Example 3.5).
+One nice feature of D3 scales is that they support interpolation for just about any kind of value that can be interpolated—including color. For your D3 map, you will be creating a choropleth map, which will require the use of a color scale. Try an easy one for the circles on our bubble chart, with color value corresponding to population size. We will again make use of `d3.scaleLinear()` with the same domain as the `y` scale, but this time the range will be colors (Example 3.5).
 
 ###### Example 3.5: Implementing a color scale in _main.js_
 
@@ -574,7 +574,7 @@ One nice feature of D3 scales is that they support interpolation for just about 
             .style("stroke", "#000"); //black circle stroke
     
 
-Since our color scale generator uses only two color values for the range (lines 4-7), the result will be an unclassed color scheme, with each color derived from interpolation between the two range colors. For a classed color scheme (such as you will use in the D3 lab), you simply need to provide an array with each of the colors used for the classes as the range.
+Since our color scale generator uses only two color values for the range (lines 4-7), the result will be an unclassed color scheme, with each color derived from interpolation between the two range colors. For a classed color scheme (such as you will use in the D3 map), you simply need to provide an array with each of the colors used for the classes as the range.
 
 Here is the output of our simple unclassed color scale (Figure 3.4).
 
@@ -611,7 +611,7 @@ The next step is to create a new SVG element to hold the axis. The axis generato
             .call(yAxis);
     
 
-Note that we use the `.call()` method to invert the order of the code, feeding the `axis` selection to the `yAxis`. This is a useful shorthand for generator that does not return anything; it is functionally equivalent to (Example 3.8).
+Note that we use the `.call()` method to invert the order of the code, feeding the `axis` selection to the `yAxis`. This is a useful shorthand for generator that does not return anything (Example 3.8).
 
 ###### Example 3.8: Inverting `.call(yAxis)` in _main.js_
 
@@ -663,7 +663,7 @@ We can see our axis, but it is difficult to read. We need to style it properly t
     }
     
 
-*   **_Rule:_** _assign static or default styles in \*style.css_.\*
+*   **_Rule:_** _Assign static or default styles in \*style.css_.\*
 
 In Example 3.10, we give all `<path>` and `<line>` elements within the axis `<g>` element styles that render crisp, thin, black lines without any fill (lines 1-7). The `.axis text` style applies to the numbers, which we make smaller so they fit in the gray border of the chart. Here is the result (Figure 3.7).
 
@@ -691,7 +691,7 @@ Figure 3.8 shows the more desirable axis.
 
 ### IV. Text
 
-Our bubble chart is almost complete. It could use a title, though. Since SVG is mainly for drawing, most SVG elements do not support text content. An exception is the `<text>` element. We can add a block to append one (Example 3.12).
+Our bubble chart is almost complete. It could use a title, though. Since SVG is mainly for drawing shapes, most SVG elements do not support text content. An exception is the `<text>` element. We can add a block to append one (Example 3.12).
 
 ###### Example 3.12: Adding a title to the chart
 
@@ -856,7 +856,7 @@ With these adjustments made, we have a complete, readable data graphic (Figure 3
 
 1.  Create a _unit-3_ web directory and Git repository.
 2.  Create a bubble chart based on the simple Chapter 2 dataset. Save a copy of your _main.js_ as _bubblechart.js_, as you will replace this code in your _main.js_ in Chapter 9. 
-3.  Find and format a multivariate dataset for the Unit 3 D3 assignment.
+3.  Find and format a multivariate dataset for the Unit 3 D3 map.
 4.  Commit and sync the dataset and your _unit-3_ folder (including _bubblechart.js_) in your data folder of the _unit-3_ directory with the commit message "Activity 8".
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
