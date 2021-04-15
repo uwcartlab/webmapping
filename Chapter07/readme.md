@@ -205,6 +205,8 @@ There are multiple ways to resolve conflicts in GitHub, so use whichever approac
 
 As you move along in your project, you may want to create separate [branches](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-branches) to test features without committing them to the main branch. If you are happy with the features you tested, you can open a pull request to merge the changes from your head (current) branch to a base (different, perhaps the main) branch, similar to other pull requests. 
 
+Similar to a branch, you can _**fork**_ another user's repo. Forking is a way to create a personal copy of another user's repo. For example, if you wanted to build off of another user's code, you could fork their repo. Forked repos maintain a link to the original, allowing you to pull updates into your branch. You can also submit a pull request if you want the original author to incorporate your changes into their original repo. You will likely not need to use forking for this project.
+
 As you get started with collaborative coding, you likely will encounter simple merge conflicts that can be resolved using GitHub Desktop. However, more complicated merge conflicts may need to be resolved using GitHub in your browser, where you can select portions of each version to retain in the group project. Alternatively, these conflicts can be resolved using [GitHub command line](https://cli.github.com/manual/), a more advanced use of the Git framework that is outside the scope of this workbook but helpful as you continue to grow your skills.
 
 > ### **Work with your team to build the _readme.md_ file supporting your group project, merging and resolving all conflicts.**
@@ -278,11 +280,11 @@ Next, click "create milestone" and fill in the details from your proposal, poten
 
 More [information about milestones](https://docs.github.com/en/github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests) is available in the GitHub help information.
 
-**8.\. Stay in Contact with Your Team**
+**8\. Stay in Contact with Your Team**
 
 Use Slack and video conference platforms to stay in contact with your team. Determine whether you prefer to work at the same time or independently. Virtual collaboration is difficult, so don't be afraid to overcommunicate until you figure out a workflow.
 
-**9.\. Consult Documentation**
+**9\. Consult Documentation**
 
 In addition to discussing any issues with your team members, remember that GitHub has a number of instructional guides, such as [collaborating with issues and pull requests](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests) that may help resolve many common issues. You can also check online forums, like the [GitHub Support Community](https://github.community/) to see if anyone has asked a similar question before.
 
