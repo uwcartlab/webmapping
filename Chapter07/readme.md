@@ -115,35 +115,25 @@ Lesson 2: Setting Up A Collaborative Repository for a Group Project
 
 To get you started on your group project, we have created a [group repository template](https://github.com/uwcartlab/webmapping-final-project) under the [UWCartLab](https://github.com/uwcartlab) GitHub account.
 
-To begin, the team facilitator should fork the group project template to their own GitHub Account. To fork, log into GitHub, navigate to the [webmapping-final-project](https://github.com/uwcartlab/webmapping-final-project), and select "fork" in the upper right corner. After the facilitator forks the template, a version of the group project repository is added into the facilator GitHub account. Figure 2.1 illustrates the results of forking the group project repo by the facilitator. 
-
-![figure7.2.1.png](img/figure7.2.1.png)
-
-###### Figure 2.1: Results of forking the group repository.
-
-Notice that the group project repository on the facilitator's GitHub has retained its old name: **webmapping-final-project**. Rename the repo in accordance with your group project plans using the "Settings" tab at the top of your repo and then change the text input labeled **Repository Name**. For clarity in this lesson, we recommend renaming the repo "\[year]_\[projectname]" (Figure 2.2). Click "Rename" to confirm your changes.
-
-![figure7.2.2.png](img/figure7.2.2.png)
-
-###### Figure 2.2: Renaming the group repo.
+To begin, the team facilitator should download the [group repository template](https://github.com/uwcartlab/webmapping-final-project) as a ZIP. After unzipping the file, rename the repo in accordance with your group project plans. For clarity in this lesson, we recommend renaming the repo "[year]_[projectname]". The faciliator should publish the repository to their own GitHub account, just like in Chapter 1. 
 
 ### II. Adding Collaborators
 
-Next, the facilitator must give all team members access to the repository, adding each additional team member as a _**collaborator**_. To add collaborators, the facilitator should select the "Manage Access" tab in the "Settings" menu and click the "Add a collaborator" option, inputting each team member GitHub username one at a time (Figure 2.3).	
+Next, the facilitator must give all team members access to the repository, adding each additional team member as a _**collaborator**_. To add collaborators, the facilitator should select the "Manage Access" tab in the "Settings" menu and click the "Add a collaborator" option, inputting each team member GitHub username one at a time (Figure 2.1).	
 
-![figure7.2.3.png](img/figure7.2.3.png)
+![figure7.2.1.png](img/figure7.2.1.png)
 
-###### Figure 2.3: Adding a collaborator.
+###### Figure 2.1: Adding a collaborator.
 
 Repeat this process with each of your team members. Team members need to accept the invitation in order to clone the repository to their desktop. To do so, team members should login to the email associated with their GitHub account to find the invitation to your group repo. If you cannot find the email, check your spam folder, or search "\[year]_\[projectname]" and the email should show up.  Click "view invitation" and, when redirected, "accept invitation".
 
 ### III. Cloning the Group Repo to Your Desktop
 
-Finally, each team member needs to clone the group project repository to their desktop server. Open GitHub Desktop and login, choose "Add", and then "Clone Repository". Select the repository **"\[year]_\[projectname]"** located under the header of the team facilitator's GitHub account. Figure 2.4 illustrates cloning the group project repo in GitHub desktop.
+Finally, each team member needs to clone the group project repository to their desktop server. Open GitHub Desktop and login, choose "Add", and then "Clone Repository". Select the repository **"\[year]_\[projectname]"** located under the header of the team facilitator's GitHub account. Figure 2.2 illustrates cloning the group project repo in GitHub desktop.
 
-![figure7.2.4.png](img/figure7.2.4.png)
+![figure7.2.2.png](img/figure7.2.2.png)
 
-###### Figure 2.4: Cloning your group repo.
+###### Figure 2.2: Cloning your group repo.
 
 Select "clone" and follow the remaining instructions to clone your group repo locally. When prompted with "How are you planning to use this fork?" select "For my own purposes" to ensure that your updates go to the right place. 
 
@@ -151,11 +141,11 @@ Select "clone" and follow the remaining instructions to clone your group repo lo
 
 ### IV. Making Your First Commit with Markdown
 
-Now that you know a bit about Markdown, you are ready to start planning and organizing the group project using the _readme.md_ file. In your code editor, open the _readme.md_ file from your cloned group repository. Add your name as an ordered list element and commit your changes with “Activity 7” in the commit summary (Figure 2.5).
+Now that you know a bit about Markdown, you are ready to start planning and organizing the group project using the _readme.md_ file. In your code editor, open the _readme.md_ file from your cloned group repository. Add your name as an ordered list element and commit your changes with “Activity 7” in the commit summary (Figure 2.3).
 
-![figure7.2.5.png](img/figure7.2.5.png)
+![figure7.2.3.png](img/figure7.2.3.png)
 
-###### Figure 2.5: Adding your name in Markdown to _readme.md_.
+###### Figure 2.3: Adding your name in Markdown to _readme.md_.
 
 > ### **Add your name to your cloned group repository. Commit and push your changes.**
 
@@ -163,53 +153,53 @@ Now that you know a bit about Markdown, you are ready to start planning and orga
 
 Sooner or later, you will run into merge _**conflicts**_ between your local code and the code in the remote repository after updates from your team members. Efficient management of merge conflicts is essential for successful collaborative coding. Luckily, Git provides a framework for identifying and resolving conflicts between code when merging.
 
-The first conflict you should resolve is integrating all team member names. After you have committed and pushed your name, fetch origin of the repository to check for updates. If your team members have added their names, GitHub desktop will prompt you to resolve conflicts in the _readme.md_ file before you can merge the code (Figure 2.6).
+The first conflict you should resolve is integrating all team member names. After you have committed and pushed your name, fetch origin of the repository to check for updates. If your team members have added their names, GitHub desktop will prompt you to resolve conflicts in the _readme.md_ file before you can merge the code (Figure 2.4).
+
+![figure7.2.4.png](img/figure7.2.4.png)
+
+###### Figure 2.4: An error warning triggered by a merge conflict.
+
+When you reopen the _readme.md_ file, your team members' names are now in the file as well, creating a conflict. In most text editors, these conflicts are marked within the file with a random binary ID (Figure 2.5). For our purposes, the location of the conflict is more important than the ID assigned to it.
+
+![figure7.2.5.png](img/figure7.2.5.png)
+
+###### Figure 2.5: A conflict created when adding your team member names.
+
+Accept the new additions to the code and merge the main branch with your local copy. GitHub desktop no longer shows any conflicts (Figure 2.6)!
 
 ![figure7.2.6.png](img/figure7.2.6.png)
 
-###### Figure 2.6: An error warning triggered by a merge conflict.
+###### Figure 2.6: The revised message when conflicts are resolved, allowing a merge.
 
-When you reopen the _readme.md_ file, your team members' names are now in the file as well, creating a conflict. In most text editors, these conflicts are marked within the file with a random binary ID (Figure 2.7). For our purposes, the location of the conflict is more important than the ID assigned to it.
+Now that you know a bit about Markdown, use the _readme.md_ to begin planning the group project (e.g., Figure 2.7). It is worth experimenting with the collaborative coding process early on, perhaps over a video call with your team members.
 
 ![figure7.2.7.png](img/figure7.2.7.png)
 
-###### Figure 2.7: A conflict created when adding your team member names.
+###### Figure 2.7: An example readme used for collaborative project planning. This example supports a group final project proposal for the Geography 575 course at UW-Madison and includes three components: (1) use case personas and scenarios informing the user experience design, (2) a list of functional requirements for the group project separated by representation and interaction requirements (this also should be logged as milestones in GitHub), and (3) wireframes embedded as images linked from an _img_ folder in your directory (Figure 2.7). 
 
-Accept the new additions to the code and merge the main branch with your local copy. GitHub desktop no longer shows any conflicts (Figure 2.8)!
-
-![figure7.2.8.png](img/figure7.2.8.png)
-
-###### Figure 2.8: The revised message when conflicts are resolved, allowing a merge.
-
-Now that you know a bit about Markdown, use the _readme.md_ to begin planning the group project (e.g., Figure 2.9). It is worth experimenting with the collaborative coding process early on, perhaps over a video call with your team members.
-
-![figure7.2.9.png](img/figure7.2.9.png)
-
-###### Figure 2.9: An example readme used for collaborative project planning. This example supports a group final project proposal for the Geography 575 course at UW-Madison and includes three components: (1) use case personas and scenarios informing the user experience design, (2) a list of functional requirements for the group project separated by representation and interaction requirements (this also should be logged as milestones in GitHub), and (3) wireframes embedded as images linked from an _img_ folder in your directory (Figure 2.9). 
-
-Conflicts occur throughout collaborative coding and it is important to resolve them as they occur. For instance, Figure 2.10 shows a _search_ operator added by a team member to the interaction requirements in the exact same place as your _retrieve_ operator. Before adding a description to your _retrieve_ operator, resolve this conflict so that your team members can see your description to inform their future work (Figure 2.11). Conflicts grow in complexity when moving away from the simple Markdown format and into complex JavaScript coding, so experiment with the committing, pushing, and merging workflow with the _readme.md_ now to make it easier to interpret and resolve your conflicts with JavaScript later.
+Conflicts occur throughout collaborative coding and it is important to resolve them as they occur. For instance, Figure 2.8 shows a _search_ operator added by a team member to the interaction requirements in the exact same place as your _retrieve_ operator. Before adding a description to your _retrieve_ operator, resolve this conflict so that your team members can see your description to inform their future work (Figure 2.9). Conflicts grow in complexity when moving away from the simple Markdown format and into complex JavaScript coding, so experiment with the committing, pushing, and merging workflow with the _readme.md_ now to make it easier to interpret and resolve your conflicts with JavaScript later.
 
 Instead of using a code editor, you can also resolve conflicts directly in GitHub desktop.
 
-![figure7.2.10.png](img/figure7.2.10.png)
+![figure7.2.8.png](img/figure7.2.8.png)
 
-###### Figure 2.10: A merge conflict in the interaction requirements.
+###### Figure 2.8: A merge conflict in the interaction requirements.
 
 Lines highlighted blue will be preserved when you make the commit. 
 
-![figure7.2.11.png](img/figure7.2.11.png)
+![figure7.2.9.png](img/figure7.2.9.png)
 
-###### Figure 2.11. A view of the merge conflict with the added _search_ operator selected for preservation.
+###### Figure 2.9. A view of the merge conflict with the added _search_ operator selected for preservation.
 
 Depending on the nature of the conflict, you may need to remove the other lines added by GitHub manually. Right-click on each added line and select "Discard Changes".
 
-![figure7.2.12.png](img/figure7.2.12.png)
+![figure7.2.10.png](img/figure7.2.10.png)
 
-###### Figure 2.12. Discarding unwanted changes in GitHub Desktop.
+###### Figure 2.10. Discarding unwanted changes in GitHub Desktop.
 
-![figure7.2.13.png](img/figure7.2.13.png)
+![figure7.2.11.png](img/figure7.2.11.png)
 
-###### Figure 2.13. Resolved conflict.
+###### Figure 2.11. Resolved conflict.
 
 There are multiple ways to resolve conflicts in GitHub, so use whichever approach works best for you.
 
