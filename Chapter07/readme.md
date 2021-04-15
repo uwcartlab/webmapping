@@ -40,7 +40,7 @@ You should be conformable with cloning, committing, and pushing through Chapter 
 *   _**[Pull](https://help.github.com/en/github/getting-started-with-github/github-glossary#pull):**_ Pull refers to when you are fetching _in_ changes _and_ merging them. For instance, if someone has edited the remote file you are both working on, you should _pull_ in those changes to your local copy so that it is up to date.
 *   _**[Pull request](https://help.github.com/en/github/getting-started-with-github/github-glossary#pull-request):**_ Pull requests are proposed changes to a repository submitted by a user and accepted or rejected by a repository's collaborators.
 
-Specifically, a large focus for this chapter is on the additional features of GitHub, particularly forking, merging, and pulling.
+Specifically, a large focus for this chapter is on the additional features of GitHub, particularly merging, pulling, and forking.
 
 ### II. GitHub Group Communication
 
@@ -111,7 +111,7 @@ All GitHub repos should have a _readme.md_ for provenance and collaboration. Bef
 Lesson 2: Setting Up A Collaborative Repository for a Group Project
 =========================================================
 
-### I. Forking and Renaming the group project Repo
+### I. Downloading and Renaming the group project Repo
 
 To get you started on your group project, we have created a [group repository template](https://github.com/uwcartlab/webmapping-final-project) under the [UWCartLab](https://github.com/uwcartlab) GitHub account.
 
@@ -264,23 +264,17 @@ After every commit, it is good practice to pull the remote repo to see if there 
 
 The GitHub online site offers many features not included on the GitHub desktop client. Notably, GitHub online offers a project management feature called "milestones". _**Milestones**_ are used to track progress on project goals and feature development. In this class, you should create a milestone for every feature of your functional scope. For instance, some milestones could include: "Search Box", "Sequencing slider", "Legend", etc. Milestones can be ranked to prioritize the order tasks should be completed. _**Note:**_ You are required to add all functional requirements as milestones _after_ approval of the group project proposal to make the collaborative work transparent to us.
 
-Before you can enable project milestones, you'll need to activate "issues" on your repository. Normally, GitHub repositories automatically enable issue tracking. Because this is a forked repository, however, you'll need to do it manually. Open your group project repository using GitHub online. Select "Settings" then scroll to the "Features" area of the main page. Check the box next to "Issues" (Figure 3.4). When you do, you should see a new "Issues" tab at the top of your repository page.
+To create milestones for your group project, select the "Issues" tab, and click the "milestones" button (Figure 3.4). 
 
 ![figure7.3.4.png](img/figure7.3.4.png)
 
-###### Figure 3.4: Enabling issues on your respository
+###### Figure 3.4: Adding milestones to your collaborative repo
 
-To create milestones for your group project, select the "Issues" tab, and click the "milestones" button (Figure 3.5). 
+Next, click "create milestone" and fill in the details from your proposal, potentially assigning the milestone to one or more team members (Figure 3.5).
 
 ![figure7.3.5.png](img/figure7.3.5.png)
 
-###### Figure 3.5: Adding milestones to your collaborative repo
-
-Next, click "create milestone" and fill in the details from your proposal, potentially assigning the milestone to one or more team members (Figure 3.6).
-
-![figure7.3.6.png](img/figure7.3.6.png)
-
-###### Figure 3.6: Creating a milestones
+###### Figure 3.5: Creating a milestones
 
 More [information about milestones](https://docs.github.com/en/github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests) is available in the GitHub help information.
 
