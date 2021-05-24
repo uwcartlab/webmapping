@@ -3,7 +3,7 @@
 Chapter 2: Scripting and Debugging
 =================================
 
-Congratulations on your first successful chapter of Web Mapping! You now have created your first Github repo (Activity 1) and completed foundational tutorials for developing on the Open Web (Activity 2). Chapter 2 includes four lab lessons and ends with Activity 3, a debugging exercise to test your knowledge on JavaScript.
+Congratulations on your first successful chapter of Web Mapping! You now have created your first GitHub repo (Activity 1) and completed foundational tutorials for developing on the Open Web (Activity 2). Chapter 2 includes four lab lessons and ends with Activity 3, a debugging exercise to test your knowledge on JavaScript.
 
 *   In Lesson 1, we review the Document Object Model (DOM) and the ways that browsers interpret content on the web.
 *   In Lesson 2, we review JavaScript basics, including syntax rules for variables, functions, and the flow of execution. Lessons 1 and 2 are largely review from the Codecademy tutorials.
@@ -20,27 +20,9 @@ After this chapter, you should be able to:
 Getting Started
 ---------------
 
-Begin Chapter 2 by forking _unit-1_ from the [workbook Unit 1 Github page](https://github.com/uwcartlab/unit-1). To do so, navigate to the Unit 1 repository on GitHub and click the "Fork" button in the upper-right corner (Figure 0.1).
+Begin Chapter 2 by opening your _unit-1_ directory from Chapter 1. Begin by viewing the contents of the _Chapter02_ subdirectory, which includes two _.js_ files. Then, navigate to the _boilerplate_ subdirectory and select all of the contents. Copy these files and paste them into _Chapter02_. Move the original two _.js_ files to the appropriate folder.
 
-As introduced last chapter, _**forking**_ a Github repo creates a copy of an existing repository for personal use, creating a _**branch**_ in the code. Forking typically is used to add functionality or propose changes to the _**main branch**_ of an existing project that you do not control (e.g., you can fork the Leaflet and D3 web mapping libraries we use later in the semester), meaning that cloning your own new project generally is more common than forking an existing project. We will use forking to start each unit from a common repository.
-
-After you fork the repo, you should be able to see _unit-1_ in your own repository list. A benefit of forking versus cloning is that you can track the changes of the source repository and sync any updates to your own. For example, if we made changes to the _unit-1_ course repository (source repository), an alert will be added to your repository page. 
-
-![figure2.0.1.png](img/figure2.0.1.png)
-
-###### Figure 0.1: Forking the _unit-1_ repo from the _unit-1_ page.
-
-You can sync an update by clicking the "Compare" button, which redirects you to the "Comparing Changes" page (Figure 0.2). <ins>_**Note:**_</ins> You will not need to merge any updates immediately after forking in Chapter 2, so the following instructions are for reference only.
-
-In the "Comparing Changes" page, you can review new updates by switching the "base repository" to your repository and the "head repository" to the course repository by clicking "switching the base". If there are new updates, click "Create Pull Request" to add the updates to your own, forked repository. Confirm that it is "Okay" to make pull changes and click "Merge pull request" to merge the changes in the course repository into your forked repository.
-
-![figure2.0.2.png](img/figure2.0.2.png)
-
-###### Figure 0.2: Example merging changes in the main branch to a forked branch. This is provided as reference, as you will not need to merge any updates immediately after forking in Chapter 2.
-
-These steps may seem to be a lot of work compared to a simple download, but they allow you to experiment with GitHub's version control system that you will rely on more heavily when creating larger projects. While it is tempting to ignore version control, learning and using it now will save you time in the long-run.
-
-> ### **Fork the _unit-1_ repo from the [workbook Unit 1 Github page](https://github.com/uwcartlab/unit-1). The repo includes the HTML boilerplate from Chapter 1 and additional code snippets for the Chapter 2 lessons, including your debugging assignment.**
+> ### **Copy your _unit-1/boilerplate_ files for use in Chapter 2. Your _Chapter02_ subdirectory should now include the HTML boilerplate and additional code snippets for the Chapter 2 lessons, including your debugging assignment.**
 
 Lesson 1: Exploring the DOM
 ---------------------------
@@ -71,7 +53,7 @@ If you click the box-arrow icon in the top-left of the inspector tab (a magnifyi
 
 You also can activate the inspector through the browser "Tools"/"Developer Tools" menu or the F12 keyboard shortcut. 
 
-> ### **Open the _unit-1_/_boilerplate_/_index.html_ HTML boilerplate forked from the _unit-1_ repo using a browser and see how the HTML tree is structured using the inspector.**
+> ### **Open the _index.html_ HTML boilerplate from your _Chapter02_ subdirectory using a browser and see how the HTML tree is structured using the inspector.**
 
 The inspector primarily shows the HTML elements contained in the DOM and not the attributes, styles, and scripts also included in the DOM. Most browsers have a _**DOM tab**_ (it will go by different names across browsers) that displays the _entire_ DOM of a webpage, but the added complexity often is difficult to interpret for the purposes of debugging. We will return to additional developer tools in subsequent lessons that facilitate interpretation of other aspects of the DOM.
 
@@ -97,7 +79,7 @@ Additionally, _**comments**_ indicate to human readers of the script—including
 
 Let's build a simple example to explore the logic of JavaScript (Example 2.1).
 
-> ### **Reopen the _unit-1_/_boilerplate_/_index.html_ HTML boilerplate. Within the `<body>` of your _index.html_ file, add a `<div>` element with an `id` attribute of `"mydiv"` (do not forget to add a closing `</div>` tag). Open the _unit-1_/_boilerplate_/_js_/__main.js_ file and add the Example 2.1 script. Make sure your _main.js_ file is linked through a `<script>` tag with a `src` attribute in _index.html_.**
+> ### **Reopen the _index.html_ HTML boilerplate. Within the `<body>` of your _index.html_ file, add a `<div>` element with an `id` attribute of `"mydiv"` (do not forget to add a closing `</div>` tag). Open the _main.js_ file (also in your _Chapter02_ subdirectory) and add the Example 2.1 script. Make sure your _main.js_ file is linked through a `<script>` tag with a `src` attribute in _index.html_.**
 
 ###### Example 2.1: Accessing the `<div>` element through JavaScript in _main.js_
 
@@ -203,7 +185,7 @@ If you add this code into _main.js_ and reload _index.html_ in the browser using
 
 ###### Figure 2.2: An HTML table on the page and in the DOM created using JavaScript
 
-> ### **Create an HTML table in _main.js._ Practice mentally stepping through the script above until you are sure you understand the operations it performs and the order in which it performs them. Example 2.3 is available for reference in the forked _unit-1_/Chapter02/ repo subdirectory.** 
+> ### **Create an HTML table in _main.js._ Practice mentally stepping through the script above until you are sure you understand the operations it performs and the order in which it performs them. Example 2.3 is available for reference, also in _Chapter02_.** 
 
 ### II. Arrays and Objects
 
@@ -529,7 +511,7 @@ When writing HTML strings, make sure that you add all of the proper closing tags
 
 ###### Figure 3.1: The HTML table DOM tree structure
 
-> ### **Update the Example 2.3 code from the forked _unit-1_ repo to use jQuery.**
+> ### **Update the Example 2.3 code to use jQuery.**
 
 ### IV. More Useful jQuery
 
@@ -894,7 +876,7 @@ This might seem like a simple error, but much of debugging involves tediously tr
 
 ## Activity 3
 
-1.  Copy the _main_with_debug.js_ script found in the _Chapter02_ directory for the forked _unit-1_ repo into your boilerplate _js_ folder. Replace the script link in _index.html_ from _main.js_ to _main_with_debug.js_.
+1.  View the _main_with_debug.js_ script found in the _js_ folder of the _Chapter02_ subdirectory within your _unit-1_ repo. Replace the script link in _index.html_ from _main.js_ to _main_with_debug.js_.
 2.  Debug the _main\_with\_debug.js_ script to get the table to draw properly with the hover and click interactions (see preview below).
 3.  Add comments to _main\_with\_debug.js_ explaining what the script is doing at each step.
 4.  Commit your changes to your _unit-1_ repository and sync with GitHub (you will want to keep your boilerplate site clean for future use). 

@@ -22,14 +22,14 @@ We break each chapter's material into a set of 3-4 lessons that you should compl
 
 As you read, we include many [links](https://en.wikipedia.org/wiki/Hyperlink) that point to additional reference material. This material is for your reference only, and we recommend returning to these materials when you get stuck at different steps. Importantly, you may want to cycle back to these links towards the end of the course to debug issues specific to your final project, so it is helpful to get a sense of what information is included in the links.
 
-> ### **Occasionally, a link does contain required reading, additional downloads, or specific tasks needed to complete the activities. We offset these required "actions" to make them visually obvious in the text. Please follow these directions carefully, as it will be difficult to advance in future lessons without first completing these tasks.**
+> ### **Occasionally, a link does contain suggested reading, additional downloads, or specific tasks needed to complete the activities. We offset these required "actions" to make them visually obvious in the text. Please follow these directions carefully, as it will be difficult to advance in future lessons without first completing these tasks.**
 
     We format example code in code blocks, like this.  
     You can copy-paste this code into a text editor to make it easier to reference the line numbers.
 
 We also include `in-line code` when referencing specific element tags, function and variable names, data values, etc. We _italicize_ the literal names of _directories_ and _files_. We **bold** and _italicize_ keywords on their first use.
 
-If you have questions, please post them in Discussion forms or e-mail your TA. We also recommend bookmarking the [W3Schools](http://www.w3schools.com/tags/default.asp) reference for a general reference on HTML, CSS, and JavaScript during the class. Also, continue to refer back to the Codecademy tutorials (Activity 2 below) as you practice your web mapping knowledge!
+If you have questions, please post them in Discussion forums. We also recommend bookmarking the [W3Schools](http://www.w3schools.com/tags/default.asp) reference for a general reference on HTML, CSS, and JavaScript during the class. Also, continue to refer back to the Codecademy tutorials (Activity 2 below) as you practice your web mapping knowledge!
 
 Lesson 1: The HTML Boilerplate
 ------------------------------
@@ -50,9 +50,9 @@ You are welcomed to use your preferred text editor.
 
 A _**boilerplate**_ is the minimum starter code needed begin development.  For these lessons, we start with the basic _**HTML boilerplate**_ to simplify your early designs and focus on JavaScript. 
 
-> ### **Download _[unit-1.zip](unit-1.zip)_ from the Chapter 1 files, unzip it, and open _index.html_ in your text editor.**
+> ### **Download _[unit-1.zip](https://github.com/uwcartlab/unit-1)_ from the uwcartlab GitHub page by clicking "Code" then "Download ZIP". After placing the folder in your preferred location, unzip it, and in your text editor open _index.html_ from the _Chapter01_ folder.**
 
-The HTML boilerplate code in _index.html_ should look like Example 1.1. Every component <ins>_must_</ins> be present in your _index.html_ file, excepting the `<!-- -->` comments and IE stylesheet check. Importantly: you must use _index.html_ as the name of the homepage to use the directory name as the endpoint of a web url. For instance [www.geography.wisc.edu/cartography/](http://www.geography.wisc.edu/cartography/) is the same as [www.geography.wisc.edu/cartography/index.html](http://www.geography.wisc.edu/cartography/index.html), but shorter and therefore preferred.
+The HTML boilerplate code in _index.html_ should look like Example 1.1. Every component <ins>_must_</ins> be present in your _index.html_ file, except the `<!-- -->` comments and IE stylesheet check. Importantly: you must use _index.html_ as the name of the homepage to use the directory name as the endpoint of a web url. For instance [www.geography.wisc.edu/cartography/](http://www.geography.wisc.edu/cartography/) is the same as [www.geography.wisc.edu/cartography/index.html](http://www.geography.wisc.edu/cartography/index.html), but shorter and therefore preferred.
 
 ###### Example 1.1: Boilerplate code in _index.html_
 
@@ -108,7 +108,7 @@ and then open the file in a browser, you should see what you just added to the p
 
 ###### Figure 1.1: `<body>` content displayed on the page
 
-There are a number of frameworks that have their own boilerplates and directory structures, such as [Bootstrap](https://getbootstrap.com/), used for responsive design across mobile and non-mobile devices. For simplicity's sake, we recommend that you use this boiler plate when completing the following lessons.
+There are a number of frameworks that have their own boilerplates and directory structures, such as [Bootstrap](https://getbootstrap.com/), used for responsive design across mobile and non-mobile devices. For simplicity's sake, we recommend that you use this boilerplate when completing the following lessons.
 
 > ### **Add content to the body element and then load your _index.html_ file in a browser and check that your content appears in the browser tab. If HTML is completely new to you, we recommend supplemental Codecademy tutorials as part of Activity 2 to complete alongside JavaScript tutorials.**
 
@@ -180,7 +180,7 @@ For the real-world projects, internal `<style>` and `<script>` tags are much too
 
 Generally speaking, we use the term "webpage" to describe a single HTML document and "website" to describe the entire directory structure.
 
-> ### **In the _unit-1_ directory you downloaded, create the following new folders:**
+> ### **In the _Chapter01_ folder of the _unit-1_ directory you downloaded, create the following folders:**
 > 
 > ### -   **js**
 > ### -   **lib**
@@ -206,9 +206,12 @@ Notice that the boilerplate _index.html_ file already contains two links to exte
 ###### Example 2.3: Authorship comment in _style.css_
 
     /* Stylesheet by Buck E. Badger, 2021 */
-    
 
-> ### **Create _style.css_ and _main.js_ text files and save into the _css_ and _js_ folders of _unit-1_ respectively.**
+Next, add a _readme.md_ file to your _lib_, _data_, and _img_ folders. For a real project, you would include relevant files in these folders. For now, a _readme.md_ file will ensure your folders show up on GitHub (Lesson 3).
+
+If you are unsure if you have created these files correctly, navigate to the _boilerplate_ folder of _unit-1_ and compare your folder to this example. Do not edit the files in your _boilerplate_ folder. You will copy this folder at the start of each unit.
+
+> ### **Create _style.css_ and _main.js_ text files and save into the _css_ and _js_ folders of _unit-1_ respectively. Add a _readme.md_ file to all other folders.**
 
 ### III. Setting up a Development Server
 
@@ -220,7 +223,7 @@ As you develop your website, you will need to preview it in a browser to see wha
 
 For security reasons, browsers <ins>_only_</ins> display webpages correctly if the files are passed through a server. This complicates development, as you do not want to push every change to your website to a server just to preview it. However, you can set up a _**local development server**_ on your machine to reliably preview dynamic content such as JavaScript before you post online. As with text editors, there are many options for setting up a local development server, with many common ones requiring additional programming knowledge such as Python SimpleHTTPServer and server frameworks including [WAMP](http://www.wampserver.com/en/) (for Windows), [MAMP](https://www.mamp.info/en/) (for Mac), and [LAMP](http://lamphowto.com/) (for Linux).
 
-We use [Prepros](https://prepros.io/) in lesson examples for simplicity. Prepros is a "preprocessor" software application that automatically compiles your website and refreshes the browser every time you save files in your web directory. Prepros is available on all Science Hall computers and works on Windows and Mac machines.
+We use [Prepros](https://prepros.io/) in lesson examples for simplicity. Prepros is a "preprocessor" software application that automatically compiles your website and refreshes the browser every time you save files in your web directory. Prepros works on Windows and Mac machines.
 
 > ### **Preview _unit-1_ using Prepros.** 
 
@@ -235,19 +238,26 @@ _**[GitHub](https://github.com/)**_ is a website and project hosting service tha
 
 ###### Figure 3.1: The GitHub repository for this workbook
 
+Let's begin with some basic GitHub terminology. You can refer back to these definitions if you are confused during these lessons, or use the [GitHub Glossary](https://docs.github.com/en/github/getting-started-with-github/github-glossary) to look up additional terms.
+
+*   _**[Repository](https://help.github.com/en/github/getting-started-with-github/github-glossary#repository):**_ A repository is the most basic element of GitHub. They are easiest to imagine as a project's folder. A repository contains all of the project files (including documentation), and stores each file's revision history. Repositories can have multiple collaborators and can be either public or private.
+*   _**[Clone](https://help.github.com/en/github/getting-started-with-github/github-glossary#clone):**_ A clone is a copy of a repository that lives on your computer instead of on a website's server somewhere, or the act of making that copy. With your clone you can edit the files in your preferred editor and use Git to keep track of your changes without having to be online. It is, however, connected to the remote version so that changes can be synced between the two.
+*   _**[Commit](https://help.github.com/en/github/getting-started-with-github/github-glossary#commit):**_ [](https://help.github.com/en/github/getting-started-with-github/github-glossary#collaborator) A commit, or "revision", is an individual change to a file (or set of files). A commit is like when you _save_ a file, except with Git, every time you save it creates a unique ID (a.k.a., the "SHA" or "hash") that allows you to keep record of what changes were made when and by whom. 
+*   _**[Push](https://help.github.com/en/github/getting-started-with-github/github-glossary#push):**_ Pushing refers to sending your committed changes to a remote repository, such as a repository hosted on GitHub. For instance, if you change something locally, you then _push_ those changes so that others may access them.
+
 The way Git works can be a bit confusing, even after repeated use, as it is different from your prior experience uploading and downloading files from a website through your browser. Git first creates a repository _within_ your website directory, rather than uploading an existing, local directory online. While you can see your files in the remote repository through the GitHub website, you do not use the browser to access them. Rather, the original files sit in the website directory you created on your own machine, and you sync or **_push_** those files to the remote GitHub repository whenever you make changes. 
 
-If you are collaborating on a project with someone else, they can **_clone_** your repository from GitHub to their own machine, make changes to website files, then submit a **_pull request_** asking you to add changes back to the main repository. You can then sync or _pull_ their changes from their repository to the main repository and from there into your local website directory. You also can **_fork_** an existing repository from another GitHub account and propose changes to the main branch using this _pull_ request (more next chapter). Again, there are several options for using Git and GitHub collaboratively, some using command line and thus providing more control over the push, clone, and pull commands (e.g., [Git Bash](https://git-scm.com/downloads)).
+If you are collaborating on a project with someone else, they can **_clone_** your repository from GitHub to their own machine, make changes to website files, then submit a **_pull request_** asking you to add changes back to the main repository. You can then sync or _pull_ their changes from their repository to the main repository and from there into your local website directory. Again, there are several options for using Git and GitHub collaboratively, some using command line and thus providing more control over the push, clone, and pull commands (e.g., [Git Bash](https://git-scm.com/downloads)).
 
-Again for simplicity, we use [GitHub Desktop](https://desktop.github.com/) in lesson examples. GitHub Desktop is more beginner-friendly than alternatives and meshes well with the GitHub website. However, it can be difficult to make sense when something goes wrong in GitHub Desktop, sometimes requiring deleting and recreating the repo; do such destructive rebuilding only when exhausting alternatives with your TA. GitHub Desktop is available on all Science Hall computers and works on Windows and Mac machines.
+Again for simplicity, we use [GitHub Desktop](https://desktop.github.com/) in lesson examples. GitHub Desktop is more beginner-friendly than alternatives and meshes well with the GitHub website. However, it can be difficult to make sense when something goes wrong in GitHub Desktop, sometimes requiring deleting and recreating the repo; do such destructive rebuilding only after exhausting alternatives. GitHub Desktop works on Windows and Mac machines.
 
 ### II. Setting Up a Repository
 
-> ### **Read the GitHub Guide ["Getting your project on GitHub"](https://guides.github.com/introduction/getting-your-project-on-github/) and follow its directions to create a repository in your _unit-1_ directory.**
+> ### **Create a GitHub account if you do not have one. Then, create a _unit-1_ repository.**
 
-Following the GitHub Guide above, the first step to setting up GitHub is to create a GitHub account if you do not already have one). Go to [https://github.com/](https://github.com/), enter a username, e-mail, and password, and click "Sign up for GitHub."
+The first step to setting up GitHub is to create a GitHub account if you do not already have one). Go to [https://github.com/](https://github.com/), enter a username, e-mail, and password, and click "Sign up for GitHub."
 
-Then open GitHub Desktop, log in, and drag-and-drop your _unit-1_ directory to create a local repository, following the directions in the GitHub Guide. Alternatively, you can click "Current repository" in the upper-left corner of the application, then click "Add" and choose "Create new repository...". Enter the name of your website, then in "Local path" navigate to the directory _containing_ your website directory, and click "Create repository" (Figure 3.2).
+Then open GitHub Desktop and log in. Click "Current repository" in the upper-left corner of the application, then click "Add" and choose "Create new repository...". Enter the name of your website, then in "Local path" navigate to the directory _containing_ your website directory, and click "Create repository" (Figure 3.2).
 
 Importantly, if you first navigate to your website directory instead of the folder above it, the application will create a new directory _inside_ your website directory with the same name. Check the path shown in the "local path" text field to ensure you are syncing from the correct location on your computer.
 
@@ -271,7 +281,13 @@ Note, if you're using a Mac, these files may be hidden. You can view hidden file
 
 <ins>_Never_</ins> tamper with the directories and files inside of the _.git_ folder, and for the most part you will not need to modify directly the other GitHub files in this class. You can change settings and add to the _.gitignore_ file through the GitHub application gear menu→"Repository" settings in the upper-right corner of the application window. You also can sign in to GitHub, manage your account, and configure Git through the gear menu→"Options". 
 
-Follow the rest of the directions in the "[Getting your project on GitHub](https://guides.github.com/introduction/getting-your-project-on-github/)" guide. You should end up with both a local repository in your website directory and a copy of the repository on your GitHub web page. Note that it is also possible to work in reverse order—that is, create a new repository on the GitHub website and then copy it over, or _clone_ it, to your machine. The GitHub [Hello World Guide](https://guides.github.com/activities/hello-world/) provides details on this reverse process for future reference. We will return to this process in Activity 7.
+Next, you need to publish your repository to GitHub. At the top of the page click "Publish repository". Name the repository _unit-1_ and add your name and "unit 1" as the description. Uncheck "Keep this code private" so others can see your repository. Finally, click "Publish Repository".
+
+![figure1.3.4.png](img/figure1.3.4.png)
+
+###### Figure 3.3: Publishing a repository from GitHub Desktop
+
+You should end up with both a local repository in your website directory and a copy of the repository on your GitHub web page. Note that it is also possible to work in reverse order—that is, create a new repository on the GitHub website and then copy it over, or _clone_ it, to your machine. The GitHub [Hello World Guide](https://guides.github.com/activities/hello-world/) provides details on this reverse process for future reference. We will return to this process in Activity 7.
 
 When you are just figuring things out, you are likely to end up with one or two repositories on GitHub that you will not actually need in the future. When you are sure you no longer need a repository, you can delete it from GitHub by navigating to the repository web page, clicking the "Settings" link on the right-hand side, scrolling down to the "Danger Zone" at the bottom of the page, and clicking "Delete this repository." The GitHub crew was nice enough to take precautions to ensure that you _really_ want to delete the repository before you do it. Thus, be absolutely sure you do not need the repository again, and that no one else is contributing to it, before you delete.
 
