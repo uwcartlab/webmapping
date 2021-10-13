@@ -26,8 +26,6 @@ The workbook is funded by [NSF CAREER #1555267](https://www.nsf.gov/awardsearch/
 
 ## Table of Contents
 
-[**Introduction**](/Introduction)
-
 **Unit 1 - Workflows and Data**
 - [Chapter 1 - Setting Up Your Workspace](/Chapter01)
 - [Chapter 2 - Scripting and Debugging](/Chapter02)
