@@ -182,11 +182,11 @@ If the AJAX request executes successfully, the `callback` function will print th
 
 ![figure3.2.1.png](img/figure3.2.1.png)
 
-###### Figure 2.1: Theconsole showing the data request and GeoJSON object
+###### Figure 2.1: The console showing the data request and GeoJSON object
 
 We also can view the response as plain text using JavaScript's built-in JSON library to translate our JSON to a string (Example 2.4; Figure 2.2).
 
-###### Example 2.4: Translating JSON to a strinng in _main.js_
+###### Example 2.4: Translating JSON to a string in _main.js_
 
         //Example 2.3 line 25...
         console.log(JSON.stringify(response));
