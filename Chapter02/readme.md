@@ -111,7 +111,7 @@ Unlike other programming languages, JavaScript is not picky about the order of f
 
 Note that the code is neatly indented, similar to the nested structure of our HTML document. Everything within the `myfunc()` function is indented an extra tab to show that it is contained by the function. Again, while indentation is not required, keeping your code tidy makes it much more readable and easier to debug. JavaScript interprets either a semicolon or a line break as the end of a statement, but it is good to get in the habit of using semicolons so that if you ever minify your code (compress it to a single, continuous line without comments), you will not have to go back through and add the semicolons.
 
-JavaScript has a number of native methods for manipulating the DOM. Rather than introducing them all one-by-one, we slowly introduce these methods by example in the chapter lessons. Our focus instead is on following the computational logic when calling these methods. Carefully read through and consider the Example 2.3 script:
+A **method** is a function association with a particular object. In most cases, this is a built-in function that you can use in your code, though you can also write your own. Later on, you'll use programming libraries like Leaflet and D3, each of which has their own set of unique methods. For now, JavaScript has a number of native methods for manipulating the DOM, all accessed through the `document` object. Rather than introducing them all one-by-one, we slowly introduce these methods by example in the chapter lessons. Our focus instead is on following the computational logic when calling these methods. Carefully read through and consider the Example 2.3 script:
 
 ###### Example 2.3: Creating an HTML table using JavaScript in _main.js_
 
@@ -390,63 +390,49 @@ As the question mark implies, you can think of this statement as asking a questi
 
 > ### **Add the conditional statements to _main.js_.**
 
-Lesson 3: jQuery
+Lesson 3: Simplification
 ----------------
 
-### I. Plugging in the Code Library
+### I. Selecting Elements
 
-As you can see from the previous lesson, you need an awful lot of JavaScript code to make just one tiny table! While JavaScript works great for computational logic, it is a bit clunky when picking HTML elements out of the DOM and manipulating them. This is where jQuery comes in handy.
+As you can see from the previous lesson, you need an awful lot of JavaScript code to make just one tiny table! While JavaScript works great for computational logic, it can a bit clunky when picking HTML elements out of the DOM and manipulating them. Therefore, it is useful to be aware of best practice workarounds that make manipulating the DOM easier. 
 
- _**jQuery**_ is an open source library that simplifies a number of common applications of JavaScript for web development, including DOM traversal and manipulation, event handling, cross-browser consistency, and AJAX. Our focus this chapter is on jQuery for interacting with the DOM; we will cover additional features in future chapters. While alternatives are emerging, jQuery remains one of the most widely-used open-source coding libraries and thus is worth learning.
+As seen in Example 2.1, the `getElementById()` method was used to select the `mydiv` element in order to append the table to it. JavaScript uses a **_selector_** to find the element or elements you want to manipulate. In the case above, we gave our `<div>` an `id` attribute, which we can acess using the `getElementById()` method. If we had assigned a class, we could have used `getElementsByClassName()`. These methods, however, are a bit cumbersome. Instead, we can use the `querySelector()` method. 
 
-The first step to using jQuery is to add it to the _lib_ folder of your website directory.
+###### Example 3.2: Selecting an HTML element with `querySelector()`
 
-> ### **From the [jQuery website](https://jquery.com/), download the latest version of jQuery (uncompressed, development version; example code may reflect older versions). Save this _js_ file to the _lib_ folder in your website directory.**
+    var mydiv = document.querySelector("#mydiv");
+    mydiv.appendChild(table);
 
-After adding the _jQuery.js_ file to your website directory, link to it in the `<body>` of your _index.html_ file (Example 3.1). 
+Using the `querySelector()` we can access our `<div>` using pound `#` sign, just like in CSS. If there are multiple elements we want to access, we can use the `querySelectorAll()` method, which returns all objects which meet the selection criteria. If we had assigned a `class` attribute to the `<div>`, we can access it with a `.`, as in `'.mydiv'`. You also can select all elements of a particular tag in the document by using just the tag name with no prefix character, such as `querySelectorAll('div')` to select all div elements.
 
-###### Example 3.1: Linking jQuery in _index.html_
+Note that the selector <ins>**_must be in quotes_**</ins> (single or double) unless it is a variable that holds the string value of the attribute used for the selection. It is good to get in the habit of naming any HTML elements with `id` and/or `class` attributes that you subsequently might want to manipulate in your script or your CSS stylesheet. Keep in mind that each unique `id` value should be used for only one element in the document, whereas `class` is meant to be used to give the same identifier to multiple elements.
 
-    <script type="text/javascript" src="lib/jquery-3.5.1.js"></script>
-
-
-Make sure you add this script link _**above**_ the link to your _main.js_ file in _index.html_, as linked files are read by the browser's interpreter in the order in which they are linked. Otherwise, the code in _main.js_ will not be able to find the jQuery library!
-
-> ### **Add a script link to jQuery in your _index.html_ file.**
-
-Because jQuery is an open-source library, you can open it up and read through it. The jQuery developers made it especially easy to read the development version by using good formatting and heavily commenting throughout, although we do not expect you to understand all of the script for this workbook.
+> ### Replace all instances `getElementById()` with `querySelector()`.**
 
 ### II. Method Chaining
 
-The jQuery library essentially is a series of functions that support common tasks. When a function is part of a library, it is generally referred to as a **_method_** of that library. jQuery is somewhat unique in that it supports **_method chaining_**_,_ or the calling of multiple methods in sequence using dot syntax, resulting in simplified code. Example 3.2 shows a two method chain using jQuery.
+The `querySelector()` method is somewhat unique in that it supports **_method chaining_**_,_ or the calling of multiple methods in sequence using dot syntax, resulting in simplified code. Example 3.3 shows a two method chain.
 
-###### Example 3.2: Method chaining with dot syntax in _main.js_
+###### Example 3.3: Method chaining with dot syntax in _main.js_
 
-    jQuery('#mydiv').html('Hello World');
+	document.querySelector("#mydiv").insertAdjacentHTML('beforeend',"Hello World!");
 
+The first part of the Example 3.3 method chain is the `document.querySelector()` itself, which selects the HTML `<div>` with the id attribute `'mydiv'` and returns it to the script for manipulation. The second method, `insertAdjacentHTML()`, writes the text 'Hello World' at the bottom of the `<div>` (thus, `'beforeend'`). The method chain above is functionally equivalent to Example 2.1 above. We could use a slightly modified method chain to append our table the `mydiv` element. Note the `querySelectorAll` method only supports method chaining with methods that accept arrays, such a `forEach()` loop (see Example 3.7).
 
-The first part of the Example 3.2 method chain is `jQuery('#mydiv')`. This method selects the HTML `<div>` with the id attribute `'mydiv'` and returns it to the script for manipulation. The second method, `html('Hello World')`, writes the text 'Hello World' to the `<div>`. The method chain above is functionally equivalent to Example 2.1 above.
+###### Example 3.4: Using a method chain to add the table to the `mydiv` element.
 
-You already can start to see why jQuery is so useful. Rather than having to designate a variable to hold the `<div>` element for processing and use the lengthy `document.getElementById` method, `jQuery('#mydiv')` grabs the element and prepares it for manipulation by other jQuery methods right away.
+    document.querySelector("#mydiv").appendChild(table);
 
-jQuery also provides alias `$` syntax for its name to further reduce the size of your code (Example 3.3).
+> ### **Use method chaining to add your table to the `mydiv` element**
 
-###### Example 3.3: Using the `$` alias for jQuery
+### III. Manipulating Elements
 
-    $('#mydiv').html('Hello World');
+Part of learning to code is learning how to simplify code. One of the reasons the code in example 2.3 is so cumbersome is the sheer volume required to do basic tasks. Thankfully, JavaScript offers multiple ways of doing the same thing, and we can use these alternative methods to simplify our code. 
 
+Looking back to Example 2.3, we used a series of methods to add new rows to the table header: `createElement()`, `innerHTML`, and `appendChild()`. While we will continue to use some of these methods throughout the workbook, for the purposes of adding new header rows to our table, we can also use the much simpler `insertAdjacentHTML()`. The `insertAdjacentHTML()` method has two parameters: one is the position, which we'll set as `beforeend`, which tells the function to insert the HTML as the last child of the selected element, while the other is the HTML string you wish to insert.  
 
-jQuery uses a **_selector_** to find the element or elements you want to manipulate. In the case above, we gave our `<div>` an `id` attribute, which we can access using pound `#` sign, just like in CSS. If we had assigned a `class` attribute to the `<div>`, we can access it with a `.`, as in `'.mydiv'`. You also can select all elements of a particular tag in the document by using just the tag name with no prefix character, such as `$('div')` to select all div elements.
-
-Note that the selector <ins>**_must be in quotes_**</ins> (single or double) unless it is a variable that holds the string value of the attribute used for the selection, or it is a keyword recognized by jQuery (`document` or `window`). It is good to get in the habit of naming any HTML elements with `id` and/or `class` attributes that you subsequently might want to manipulate in your script or your CSS stylesheet. Keep in mind that each unique `id` value should be used for only one element in the document, whereas `class` is meant to be used to give the same identifier to multiple elements.
-
-> ### **Print "Hello World" to the browser using the jQuery alias and method chaining.**
-
-### III. Adding Elements
-
-Knowing how jQuery syntax works, you now can rewrite the table script using jQuery's `.append()` method, which adds elements to a webpage (Example 3.4):
-
-###### Example 3.4: Building an HTML table in _main.js_ using jQuery
+###### Example 3.5: Simplified table using Javascript
 
     //initialize function called when the script loads
     function initialize(){
@@ -457,53 +443,53 @@ Knowing how jQuery syntax works, you now can rewrite the table script using jQue
     function cities(){
         //define two arrays for cities and population
         var cityPop = [
-            { 
-                city: 'Madison',
-                population: 233209
-            },
-            {
-                city: 'Milwaukee',
-                population: 594833
-            },
-            {
-                city: 'Green Bay',
-                population: 104057
-            },
-            {
-                city: 'Superior',
-                population: 27244
-            }
-        ];
+        { 
+            city: 'Madison',
+            population: 233209
+        },
+        {
+            city: 'Milwaukee',
+            population: 594833
+        },
+        {
+            city: 'Green Bay',
+            population: 104057
+        },
+        {
+            city: 'Superior',
+            population: 27244
+        }
     
-        //append the table element to the div
-        $("#mydiv").append("<table>");
-    
-        //append a header row to the table
-        $("table").append("<tr>");
-    
+        //create the table element
+        var table = document.createElement("table");
+
+        //create a header row
+        var headerRow = document.createElement("tr");
+
         //add the "City" and "Population" columns to the header row
-        $("tr").append("<th>City</th><th>Population</th>");
-    
+        headerRow.insertAdjacentHTML("beforeend","<th>City</th><th>Population</th>")
+
+        //add the row to the table
+        table.appendChild(headerRow);
+
         //loop to add a new row for each city
-        for (var i = 0; i < cityPop.length; i++){
+        for(var i = 0; i < cityPop.length; i++)){
             //assign longer html strings to a variable
             var rowHtml = "<tr><td>" + cityPop[i].city + "</td><td>" + cityPop[i].population + "</td></tr>";
             //add the row's html string to the table
-            $("table").append(rowHtml);
-        };
-    };
-    
-    //call the initialize function when the document has loaded
-    $(document).ready(initialize);
+            table.insertAdjacentHTML('beforeend',rowHtml);
+        })
 
+        document.querySelector("#mydiv").appendChild(table);
+    }
 
-Compare the (much shorter) jQuery script in Example 3.4 to our original script in Example 2.3. Note that the strategy for adding elements to the webpage has changed. In the original Example 2.3 script, we first created each element, then added the content to the element, and finally—_only when the element was complete_—added it to the DOM. Thus, the `<table>`—the outermost element—was the very first element created, but the last to be appended, and the only element appended to an existing element in the DOM (the `<div>`).
+    document.addEventListener('DOMContentLoaded',initialize)
 
-jQuery enables a different approach: HTML elements are created _at the same time they are added to the DOM_. The `<table>` element still is the first element we manipulate, but it is _immediately_ appended to the existing `<div>`. Notice there is no closing `</table>` tag; you could provide one, but jQuery adds this automatically for elements that need it if you do not. Once appended, it then is possible for jQuery to select the table out of the DOM for manipulation.
+Compare the (much shorter) script in Example 3.5 to our original script in Example 2.3. Note that the strategy for adding elements to the webpage has changed. In the original Example 2.3 script, we first created each element, then added the content to the element. 
 
-Continuing with the Example 3.4 code, we append the first table row element `<tr>` directly to the `<table>`, and to that we append the full html string of the header cells. This is just like writing HTML code within _index.html_, except that it is contained within a string and you need not worry about the formatting. Within the loop, we again append an HTML string, this time representing the full row. Note that we could have also done this for the header row, combining the previous two `.append()` methods. Instead of writing our HTML string just as a parameter of the `.append()` method, we first assign it to the variable `rowHtml`. This keeps the code tidier by avoiding a line of script so long that it bleeds off the page (although sometimes this is simply unavoidable). We form the HTML string by concatenating strings of the proper HTML tags with the `cityPop[i].city` and `cityPop[i].population` properties, looping through the `cityPop` array until there are no more objects to append as rows to the table.
+Continuing with the Example 3.5 code, we append the full html string of the header cells directly to the header row. This is just like writing HTML code within _index.html_, except that it is contained within a string and you need not worry about the formatting. Within the loop, we again append an HTML string, this time representing the full row. Instead of writing our HTML string just as a parameter of the `.insertAdjacentHTML()` method, we first assign it to the variable `rowHtml`. This keeps the code tidier by avoiding a line of script so long that it bleeds off the page (although sometimes this is simply unavoidable). We form the HTML string by concatenating strings of the proper HTML tags with the `cityPop[i].city` and `cityPop[i].population` properties, looping through the `cityPop` array until there are no more objects to append as rows to the table.
 
-At the bottom of the script, we replace `window.onload = intialize()` with `$(document).ready(initialize)`. This will execute the script as soon as the DOM is prepared, before all images and frames are loaded, making the loading of the site faster.
+At the bottom of the script, we replace `window.onload = intialize()` with `document.addEventListener('DOMContentLoaded',initialize)`. This will execute the script as soon as the DOM is prepared, before all images and frames are loaded, making the loading of the site faster. The `addEventListener` function itself is covered in more detail in the next section.
 
 When writing HTML strings, make sure that you add all of the proper closing tags to your elements in the correct order. Unclosed elements may result in a DOM structure you did not anticipate, with odd formatting results. Figure 3.1 visualizes how the HTML elements in your table are organized in the DOM tree.
 
@@ -511,77 +497,63 @@ When writing HTML strings, make sure that you add all of the proper closing tags
 
 ###### Figure 3.1: The HTML table DOM tree structure
 
-> ### **Update the Example 2.3 code to use jQuery.**
+> ### **Simplify the Example 2.3 code.**
 
-### IV. More Useful jQuery
+### IV. Additional JavaScript
 
-As you develop your lab projects, you will use many more jQuery methods. All of jQuery's methods are described in the [jQuery documentation](https://api.jquery.com/). Here we cover several of the more useful jQuery methods for manipulating the DOM. Each of these methods is called on a jQuery selection using dot syntax.
+As you develop your lab projects, you will use many more JavaScript methods. All native JavaScript methods are described in the [JavaScript documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference). Here we cover several of the more useful techniques and methods for manipulating the DOM, as well as their appropriate use cases. 
 
-**_[.attr()](http://api.jquery.com/attr/)_**: This method allows you to get or set an attribute of the selected HTML element. It takes one or two parameters: the first parameter is the name of the attribute (e.g., `'id'` or `'class'`), while the second, optional parameter is a value with which to replace that attribute's current value (Example 3.5).
+**_[.getAttribute()](https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute)_**: This method allows you to get an attribute of the selected HTML element. It takes one parameter: the name of the attribute (e.g., `'id'` or `'class'`) (Example 3.5).
+
+**_[.setAttribute()](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute)_**: This method allows you to set an attribute of the selected HTML element. It takes two parameters: the first parameter is the name of the attribute (e.g., `'id'` or `'class'`), while the second parameter is a value with which to replace or set that attribute's current value (Example 3.5). `setAttribute()` is most useful when initially setting an attribute, setting an attribute you don't plan to change, or when you're working with a custom or "non-standard" attribute.
 
 ###### Example 3.5: Using `.attr()` in _main.js_
 
         //Added at Example 3.5 line 44...
         //get the div id
-        var theid = $('#mydiv').attr('id');
-    
+        var theid = document.querySelector('#mydiv').getAttribute('id');
+
         //theid is 'mydiv'; add it as text to the div
-        $('#mydiv').append(theid);
-    
+        document.querySelector('#mydiv').insertAdjacentHTML('beforeend',theid);
+
         //add the class 'foo' to the div
-        $('#mydiv').attr('class', 'foo');
-    
+        document.querySelector('#mydiv').setAttribute('class', 'foo');
+
         //Check your work with the Inspector!
 
+**_[Attribute Property](https://www.w3docs.com/learn-javascript/attributes-and-properties.html)_**: Alternatively, if you plan to change an attribute frequently or dynamically, you can access the attribute as a property of an HTML object. To do so, an object must be selected using the `querySelector`, and then its property accessed using dot notation (Example 3.6).
 
-_**[.css()](http://api.jquery.com/css/)**_: This method gets or sets the value of the `style` attribute of the selected element(s) using CSS styles. It is useful for changing element styles dynamically. It will, however, override any styles in your _style.css_ file that apply to the element(s), as in-line styles (those designated through the HTML element `style` attribute) always override styles stored in separate stylesheets. You can either give it the name and value of one style as strings, or change multiple styles at once as an object (Example 3.6).
+###### Example 3.6: Set Class and ID by changing object properties.
+        //get the div id
+        var theid = document.querySelector('#mydiv').id;
+        
+        //set the id to newdiv
+        document.querySelector('#mydiv').id = "newdiv";
 
-###### Example 3.6: Using `.css()` in _main.js_
+        //set the class 
+        document.querySelector('#mydiv').className = "foo";
 
-        //Added below Example 3.6...
-        //change the text color
-        $('#mydiv').css('color', 'red');
-    
-        //change the text size and alignment
-        $('#mydiv').css({
-            'font-size': '2em',
-            'text-align': 'left'
-        });
-    
-        //get the text color and add it as text to the div
-        var thecolor = $('#mydiv').css('color');
-        $('#mydiv').append(thecolor);
-    
-        //fooled ya! thecolor is rgb(255, 0, 0), the CSS interpreter's translation of the keyword 'red'
+In Example 3.6, we access the `'mydiv'` element, select the `id` property, and assign it to a variable. That variable will now have a value of `'mydiv'`. We can also assign a new `id` value. We follow similar steps to set the `class`, though note that in JavaScript, `className` is used to set `class`. This is just one of the many quirks of the language! In general, this technique is preferred to `setAttribute()`, but depending on the project you may end up using a bit of both. You can also use this approach to access any HTML attribute, such as `src` for images or scripts, or `href` for links.
 
+_**[.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)**_: This is the same `forEach()` method used in example 2.6, only with a slightly different use case: looping multiple elements selected with `querySelectorAll`. This is useful if you need to use individual attribute values of each element or need to assign different values to each element using imported data (Example 3.7).
 
-_**[.each()](https://api.jquery.com/each/)**_: This method accepts as its parameter a function that loops through all of the selected elements. This is useful if you need to use individual attribute values of each element or need to assign different values to each element using imported data (Example 3.7).
-
-###### Example 3.7: Using `.each()` in _main.js_
+###### Example 3.7: Using `forEach()` with `querySelectorAll()` in _main.js_
 
         //Added below Example 3.7...
         //iterate over each script element and add each one's source url as text to the div
-        $('script').each(function(){
-            var thesource = $(this).attr('src');
-            $('#mydiv').append(thesource);
-        });
+        document.querySelectorAll("script").forEach(function(selectedScript){
+            var thesource = selectedScript.src;
+            document.querySelector('#mydiv').insertAdjacentHTML('beforeend',thesource);
+        })
 
+**_[.addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)_** and _**[.removeEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)**_: These are _**event listener**_ methods that apply actions or behaviors based on user- or system-driven events. `.addEventListener()` usually takes two parameters: the name of the event to be listened for (such as `'click'`, `'mouseover'`, `'mouseout'`, etc.), and an _**event handler**_ function that executes when the event occurs (Example 3.8). `.removeEventListener()` predictably does the opposite of `.addEventListener()`, although you need to provide _exactly the same_ event name and handler function to actually remove the event listener from the element. Thus, while you can provide either method an anonymous function as the second parameter, if you wish to remove the listener it is best to define this function separately and pass the function name to the `.addEventListener()` and `.removeEventListener()` methods (example 3.8). 
 
-Note that `$(this)` inside of the loop selects the current element. You need not use `.each()` if you are assigning the exact same value to a set of selected elements; for that, simply chain the method that does what you want to the selection.
-
-**_[.on()](http://api.jquery.com/on/)_** and _**[.off()](http://api.jquery.com/off/)**_: These are jQuery's standard _**event listener**_ methods that apply actions or behaviors based on user- or system-driven events, similar to JavaScript's native `addEventListener()` and `removeEventListener()` methods. `.on()` usually takes two parameters: the name of the event to be listened for (such as `'click'`, `'mouseover'`, `'mouseout'`, etc.), and an _**event handler**_ function that executes when the event occurs (Example 3.8). `.off()` predictably does the opposite of `.on()`, although you need to provide _exactly the same_ event name and handler function to actually remove the event listener from the element. Thus, while you can provide either method an anonymous function as the second parameter, if you wish to remove the listener it is best to define this function separately and pass the function name to the `.on()` and `.off()` methods. There also are several alias methods available for popular event listeners.
-
-###### Example 3.8: Using `.on()` in _main.js_
+###### Example 3.8: Using `.addEventListener()` in _main.js_
 
         //Added below Example 3.8...
         //click listener with anonymous handler function
-        $('table').on('click', function(){
+        document.querySelector("table").addEventListener("click", function(){
             alert('Madison Rocks! Go Badgers!');
-        });
-    
-        //alias method for the click event listener
-        $('table').click(function(){
-            alert('Visit Superior and see the big lake!');
         });
     
         //named handler function for removable listener
@@ -590,13 +562,36 @@ Note that `$(this)` inside of the loop selects the current element. You need not
         };
     
         //add the event listener
-        $('table').on('click', clickme);
+        document.querySelector("table").addEventListener('click', clickme);
     
         //remove the event listener
-        $('table').off('click', clickme);
+        document.querySelector("table").removeEventListener('click', clickme);
 
+_**Style_: While Javascript offers methods to change the css of HTML elements, it's usually easier to access the `style` attribute of the selected element(s) directly. This techinque follows the same dot notation used to access attributes (Example 3.9).
 
-> ### **Use the jQuery `.attr()`, `.css()`, and `.on()` methods to add properties and events to the HTML elements on your webpage.**
+###### Example 3.9: Changing the style attribute of a selected element
+    //change the text color
+    document.querySelector('#mydiv').style.color = 'red';
+
+The `.style` property accesses the styles of the element, and `.color` selects the specific css `color` property, which we set to `red`. We can do this for any css property, but note certain differences in notation between css and js. For example, css properties that contain dashes, such as `background-color`, are written in JavaScript as `backgroundColor`. A full list of css properties along with their JavaScript translations, can be found in the [documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference).
+
+This technique is useful for changing element styles dynamically. It will, however, override any styles in your _style.css_ file that apply to the element(s), as in-line styles (those designated through the HTML element `style` attribute) always override styles stored in separate stylesheets. 
+
+###### Example 3.9: Changing styles in _main.js_
+
+        //Added below Example 3.6...
+        //change the text color
+        document.querySelector('#mydiv').style.color = 'red';
+    
+        //change the text size and alignment
+        document.querySelector('#mydiv').style.fontSize = '2em';
+        document.querySelector('#mydiv').style.textAlign = 'left';
+
+        //get the text color and add it as text to the div
+        var thecolor = document.querySelector('#mydiv').style.color;
+        document.querySelector('#mydiv').insertAdjacentHTML('beforeend',thecolor);
+
+> ### **Use the above techinques for attribute and style manipulation as well as the `addEventListener()` method to add properties and events to the HTML elements on your webpage.**
 
 Lesson 4: Debugging in the Developer Console
 --------------------------------------------
@@ -615,7 +610,7 @@ Or, in the words of the venerable [Douglas Adams](https://en.wikipedia.org/wiki/
 
 ### II. Console Errors
 
-If you have been testing each code example in this chapter's lessons, you probably have run into some unexpected problems. Maybe you accidentally misplaced some punctuation, misspelled or incorrectly capitalized a word, or forgot an essential character. Maybe you copied the code from each example into _main.js_ without removing or commenting out the original Example 2.3 code the new example was intended to replace. Maybe you forgot to update your link to jQuery to the _lib_ folder versus the _js_ folder in _index.html._  Maybe you forgot to preview your changes with Prepros or to clear your cache between refreshes. The list of possible issues goes on and on...
+If you have been testing each code example in this chapter's lessons, you probably have run into some unexpected problems. Maybe you accidentally misplaced some punctuation, misspelled or incorrectly capitalized a word, or forgot an essential character. Maybe you copied the code from each example into _main.js_ without removing or commenting out the original Example 2.3 code the new example was intended to replace. Maybe you forgot to update your link to your script to the _lib_ folder versus the _js_ folder in _index.html._  Maybe you forgot to preview your changes with Prepros or to clear your cache between refreshes. The list of possible issues goes on and on...
 
 Such difficulties are normal, everyday experiences for every level of programmer, beginner to expert. The trick to overcoming routine errors is learning how to efficiently debug your code as you go. A single wrong character in the script can break your entire webpage, and it requires some sleuthing to find the pointy needle in the haystack. Fortunately, every browser's developer toolset comes with a vital tool that allows us to do just that: the console.
 
@@ -659,37 +654,13 @@ Similarly, perhaps you have an undefined variable that you try to manipulate thr
 
 There are multiple reasons a variable could be undefined, but a very common cause is inconsistent capitalization. The error above happens because in one place the script uses `citypop` and in another it uses `cityPop`. Since the variable was defined as `cityPop`, `citypop` is not recognized.
 
-### III. Process of Elimination
-
-Most errors in the console are explanatory and helpful, but occasionally you will run into an error that is mysterious. For example, while developing the example script we have been using, I ran into an error I had never seen before (Figure 4.3):
-
-![figure2.4.3.png](img/figure2.4.3.png)
-
-###### Figure 4.3: A type error displayed in the console
-
-"TypeError: context is null"? What the what? The Console was telling me that the problem was in jQuery, but rarely does a publicly-distributed code library come with bugs in it. The problem instead was what I was feeding _to_ jQuery through my script, not something in jQuery itself. But annoyingly, the console cannot discriminate where in _your_ script the problem is if the error is thrown by the code library. The way I addressed this issue was to **_comment out_** each jQuery method chain in my script in turn until I found the line that was the culprit. This one was relatively easy to find; it turns out the problem was this statement that I was trying to use `document` as a selector for the jQuery `append()` method (Example 4.2).
-
-###### Example 4.2: Incorrect use of a jQuery method in _main.js_
-
-        $(document).append("<table>");
-
-
-jQuery only accepts `document` as a selector for its `.ready()` method, _not_ for `.append()`. The latter method requires the selection of an existing HTML element. I thus changed the selector to a div reference by id `"#mydiv"` (Example 4.3).
-
-###### Example 4.3: Rectified jQuery method call in _main.js_
-
-        $("#mydiv").append("<table>");
-
-
-This update resolved the issue.
-
-### IV. Console.log
+### III. Console.log
 
 What about an error that causes your script to fail silently? For instance, while I was tinkering with the example script for this lesson, I was able to generate a table with just the headers and no errors in the console (Figure 4.4):
 
-![figure2.4.4.png](img/figure2.4.4.png)
+![figure2.4.3.png](img/figure2.4.3.png)
 
-###### Figure 4.4: There's no table, Jim
+###### Figure 4.3: There's no table, Jim
 
 Example 4.4 shows my original script producing this silent error.
 
@@ -704,45 +675,48 @@ Example 4.4 shows my original script producing this silent error.
     function cities(){
         //define two arrays for cities and population
         var cityPop = [
-            { 
-                city: 'Madison',
-                population: 233209
-            },
-            {
-                city: 'Milwaukee',
-                population: 594833
-            },
-            {
-                city: 'Green Bay',
-                population: 104057
-            },
-            {
-                city: 'Superior',
-                population: 27244
-            }
-        ];
+        { 
+            city: 'Madison',
+            population: 233209
+        },
+        {
+            city: 'Milwaukee',
+            population: 594833
+        },
+        {
+            city: 'Green Bay',
+            population: 104057
+        },
+        {
+            city: 'Superior',
+            population: 27244
+        }
     
-        //append the table element to the div
-        $("#mydiv").append("<table>");
-    
-        //append a header row to the table
-        $("table").append("<tr>");
-    
+        //create the table element
+        var table = document.createElement("table");
+
+        //create a header row
+        var headerRow = document.createElement("tr");
+
         //add the "City" and "Population" columns to the header row
-        $("tr").append("<th>City</th><th>Population</th>");
-    
+        headerRow.insertAdjacentHTML("beforeend","<th>City</th><th>Population</th>")
+
+        //add the row to the table
+        table.appendChild(headerRow);
+
         //loop to add a new row for each city
         for (var i = 0; i < cities.length; i++){
             //assign longer html strings to a variable
             var rowHtml = "<tr><td>" + cityPop[i].city + "</td><td>" + cityPop[i].population + "</td></tr>";
             //add the row's html string to the table
-            $("table").append(rowHtml);
-        };
-    };
-    
-    //call the initialize function when the window has loaded
-    $(document).ready(initialize);
+            table.insertAdjacentHTML('beforeend',rowHtml);
+        })
 
+        document.querySelector("#mydiv").appendChild(table);
+    }
+    
+    //call the initialize function when the DOM has loaded
+    document.addEventListener('DOMContentLoaded',initialize)
 
 Can you see the problem? I did not. I could tell from preview that my header row was drawing correctly, but it was as though my loop did not exist. There were a few things that could be going on, so I needed to use a process of elimination to test for different issues. This is where `console.log` comes in handy. This native JavaScript method prints whatever you want to the console, allowing you to make visible what is going on in the script.
 
@@ -750,43 +724,43 @@ Let's debug! First, we can see whether the script is stopping for some reason be
 
 ###### Example 4.5: Adding a `console.log` statement to test the execution in _main.js_
 
-        //Example 4.4 line 36...
+        //Example 4.4 line 37...
         console.log("Hello World");
         //loop to add a new row for each city
         for (var i = 0; i < cities.length; i++){
             //assign longer html strings to a variable
             var rowHtml = "<tr><td>" + cityPop[i].city + "</td><td>" + cityPop[i].population + "</td></tr>";
             //add the row's html string to the table
-            $("table").append(rowHtml);
-        };
+            table.insertAdjacentHTML('beforeend',rowHtml);
+        })
 
 
-The results (Figure 4.5):
+The results (Figure 4.4):
 
-![figure2.4.5.png](img/figure2.4.5.png)
+![figure2.4.4.png](img/figure2.4.4.png)
 
-###### Figure 4.5: The console showing the executed statement
+###### Figure 4.4: The console showing the executed statement
 
 Next, is the problem with the code in the loop or the loop itself? To see if the loop is executing, let's move our `console.log` statement to the first order of business within the loop (Example 4.6):
 
 ###### Example 4.6: Move the `console.log` statement inside the loop in _main.js_
 
-        //Example 4.4 line 36...
+        //Example 4.4 line 37...
         //loop to add a new row for each city
         for (var i = 0; i < cities.length; i++){
             console.log("Hello World");
             //assign longer html strings to a variable
             var rowHtml = "<tr><td>" + cityPop[i].city + "</td><td>" + cityPop[i].population + "</td></tr>";
             //add the row's html string to the table
-            $("table").append(rowHtml);
+            table.insertAdjacentHTML('beforeend',rowHtml);
         };
 
 
-Result (Figure 4.6):
+Result (Figure 4.5):
 
-![figure2.4.6.png](img/figure2.4.6.png)
+![figure2.4.5.png](img/figure2.4.5.png)
 
-###### Figure 4.6: The console is blank
+###### Figure 4.5: The console is blank
 
 Aha! The loop is _not_ executing at all. So let's look at the opening statement of our loop (Example 4.7):
 
@@ -804,17 +778,17 @@ Look carefully at every character in the line for errors with the syntax. There 
         for (var i = 0; i < cities.length; i++){
 
 
-Result (Figure 4.7):
+Result (Figure 4.6):
+
+![figure2.4.6.png](img/figure2.4.6.png)
+
+###### Figure 4.6:The console showing that `cities` is a function
+
+Notice in the Console that `cities` is a function, not a variable! Thus it is defined, but has no `length` property. If you click the button next to the function name in the console, you can see where in the script the function is defined (Figure 4.7).
 
 ![figure2.4.7.png](img/figure2.4.7.png)
 
-###### Figure 4.7:The console showing that `cities` is a function
-
-Notice in the Console that `cities` is a function, not a variable! Thus it is defined, but has no `length` property. If you click the button next to the function name in the console, you can see where in the script the function is defined (Figure 4.8).
-
-![figure2.4.8.png](img/figure2.4.8.png)
-
-###### Figure 4.8: The Debugger tab showing where `cities()` is defined
+###### Figure 4.7: The Debugger tab showing where `cities()` is defined
 
 Why then did I use `cities` in my loop? Remember back to our _very first script_, when we were using two arrays for our data instead of an array of objects (Example 4.9).
 
@@ -868,7 +842,7 @@ I simply forgot to change the name of the variable `cities` to `cityPop` in the 
             //assign longer html strings to a variable
             var rowHtml = "<tr><td>" + cityPop[i].city + "</td><td>" + cityPop[i].population + "</td></tr>";
             //add the row's html string to the table
-            $("table").append(rowHtml);
+            table.insertAdjacentHTML('beforeend',rowHtml);
         };
 
 

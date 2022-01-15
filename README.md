@@ -47,7 +47,6 @@ The workbook is funded by [NSF CAREER #1555267](https://www.nsf.gov/awardsearch/
 
 This workbook covers foundations in several coding libraries used for different web mapping applications. These include:
 
-- [JQuery 3.4.1](https://jquery.com/)
 - [D3 6](https://d3js.org/)
 - [Leaflet 1.6](https://leafletjs.com/reference-1.6.0.html)
 

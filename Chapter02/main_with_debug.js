@@ -1,10 +1,29 @@
+var cityPop = [
+	{ 
+		city: 'Madison',
+		population: 233209
+	},
+	{
+		city: 'Milwaukee',
+		population: 594833
+	},
+	{
+		city: 'Green Bay',
+		population: 104057
+	},
+	{
+		city: 'Superior',
+		population: 27244
+	}
+];
+
 function addColumns(cityPop){
     
-    $('tr').each(function(i){
+    document.querySelectorAll("tr").forEach(function(row, i){
 
     	if (i == 0){
 
-    		$(this).apend('<th>City Size</th>');
+    		row.insertAdjacntHTML('beforeend', '<th>City Size</th>');
     	} else {
 
     		var citySize;
@@ -19,14 +38,14 @@ function addColumns(cityPop){
     			citySize = 'Large';
     		};
 
-    		$this.append('<td' + citySize + '</td>');
+			row.insertAdjacntHTML = '<td' + citySize + '</td>';
     	};
     });
 };
 
 function addEvents(){
 
-	$('#table').mouseover(function(){
+	document.querySelector("table").addEventListener("mouseover", function(){
 		
 		var color = "rgb(";
 
@@ -43,7 +62,7 @@ function addEvents(){
 				color += ")";
 		};
 
-		$(this).css('color', color);
+		document.querySelector("table").color = color;
 	});
 
 	function clickme(){
@@ -51,5 +70,5 @@ function addEvents(){
 		alert('Hey, you clicked me!');
 	};
 
-	$('table').on('click', clickme);
+	document.querySelector("table").addEventListener("click", clickme)
 };

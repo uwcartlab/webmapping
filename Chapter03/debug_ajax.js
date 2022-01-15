@@ -1,21 +1,16 @@
 function debugCallback(response){
-	
-	$(mydiv).append('GeoJSON data: ' + JSON.stringify(mydata));
+	$("#mydiv").append('GeoJSON data: ' + JSON.stringify(response));
 };
 
 function debugAjax(){
-	
-	var mydata;
-
-	$.ajax("data/MegaCities.geojson", {
-		dataType: "json",
-		success: function(response){
-			
-			debugCallback(mydata);
-		}
-	});
-
-	$(mydiv).append('<br>GeoJSON data:<br>' + JSON.stringify(mydata));
+	fetch("data/MegaCities.geojson")
+		.then(function(response){
+			if (!response.ok) {
+				throw new Error("HTTP error, status = " + response.status);
+			}
+			return response.json();
+		})
+		.then(debugCallback)
 };
 
-$(mydiv).append('GeoJSON data: ' + JSON.stringify(mydata));
+debugAjax();

@@ -192,7 +192,7 @@ Let's describe each of these folders in your directory structure:
 
 *   _**js**_: This folder holds your custom JavaScript files, in which you will write the script to make your website—including its web map—dynamic and interactive.
     
-*   _**lib**_: This folder holds any third-party JavaScript code libraries you choose to download and host. These will eventually include _jQuery.js_, _Leaflet.js_, _D3.js_, and potentially others. Some code libraries come with their own CSS stylesheets and images; leave these within the library's directory and place the entire directory within the lib folder to avoid confusion.
+*   _**lib**_: This folder holds any third-party JavaScript code libraries you choose to download and host. These will eventually include _Leaflet.js_, _D3.js_, and potentially others. Some code libraries come with their own CSS stylesheets and images; leave these within the library's directory and place the entire directory within the lib folder to avoid confusion.
     
 *   _**css**_: This folder holds your custom CSS stylesheets.
     

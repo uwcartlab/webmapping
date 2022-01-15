@@ -99,148 +99,150 @@ _**AJAX**_ Stands for **_Asynchronous JavaScript and XML_**. Back in the Interne
 
 AJAX is the reason we can have a fluid rather than fragmented user experience, allowing data to be sent to and received from a server _asynchronously_ without reloading the webpage. AJAX enables interaction, as asynchronous data requests are executed through event listeners on interactive controls within the webpage, such as buttons, sliders, form fill-in textboxes, or the map and individual map features themselves.
 
-### II. JavaScript AJAX Requests
+### II. Promises
 
-JavaScript AJAX requests are somewhat complicated; they involve an entire back-and-forth conversation between the client and the server. Although you ultimately will use code libraries like jQuery for your AJAX calls for simplicity (see Lesson 3), it is conceptually useful to step through native JavaScript to gain an understanding of how AJAX works.
+JavaScript AJAX requests are somewhat complicated; they involve an entire back-and-forth conversation between the client and the server. Thankfully, the process for creating an AJAX request has been greatly simplified over the past decade, and in this course you will use the Fetch API for your AJAX requests (see Lesson 3), but it is conceptually useful to understand how an AJAX request functions using a special type of function called a _**promise**_.
 
-AJAX functions computationally in five steps. First, let's start with a simple AJAX request (Example 2.1).
+A **_promise_** is a placeholder JavaScript object that represents and eventually stores the completion of asynchronous processes, such as loading data. Promises allows us to control the order in which things happen on a webpage. This is important when loading something like an external dataset, as if you try to do something with the data before it's fully loaded, you will get an error! Unlike other programming languages, you need to specify the program to wait until the data has finished loading before you do anything with it. 
 
-###### Example 2.1: Creating a JavaScript AJAX request object in _main.js_
+To understand promises, we'll start with a simple example.
 
-    function jsAjax(){
-        // Step 1: Create the request 
-        var ajaxRequest = new XMLHttpRequest();
-    };
+###### Example 2.1: Create a function to be used for the Promise
+
+    //Step 1: Create a function
+    setTimeout(function(){
+        console.log("It has been 2 seconds.")
+    }, 2000);
     
-    window.onload = jsAjax();
+    window.onload = timer();
     
+This is a simple timer that uses the `setTimeout` method that will run when the page is loaded. For our purposes, this timer will simulate the time it would take to load a very large dataset. The first thing we would want to know is if the dataset has been loaded. To this, we have to edit our code a bit, and actually create the promise. 
 
-The statement `new XMLHttpRequest()` creates a new instance of a special type of object that includes properties and methods meant for a particular purpose. In this case, that purpose is to communicate with a server that can supply the data we want.
+###### Example 2.2: Creating the Promise
 
-We then create an event handler to send the received data to a callback function (Example 2.2). A JavaScript _**callback function**_ executes script that uses the data retrieved from a server _after the data loads into the browser_. Consequently, any script that makes use of data sent through AJAX should be written or called within the callback function to avoid manipulating the data before it is fully available in the browser.
-
-###### Example 2.2: Creating an AJAX event handler that calls a callback function in _main.js_
-
-    function jsAjax(){
-        // Step 1: Create the request 
-        var ajaxRequest = new XMLHttpRequest();
+    //Step 2: Create the promise
+    var timer = new Promise(function(resolve){
+	    //Step 1: Create a function
+        setTimeout(function(){
+		    resolve("It has been 2 seconds")
+	    }, 2000);
+    })
     
-        //Step 2: Create an event handler to send received data to a callback function
-        ajaxRequest.onreadystatechange = function(){
-            if (ajaxRequest.readyState == 4){
-                callback(ajaxRequest.response);
-            };
-        };
-    };
-    
-    //define callback function
+We create a variable called `timer` which we will use to store our value. We then define a `new Promise`, which assigns a placeholder as the value of the variable. In the Promise definition, there is one parameter listed, and although it look like a variable, it actually represents a function. Specifically, it is known as _**callback function**_, as it will only run _after_ the Promise is complete. While it can be named anything, the value we assign to `resolve()` will be returned if the function is successful. In this case, the value of the `timer` variable will be returned as `'It has been two seconds'` 
+
+We then create our callback function, which we want to trigger _after_ the timer.
+
+###### Example 2.3: Creating the callback function
+
+    //Step 2: Create the promise
+    var timer = new Promise(function(resolve){
+	    //Step 1: Create a function
+        setTimeout(function(){
+		    resolve("It has been 2 seconds")
+	    }, 2000);
+    })
+
+    //Step 3: Create the callback function
     function callback(response){
-        //tasks using the data go here
-        console.log(response);
-    };
-    
+        alert(response)
+    }
 
-The `onreadystatechange` property of the `ajaxRequest` object holds an event listener that fires whenever the `readyState` of the object changes. During the request-response process, the object goes through four `readyState`s; the fourth one occurs when a response is received from the server. If you wish to see this in action in the console, you can add `console.log("readyState: ", ajaxRequest.readyState)` to the first line of the event listener handler (Line 7 in Example 2.2). The server's response—the data—is sent to the callback function defined beneath the `jsAjax()` function.
+Note, any script that makes use of data sent through AJAX should be written or called within the callback function to avoid manipulating the data before it is fully available in the browser.
 
-Steps 3-5 of AJAX occur in sequence: A server first is opened, then the data type of the transfer is set, and finally the AJAX request is sent (Example 2.3).
+The final step in the promise is to actually trigger the callback.
 
-###### Example 2.3: Opening a server connection, setting the data type, and sending the AJAX request in _main.js_
+###### Example 2.4: Trigger the callback
 
-    function jsAjax(){
-        // Step 1: Create the request 
-        var ajaxRequest = new XMLHttpRequest();
-    
-        //Step 2: Create an event handler to send received data to a callback function
-        ajaxRequest.onreadystatechange = function(){
-            if (ajaxRequest.readyState == 4){
-                callback(ajaxRequest.response);
-            };
-        };
-    
-        //Step 3: Open the server connection
-        ajaxRequest.open('GET', 'data/MegaCities.geojson', true);
-    
-        //Step 4: Set the response data type
-        ajaxRequest.responseType = "json";
-    
-        //Step 5: Send the request
-        ajaxRequest.send();
-    };
-    
-    //define callback function
+    //Step 2: Create the promise
+    var timer = new Promise(function(resolve){
+	    //Step 1: Create a function
+        setTimeout(function(){
+		    resolve("It has been 2 seconds")
+	    }, 2000);
+    })
+
+    //Step 3: Create the callback function
     function callback(response){
-        //tasks using the data go here
-        console.log(response);
-    };
-    
-    window.onload = jsAjax();
-    
+        alert(response)
+    }
 
-The `.open()` method specifies the type of request: either `GET` for getting data from the server or `SEND` for posting data to the server. The `.open()` method also includes the URL string of the data location and a Boolean to make the request asynchronous (more on this in Lesson 3). The `responseType` property then sets the data type to JSON, but this could be CSV, XML, etc. Finally, the `.send()` method sends the full request package, including the event listener handler we created in Step 2, to the server.
+    //Step 4: Trigger the callback after the promise is resolved
+    timer.then(callback)
 
-If the AJAX request executes successfully, the `callback` function will print the GeoJSON to the console (Figure 2.1).
+Finally, we use the `then` method to activate the callback function. The `then` method _only_ triggers after its assigned promise has been resolved. Here, it will trigger after two seconds.
+
+### III. Fetch
+
+While promises are useful for more advanced JavaScript applications, for web mapping, they are primarily used to load data into webpages using Fetch. _**Fetch**_ is a  Javascript API used specifically to load external data using promises. Compared to alternative methods of doing so, Fetch makes things fairly straightfoward.
+
+At its core, the Fetch API relies on the `fetch` function, which takes a file as a parameter, and then fires a callback function when the data has been loaded.
+
+###### Example 2.5: Simple fetch request
+
+    //fetch function
+    fetch('data/MegaCities.geojson')
+    .then(callback)
+
+    //callback function
+    function callback(response){
+        console.log(response)
+    }
+
+If we take a look at the console for Example 2.5, we see something odd. 
+
+###### Figure 2.1: The console showing the full fetch response
 
 ![figure3.2.1.png](img/figure3.2.1.png)
 
-###### Figure 2.1: Theconsole showing the data request and GeoJSON object
+While the Fetch request worked without errors, it actually returned more than is necessary. The full Fetch request doesn't include the data in a usable form. Instead, the data need to be extracted. Since `MegaCities` is a json file, we will use `json()` method to do so, though we could also use the `csv()` method if it were appropriate. However, to convert the data using the `json()` method will take additional time, so we need to add a second `then` function to actually run the callback.
+
+###### Example 2.6: Fetch request to view the geojson data
+
+    //fetch function
+    fetch('data/MegaCities.geojson')
+    //retrieve data
+    .then(function(response){
+        //convert data to usable form
+        return response.json();
+    })
+    //fire callback
+    .then(callback)
+
+    //callback function
+    function callback(response){
+        console.log(response)
+    }
+
+If the fetch request executes successfully, the `callback` function will print the GeoJSON to the console (Figure 2.1).
+
+###### Figure 2.2: The console showing the GeoJSON object
+
+![figure3.2.2.png](img/figure3.2.2.png) NEED TO ADD
 
 We also can view the response as plain text using JavaScript's built-in JSON library to translate our JSON to a string (Example 2.4; Figure 2.2).
 
-###### Example 2.4: Translating JSON to a strinng in _main.js_
+###### Example 2.7: Translating JSON to a strinng in _main.js_
 
         //Example 2.3 line 25...
         console.log(JSON.stringify(response));
-    
 
-![figure3.2.2.png](img/figure3.2.2.png)
+###### Figure 2.3: The console showing the JSON data as a string
 
-###### Figure 2.2: The console showing the JSON data as a string
+![figure3.2.3.png](img/figure3.2.3.png) NEED TO ADD     
 
-> ### **With your _index.html_ linked to _main.js_, print the _MegaCities.geojson_ file to the console in _main.js_ using native JavaScript functions shown in Example 2.3.**
+A full Fetch request can also be simplified using Javascript shorthand. While JavaScript shorthand isn't always necessary, it can be used to tidy up you code.
 
-### III. jQuery AJAX Requests
+###### Example 2.8: Shorthand fetch request
 
-jQuery greatly simplifies AJAX requests, making it much easier to communicate between your script and the server. The primary AJAX method in jQuery is `.ajax()` (Example 2.4). Example 2.5 replaces the native AJAX calls from Example 2.3 with the `ajax()` jQuery solution.
+    //fetch function
+    fetch('data/MegaCities.geojson')
+        .then(response => response.json()
+        .then(callback)
 
-###### Example 2.4: Example 2.4: jQuery `.ajax()` method in _main.js_
-
-    $.ajax("data/MegaCities.geojson", {
-        dataType: "json",
-        success: callback
-    });
-
-###### Example 2.5: The _main.js_ script from Example 2.3 with jQuery `.ajax()` method
-
-    //define AJAX function
-    function jQueryAjax(){
-        //basic jQuery ajax method
-        $.ajax("data/MegaCities.geojson", {
-            dataType: "json",
-            success: callback
-        });
-    };
-    
-    //define callback function
-    function callback(response, status, jqXHRobject){
-        //tasks using the data go here
-        console.log(response);
-    };
-    
-    $(document).ready(jQueryAjax);
-    
-
-The `$.ajax()` (or `jQuery.ajax()`) method takes two parameters: a URL string defining the data location (`"data/MegaCities.geojson"`) and a settings object. The settings object in Example 2.5 only has two properties: `dataType` (`"json"`) and `success` (the `callback` function). The [API Documentation page](http://api.jquery.com/jquery.ajax/) summarizes the many other properties that can be set for `jQuery.ajax()`. Bookmark this page, as it will come in handy in the future.
-
-jQuery also provides alias methods for `jQuery.ajax()`, listed in the API Documentation under [AJAX Shorthand Methods](https://api.jquery.com/category/ajax/shorthand-methods/). _**Alias methods**_ provide fewer configuration options but make most AJAX requests even simpler to write. The two methods in Example 2.6 execute the same instructions as the `$.ajax()` method shown in Example 2.5.
-
-###### Example 2.6: jQuery AJAX alias methods that could be used in _main.js_
-
-    //jQuery.get() method...Example 2.5 line 3
-    $.get("data/MegaCities.geojson", callback, "json");
-    
-    //jQuery.getJSON() method...Example 2.5 line 3
-    $.getJSON("data/MegaCities.geojson", callback);
-    
+    //callback function
+    function callback(response){
+        console.log(response)
+    }
 
 > ### **Examine the API Documentation for the [`jQuery.ajax()`](http://api.jquery.com/jquery.ajax/) method and its [Shorthand Methods](https://api.jquery.com/category/ajax/shorthand-methods/) to determine the purpose each parameter serves. Then, write an AJAX script using jQuery that prints _MegaCities.geojson_ file to the console in _main.js_.**
 
