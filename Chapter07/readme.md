@@ -94,7 +94,6 @@ All GitHub repos should have a _readme.md_ for provenance and collaboration. Bef
     ### **Author:** Lambert Molleweide
 
     ### **Dependencies:**
-    * [JQuery 3.6.0](https://jquery.com/)
     * [Leaflet 1.6](https://leafletjs.com/reference-1.6.0.html)
 
     ### **Code Version:**

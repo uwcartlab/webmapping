@@ -420,7 +420,7 @@ Next, specify the position of the `#panel` relative to the `#map` using CSS in _
             line-height: 42px;
         }
 
-It makes sense to start a new function called `createSequenceControls()` for creating our sequence controls. Since the controls need access to the GeoJSON data, call the `createSequenceControls()` function from within the AJAX callback (Example 3.5). Within the function, we can make a simple slider using an HTML `<input>` element with the `type` attribute set to [`range`](http://www.w3schools.com/jsref/dom_obj_range.asp). We also give it a class name `range-slider` to access the slider in our stylesheet and with jQuery.
+It makes sense to start a new function called `createSequenceControls()` for creating our sequence controls. Since the controls need access to the GeoJSON data, call the `createSequenceControls()` function from within the AJAX callback (Example 3.5). Within the function, we can make a simple slider using an HTML `<input>` element with the `type` attribute set to [`range`](http://www.w3schools.com/jsref/dom_obj_range.asp). We also give it a class name `range-slider` to access the slider in our stylesheet and with `querySelector`.
 
 ###### Example 3.5: Creating an HTML `range` slider in _main.js_
 
@@ -483,7 +483,7 @@ Give our buttons both a `class` attribute (`"step"`) and an `id` attribute (`"fo
 
 ###### Figure 3.2: Step buttons
 
-Normally _sequence_ UI controls use icons rather than words. You can find and download open source icons at [The Noun Project](https://thenounproject.com/) and save them as raster images in your _unit-2/img_ folder. We then can references these icons for our buttons using jQuery's `html()` method (Example 3.8).
+Normally _sequence_ UI controls use icons rather than words. You can find and download open source icons at [The Noun Project](https://thenounproject.com/) and save them as raster images in your _unit-2/img_ folder. We then can reference these icons for our buttons using the `insertAdjacentHTML()` method (Example 3.8).
 
 ###### Example 3.8: Replacing button content with images in _main.js_
 
@@ -624,7 +624,7 @@ Not only have we successfully assigned the first value in our array to the `attr
 
 ###### Figure 3.5: Leaflet map visualizing the first attribute in the dataset
 
-Step 5 of our pseudocode listens for user interaction with the slider and step buttons. We can add `.click` listeners to the step buttons, using the jQuery alias syntax introduced in Chapter 02. The slider `<input>` element has an [`input`](http://www.w3schools.com/jsref/event_oninput.asp) event that fires when the user moves the slider thumb or clicks on the slider bar.
+Step 5 of our pseudocode listens for user interaction with the slider and step buttons. We can add `click` listeners to the step buttons, using the `addEventListener` syntax introduced in Chapter 02. The slider `<input>` element has an [`input`](http://www.w3schools.com/jsref/event_oninput.asp) event that fires when the user moves the slider thumb or clicks on the slider bar.
 
 The _sequence_ listeners should be placed within the `createSequenceControls()` function, after the elements have been added to the DOM (Example 3.14). For now, the contents of the anonymous functions called by both event listeners is a placeholder comment that eventually will include the logic to update the proportional symbols according to the user input.
 
@@ -805,7 +805,7 @@ You can implement the plugin to enable users to search for mapped features corre
 
 **_Arrange_** manipulates the layout of the map and linked views. _Arrange_ generally is not common on maps for presentation, and thus is rarely implemented with the mobile-friendly Leaflet library.
 
-_Arrange_ is more common for the highly-exploratory coordinated multiview visualization possible with D3, with a Leaflet map perhaps one window among coordinated views. Figure 4.6 shows a [ project](http://www.youtube.com/watch?v=Dlt3vU0ZBZ4&list=PLz9yX13m-GeL9tbxNN1tuOuMyx6wgkwb3) by a former Web Mapping workbook user using the jQuery UI library's [Draggable](https://jqueryui.com/draggable/) functionality.
+_Arrange_ is more common for the highly-exploratory coordinated multiview visualization possible with D3, with a Leaflet map perhaps one window among coordinated views. Figure 4.6 shows a [ project](http://www.youtube.com/watch?v=Dlt3vU0ZBZ4&list=PLz9yX13m-GeL9tbxNN1tuOuMyx6wgkwb3) by a former Web Mapping workbook user using [Draggable](https://jqueryui.com/draggable/) functionality.
 
 ![figure5.4.6.png](img/figure5.4.6.png)
 

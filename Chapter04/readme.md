@@ -55,7 +55,7 @@ The Leaflet library is available through the [Download](http://leafletjs.com/dow
 
 It is standard practice to include either _leaflet.js_ or _leaflet-src.js_ in the _lib_ folder of your website, but not both. We also recommend leaving the _leaflet.css_ file and _images_ subdirectory in your _lib_ folder, rather than reorganizing into the _css_ and _img_ folders of your website, to keep your original assets separate and avoid breaking references within the Leaflet library.
 
-> ### **Create a local repository on your machine called _unit-2_. Copy a clean version of the HTML boilerplate from your _unit-1_ directory into your _unit-2_ directory. If you lost or edited the boilerplate, you can [download a clean version](https://github.com/uwcartlab/unit-1). Download [Leaflet](http://leafletjs.com/download.html), unzip it, and place the Leaflet directory into your _lib_ folder. Add a link to the _leaflet.css_ file in the `<head>` of your _index.html_ file and a script link to _leaflet-src.js_ in the `<body>`, deleting _leaflet.js_ from your _lib_ folder to use the human-readable version for this unit. Also download and link the jQuery library, as described in Week 2. Be sure to place the script links <ins>_above_</ins> the link to your _main.js_ file in the `<body>` of your _index.html_ file. Push the _unit-2_ repository to GitHub.**
+> ### **Create a local repository on your machine called _unit-2_. Copy a clean version of the HTML boilerplate from your _unit-1_ directory into your _unit-2_ directory. If you lost or edited the boilerplate, you can [download a clean version](https://github.com/uwcartlab/unit-1). Download [Leaflet](http://leafletjs.com/download.html), unzip it, and place the Leaflet directory into your _lib_ folder. Add a link to the _leaflet.css_ file in the `<head>` of your _index.html_ file and a script link to _leaflet-src.js_ in the `<body>`, deleting _leaflet.js_ from your _lib_ folder to use the human-readable version for this unit. Be sure to place any script links <ins>_above_</ins> the link to your _main.js_ file in the `<body>` of your _index.html_ file. Push the _unit-2_ repository to GitHub.**
 
 With Leaflet "installed", let's take a look at some of the resources provided on the website to get started. The [Tutorials](http://leafletjs.com/examples.html) tab includes over a dozen helpful tutorials written at a beginner-level in web mapping but assuming some prior knowledge of HTML, CSS, and JavaScript. You will review two tutorials within this lesson: [_Leaflet Quick Start Guide_](http://leafletjs.com/examples/quick-start.html) and [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html). These tutorials are excellent, and so we rely on them in the following instructions rather than replicating.
 
@@ -157,7 +157,7 @@ Figure 1.2 illustrates the expected slippy map resulting from the _Using GeoJSON
 
 You used several Leaflet methods in the pair of tutorials to create the example slippy map with minimal discussion of how each method works and, more importantly, how each method can be customized to support your design vision. The [Leaflet API Documentation](https://leafletjs.com/reference-1.6.0.html) provides a comprehensive overview of the Leaflet methods and their syntax.
 
-An ***API*** or ***A***pplication ***P***rogramming ***I***nterface describes the functional utility of a code library or software that is exposed for use by developers. The API _**documentation**_ is like a dictionary that defines the available functions. You already used API documentation for [jQuery](http://api.jquery.com/) in Week 2 and JavaScript API documentation is available through [W3Schools](http://www.w3schools.com/jsref/default.asp) and the [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference). While essential for developing on the opening web, learning to read and understand the documentation can be a challenging skill to acquire, perhaps akin to learning to read scientific papers if you are used to writing for the humanities, and vice versa.
+An ***API*** or ***A***pplication ***P***rogramming ***I***nterface describes the functional utility of a code library or software that is exposed for use by developers. The API _**documentation**_ is like a dictionary that defines the available functions. You already used JavaScript API documentation through [W3Schools](http://www.w3schools.com/jsref/default.asp) and the [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference). While essential for developing on the opening web, learning to read and understand the documentation can be a challenging skill to acquire, perhaps akin to learning to read scientific papers if you are used to writing for the humanities, and vice versa.
 
 In general, API documentation provide:
 
@@ -172,7 +172,7 @@ Leaflet's API documentation is organized as one long webpage, making it convenie
 
 ###### Figure 1.3:The Leaflet API documentation.
 
-Let's examine the Leaflet methods from the two tutorials you completed using the API documentation. The first method in the _Leaflet_ _Quick Start Guide_ is `L.map()` (Example 1.3). Note that the expression above also includes the `setView()` method, chained to `L.map()` with jQuery-style dot syntax, and assigns the returned value of both methods to the variable `map`.
+Let's examine the Leaflet methods from the two tutorials you completed using the API documentation. The first method in the _Leaflet_ _Quick Start Guide_ is `L.map()` (Example 1.3). Note that the expression above also includes the `setView()` method, chained to `L.map()` with dot syntax, and assigns the returned value of both methods to the variable `map`.
 
 ###### Example 1.3: Using the Leaflet methods `L.map()` and `.setView()` in _quickstartTutorial.js_
 
@@ -241,7 +241,7 @@ We will return to classes and inheritance as key concepts in object-oriented pro
 
 ###### Figure 1.8: Types of Leaflet layer groups
 
-Based on the discussion in this lesson, you should now be able to review all of the methods used in the _Leaflet Quick Start Guide_ and _Using_ _GeoJSON with Leaflet_ tutorials using the Leaflet API documentation. Note that the [`.on()`](https://leafletjs.com/reference-1.6.0.html#evented) method works similarly to the method of the same name in jQuery that we used in Week 2, but with a wider range of events available to it. 
+Based on the discussion in this lesson, you should now be able to review all of the methods used in the _Leaflet Quick Start Guide_ and _Using_ _GeoJSON with Leaflet_ tutorials using the Leaflet API documentation. Note that the [`.on()`](https://leafletjs.com/reference-1.6.0.html#evented) method works similarly to the `forEach` method that we used in Week 2, but with a wider range of events available to it. 
 
 > ### **Using the Leaflet API documentation page, find and read the description of each method used in the _Leaflet Quick Start Guide_ and _Using_ _GeoJSON with Leaflet_ tutorials. Add a comment for each method in your _quickstartTutorial.js_ and _geojsonTutorial.js_ files, describing in your own words what each method does.**
 
@@ -289,15 +289,19 @@ The _Using GeoJSON with Leaflet_ tutorial then maps the feature using the `.addT
 
 ###### Figure 2.2: Script from the _Using GeoJSON with Leaflet_ tutorial to add the feature to the map
 
-While the `geojsonFeature` variable is hard coded in the _Using GeoJSON with Leaflet_ tutorial, we can instead load our _MegaCities.geojson_ data dynamically using what we learned about AJAX last chapter! Example 2.2 loads _MegaCities.geojson_ once the Leaflet `map` is ready using `jQuery.ajax()`.
+While the `geojsonFeature` variable is hard coded in the _Using GeoJSON with Leaflet_ tutorial, we can instead load our _MegaCities.geojson_ data dynamically using what we learned about AJAX last chapter! Example 2.2 loads _MegaCities.geojson_ once the Leaflet `map` is ready using `fetch()`.
 
 ###### Example 2.2: Loading _MegaCities.geojson_ data with AJAX and adding it to a Leaflet map in _adaptedTutorial.js_
 
-        //load the data...Example 2.3 line 22
-        $.getJSON("data/MegaCities.geojson", function(response){
+        //load the data
+        fetch("data/MegaCities.geojson")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(json){
                 //create a Leaflet GeoJSON layer and add it to the map
-                L.geoJson(response).addTo(map);
-            });
+                L.geoJson(json).addTo(map);
+            })
 
 Example 2.3 shows the complete code needed in _adaptedTutorial.js_ to adapt the _Using GeoJSON with Leaflet_ tutorial for the _MegaCities.geojson_ data.
 
@@ -326,22 +330,26 @@ Example 2.3 shows the complete code needed in _adaptedTutorial.js_ to adapt the
     //function to retrieve the data and place it on the map
     function getData(){
         //load the data
-        $.getJSON("data/MegaCities.geojson", function(response){
+        fetch("data/MegaCities.geojson")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(json){
                 //create a Leaflet GeoJSON layer and add it to the map
-                L.geoJson(response).addTo(map);
-            });
+                L.geoJson(json).addTo(map);
+            })
     };
     
-    $(document).ready(createMap);
+    document.addEventListener('DOMContentLoaded',createMap)
 
 
-In Example 2.3, the variable `response`—which holds our AJAX response data, the GeoJSON—takes the place of `geojsonFeature` in the tutorial.  Rather than having to create the data in the script, we bring in our external data from the _MegaCities.geojson_ file and pass it directly to `L.geoJson()`. With no options specified, Leaflet displays the features as default marker icons (from a png image stored in Leaflet's _images_ folder), as shown in Figure 2.3. Notice we are declaring our map variable in the global scope so that we have access to it in the `getData` function.
+In Example 2.3, the variable `json`—which holds our AJAX data, the GeoJSON—takes the place of `geojsonFeature` in the tutorial.  Rather than having to create the data in the script, we bring in our external data from the _MegaCities.geojson_ file and pass it directly to `L.geoJson()`. With no options specified, Leaflet displays the features as default marker icons (from a png image stored in Leaflet's _images_ folder), as shown in Figure 2.3. Notice we are declaring our map variable in the global scope so that we have access to it in the `getData` function.
 
 ![figure4.2.3.png](img/figure4.2.3.png)
 
 ###### Figure 2.3: Leaflet map with the _MegaCities.geojson_ data shown as markers
 
-> ### **Load _MegaCities.geojson_ in _adaptedTutorial.js_ using jQuery.**
+> ### **Load _MegaCities.geojson_ in _adaptedTutorial.js_ using fetch.**
 
 Since _megaCities.geojson_ comprises point data, we can adapt the additional styling from the _Using GeoJSON with Leaflet_ tutorial.
 
@@ -355,7 +363,8 @@ Example 2.4 updates pointToLayer for our _adaptedTutorials.js_ script (Example 2
 
 ###### Example 2.4: Applying `pointToLayer` to AJAX data in _adaptedTutorial.js_
 
-        //Example 2.3 line 22...load the data    $.getJSON("data/MegaCities.geojson", function(response){            
+        //Example 2.3 load the data    
+            .then(function(json){            
                 //create marker options
                 var geojsonMarkerOptions = {
                     radius: 8,
@@ -366,7 +375,7 @@ Example 2.4 updates pointToLayer for our _adaptedTutorials.js_ script (Example 2
                     fillOpacity: 0.8
                 };
                 //create a Leaflet GeoJSON layer and add it to the map
-                L.geoJson(response, {
+                L.geoJson(json, {
                     pointToLayer: function (feature, latlng){
                         return L.circleMarker(latlng, geojsonMarkerOptions);
                     }
@@ -408,13 +417,16 @@ Example 2.5 instead uses a loop to dynamically add each property name and value 
     //function to retrieve the data and place it on the map
     function getData(map){
         //load the data
-        $.getJSON("data/MegaCities.geojson", function(response){
-    
+        fetch("data/MegaCities.geojson")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(json){
                 //create a Leaflet GeoJSON layer and add it to the map
-                L.geoJson(response, {
+                L.geoJson(json, {
                     onEachFeature: onEachFeature
                 }).addTo(map);
-        });
+            })  
     };
 
 

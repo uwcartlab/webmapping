@@ -6,13 +6,13 @@ Chapter 3: Data and AJAX
 Chapter 3 is all about data, inching us one step closer to making your first interactive web map in the next chapter! Chapter 3 includes three lab lessons and ends with Activity 4, a second debugging exercise to continue to practice your computational thinking skills.
 
 *   In Lesson 1, we introduce common web data formats and their geospatial variants.
-*   In Lesson 2, we introduce AJAX (Asynchronous JavaScript and XML), or the strategy used to load data dynamically into the browser, enabling interactivity with maps and visualizations.
-*   In Lesson 3, we demonstrate how to employ AJAX through callback functions.
+*   In Lesson 2, we introduce AJAX (Asynchronous JavaScript and XML) and Fetch, or the strategy used to load data dynamically into the browser, enabling interactivity with maps and visualizations.
+*   In Lesson 3, we demonstrate how to employ Fetch Requests through callback functions.
 
 After this chapter, you should be able to:
 
 *   Correctly format geospatial data in CSV and JSON formats
-*   Write an AJAX call to retrieve data using `jQuery.ajax()`
+*   Write an AJAX call to retrieve data using `fetch()`
 *   Write an AJAX callback function that adds data to the DOM
 
 Lesson 1: (Geo)Web Data Formats
@@ -99,232 +99,271 @@ _**AJAX**_ Stands for **_Asynchronous JavaScript and XML_**. Back in the Interne
 
 AJAX is the reason we can have a fluid rather than fragmented user experience, allowing data to be sent to and received from a server _asynchronously_ without reloading the webpage. AJAX enables interaction, as asynchronous data requests are executed through event listeners on interactive controls within the webpage, such as buttons, sliders, form fill-in textboxes, or the map and individual map features themselves.
 
-### II. Promises
+### II. Fetch Requests
 
-JavaScript AJAX requests are somewhat complicated; they involve an entire back-and-forth conversation between the client and the server. Thankfully, the process for creating an AJAX request has been greatly simplified over the past decade, and in this course you will use the Fetch API for your AJAX requests (see Lesson 3), but it is conceptually useful to understand how an AJAX request functions using a special type of function called a _**promise**_.
+JavaScript AJAX requests are somewhat complicated; they involve an entire back-and-forth conversation between the client and the server. To make AJAX requests, you will use Javacript's native _**Fetch**_ API. Although you ultimately will use a highly simplifed Fetch for you AJAX calls (see Lesson 3), it is conceptually useful to step through a full Fetch Request to gain an understanding of how AJAX works.
 
-A **_promise_** is a placeholder JavaScript object that represents and eventually stores the completion of asynchronous processes, such as loading data. Promises allows us to control the order in which things happen on a webpage. This is important when loading something like an external dataset, as if you try to do something with the data before it's fully loaded, you will get an error! Unlike other programming languages, you need to specify the program to wait until the data has finished loading before you do anything with it. 
+We'll start by creating a simple data request (Example 2.1).
 
-To understand promises, we'll start with a simple example.
+###### Example 2.1: Creating a basic data request
 
-###### Example 2.1: Create a function to be used for the Promise
+    function jsAjax(){
+        // Step 1: Define the data request
+        var request = new Request('data/MegaCities.geojson');
+    };
 
-    //Step 1: Create a function
-    setTimeout(function(){
-        console.log("It has been 2 seconds.")
-    }, 2000);
-    
-    window.onload = timer();
-    
-This is a simple timer that uses the `setTimeout` method that will run when the page is loaded. For our purposes, this timer will simulate the time it would take to load a very large dataset. The first thing we would want to know is if the dataset has been loaded. To this, we have to edit our code a bit, and actually create the promise. 
+    window.onload = jsAjax();
 
-###### Example 2.2: Creating the Promise
+The statement `new Request()` creates a new instance of a special type of object that includes properties and methods meant for a particular purpose. In this case, that purpose is to communicate with a server to retrieve the dataset we want.
 
-    //Step 2: Create the promise
-    var timer = new Promise(function(resolve){
-	    //Step 1: Create a function
-        setTimeout(function(){
-		    resolve("It has been 2 seconds")
-	    }, 2000);
-    })
-    
-We create a variable called `timer` which we will use to store our value. We then define a `new Promise`, which assigns a placeholder as the value of the variable. In the Promise definition, there is one parameter listed, and although it look like a variable, it actually represents a function. Specifically, it is known as _**callback function**_, as it will only run _after_ the Promise is complete. While it can be named anything, the value we assign to `resolve()` will be returned if the function is successful. In this case, the value of the `timer` variable will be returned as `'It has been two seconds'` 
+We then need to define the type of request we are making (Example 2.2).
 
-We then create our callback function, which we want to trigger _after_ the timer.
+###### Example 2.2: Defining fetch parameters in main.js
 
-###### Example 2.3: Creating the callback function
+    function jsAjax(){
+        // Step 1: Create the data request 
+        var request = new Request('data/MegaCities.geojson');
+        //Step 2: define Fetch parameters 
+        var init = {
+            method: 'GET'
+        }
+    };
 
-    //Step 2: Create the promise
-    var timer = new Promise(function(resolve){
-	    //Step 1: Create a function
-        setTimeout(function(){
-		    resolve("It has been 2 seconds")
-	    }, 2000);
-    })
+    window.onload = jsAjax();
 
-    //Step 3: Create the callback function
+The `init` variable contains the parameters we want to set for our Fetch request. In this case, we only care about one: `method`. `method` specifies the type of request we are making to the server: either `GET` for retrieving data from the server or `POST` for sending data to the server.
+
+We then trigger the Fetch request using the [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/fetch) method, which takes two parameters. The first is the request itself, the second (which is optional) is the variable storing the parameters for the request (Example 2.3). 
+
+###### Example 2.3: Creating a AJAX request using fetch in main.js
+
+    function jsAjax(){
+        // Step 1: Create the data request 
+        var request = new Request('data/MegaCities.geojson');
+        //Step 2: define Fetch parameters 
+        var init = {
+            method: 'GET'
+        }
+        //Step 3: use Fetch to retrieve the data
+        fetch(request, init)
+    };
+
+    window.onload = jsAjax();
+
+The `fetch` method accesses the server at the location defined in the `Request`, and based on the parameters stored in the `init` variable. In this case, the data are being retrieved from the server. 
+
+The final step is to actually send the received data to a callback function. A JavaScript _**callback function**_ executes script that uses the data retrieved from a server after the data loads into the browser. Consequently, any script that makes use of data sent through AJAX should be written or called within the callback function to avoid manipulating the data before it is fully available in the browser. 
+
+###### Example 2.4: Adding a callback function to a fetch request in main.js
+
+    function jsAjax(){
+        // Step 1: Create the data request 
+        var request = new Request('data/MegaCities.geojson');
+        //Step 2: define Fetch parameters 
+        var init = {
+            method: 'GET'
+        }
+        //Step 3: use Fetch to retrieve data
+        fetch(request, init)
+            .then(callback) //Step 4 Send retrieved data to a callback function
+    };
+
+    //define callback function
     function callback(response){
-        alert(response)
-    }
-
-Note, any script that makes use of data sent through AJAX should be written or called within the callback function to avoid manipulating the data before it is fully available in the browser.
-
-The final step in the promise is to actually trigger the callback.
-
-###### Example 2.4: Trigger the callback
-
-    //Step 2: Create the promise
-    var timer = new Promise(function(resolve){
-	    //Step 1: Create a function
-        setTimeout(function(){
-		    resolve("It has been 2 seconds")
-	    }, 2000);
-    })
-
-    //Step 3: Create the callback function
-    function callback(response){
-        alert(response)
-    }
-
-    //Step 4: Trigger the callback after the promise is resolved
-    timer.then(callback)
-
-Finally, we use the `then` method to activate the callback function. The `then` method _only_ triggers after its assigned promise has been resolved. Here, it will trigger after two seconds.
-
-### III. Fetch
-
-While promises are useful for more advanced JavaScript applications, for web mapping, they are primarily used to load data into webpages using Fetch. _**Fetch**_ is a  Javascript API used specifically to load external data using promises. Compared to alternative methods of doing so, Fetch makes things fairly straightfoward.
-
-At its core, the Fetch API relies on the `fetch` function, which takes a file as a parameter, and then fires a callback function when the data has been loaded.
-
-###### Example 2.5: Simple fetch request
-
-    //fetch function
-    fetch('data/MegaCities.geojson')
-    .then(callback)
-
-    //callback function
-    function callback(response){
+        //tasks using the data go here
         console.log(response)
     }
 
-If we take a look at the console for Example 2.5, we see something odd. 
+    window.onload = jsAjax();
 
-###### Figure 2.1: The console showing the full fetch response
+The `.then()` method fires the callback after, and only after, the data have been retrieved from the server. `then()` methods can be chained together, so that a series of functions fires one after the other. 
 
-![figure3.2.1.png](img/figure3.2.1.png)
+While example 2.4 will run, we're actually missing a crucial step: converting the retrieved data to a readable form. To do this, we need to add a new `.then()` method and callback between the `fetch()` and our current callback, and reassign the order of our steps (Example 2.5). We'll learn more about why this is necessary in Lessson 3.  
 
-While the Fetch request worked without errors, it actually returned more than is necessary. The full Fetch request doesn't include the data in a usable form. Instead, the data need to be extracted. Since `MegaCities` is a json file, we will use `json()` method to do so, though we could also use the `csv()` method if it were appropriate. However, to convert the data using the `json()` method will take additional time, so we need to add a second `then` function to actually run the callback.
+###### Example 2.5: Adding a second callback to convert the fetch request data in main.js
 
-###### Example 2.6: Fetch request to view the geojson data
+    function jsAjax(){
+        // Step 1: Create the data request 
+        var request = new Request('data/MegaCities.geojson');
+        //Step 2: define Fetch parameters 
+        var init = {
+            method: 'GET'
+        }
+        //Step 3: use Fetch to retrieve data
+        fetch(request, init)
+            .then(conversion) //Step 4 convert data to usable form
+            .then(callback) //Step 5 Send retrieved data to a callback function
+    };
 
-    //fetch function
-    fetch('data/MegaCities.geojson')
-    //retrieve data
-    .then(function(response){
-        //convert data to usable form
-        return response.json();
-    })
-    //fire callback
-    .then(callback)
+    //define conversion callback function
+    function conversion(response){
+	  //convert data to usable form
+	  return response.json();
+    }
 
-    //callback function
+    //define callback function
     function callback(response){
+        //tasks using the data go here
         console.log(response)
     }
+
+    window.onload = jsAjax();
+
+In the `conversion` function, we convert the data using the `.json()` method.
+
+From the Codecademy tutorials in Activity 2, you know that you can pass data into a function through the parameters and then return data for storage in a variable using the `return` reserved word. In Example 2.5, we return the converted data, which then passes to our second callback function as the `response` variable, where it can be used. To review, data are retrieved from the server in Steps 1-3. After (and only after) they are retrieved, the data are sent to the `conversion` function in Step 4. After (and only after) the data are converted, they are finally sent to the `callback` function in a usable form.  
 
 If the fetch request executes successfully, the `callback` function will print the GeoJSON to the console (Figure 2.1).
 
-###### Figure 2.2: The console showing the GeoJSON object
+###### Figure 2.1: The console showing the GeoJSON object
 
-![figure3.2.2.png](img/figure3.2.2.png) NEED TO ADD
+![figure3.2.1.png](img/figure3.2.1.png)
 
-We also can view the response as plain text using JavaScript's built-in JSON library to translate our JSON to a string (Example 2.4; Figure 2.2).
+We also can view the response as plain text using JavaScript's built-in JSON library to translate our JSON to a string (Example 2.6; Figure 2.2).
 
-###### Example 2.7: Translating JSON to a strinng in _main.js_
+###### Example 2.6: Translating JSON to a strinng in _main.js_
 
-        //Example 2.3 line 25...
+        //Example 2.5 line 23...
         console.log(JSON.stringify(response));
 
-###### Figure 2.3: The console showing the JSON data as a string
+###### Figure 2.2: The console showing the JSON data as a string
 
-![figure3.2.3.png](img/figure3.2.3.png) NEED TO ADD     
+![figure3.2.2.png](img/figure3.2.2.png) 
 
-A full Fetch request can also be simplified using Javascript shorthand. While JavaScript shorthand isn't always necessary, it can be used to tidy up you code.
+### III. Simplifying Fetch Requests
 
-###### Example 2.8: Shorthand fetch request
+The full Fetch request in Example 2.6 is awfully long, and much of it can be greatly simplified now that we know how it works. 
 
-    //fetch function
-    fetch('data/MegaCities.geojson')
-        .then(response => response.json()
-        .then(callback)
+To start, the `Request` object can actually be defined in the `fetch()` method itself, and we don't actually need to specificy any parameters in the `init` variable, as `GET` is the default (Example 2.7).
 
-    //callback function
+###### Example 2.7: Simplified Fetch request
+
+    function jsAjax(){
+        //use Fetch to retrieve data
+        fetch('data/MegaCities.geojson')
+            .then(conversion) //convert data to usable form
+            .then(callback) //send retrieved data to a callback function
+    };
+
+    //define conversion callback function
+    function conversion(response){
+	  //convert data to usable form
+	  return response.json();
+    }
+
+    //define callback function
     function callback(response){
+        //tasks using the data go here
         console.log(response)
     }
 
-> ### **Examine the API Documentation for the [`jQuery.ajax()`](http://api.jquery.com/jquery.ajax/) method and its [Shorthand Methods](https://api.jquery.com/category/ajax/shorthand-methods/) to determine the purpose each parameter serves. Then, write an AJAX script using jQuery that prints _MegaCities.geojson_ file to the console in _main.js_.**
+    window.onload = jsAjax();
 
-Note that regardless of the method used, there is always a URL string that points to the data and a callback function specified within the parameters. The purpose served by the URL string should be obvious—find the data we want—but the callback function may be trickier to fully understand. Next, we will examine the reason for the callback function and how to debug the callback function in your script.
+The function for data conversion is also unnecessarily long, and can be added directly as an anynomous function to the `.then()` method.
+
+###### Example 2.8: Simplified Fetch request with shorthand
+
+    function jsAjax(){
+        //use Fetch to retrieve data
+        fetch('data/MegaCities.geojson')
+            .then(function(response){
+                return response.json();
+            }) 
+            .then(callback) 
+    };
+
+    //define callback function
+    function callback(response){
+        //tasks using the data go here
+        console.log(response)
+    }
+
+    window.onload = jsAjax();
+
+> ### **Examine the API Documentation for the [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/fetch) method to determine the purpose each parameter serves. Then, write a script using a Fetch request that prints _MegaCities.geojson_ file to the console in _main.js_.**
+
+Note that regardless of the method used, there is always a URL string that points to the data and at least one callback function specified within the parameters. The purpose served by the URL string should be obvious—find the data we want—but the callback function may be trickier to fully understand. Next, we will examine the reason for both callback functions in the Fetch request, and how to debug the callback function in your script.
 
 Lesson 3: Understanding AJAX Callback Functions
 -----------------------------------------------
 
-From the Codecademy tutorials in Activity 2, you know that you can pass data into a function through the parameters and then return data for storage in a variable using the `return` reserved word. When using AJAX, we could try to store the asynchronously loaded data in a global variable using `return` (Example 3.1).
+What would happen, for example, if instead of converting the data as we did in Example 2.5, we simply logged the response from the first callback. 
 
-###### Example 3.1: Returning data from an AJAX function in _main.js_
+###### Example 3.1: Viewing fetched data without converting in _main.js_
 
-    //an AJAX function
-    function jQueryAjax(){
-        var mydata = $.ajax("data/MegaCities.geojson", {
-            dataType: "json"
-        });
-        return mydata;
-    };
-    
-    var mydata = jQueryAjax();
-    
-    console.log(mydata); //the jQuery XMLHttpRequest object
-    
+        function jsAjax(){
+            fetch('data/MegaCities.geojson')
+                .then(callback) 
+        };
 
-However, jQuery returns the full `XMLHttpRequest` object rather than the JSON data. Inspecting the properties of the `XMLHttpRequest` object in the Console (Figure 3.1), you can see that the `responseJSON` property holds our data.
+        function callback(response){
+            console.log(response)
+        }
+
+        window.onload = jsAjax();
+
+Instead of our JSON data, the Fetch request returns a full [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response) object. While this object tells us some interesting things about the status of our request, it's not actually usable until we parse it. 
 
 ![figure3.3.1.png](img/figure3.3.1.png)
 
-###### Figure 3.1: The DOM tab showing properties of the XMLHttpRequest object
+###### Figure 3.1: The DOM tab showing properties of the Response object
 
-However, the data included in `mydata.responseJSON` is not immediately usable. For instance, printing `mydata.responseJSON` to the console results in an undefined error message (Example 3.2; Figure 3.2).
+However, if we simply try to parse the data in the same callback function using `json()`, we'll get a strange result. (Example 3.2; Figure 3.2).
 
 ###### Example 3.2: Attempting to print the response data to the console in _main.js_
 
-    //Example 3.2 line 11...
-    console.log(mydata.responseJSON);
+    //Example 3.2 line 7...
+    console.log(response.json());
     
-
 ![figure3.3.2.png](img/figure3.3.2.png)
 
-###### Figure 3.2: The response data is undefined?
+###### Figure 3.2: What is a promise and why is it pending?
 
-Why is `responseJSON` undefined? Recall that we set the last parameter of the `.open()` method to `true` (Example 2.3, Line 13), meaning that we requested the data to be sent _asynchronously_. Accordingly, the browser interpreter continues executing the rest of the script while the server takes a few milliseconds to gather and send the requested data. Thus, when our `console.log` statement is executed to print the contents of `responseJSON`, the data have not arrived yet! Thus, if we tried to use `mydata.responseJSON` for any purpose before it is fully loaded—say, adding it to a web map—we receive an undefined error.
+Why is our `response` listed as a `promise`? Since we are using fetch, we request the data to be sent _asynchronously_. Accordingly, the browser interpreter continues executing the rest of the script while the server takes a few milliseconds to gather and send the requested data. Thus, when our `console.log` statement is executed to print the contents of `response`, the data have not arrived yet! Instead, they are stored in a type of object called a _**`promise`**_, which acts a placeholder for asynchronously loaded data. Promises have three `states`, which tell us the status of the data. `pending`: the data are stil being loaded, `fulfilled`: the data have finished loading, and `rejected`: for some reason, the data cannot load. 
 
-Consequently, any script that makes use of data sent through AJAX should be written or called within the callback function. Example 3.3  again shows the correct `ajax()` jQuery solution including a callback function from Example 2.5.
+If we uncollapse the promise, we'll see that eventually it was fulfilled, but only _after_ the `console.log` request.
+
+![figure3.3.3.png](img/figure3.3.3.png)
+
+###### Figure 3.3: The uncollapsed promise
+
+Consequently, any script that makes use of data retrieved through Fetch needs to be converted before it is brought to the final callback function. Example 3.3  again shows the correct `fetch()` solution including the additionaly callback function from Example 2.8.
 
 ###### Example 3.3: Correctly accessing response using a callback function in _main.js_
 
-    //define AJAX function
-    function jQueryAjax(){
-        //basic jQuery ajax method
-        $.ajax("data/MegaCities.geojson", {
-            dataType: "json",
-            success: callback
-        });
+    //define fetch request
+    function jsAjax(){
+        //basic fetch
+        fetch('data/MegaCities.geojson')
+            .then(function(response){
+                return response.json();
+            }) 
+            .then(callback) 
     };
-    
+
     //define callback function
-    function callback(response, status, jqXHRobject){
-    
-        //TASKS USING THE DATA GO HERE
-        console.log(response);
-    
-    };
-    
-    $(document).ready(jQueryAjax);
-    
+    function callback(response){
 
-Note that the `ajax()` function calls the `callback` function when the `success` state is reached, sending three parameters to the `callback` function: the `response` data, the `status`, and the `jqXHRobject`. The first parameter is our data, the second is the status of the request, and the third is the full jQuery `XMLHttpRequest` object that we printed to the console in Figure 3.1. You only ever need the first parameter, so it is general practice to omit the second two parameters from the function definition (Example 3.4).
+        //tasks using the data go here
+        console.log(response)
 
-###### Example 3.3: The callback function defined with only one parameter in _main.js_
+    }
 
-    //Example 3.4 line 10...define callback function
+    window.onload = jsAjax();
+
+Note that the `fetch()` function itself _also_ resturns a promise, and is only `fufilled` when the data have been successfully retrieved from the server. When the `fetch` has been `fufilled`, it uses the `then()` method to trigger the conversion callback. The data are then converted using `json()`, and once this conversion is complete (and the promise is `fulfilled`), the final `callback` function is tiggered. Finally, the data can be used!
+
+###### Example 3.4: The callback function defined with only one parameter in _main.js_
+
+    //define callback function
     function callback(response){
     
 
-Any other functions you call from within the callback function can access the loaded data if you pass it as a parameter in the function call (Example 3.5).
+Any other functions you call from within the final callback function can access the loaded data if you pass it as a parameter in the function call (Example 3.5).
 
 ###### Example 3.5: Calling a new function from within the callback function in _main.js_
 
-    //Example 3.4 line 10...define callback function
+    //define callback function
     function callback(response){
     
         var mydata = response;
@@ -343,56 +382,58 @@ You can use an anonymous function as a callback instead of defining the function
 
 ###### Example 3.6: An anonymous callback function in _main.js_
 
-    function jQueryAjax(){
+    function jsAjax(){
         //define a variable to hold the data
         var mydata;
-    
-        //basic jQuery ajax method
-        $.ajax("data/MegaCities.geojson", {
-            dataType: "json",
-            success: function(response){
+        
+        //basic fetch
+        fetch('data/MegaCities.geojson')
+            .then(function(response){
+                return response.json();
+            }) 
+            .then(function(response){
                 mydata = response;
-            }
-        });
-    
+            }) 
+        
         //check the data
-        console.log(mydata);
+        console.log(mydata)
     };
-    
-    $(document).ready(jQueryAjax);
+
+    document.addEventListener('DOMContentLoaded',jsAjax)
     
 
-If you copy this script to your _main.js_ file and preview in Prepros, you will see that `mydata` on Line 14 is undefined. Even though we correctly created our variable at the top of the function and assigned the data to it within the `$.ajax` anonymous callback function, the data is not available to us on Line 14 because that line was executed by the interpreter _before_ the data arrived and was assigned to the variable.
+If you copy this script to your _main.js_ file and preview in Prepros, you will see that `mydata` on Line 15 is undefined. Even though we correctly created our variable at the top of the function and assigned the data to it within the `fetch` anonymous callback function, the data is not available to us on Line 15 because that line was executed by the interpreter _before_ the data arrived and was assigned to the variable.
 
 Adding another `console.log()` statement inside of the callback shows the that `mydata` is available within the anonymous function, but undefined outside the anonymous function (Example 3.7; Figure 3.3).
 
 ###### Example 3.7: Attempting to print the data to the console within and outside of the callback in _main.js_
 
-    function jQueryAjax(){
+    function jsAjax(){
         //define a variable to hold the data
         var mydata;
-    
-        //basic jQuery ajax method
-        $.ajax("data/MegaCities.geojson", {
-            dataType: "json",
-            success: function(response){
+        
+        //basic fetch
+        fetch('data/MegaCities.geojson')
+            .then(function(response){
+                return response.json();
+            }) 
+            .then(function(response){
                 mydata = response;
-    
+
                 //check the data
-                console.log(mydata);
-            }
-        });
-    
+                console.log(mydata)
+            }) 
+        
         //check the data
-        console.log(mydata);
+        console.log(mydata)
     };
     
 
-![figure3.3.3.png](img/figure3.3.3.png)
+![figure3.3.4.png](img/figure3.3.4.png)
 
-###### Figure 3.3: The console showing attempts to access data outside of and within the callback
+###### Figure 3.4: The console showing attempts to access data outside of and within the callback
 
-Note that the `console.log()` statement on Line 17 of Example 3.7 is executed _first_ and is undefined. The statement on Line 12 is executed within the callback, so only after the data has been received and assigned to `mydata`.
+Note that the `console.log()` statement on Line 18 of Example 3.7 is executed _first_ and is undefined. The statement on Line 14 is executed within the callback, so only after the data has been received and assigned to `mydata`.
 
 > ### **Add at at least two `console.log()` statements _with comments_ to your AJAX script indicating where your data can and cannot be accessed.**
 

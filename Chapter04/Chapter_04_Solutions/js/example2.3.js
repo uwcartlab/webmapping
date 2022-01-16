@@ -23,7 +23,7 @@ function createMap(){
 //function to retrieve the data and place it on the map
 function getData(map){
 
-    //load the data, then exectue mapCities. response passed by default
+    //load the data
     fetch("data/MegaCities.geojson")
         .then(function(response){
             return response.json();
