@@ -76,7 +76,7 @@ Reload your _unit-3_ website and use the inspector to see the new SVG in the DOM
 
 ###### Figure 1.2: An SVG created using D3
 
-Note that both jQuery and D3 have `.append()` methods. In this case, we know that the `.append()` method we are using belongs to D3 because the block starts with `d3`. Recall from Chapter 6 how JavaScript object prototypes work: D3's `.append()` is a method of the `d3` object, just as jQuery's `.append()` is a method of the `jQuery` object (and its `$` alias). In any script that uses chain syntax or blocks (such as D3, Leaflet), the methods you can use in the chain depend on the library object referenced at the beginning of the chain (e.g., `d3`, `L`, or `$`). You can identify which library is being used by reading backwards up the chain or block to its beginning. If the beginning of the chain or block is a variable, you need to look at how that variable was created to discover which library is being used.
+In any script that uses chain syntax or blocks (such as D3, Leaflet), the methods you can use in the chain depend on the library object referenced at the beginning of the chain (e.g., `d3` or `L`). You can identify which library is being used by reading backwards up the chain or block to its beginning. If the beginning of the chain or block is a variable, you need to look at how that variable was created to discover which library is being used.
 
 *   **_Rule:_** _In any method chain or block, only chain together methods belonging to the library referenced at the start of the chain._
 

@@ -129,20 +129,12 @@ function createSequenceControls(){
     document.querySelector(".range-slider").step = 1;
 
     //add step buttons
-    var reverse = document.createElement("button");
-    reverse.className = "step";
-    reverse.id = "reverse";
-
-    var forward = document.createElement("button");
-    forward.className = "step";
-    forward.id = "forward";
+    document.querySelector('#panel').insertAdjacentHTML('beforeend','<button class="step" id="reverse">Reverse</button>');
+    document.querySelector('#panel').insertAdjacentHTML('beforeend','<button class="step" id="forward">Forward</button>');
 
     //replace button content with images
-    reverse.innerHTML = "<img src='img/reverse.png'>"
-    forward.innerHTML = "<img src='img/forward.png'>"
-
-    document.querySelector("#panel").appendChild(reverse);
-    document.querySelector("#panel").appendChild(forward);
+    document.querySelector('#reverse').insertAdjacentHTML('beforeend',"<img src='img/reverse.png'>")
+    document.querySelector('#forward').insertAdjacentHTML('beforeend',"<img src='img/forward.png'>")
 };
 
 function getData(map){
