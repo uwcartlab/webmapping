@@ -209,7 +209,7 @@ Notice that the boilerplate _index.html_ file already contains two links to exte
 
 Next, add a _readme.md_ file to your _lib_, _data_, and _img_ folders. For a real project, you would include relevant files in these folders. For now, a _readme.md_ file will ensure your folders show up on GitHub (Lesson 3).
 
-If you are unsure if you have created these files correctly, navigate to the _boilerplate_ folder of _unit-1_ and compare your folder to this example. Do not edit the files in your _boilerplate_ folder. You will copy this folder at the start of each unit.
+If you are unsure if you have created these files correctly, navigate to the _boilerplate_ folder of [_unit-1_](https://github.com/uwcartlab/unit-1/tree/master/boilerplate) and compare your folder to this example. Do not edit the files in your _boilerplate_ folder. You will copy this folder at the start of each unit.
 
 > ### **Create _style.css_ and _main.js_ text files and save into the _css_ and _js_ folders of _unit-1_ respectively. Add a _readme.md_ file to all other folders.**
 
