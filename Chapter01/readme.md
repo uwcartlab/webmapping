@@ -48,7 +48,7 @@ You are welcomed to use your preferred text editor.
 
 ### III. The HTML Boilerplate
 
-A _**boilerplate**_ is the minimum starter code needed begin development.  For these lessons, we start with the basic _**HTML boilerplate**_ to simplify your early designs and focus on JavaScript. 
+A _**boilerplate**_ is the minimum starter code needed to begin development.  For these lessons, we start with the basic _**HTML boilerplate**_ to simplify your early designs and focus on JavaScript. 
 
 > ### **Download _[unit-1.zip](https://github.com/uwcartlab/unit-1)_ from the uwcartlab GitHub page by clicking "Code" then "Download ZIP". After placing the folder in your preferred location, unzip it, and in your text editor open _index.html_ from the _Chapter01_ folder.**
 
@@ -196,16 +196,15 @@ Let's describe each of these folders in your directory structure:
     
 *   _**css**_: This folder holds your custom CSS stylesheets.
     
-*   _**data**_: This folder holds data files used to create your thematic web maps, and thus is not necessary for all website.  The _data_ folder can hold CSV, GeoJSON, and other formats that we will cover later. You also might wish to keep original Esri Shapefiles in it; these should go in a _shapefiles_ subdirectory within the data folder, since a shapefile in itself is technically a file directory just like a website.
+*   _**data**_: This folder holds data files used to create your thematic web maps, and thus is not necessary for all websites.  The _data_ folder can hold CSV, GeoJSON, and other open formats that we will cover later. If you ever need to include Esri Shapefiles in your website, place these in a _shapefiles_ subdirectory of the data folder since a shapefile in itself is technically a file directory just like a website.
     
 *   _**img**_: This folder holds any images used in your website.
     
-
 Notice that the boilerplate _index.html_ file already contains two links to external files. You now can create these files using your text editor. First, create a new file and save it into the _css_ folder as _style.css_. Next, create _main.js_ in the _js_ folder, again adding a byline comment. We recommend that you put a comment as the first line of code in each file declaring your authorship (Example 2.3), since later you will be sharing this file online through GitHub:
 
 ###### Example 2.3: Authorship comment in _style.css_
 
-    /* Stylesheet by Buck E. Badger, 2021 */
+    /* Stylesheet by Buck E. Badger, 2022 */
 
 Next, add a _readme.md_ file to your _lib_, _data_, and _img_ folders. For a real project, you would include relevant files in these folders. For now, a _readme.md_ file will ensure your folders show up on GitHub (Lesson 3).
 
@@ -232,7 +231,7 @@ Lesson 3: GitHub Setup
 
 ### I. What is GitHub?
 
-_**[GitHub](https://github.com/)**_ is a website and project hosting service that uses the [Git](http://git-scm.com/) version control system. _**Git**_ takes a snapshot of your files at a given time, creating a backup that can be shared collaborative when multiple developers are coding at the same time (e.g., your final project). GitHub provides an online suite of tools for cloud storage, sharing, collaboration, and hosting of your projects. It has become standard practice for open-source software developers to keep their projects on GitHub, and you will find yourself accessing various repositories or **_repos_** (i.e., web directories) on GitHub as your development experience grows. For example, the Web Mapping workbook materials are hosted at [https://github.com/uwcartlab/webmapping](https://github.com/uwcartlab/webmapping) (Figure 3.1):
+_**[GitHub](https://github.com/)**_ is a website and project hosting service that uses the [Git](http://git-scm.com/) version control system. _**Git**_ takes a snapshot of your files at a given time, creating a backup that can be shared collaboratively when multiple developers are coding at the same time (e.g., your final project). GitHub provides an online suite of tools for cloud storage, sharing, collaboration, and hosting of your projects. It has become standard practice for open-source software developers to keep their projects on GitHub, and you will find yourself accessing various repositories or **_repos_** (i.e., web directories) on GitHub as your development experience grows. For example, the Web Mapping workbook materials are hosted at [https://github.com/uwcartlab/webmapping](https://github.com/uwcartlab/webmapping) (Figure 3.1):
 
 ![figure1.3.1.png](img/figure1.3.1.png)
 
@@ -241,7 +240,7 @@ _**[GitHub](https://github.com/)**_ is a website and project hosting service tha
 Let's begin with some basic GitHub terminology. You can refer back to these definitions if you are confused during these lessons, or use the [GitHub Glossary](https://docs.github.com/en/github/getting-started-with-github/github-glossary) to look up additional terms.
 
 *   _**[Repository](https://help.github.com/en/github/getting-started-with-github/github-glossary#repository):**_ A repository is the most basic element of GitHub. They are easiest to imagine as a project's folder. A repository contains all of the project files (including documentation), and stores each file's revision history. Repositories can have multiple collaborators and can be either public or private.
-*   _**[Clone](https://help.github.com/en/github/getting-started-with-github/github-glossary#clone):**_ A clone is a copy of a repository that lives on your computer instead of on a website's server somewhere, or the act of making that copy. With your clone you can edit the files in your preferred editor and use Git to keep track of your changes without having to be online. It is, however, connected to the remote version so that changes can be synced between the two.
+*   _**[Clone](https://help.github.com/en/github/getting-started-with-github/github-glossary#clone):**_ A clone is a copy of a repository that lives on your computer instead of on a website's server somewhere, or the act of making that copy. With your clone, you can edit the files in your preferred editor and use Git to keep track of your changes without having to be online. It is, however, connected to the remote version so that changes can be synced between the two.
 *   _**[Commit](https://help.github.com/en/github/getting-started-with-github/github-glossary#commit):**_ [](https://help.github.com/en/github/getting-started-with-github/github-glossary#collaborator) A commit, or "revision", is an individual change to a file (or set of files). A commit is like when you _save_ a file, except with Git, every time you save it creates a unique ID (a.k.a., the "SHA" or "hash") that allows you to keep record of what changes were made when and by whom. 
 *   _**[Push](https://help.github.com/en/github/getting-started-with-github/github-glossary#push):**_ Pushing refers to sending your committed changes to a remote repository, such as a repository hosted on GitHub. For instance, if you change something locally, you then _push_ those changes so that others may access them.
 
@@ -249,13 +248,13 @@ The way Git works can be a bit confusing, even after repeated use, as it is diff
 
 If you are collaborating on a project with someone else, they can **_clone_** your repository from GitHub to their own machine, make changes to website files, then submit a **_pull request_** asking you to add changes back to the main repository. You can then sync or _pull_ their changes from their repository to the main repository and from there into your local website directory. Again, there are several options for using Git and GitHub collaboratively, some using command line and thus providing more control over the push, clone, and pull commands (e.g., [Git Bash](https://git-scm.com/downloads)).
 
-Again for simplicity, we use [GitHub Desktop](https://desktop.github.com/) in lesson examples. GitHub Desktop is more beginner-friendly than alternatives and meshes well with the GitHub website. However, it can be difficult to make sense when something goes wrong in GitHub Desktop, sometimes requiring deleting and recreating the repo; do such destructive rebuilding only after exhausting alternatives. GitHub Desktop works on Windows and Mac machines.
+For simplicity, we use [GitHub Desktop](https://desktop.github.com/) in lesson examples. GitHub Desktop is more beginner-friendly than alternatives and meshes well with the GitHub website. However, it can be difficult to make sense when something goes wrong in GitHub Desktop, sometimes requiring deleting and recreating the repo; do such destructive rebuilding only after exhausting alternatives. GitHub Desktop works on Windows and Mac machines.
 
 ### II. Setting Up a Repository
 
 > ### **Create a GitHub account if you do not have one. Then, create a _unit-1_ repository.**
 
-The first step to setting up GitHub is to create a GitHub account if you do not already have one). Go to [https://github.com/](https://github.com/), enter a username, e-mail, and password, and click "Sign up for GitHub."
+The first step to setting up GitHub is to create a GitHub account, if you do not already have one. Go to [https://github.com/](https://github.com/), enter a username, e-mail, and password, and click "Sign up for GitHub."
 
 Then open GitHub Desktop and log in. Click "Current repository" in the upper-left corner of the application, then click "Add" and choose "Create new repository...". Enter the name of your website, then in "Local path" navigate to the directory _containing_ your website directory, and click "Create repository" (Figure 3.2).
 
@@ -265,7 +264,7 @@ Importantly, if you first navigate to your website directory instead of the fold
 
 ###### Figure 3.2: Creating a repository in your _unit-1_ directory
 
-Once you've created the repository, open your the _unit-1_ directory on your machine and observe that three new files have been created (Figure 3.3):
+Once you have created the repository, open your the _unit-1_ directory on your machine and observe that three new files have been created (Figure 3.3):
 
 *   **._git_**, a hidden folder that holds the snapshots of your files,
     
@@ -273,7 +272,7 @@ Once you've created the repository, open your the _unit-1_ directory on your mac
     
 *   **._gitignore_ (optional)**, a file that lists files in the directory that should not be tracked by the repository.
     
-Note, if you're using a Mac, these files may be hidden. You can view hidden files by pressing `command-shift-dot`.
+Note, if you are using a Mac, these files may be hidden. You can view hidden files by pressing `command-shift-dot`.
 
 ![figure1.3.3.png](img/figure1.3.3.png)
 
@@ -287,7 +286,7 @@ Next, you need to publish your repository to GitHub. At the top of the page clic
 
 ###### Figure 3.3: Publishing a repository from GitHub Desktop
 
-You should end up with both a local repository in your website directory and a copy of the repository on your GitHub web page. Note that it is also possible to work in reverse order—that is, create a new repository on the GitHub website and then copy it over, or _clone_ it, to your machine. The GitHub [Hello World Guide](https://guides.github.com/activities/hello-world/) provides details on this reverse process for future reference. We will return to this process in Activity 7.
+You should end up with both a local repository in your website directory and a copy of the repository on your GitHub web page. Note that it is also possible to work in reverse order by creating a new repository on the GitHub website and then copying it over (i.e., _clone_ it) to your machine. The GitHub [Hello World Guide](https://guides.github.com/activities/hello-world/) provides details on this reverse process for future reference. We will return to this process in Activity 7.
 
 When you are just figuring things out, you are likely to end up with one or two repositories on GitHub that you will not actually need in the future. When you are sure you no longer need a repository, you can delete it from GitHub by navigating to the repository web page, clicking the "Settings" link on the right-hand side, scrolling down to the "Danger Zone" at the bottom of the page, and clicking "Delete this repository." The GitHub crew was nice enough to take precautions to ensure that you _really_ want to delete the repository before you do it. Thus, be absolutely sure you do not need the repository again, and that no one else is contributing to it, before you delete.
 
@@ -308,8 +307,9 @@ From this point, though, the key to becoming comfortable with GitHub is to use i
 1.  **_Required_**: Navigate to codecademy.com and create a free account. Do _<ins>not</ins>_ sign-up for the Pro paid account.
 2.  _Recommended_: If you do not have any programming experience, we recommend first completing the [Learn How to Code](https://www.codecademy.com/learn/learn-how-to-code) broad overview of programming concepts (~1 hour).
 3.  _Recommended_: If you do not have experience with HTML or want a refresher, we recommend completing Lesson 1 (and only Lesson 1) of the [Introduction to HTML tutorial](https://www.codecademy.com/learn/learn-html). (~1 hour)
-4.  _Recommended_: If you do not have experience with CSS or want a refresher, we recommend completing Lessons 1 and 2 of the [Introduction to CSS tutorial](https://www.codecademy.com/learn/learn-css). (~2 hour)
-5.  **_Required_**: Complete Lessons 1-8 of [Introduction to JavaScript](https://www.codecademy.com/learn/introduction-to-javascript) (i.e., Lesson 1 "Introduction" through Lesson 8 "Objects"). Print a PDF (Ctrl+P in browser; save as a PDF) of your completed table of contents for these tutorials and upload to the Activity 2 assignment to confirm completion. (~6 hours)
+4.  _Recommended_: If you do not have experience with CSS or want a refresher, we recommend completing Lessons 1 and 2 of the [Introduction to CSS tutorial](https://www.codecademy.com/learn/learn-css). (~2 hours)
+5.  **_Required_**: Complete Lessons 2, 3, 4, and 7 of [Introduction to JavaScript](https://www.codecademy.com/learn/introduction-to-javascript). For UW-Madison students: Print a PDF (Ctrl+P in browser; save as a PDF) of your completed table of contents for these tutorials and upload to the Activity 2 assignment to confirm completion. (~8 hours)
+6.  _Recommended_: Complete Lessons 5, 6, 8, and 9 of [Introduction to JavaScript](https://www.codecademy.com/learn/introduction-to-javascript). We will introduce and review these concepts in depth in subsequent lessons, so these tutorials are helpful but not essential foundation. (~8 hours)
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 
