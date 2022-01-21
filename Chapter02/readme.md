@@ -20,7 +20,7 @@ After this chapter, you should be able to:
 Getting Started
 ---------------
 
-Begin Chapter 2 by opening your _unit-1_ directory from Chapter 1. Begin by viewing the contents of the _Chapter02_ subdirectory, which includes two _.js_ files. Then, navigate to the _boilerplate_ subdirectory and select all of the contents. Copy these files and paste them into _Chapter02_. Move the original two _.js_ files to the appropriate folder.
+Begin Chapter 2 by opening your _unit-1_ directory from Chapter 1. First view the contents of the _Chapter02_ subdirectory, which includes two _.js_ files. Then, navigate to the _boilerplate_ subdirectory and select all of the contents. Copy these files and paste them into _Chapter02_. Move the original two _.js_ files to the appropriate folder.
 
 > ### **Copy your _unit-1/boilerplate_ files for use in Chapter 2. Your _Chapter02_ subdirectory should now include the HTML boilerplate and additional code snippets for the Chapter 2 lessons, including your debugging assignment.**
 
@@ -64,7 +64,7 @@ Lesson 2: JavaScript Basics
 
 As introduced in Chapter 1, _**JavaScript**_ is a web programming language for applying dynamic actions or behaviors to webpage content. In other words, JavaScript is the language of interaction on the web. In order to understand JavaScript, as any other scripting language, it is necessary to develop **_computational thinking_** skills, or the ability to think like a computer and work through the steps and processes taking place in a script. Journalist and interactive application developer [Tasneem Raja compares computational thinking to cooking](http://www.motherjones.com/media/2014/06/computer-science-programming-code-diversity-sexism-education):
 
-> "_Like a good algorithm, a good recipe follows some basic principles. Ingredients are listed first, so you can collect them before you start, and there's some logic in the way they are listed:  olive oil before cumin because it goes in the pan first. Steps are presented in order, not a random jumble, with staggered tasks so that you're chopping veggies while waiting for water to boil. A good recipe spells out precisely what size of dice or temperature you're aiming for. It tells you to look for signs that things are working correctly at each stage—the custard should coat the back of a spoon. Opportunities for customization are marked—use twice the milk for a creamier texture—but if any in2gredients are absolutely crucial, the recipe makes sure you know it. If you need to do something over and over—add four eggs, one at a time, beating after each—those tasks are boiled down to one simple instruction_."
+> "_Like a good algorithm, a good recipe follows some basic principles. Ingredients are listed first, so you can collect them before you start, and there's some logic in the way they are listed:  olive oil before cumin because it goes in the pan first. Steps are presented in order, not a random jumble, with staggered tasks so that you're chopping veggies while waiting for water to boil. A good recipe spells out precisely what size of dice or temperature you're aiming for. It tells you to look for signs that things are working correctly at each stage—the custard should coat the back of a spoon. Opportunities for customization are marked—use twice the milk for a creamier texture—but if any ingredients are absolutely crucial, the recipe makes sure you know it. If you need to do something over and over—add four eggs, one at a time, beating after each—those tasks are boiled down to one simple instruction_."
 
 Let's think about this analogy in terms of what you should know about JavaScript from the tutorial you completed:
 
@@ -111,7 +111,7 @@ Unlike other programming languages, JavaScript is not picky about the order of f
 
 Note that the code is neatly indented, similar to the nested structure of our HTML document. Everything within the `myfunc()` function is indented an extra tab to show that it is contained by the function. Again, while indentation is not required, keeping your code tidy makes it much more readable and easier to debug. JavaScript interprets either a semicolon or a line break as the end of a statement, but it is good to get in the habit of using semicolons so that if you ever minify your code (compress it to a single, continuous line without comments), you will not have to go back through and add the semicolons.
 
-A **method** is a function association with a particular object. In most cases, this is a built-in function that you can use in your code, though you can also write your own. Later on, you'll use programming libraries like Leaflet and D3, each of which has their own set of unique methods. For now, JavaScript has a number of native methods for manipulating the DOM, all accessed through the `document` object. Rather than introducing them all one-by-one, we slowly introduce these methods by example in the chapter lessons. Our focus instead is on following the computational logic when calling these methods. Carefully read through and consider the Example 2.3 script:
+A **method** is a function association with a particular object. In most cases, this is a built-in function that you can use in your code, though you can also write your own. Later on, you will use programming libraries like Leaflet and D3, each of which has their own set of unique methods. For now, JavaScript has a number of native methods for manipulating the DOM, all accessed through the `document` object. Rather than introducing them all one-by-one, we slowly introduce these methods by example in the chapter lessons. Our focus instead is on following the computational logic when calling these methods. Carefully read through and consider the Example 2.3 script:
 
 ###### Example 2.3: Creating an HTML table using JavaScript in _main.js_
 
@@ -189,7 +189,7 @@ If you add this code into _main.js_ and reload _index.html_ in the browser using
 
 ### II. Arrays and Objects
 
-JavaScript provides multiple ways of implementing most computational tasks, a concept we describe in lecture as **_interface flexibility_**. As a review of the Activity 2 Codecademy tutorials, let's examine several alternatives to the above example.
+JavaScript provides multiple ways of implementing most computational tasks, a concept described as **_interface flexibility_**. As a review of the Activity 2 Codecademy tutorials, let's examine several alternatives to the above example.
 
 Example 2.3 uses two arrays `cities` and `population` to hold the city names versus population, with a looping structure then populating the two-dimensional table with this content. Alternatively, we could use one array `cityPop` of JavaScript objects to hold the table content instead of two separate arrays (Example 2.4).
 
@@ -270,9 +270,9 @@ You also can create the array of objects using longform syntax, defining each ob
         cityPop.push(superior);
 
 
-When would you use this longform syntax? It is not necessary here, but you might imagine a case where you wanted to dynamically populate an array—that is, add objects to it at different times in the program. You might also want to add a new property or change some property of an object some time after the object was created.
+When would you use this longform syntax? It is not necessary here, but you might imagine a case where you wanted to dynamically populate an array—that is, add objects to it at different points in the flow of execution. You might also want to add a new property or change some property of an object some time after the object was created.
 
-Keep in mind that JavaScript is <ins>_**case sensitive**_</ins>, so consistent capitalization is important! If you define a variable as `superior` and then call it as `Superior`, the interpreter will not recognize the variable when you call it. It is standard practice to write variable names using **_camelCase_**, or a lowercase first letter and uppercase for any subsequent letter that begins a separate word (for instance, `greenBay`). You <ins>**_cannot use spaces_**</ins> in variable names. You can include spaces for a string object (any collection of characters surrounded by single or double quotes, such as `'Green Bay'`), although special character (such as a quotation mark) require a leading escape `\` character. Numerical values are assigned to variables without using quotes (quotes would turn them into strings) and cannot be interrupted by any non-numerical characters (such as a comma), except for a single period, which is used as a decimal point.
+Keep in mind that JavaScript is <ins>_**case sensitive**_</ins>, so consistent capitalization is important! If you define a variable as `superior` and then call it as `Superior`, the interpreter will not recognize the variable when you call it. It is standard practice to write variable names using **_camelCase_**, or a lowercase first letter and uppercase for any subsequent letter that begins a separate word (for instance, `greenBay`). You <ins>**_cannot use spaces_**</ins> in variable names. You can include spaces for a string object (any collection of characters surrounded by single or double quotes, such as `'Green Bay'`), although special characters (such as a quotation mark) require a leading escape `\` character. Numerical values are assigned to variables without using quotes (quotes would turn them into strings) and cannot be interrupted by any non-numerical characters (such as a comma), except for a single period, which is used as a decimal point.
 
 > ### **Experiment with alternative syntax for defining the table content in _main.js_.**
 
@@ -395,7 +395,7 @@ Lesson 3: Simplification
 
 ### I. Selecting Elements
 
-As you can see from the previous lesson, you need an awful lot of JavaScript code to make just one tiny table! While JavaScript works great for computational logic, it can a bit clunky when picking HTML elements out of the DOM and manipulating them. Therefore, it is useful to be aware of best practice workarounds that make manipulating the DOM easier. 
+As you can see from the previous lesson, you need quite a bit of JavaScript code to make just one tiny table! While JavaScript works great for computational logic, it can a bit clunky when picking HTML elements out of the DOM and manipulating them. Therefore, it is useful to be aware of best practice workarounds that make manipulating the DOM easier. 
 
 As seen in Example 2.1, the `getElementById()` method was used to select the `mydiv` element in order to append the table to it. JavaScript uses a **_selector_** to find the element or elements you want to manipulate. In the case above, we gave our `<div>` an `id` attribute, which we can acess using the `getElementById()` method. If we had assigned a class, we could have used `getElementsByClassName()`. These methods, however, are a bit cumbersome. Instead, we can use the `querySelector()` method. 
 
@@ -404,7 +404,7 @@ As seen in Example 2.1, the `getElementById()` method was used to select the `my
     var mydiv = document.querySelector("#mydiv");
     mydiv.appendChild(table);
 
-Using the `querySelector()` we can access our `<div>` using pound `#` sign, just like in CSS. If there are multiple elements we want to access, we can use the `querySelectorAll()` method, which returns all objects which meet the selection criteria. If we had assigned a `class` attribute to the `<div>`, we can access it with a `.`, as in `'.mydiv'`. You also can select all elements of a particular tag in the document by using just the tag name with no prefix character, such as `querySelectorAll('div')` to select all div elements.
+Using `querySelector()`, we can access our `<div>` using pound `#` sign, just like in CSS. If there are multiple elements we want to access, we can use the `querySelectorAll()` method, which returns all objects which meet the selection criteria. If we had assigned a `class` attribute to the `<div>`, we can access it with a `.`, as in `'.mydiv'`. You also can select all elements of a particular tag in the document by using just the tag name with no prefix character, such as `querySelectorAll('div')` to select all div elements.
 
 Note that the selector <ins>**_must be in quotes_**</ins> (single or double) unless it is a variable that holds the string value of the attribute used for the selection. It is good to get in the habit of naming any HTML elements with `id` and/or `class` attributes that you subsequently might want to manipulate in your script or your CSS stylesheet. Keep in mind that each unique `id` value should be used for only one element in the document, whereas `class` is meant to be used to give the same identifier to multiple elements.
 
