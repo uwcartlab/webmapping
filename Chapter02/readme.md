@@ -7,14 +7,14 @@ Congratulations on your first successful chapter of Web Mapping! You now have cr
 
 *   In Lesson 1, we review the Document Object Model (DOM) and the ways that browsers interpret content on the web.
 *   In Lesson 2, we review JavaScript basics, including syntax rules for variables, functions, and the flow of execution. Lessons 1 and 2 are largely review from the Codecademy tutorials.
-*   In Lesson 3, we introduce jQuery, a helpful open-source library for efficiently writing JavaScript code.
+*   In Lesson 3, we discuss ways to write JavaScript more efficiently.
 *   In Lesson 4, we discuss tips and tricks for debugging using the console.
 
 After this chapter, you should be able to:
 
 *   Inspect the Document Object Model (DOM) in any browser
 *   Write variables, functions, and control structures in JavaScript
-*   Use jQuery to select and manipulate elements in the DOM
+*   Select and manipulate elements in the DOM
 *   Use the browser console to debug basic flaws in your code
 
 Getting Started
