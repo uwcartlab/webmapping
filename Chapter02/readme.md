@@ -418,13 +418,15 @@ The `querySelector()` method is somewhat unique in that it supports **_method ch
 
 	document.querySelector("#mydiv").insertAdjacentHTML('beforeend',"Hello World!");
 
-The first part of the Example 3.2 method chain is the `document.querySelector()` from Example 3.1, which selects the HTML `<div>` with the id attribute `'mydiv'` and returns it to the script for manipulation. The second method, `insertAdjacentHTML()`, has two parameters: one is the position, which we will set as `beforeend` to insert the HTML as the last child of the selected element, while the other is the HTML string you wish to insert. The method chain above is functionally equivalent to Example 2.1 and Example 2.1 above, inserting the text 'Hello World' at the bottom of the `<div>` (thus, `'beforeend'`), but uses less code. 
+The first part of the Example 3.2 method chain is the `document.querySelector()` from Example 3.1, which selects the HTML `<div>` with the id attribute `'mydiv'` and returns it to the script for manipulation. The second method, `insertAdjacentHTML()`, has two parameters: one is the position, which we will set as `beforeend` to insert the HTML as the last child of the selected element, while the other is the HTML string you wish to insert. The method chain above is functionally equivalent to Example 2.1 and Example 3.1 above, inserting the text 'Hello World' at the bottom of the `<div>` (thus, `'beforeend'`), but uses less code. 
 
-Similarly, we can use a slightly modified method chain to append our table to the `mydiv` element from Example 2.3 (Example 3.3). Note the `querySelectorAll` method only supports method chaining with methods that accept arrays, such a `forEach()` loop (see Example 3.7).
+Similarly, we can use a slightly modified method chain to append our table to the `mydiv` element from Example 2.3 (Example 3.3). 
 
 ###### Example 3.3: Updating Example 2.3 using a method chain to add the table to the `mydiv` element
 
     document.querySelector("#mydiv").appendChild(table);
+
+Note the `querySelectorAll` method only supports method chaining with methods that accept arrays, such a `forEach()` loop (see Example 3.7).
 
 > ### **Use method chaining to add your table to the `mydiv` element**
 
