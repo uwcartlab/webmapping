@@ -300,7 +300,7 @@ From this point, though, the key to becoming comfortable with GitHub is to use i
 
 1.  Create a website directory called _unit-1_ with an organized directory structure and boilerplate _index.html_, _style.css_, and _main.js_ files.
 2.  Create a Git repository in your website directory and sync it to your GitHub account.
-3.  Submit a zip file (.zip) containing your website directory to Canvas (Geography 575 course only). In the submission comments, paste a link to your GitHub account page.
+3.  For UW-Madison students: Submit a zip file (.zip) containing your website directory to Canvas. In the submission comments, paste a link to your GitHub account page.
 
 ## Activity 2
 
