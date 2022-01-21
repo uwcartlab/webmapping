@@ -503,13 +503,13 @@ When writing and concatenating HTML strings, make sure that you add all of the p
 
 > ### **Simplify the Example 2.3 code using Example 3.4.**
 
-### IV. Additional JavaScript
+### IV. Additional JavaScript Methods for Manipulating the DOM
 
-As you develop your lab projects, you will use many more JavaScript methods. All native JavaScript methods are described in the [JavaScript documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference). Here we cover several of the more useful techniques and methods for manipulating the DOM, as well as their appropriate use cases. 
+You will use many more JavaScript methods as you develop your lab projects. All native JavaScript methods are described in the [JavaScript documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference). Here we cover several of the more useful JavaScript methods for manipulating the DOM, as well as their appropriate use cases. 
 
 **_[.getAttribute()](https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute)_**: This method allows you to get an attribute of the selected HTML element. It takes one parameter: the name of the attribute (e.g., `'id'` or `'class'`) (Example 3.5).
 
-**_[.setAttribute()](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute)_**: This method allows you to set an attribute of the selected HTML element. It takes two parameters: the first parameter is the name of the attribute (e.g., `'id'` or `'class'`), while the second parameter is a value with which to replace or set that attribute's current value (Example 3.5). `setAttribute()` is most useful when initially setting an attribute, setting an attribute you don't plan to change, or when you're working with a custom or "non-standard" attribute.
+**_[.setAttribute()](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute)_**: This method allows you to set an attribute of the selected HTML element. It takes two parameters: the first parameter is the name of the attribute (e.g., `'id'` or `'class'`), while the second parameter is a value with which to replace or set that attribute's current value (Example 3.5). `setAttribute()` is most useful when initially setting an attribute, setting an attribute you do not plan to change, or when you are working with a custom or "non-standard" attribute.
 
 ###### Example 3.5: Using `.attr()` in _main.js_
 
@@ -525,7 +525,7 @@ As you develop your lab projects, you will use many more JavaScript methods. All
 
         //Check your work with the Inspector!
 
-**_[Attribute Property](https://www.w3docs.com/learn-javascript/attributes-and-properties.html)_**: Alternatively, if you plan to change an attribute frequently or dynamically, you can access the attribute as a property of an HTML object. To do so, an object must be selected using the `querySelector`, and then its property accessed using dot notation (Example 3.6).
+**_[Attribute Property](https://www.w3docs.com/learn-javascript/attributes-and-properties.html)_**: Alternatively, if you plan to change an attribute frequently or dynamically, you can access the attribute as a property of an HTML object. To do so, select the object using the `querySelector` and identify its property using dot notation (Example 3.6).
 
 ###### Example 3.6: Set Class and ID by changing object properties.
         //get the div id
@@ -537,9 +537,9 @@ As you develop your lab projects, you will use many more JavaScript methods. All
         //set the class 
         document.querySelector('#mydiv').className = "foo";
 
-In Example 3.6, we access the `'mydiv'` element, select the `id` property, and assign it to a variable. That variable will now have a value of `'mydiv'`. We can also assign a new `id` value. We follow similar steps to set the `class`, though note that in JavaScript, `className` is used to set `class`. This is just one of the many quirks of the language! In general, this technique is preferred to `setAttribute()`, but depending on the project you may end up using a bit of both. You can also use this approach to access any HTML attribute, such as `src` for images or scripts, or `href` for links.
+In Example 3.6, we access the `'mydiv'` element, select the `id` property, and assign it to a variable. That variable will now have a value of `'mydiv'`. We also can assign a new `id` value. We follow similar steps to set the `class`, though note that in JavaScript, `className` is used to set `class`. This is just one of the many quirks of the language! In general, this technique is preferred to `setAttribute()`, but depending on the project you may end up using a bit of both. You also can use this approach to access any HTML attribute, such as `src` for images or scripts, or `href` for links.
 
-_**[.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)**_: This is the same `forEach()` method used in example 2.6, only with a slightly different use case: looping multiple elements selected with `querySelectorAll`. This is useful if you need to use individual attribute values of each element or need to assign different values to each element using imported data (Example 3.7).
+_**[.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)**_: This is the same `forEach()` method used in Example 2.6, only with a slightly different use case: looping multiple elements selected with `querySelectorAll`. This is useful if you need to use individual attribute values of each element or need to assign different values to each element using imported data (Example 3.7).
 
 ###### Example 3.7: Using `forEach()` with `querySelectorAll()` in _main.js_
 
@@ -550,7 +550,7 @@ _**[.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
             document.querySelector('#mydiv').insertAdjacentHTML('beforeend',thesource);
         })
 
-**_[.addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)_** and _**[.removeEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)**_: These are _**event listener**_ methods that apply actions or behaviors based on user- or system-driven events. `.addEventListener()` usually takes two parameters: the name of the event to be listened for (such as `'click'`, `'mouseover'`, `'mouseout'`, etc.), and an _**event handler**_ function that executes when the event occurs (Example 3.8). `.removeEventListener()` predictably does the opposite of `.addEventListener()`, although you need to provide _exactly the same_ event name and handler function to actually remove the event listener from the element. Thus, while you can provide either method an anonymous function as the second parameter, if you wish to remove the listener it is best to define this function separately and pass the function name to the `.addEventListener()` and `.removeEventListener()` methods (example 3.8). 
+**_[.addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)_** and _**[.removeEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)**_: These are _**event listener**_ methods that apply actions or behaviors based on user- or system-driven events. `.addEventListener()` usually takes two parameters: the name of the event (such as `'click'`, `'mouseover'`, `'mouseout'`, etc.), and an _**event handler**_ function that executes when the event occurs (Example 3.8). `.removeEventListener()` predictably does the opposite of `.addEventListener()`, although you need to provide _exactly the same_ event name and handler function to actually remove the event listener from the element. Thus, while you can provide either method an anonymous function as the second parameter, if you wish to remove the listener it is best to define this function separately and pass the function name to the `.addEventListener()` and `.removeEventListener()` methods (Example 3.8). 
 
 ###### Example 3.8: Using `.addEventListener()` in _main.js_
 
@@ -571,17 +571,17 @@ _**[.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
         //remove the event listener
         document.querySelector("table").removeEventListener('click', clickme);
 
-_**Style_: While Javascript offers methods to change the css of HTML elements, it's usually easier to access the `style` attribute of the selected element(s) directly. This techinque follows the same dot notation used to access attributes (Example 3.9).
+**_[.style](https://www.w3schools.com/jsref/prop_html_style.asp)_**: While Javascript offers methods to change the CSS of HTML elements, it usually easier to access the `style` attribute of the selected element(s) directly. This techinque follows the same dot notation used to access attributes (Example 3.9).
 
 ###### Example 3.9: Changing the style attribute of a selected element
     //change the text color
     document.querySelector('#mydiv').style.color = 'red';
 
-The `.style` property accesses the styles of the element, and `.color` selects the specific css `color` property, which we set to `red`. We can do this for any css property, but note certain differences in notation between css and js. For example, css properties that contain dashes, such as `background-color`, are written in JavaScript as `backgroundColor`. A full list of css properties along with their JavaScript translations, can be found in the [documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference).
+The `.style` property accesses the styles of the element, and `.color` selects the specific CSS `color` property, which we set to `red`. We can do this for any CSS property, but note certain differences in notation between CSS and JS. For example, CSS properties that contain dashes, such as `background-color`, are written in JavaScript as `backgroundColor`. A full list of CSS properties along with their JavaScript translations, can be found in the [documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference).
 
-This technique is useful for changing element styles dynamically. It will, however, override any styles in your _style.css_ file that apply to the element(s), as in-line styles (those designated through the HTML element `style` attribute) always override styles stored in separate stylesheets. 
+This technique is useful for changing element styles dynamically. It will, however, override any styles in your _style.css_ file that apply to the element(s), as in-line styles (those designated through the HTML element `style` attribute) always override styles stored in separate stylesheets (Example 3.10). 
 
-###### Example 3.9: Changing styles in _main.js_
+###### Example 3.10: Changing styles in _main.js_
 
         //Added below Example 3.6...
         //change the text color
@@ -745,7 +745,7 @@ The results (Figure 4.4):
 
 ###### Figure 4.4: The console showing the executed statement
 
-Next, is the problem with the code in the loop or the loop itself? To see if the loop is executing, let's move our `console.log` statement to the first order of business within the loop (Example 4.6):
+Next, is the problem with the code in the loop or the loop itself? To see if the loop is executing, move the `console.log` statement to the first order of business within the loop (Example 4.6):
 
 ###### Example 4.6: Move the `console.log` statement inside the loop in _main.js_
 
