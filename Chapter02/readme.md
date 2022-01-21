@@ -397,9 +397,9 @@ Lesson 3: Simplification
 
 As you can see from the previous lesson, you need quite a bit of JavaScript code to make just one tiny table! While JavaScript works great for computational logic, it can a bit clunky when picking HTML elements out of the DOM and manipulating them. Therefore, it is useful to be aware of best practice workarounds that make manipulating the DOM easier. 
 
-As seen in Example 2.1, the `getElementById()` method was used to select the `mydiv` element in order to append the table to it. JavaScript uses a **_selector_** to find the element or elements you want to manipulate. In the case above, we gave our `<div>` an `id` attribute, which we can acess using the `getElementById()` method. If we had assigned a class, we could have used `getElementsByClassName()`. These methods, however, are a bit cumbersome. Instead, we can use the `querySelector()` method. 
+As seen in Example 2.1, the `getElementById()` method was used to select the `mydiv` element in order to append the table to it. JavaScript uses a **_selector_** to find the element or elements you want to manipulate. In the case above, we gave our `<div>` an `id` attribute, which we can acess using the `getElementById()` method. If we had assigned a class, we could have used `getElementsByClassName()`. These methods, however, are a bit cumbersome. Instead, we can use the `querySelector()` method (Example 3.1). 
 
-###### Example 3.2: Selecting an HTML element with `querySelector()`
+###### Example 3.1: Selecting an HTML element with `querySelector()`
 
     var mydiv = document.querySelector("#mydiv");
     mydiv.appendChild(table);
@@ -412,15 +412,15 @@ Note that the selector <ins>**_must be in quotes_**</ins> (single or double) unl
 
 ### II. Method Chaining
 
-The `querySelector()` method is somewhat unique in that it supports **_method chaining_**_,_ or the calling of multiple methods in sequence using dot syntax, resulting in simplified code. Example 3.3 shows a two method chain.
+The `querySelector()` method is somewhat unique in that it supports **_method chaining_**_,_ or the calling of multiple methods in sequence using dot syntax, resulting in simplified code. Example 3.2 shows a two method chain.
 
-###### Example 3.3: Method chaining with dot syntax in _main.js_
+###### Example 3.2: Method chaining with dot syntax in _main.js_
 
 	document.querySelector("#mydiv").insertAdjacentHTML('beforeend',"Hello World!");
 
-The first part of the Example 3.3 method chain is the `document.querySelector()` itself, which selects the HTML `<div>` with the id attribute `'mydiv'` and returns it to the script for manipulation. The second method, `insertAdjacentHTML()`, writes the text 'Hello World' at the bottom of the `<div>` (thus, `'beforeend'`). The method chain above is functionally equivalent to Example 2.1 above. We could use a slightly modified method chain to append our table the `mydiv` element. Note the `querySelectorAll` method only supports method chaining with methods that accept arrays, such a `forEach()` loop (see Example 3.7).
+The first part of the Example 3.2 method chain is the `document.querySelector()` itself, which selects the HTML `<div>` with the id attribute `'mydiv'` and returns it to the script for manipulation. The second method, `insertAdjacentHTML()`, has two parameters: one is the position, which we will set as `beforeend` to insert the HTML as the last child of the selected element, while the other is the HTML string you wish to insert. The method chain above is functionally equivalent to Example 2.1 above, inserting the text 'Hello World' at the bottom of the `<div>` (thus, `'beforeend'`). We could use a slightly modified method chain to append our table to the `mydiv` element (Example 3.3). Note the `querySelectorAll` method only supports method chaining with methods that accept arrays, such a `forEach()` loop (see Example 3.7).
 
-###### Example 3.4: Using a method chain to add the table to the `mydiv` element.
+###### Example 3.3: Using a method chain to add the table to the `mydiv` element.
 
     document.querySelector("#mydiv").appendChild(table);
 
@@ -428,11 +428,11 @@ The first part of the Example 3.3 method chain is the `document.querySelector()`
 
 ### III. Manipulating Elements
 
-Part of learning to code is learning how to simplify code. One of the reasons the code in example 2.3 is so cumbersome is the sheer volume required to do basic tasks. Thankfully, JavaScript offers multiple ways of doing the same thing, and we can use these alternative methods to simplify our code. 
+Part of learning to code is learning how to simplify code. One of the reasons Example 2.3 is so cumbersome is the sheer volume of  code required to do basic tasks. Thankfully, JavaScript offers multiple ways of doing the same thing, and we can use these alternative methods to simplify our code, making it more efficient. 
 
-Looking back to Example 2.3, we used a series of methods to add new rows to the table header: `createElement()`, `innerHTML`, and `appendChild()`. While we will continue to use some of these methods throughout the workbook, for the purposes of adding new header rows to our table, we can also use the much simpler `insertAdjacentHTML()`. The `insertAdjacentHTML()` method has two parameters: one is the position, which we'll set as `beforeend`, which tells the function to insert the HTML as the last child of the selected element, while the other is the HTML string you wish to insert.  
+Looking back to Example 2.3, we used a series of methods to add new rows to the table header: `createElement()`, `innerHTML`, and `appendChild()`. While we will continue to use some of these methods throughout the workbook, for the purposes of adding new header rows to our table, we can also use the much simpler `insertAdjacentHTML()` introduced in Example 3.2 (Example 3.4). 
 
-###### Example 3.5: Simplified table using Javascript
+###### Example 3.4: Simplified table using Javascript
 
     //initialize function called when the script loads
     function initialize(){
