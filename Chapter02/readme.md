@@ -430,11 +430,11 @@ Similarly, we can use a slightly modified method chain to append our table to th
 
 ### III. Manipulating Elements
 
-Part of learning to code is learning how to simplify code. One of the reasons Example 2.3 is so cumbersome is the sheer volume of  code required to do basic tasks. Thankfully, JavaScript offers multiple ways of doing the same thing, and we can use these alternative methods to simplify our code, making it more efficient. 
+Part of learning to code is learning how to simplify code. One of the reasons Example 2.3 is so cumbersome is the sheer volume of code required to accomplish basic tasks. Thankfully, JavaScript offers multiple ways of doing the same thing, and we can use these alternative methods to simplify our code, making it more efficient. 
 
 Looking back to Example 2.3, we used a series of methods to add new rows to the table header: `createElement()`, `innerHTML`, and `appendChild()`. While we will continue to use some of these methods throughout the workbook, for the purposes of adding new header rows to our table, we can also use the much simpler `insertAdjacentHTML()` introduced in Example 3.2 (Example 3.4). 
 
-###### Example 3.4: Simplified table using Javascript
+###### Example 3.4: Updating Example 2.3 to simplify creating the table using 'insertAdjacentHTML()'
 
     //initialize function called when the script loads
     function initialize(){
@@ -487,19 +487,19 @@ Looking back to Example 2.3, we used a series of methods to add new rows to the 
 
     document.addEventListener('DOMContentLoaded',initialize)
 
-Compare the (much shorter) script in Example 3.5 to our original script in Example 2.3. Note that the strategy for adding elements to the webpage has changed. In the original Example 2.3 script, we first created each element, then added the content to the element. 
+Compare the (much shorter) script in Example 3.4 to our original script in Example 2.3. Note that the strategy for adding elements to the webpage has changed. In the original Example 2.3 script, we first created each element, then added the content to the element. 
 
-Continuing with the Example 3.5 code, we append the full html string of the header cells directly to the header row. This is just like writing HTML code within _index.html_, except that it is contained within a string and you need not worry about the formatting. Within the loop, we again append an HTML string, this time representing the full row. Instead of writing our HTML string just as a parameter of the `.insertAdjacentHTML()` method, we first assign it to the variable `rowHtml`. This keeps the code tidier by avoiding a line of script so long that it bleeds off the page (although sometimes this is simply unavoidable). We form the HTML string by concatenating strings of the proper HTML tags with the `cityPop[i].city` and `cityPop[i].population` properties, looping through the `cityPop` array until there are no more objects to append as rows to the table.
+Continuing with the Example 3.4 code, we append the full HTML string of the header cells directly to the header row. This is just like writing HTML code within _index.html_, except that it is contained within a string and you need not worry about the formatting. Within the loop, we again append an HTML string, this time representing the full row. Instead of hard coding our HTML string  as a parameter of the `.insertAdjacentHTML()` method, we first assign it to the variable `rowHtml`. This keeps the code tidier by avoiding a line of script so long that it bleeds off the page (although sometimes this is simply unavoidable). We form the HTML string by concatenating strings of the proper HTML tags with the `cityPop[i].city` and `cityPop[i].population` properties, looping through the `cityPop` array until there are no more objects to append as rows to the table.
 
 At the bottom of the script, we replace `window.onload = intialize()` with `document.addEventListener('DOMContentLoaded',initialize)`. This will execute the script as soon as the DOM is prepared, before all images and frames are loaded, making the loading of the site faster. The `addEventListener` function itself is covered in more detail in the next section.
 
-When writing HTML strings, make sure that you add all of the proper closing tags to your elements in the correct order. Unclosed elements may result in a DOM structure you did not anticipate, with odd formatting results. Figure 3.1 visualizes how the HTML elements in your table are organized in the DOM tree.
+When writing and concatenating HTML strings, make sure that you add all of the proper closing tags to your elements in the correct order. Unclosed elements may result in a DOM structure you did not anticipate, with odd formatting results. Figure 3.1 visualizes how the HTML elements in your table are organized in the DOM tree.
 
 ![figure2.3.1.png](img/figure2.3.1.png)
 
 ###### Figure 3.1: The HTML table DOM tree structure
 
-> ### **Simplify the Example 2.3 code.**
+> ### **Simplify the Example 2.3 code using Example 3.4.**
 
 ### IV. Additional JavaScript
 
