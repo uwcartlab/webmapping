@@ -399,7 +399,7 @@ As you can see from the previous lesson, you need quite a bit of JavaScript code
 
 As seen in Example 2.1, the `getElementById()` method was used to select the `mydiv` element in order to append the table to it. JavaScript uses a **_selector_** to find the element or elements you want to manipulate. In the case above, we gave our `<div>` an `id` attribute, which we can acess using the `getElementById()` method. If we had assigned a class, we could have used `getElementsByClassName()`. These methods, however, are a bit cumbersome. Instead, we can use the `querySelector()` method (Example 3.1). 
 
-###### Example 3.1: Selecting an HTML element with `querySelector()`
+###### Example 3.1: Updating Example 2.1 to select an HTML element with `querySelector()`
 
     var mydiv = document.querySelector("#mydiv");
     mydiv.appendChild(table);
@@ -412,15 +412,17 @@ Note that the selector <ins>**_must be in quotes_**</ins> (single or double) unl
 
 ### II. Method Chaining
 
-The `querySelector()` method is somewhat unique in that it supports **_method chaining_**_,_ or the calling of multiple methods in sequence using dot syntax, resulting in simplified code. Example 3.2 shows a two method chain.
+The `querySelector()` method is somewhat unique in that it supports **_method chaining_**_,_ or the calling of multiple methods in sequence using dot syntax, resulting in simplified code. Example 3.2 updates Example 3.1 to use a single-line, two-method chain.
 
-###### Example 3.2: Method chaining with dot syntax in _main.js_
+###### Example 3.2: Updating Example 3.1 using method chaining with dot syntax in _main.js_
 
 	document.querySelector("#mydiv").insertAdjacentHTML('beforeend',"Hello World!");
 
-The first part of the Example 3.2 method chain is the `document.querySelector()` itself, which selects the HTML `<div>` with the id attribute `'mydiv'` and returns it to the script for manipulation. The second method, `insertAdjacentHTML()`, has two parameters: one is the position, which we will set as `beforeend` to insert the HTML as the last child of the selected element, while the other is the HTML string you wish to insert. The method chain above is functionally equivalent to Example 2.1 above, inserting the text 'Hello World' at the bottom of the `<div>` (thus, `'beforeend'`). We could use a slightly modified method chain to append our table to the `mydiv` element (Example 3.3). Note the `querySelectorAll` method only supports method chaining with methods that accept arrays, such a `forEach()` loop (see Example 3.7).
+The first part of the Example 3.2 method chain is the `document.querySelector()` from Example 3.1, which selects the HTML `<div>` with the id attribute `'mydiv'` and returns it to the script for manipulation. The second method, `insertAdjacentHTML()`, has two parameters: one is the position, which we will set as `beforeend` to insert the HTML as the last child of the selected element, while the other is the HTML string you wish to insert. The method chain above is functionally equivalent to Example 2.1 and Example 2.1 above, inserting the text 'Hello World' at the bottom of the `<div>` (thus, `'beforeend'`), but uses less code. 
 
-###### Example 3.3: Using a method chain to add the table to the `mydiv` element.
+Similarly, we can use a slightly modified method chain to append our table to the `mydiv` element from Example 2.3 (Example 3.3). Note the `querySelectorAll` method only supports method chaining with methods that accept arrays, such a `forEach()` loop (see Example 3.7).
+
+###### Example 3.3: Updating Example 2.3 using a method chain to add the table to the `mydiv` element
 
     document.querySelector("#mydiv").appendChild(table);
 
