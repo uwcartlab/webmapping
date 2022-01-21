@@ -390,7 +390,7 @@ As the question mark implies, you can think of this statement as asking a questi
 
 > ### **Add the conditional statements to _main.js_.**
 
-Lesson 3: Simplification
+Lesson 3: Simplified DOM Manipulation
 ----------------
 
 ### I. Selecting Elements
@@ -660,15 +660,15 @@ There are multiple reasons a variable could be undefined, but a very common caus
 
 ### III. Console.log
 
-What about an error that causes your script to fail silently? For instance, while I was tinkering with the example script for this lesson, I was able to generate a table with just the headers and no errors in the console (Figure 4.4):
+What about an error that causes your script to fail silently? For instance, while I was tinkering with the example script for this lesson, I was able to generate a table with just the headers and no errors in the console (Figure 4.3):
 
 ![figure2.4.3.png](img/figure2.4.3.png)
 
 ###### Figure 4.3: There's no table, Jim
 
-Example 4.4 shows my original script producing this silent error.
+Example 4.2 shows my original script producing this silent error.
 
-###### Example 4.4: The _main.js_ script drawing an incomplete table without a console error
+###### Example 4.2: The _main.js_ script drawing an incomplete table without a console error
 
     //initialize function called when the script loads
     function initialize(){
@@ -724,11 +724,11 @@ Example 4.4 shows my original script producing this silent error.
 
 Can you see the problem? I did not. I could tell from preview that my header row was drawing correctly, but it was as though my loop did not exist. There were a few things that could be going on, so I needed to use a process of elimination to test for different issues. This is where `console.log` comes in handy. This native JavaScript method prints whatever you want to the console, allowing you to make visible what is going on in the script.
 
-Let's debug! First, we can see whether the script is stopping for some reason before it reaches the loop. To do this, we can add a simple `console.log` statement just before the loop to see if it will execute (Example 4.5):
+Let's debug! First, we can see whether the script is stopping for some reason before it reaches the loop. To do this, we can add a simple `console.log` statement just before the loop to see if it will execute (Example 4.3):
 
-###### Example 4.5: Adding a `console.log` statement to test the execution in _main.js_
+###### Example 4.3: Adding a `console.log` statement to test the execution in _main.js_
 
-        //Example 4.4 line 37...
+        //Example 4.2 line 37...
         console.log("Hello World");
         //loop to add a new row for each city
         for (var i = 0; i < cities.length; i++){
@@ -745,11 +745,11 @@ The results (Figure 4.4):
 
 ###### Figure 4.4: The console showing the executed statement
 
-Next, is the problem with the code in the loop or the loop itself? To see if the loop is executing, move the `console.log` statement to the first order of business within the loop (Example 4.6):
+Next, is the problem with the code in the loop or the loop itself? To see if the loop is executing, move the `console.log` statement to the first order of business within the loop (Example 4.3):
 
-###### Example 4.6: Move the `console.log` statement inside the loop in _main.js_
+###### Example 4.4: Move the `console.log` statement inside the loop in _main.js_
 
-        //Example 4.4 line 37...
+        //Example 4.2 line 37...
         //loop to add a new row for each city
         for (var i = 0; i < cities.length; i++){
             console.log("Hello World");
@@ -766,27 +766,29 @@ Result (Figure 4.5):
 
 ###### Figure 4.5: The console is blank
 
-Aha! The loop is _not_ executing at all. So let's look at the opening statement of our loop (Example 4.7):
+Aha! The loop is _not_ executing at all. So let's look at the opening statement of our loop (Example 4.5):
 
-###### Example 4.7: The opening loop statement in _main.js_
+###### Example 4.5: The opening loop statement in _main.js_
 
+        //Example 4.2 line 37...
+        //loop to add a new row for each city     
         for (var i = 0; i < cities.length; i++){
 
 
 Look carefully at every character in the line for errors with the syntax. There are none (plus the console didn't show a syntax error), so let's look at the variables. The only variable that is not defined within the statement is `cities`. Let's check this variable with a `console.log` statement just above the loop (Example 4.8).
 
-###### Example 4.8: Checking if `cities` is defined in _main.js_
+###### Example 4.6: Checking if `cities` is defined in _main.js_
 
+        //Example 4.2 line 37...
         console.log(cities);
         //loop to add a new row for each city
         for (var i = 0; i < cities.length; i++){
-
 
 Result (Figure 4.6):
 
 ![figure2.4.6.png](img/figure2.4.6.png)
 
-###### Figure 4.6:The console showing that `cities` is a function
+###### Figure 4.6: The console showing that `cities` is a function
 
 Notice in the Console that `cities` is a function, not a variable! Thus it is defined, but has no `length` property. If you click the button next to the function name in the console, you can see where in the script the function is defined (Figure 4.7).
 
@@ -794,11 +796,11 @@ Notice in the Console that `cities` is a function, not a variable! Thus it is de
 
 ###### Figure 4.7: The Debugger tab showing where `cities()` is defined
 
-Why then did I use `cities` in my loop? Remember back to our _very first script_, when we were using two arrays for our data instead of an array of objects (Example 4.9).
+Why then did I use `cities` in my loop? Remember back to our _very first script_, when we were using two arrays for our data instead of an array of objects (Example 4.7).
 
-###### Example 4.9: Contrasting the former and current array structures in _main.js_
+###### Example 4.7: Contrasting the former and current array structures in _main.js_
 
-    //THE OLD DATA...Example 4.4 line 6
+    //THE OLD DATA
     function cities(){
         //define two arrays for cities and population
         var cities = [
@@ -814,7 +816,7 @@ Why then did I use `cities` in my loop? Remember back to our _very first script_
             27244
         ];
     
-    //THE NEW DATA...Example 4.4 line 6
+    //THE NEW DATA, Example 4.1
     function cities(){
         //define two arrays for cities and population
         var cityPop = [
@@ -837,11 +839,11 @@ Why then did I use `cities` in my loop? Remember back to our _very first script_
         ];
 
 
-I simply forgot to change the name of the variable `cities` to `cityPop` in the loop when I changed the structure of my data. Since both the original `cities` variable and the new `cityPop` variable hold arrays of the same length (4, the number of cities in our data), they should work the same way in a loop statement. We can now fix the loop statement (Example 4.10):
+I simply forgot to change the name of the variable `cities` to `cityPop` in the loop when I changed the structure of my data. Since both the original `cities` variable and the new `cityPop` variable hold arrays of the same length (4, the number of cities in our data), they should work the same way in a loop statement. We can now fix the loop statement (Example 4.8):
 
-###### Example 4.10: Rectifying the incorrectly referenced variable in _main.js_
+###### Example 4.8: Rectifying the incorrectly referenced variable in _main.js_
 
-        //cities CHANGED TO cityPop...Example 4.4 line 36
+        //cities CHANGED TO cityPop...Example 4.2 line 36
         for (var i = 0; i < cityPop.length; i++){
             //assign longer html strings to a variable
             var rowHtml = "<tr><td>" + cityPop[i].city + "</td><td>" + cityPop[i].population + "</td></tr>";
