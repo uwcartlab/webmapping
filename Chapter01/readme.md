@@ -224,7 +224,7 @@ For security reasons, browsers <ins>_only_</ins> display webpages correctly if t
 
 We use [Prepros](https://prepros.io/) in lesson examples for simplicity. Prepros is a "preprocessor" software application that automatically compiles your website and refreshes the browser every time you save files in your web directory. Prepros works on Windows and Mac machines. If you're using [Visual Studio Code](https://code.visualstudio.com/), you can install the Live Server extension, which performs the same function. 
 
-> ### **Preview _unit-1_ using Prepros.** 
+> ### **Preview _unit-1_ using Prepros or Visual Studio Code.** 
 
 Lesson 3: GitHub Setup
 ----------------------
