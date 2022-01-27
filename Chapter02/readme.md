@@ -618,13 +618,13 @@ If you have been testing each code example in this chapter's lessons, you probab
 
 Such difficulties are normal, everyday experiences for every level of programmer, beginner to expert. The trick to overcoming routine errors is learning how to efficiently debug your code as you go. A single wrong character in the script can break your entire webpage, and it requires some sleuthing to find the pointy needle in the haystack. Fortunately, every browser's developer toolset comes with a vital tool that allows us to do just that: the console.
 
-The _**console**_, usually accessed by a tab or button next to the inspector, is where errors and other messages from the scripts are printed. Often, it actually is _more_ convenient for you the developer if your console shows an error, because the console error should tell you exactly where in the script the error is occurring. For instance, say your script failed and you found a syntax error in the console (Figure 4.1).
+The _**console**_, usually accessed by a tab or button next to the inspector, is where errors and other messages from the scripts are printed. Often, it actually is _more_ convenient for you the developer if your console shows an error, because the console error should tell you exactly where in the script the error is occurring. For instance, say your script failed and you found a syntax error in the console (Figure 4.1; Example 4.1).
 
 ![figure2.4.1.png](img/figure2.4.1.png)
 
 ###### Figure 4.1: A syntax error displayed in the console
 
-The error statement identifies line 25 of your _main.js_ file, where there may be a missing curly brace. Now the problem should be easier to spot in the buggy Example 4.1 code. The object representing the City of Superior requires a closing curly brace before the bracket closes the overall array.
+The error statement identifies line 25 of your _main.js_ file, where there may be a missing curly brace. Now the problem should be easier to spot in the buggy Example 4.1 code. The object representing the City of Superior requires a closing curly brace before the bracket closes the overall array (Example 4.1).
 
 ###### Example 4.1: Incorrect syntax in _main.js_
 
@@ -745,7 +745,7 @@ The results (Figure 4.4):
 
 ###### Figure 4.4: The console showing the executed statement
 
-Next, is the problem with the code in the loop or the loop itself? To see if the loop is executing, move the `console.log` statement to the first order of business within the loop (Example 4.3):
+Next, is the problem with the code in the loop or the loop itself? To see if the loop is executing, move the `console.log` statement to the first order of business within the loop (Example 4.4):
 
 ###### Example 4.4: Move the `console.log` statement inside the loop in _main.js_
 
@@ -775,7 +775,7 @@ Aha! The loop is _not_ executing at all. So let's look at the opening statement 
         for (var i = 0; i < cities.length; i++){
 
 
-Look carefully at every character in the line for errors with the syntax. There are none (plus the console didn't show a syntax error), so let's look at the variables. The only variable that is not defined within the statement is `cities`. Let's check this variable with a `console.log` statement just above the loop (Example 4.8).
+Look carefully at every character in the line for errors with the syntax. There are none (plus the console didn't show a syntax error), so let's look at the variables. The only variable that is not defined within the statement is `cities`. Let's check this variable with a `console.log` statement just above the loop (Example 4.6).
 
 ###### Example 4.6: Checking if `cities` is defined in _main.js_
 
@@ -847,7 +847,7 @@ I simply forgot to change the name of the variable `cities` to `cityPop` in the 
         for (var i = 0; i < cityPop.length; i++){
             //assign longer html strings to a variable
             var rowHtml = "<tr><td>" + cityPop[i].city + "</td><td>" + cityPop[i].population + "</td></tr>";
-            //add the row's html string to the table
+            //add the rows html string to the table
             table.insertAdjacentHTML('beforeend',rowHtml);
         };
 
