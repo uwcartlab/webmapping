@@ -7,7 +7,7 @@ Chapter 3 is all about data, inching us one step closer to making your first int
 
 *   In Lesson 1, we introduce common web data formats and their geospatial variants.
 *   In Lesson 2, we introduce AJAX (Asynchronous JavaScript and XML) and Fetch, or the strategy used to load data dynamically into the browser, enabling interactivity with maps and visualizations.
-*   In Lesson 3, we demonstrate how to employ Fetch Requests through callback functions.
+*   In Lesson 3, we demonstrate how to employ Fetch requests through callback functions.
 
 After this chapter, you should be able to:
 
