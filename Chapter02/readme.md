@@ -3,7 +3,7 @@
 Chapter 2: Scripting and Debugging
 =================================
 
-Congratulations on your first successful chapter of Web Mapping! You now have created your first GitHub repo (Activity 1) and completed foundational tutorials for developing on the Open Web (Activity 2). Chapter 2 includes four lab lessons and ends with Activity 3, a debugging exercise to test your knowledge on JavaScript.
+Congratulations on completing your first successful chapter of Web Mapping! You now have created your first GitHub repo (Activity 1) and completed foundational tutorials for developing on the Open Web (Activity 2). Chapter 2 includes four lab lessons and ends with Activity 3, a debugging exercise to test your knowledge on JavaScript.
 
 *   In Lesson 1, we review the Document Object Model (DOM) and the ways that browsers interpret content on the web.
 *   In Lesson 2, we review JavaScript basics, including syntax rules for variables, functions, and the flow of execution. Lessons 1 and 2 are largely review from the Codecademy tutorials.
@@ -88,7 +88,7 @@ Let's build a simple example to explore the logic of JavaScript (Example 2.1).
 
 In Example 2.1, you are accessing and manipulating `mydiv` using JavaScript rather than hard-coding the div content using HTML.
 
-> ### **Open the HTML boilerplate directory in Prepros and preview _index.html_ in a browser. You should see "Hello World" printed into your div both in the webpage and in the DOM using the inspector (Figure 2.1).**
+> ### **Open the HTML boilerplate directory in Prepros and preview _index.html_ in a browser. You should see "Hello World" printed into your `<div>` both in the webpage and in the DOM using the inspector (Figure 2.1).**
 
 ![figure2.2.1.png](img/figure2.2.1.png)
 
@@ -98,20 +98,20 @@ It is best practice is to load any scripts _after_ the rest of the HTML document
 
 ###### Example 2.2: Using `<window.onload>` in _main.js_
 
-    function myfunc(){
+    function myFunc(){
         var mydiv = document.getElementById("mydiv");
         mydiv.innerHTML = "Hello World.";
     };
     
-    window.onload = myfunc();
+    window.onload = myFunc();
 
 Unlike other programming languages, JavaScript is not picky about the order of functions and function calls. Nonetheless, it is standard practice to call `window.onload` last so the interpreter reads through everything once before reaching it.
 
 > ### **Revise _main.js_ to use the `window.onload` method.**
 
-Note that the code is neatly indented, similar to the nested structure of our HTML document. Everything within the `myfunc()` function is indented an extra tab to show that it is contained by the function. Again, while indentation is not required, keeping your code tidy makes it much more readable and easier to debug. JavaScript interprets either a semicolon or a line break as the end of a statement, but it is good to get in the habit of using semicolons so that if you ever minify your code (compress it to a single, continuous line without comments), you will not have to go back through and add the semicolons.
+Note that the code is neatly indented, similar to the nested structure of our HTML document. Everything within the `myFunc()` function is indented an extra tab to show that it is contained by the function. Again, while indentation is not required, keeping your code tidy makes it much more readable and easier to debug. JavaScript interprets either a semicolon or a line break as the end of a statement, but it is good to get in the habit of using semicolons so that if you ever minify your code (compress it to a single, continuous line without comments), you will not have to go back through and add the semicolons.
 
-A **method** is a function association with a particular object. In most cases, this is a built-in function that you can use in your code, though you can also write your own. Later on, you will use programming libraries like Leaflet and D3, each of which has their own set of unique methods. For now, JavaScript has a number of native methods for manipulating the DOM, all accessed through the `document` object. Rather than introducing them all one-by-one, we slowly introduce these methods by example in the chapter lessons. Our focus instead is on following the computational logic when calling these methods. Carefully read through and consider the Example 2.3 script:
+A **method** is a function association with a particular object. In most cases, this is a built-in function that you can use in your code, though you also can write your own. Later on, you will use web mapping libraries like Leaflet and D3, each of which has their own set of unique methods. For now, JavaScript has a number of native methods for manipulating the DOM, all accessed through the `document` object. Rather than introducing them all one-by-one, we slowly introduce these methods by example in the chapter lessons. Our focus instead is on following the computational logic when calling these methods. Carefully read through and consider the Example 2.3 script:
 
 ###### Example 2.3: Creating an HTML table using JavaScript in _main.js_
 
@@ -179,13 +179,13 @@ A **method** is a function association with a particular object. In most cases, 
     window.onload = initialize();
 
 
-If you add this code into _main.js_ and reload _index.html_ in the browser using Prepros, you should now see a neat little table on the webpage and in the DOM (Figure 2.2)
+If you add this code into _main.js_ and reload _index.html_ in the browser using Prepros or other local development server, you should now see a neat little table on the webpage and in the DOM (Figure 2.2)
 
 ![figure2.2.2.png](img/figure2.2.2.png)
 
 ###### Figure 2.2: An HTML table on the page and in the DOM created using JavaScript
 
-> ### **Create an HTML table in _main.js._ Practice mentally stepping through the script above until you are sure you understand the operations it performs and the order in which it performs them. Example 2.3 is available for reference, also in _Chapter02_.** 
+> ### **Create an HTML table in _main.js._ Practice mentally stepping through the script above until you are sure you understand the operations it performs and the order in which it performs them. Example 2.3 is available for reference, also included in the _Chapter02_ repo.** 
 
 ### II. Arrays and Objects
 
@@ -270,7 +270,7 @@ You also can create the array of objects using longform syntax, defining each ob
         cityPop.push(superior);
 
 
-When would you use this longform syntax? It is not necessary here, but you might imagine a case where you wanted to dynamically populate an array—that is, add objects to it at different points in the flow of execution. You might also want to add a new property or change some property of an object some time after the object was created.
+When would you use this longform syntax? It is not necessary here, but you might imagine a case where you wanted to dynamically populate an array at different points in the flow of execution. You might also want to add a new property or change some property of an object some time after the object was created.
 
 Keep in mind that JavaScript is <ins>_**case sensitive**_</ins>, so consistent capitalization is important! If you define a variable as `superior` and then call it as `Superior`, the interpreter will not recognize the variable when you call it. It is standard practice to write variable names using **_camelCase_**, or a lowercase first letter and uppercase for any subsequent letter that begins a separate word (for instance, `greenBay`). You <ins>**_cannot use spaces_**</ins> in variable names. You can include spaces for a string object (any collection of characters surrounded by single or double quotes, such as `'Green Bay'`), although special characters (such as a quotation mark) require a leading escape `\` character. Numerical values are assigned to variables without using quotes (quotes would turn them into strings) and cannot be interrupted by any non-numerical characters (such as a comma), except for a single period, which is used as a decimal point.
 
@@ -397,16 +397,16 @@ Lesson 3: Simplified DOM Manipulation
 
 As you can see from the previous lesson, you need quite a bit of JavaScript code to make just one tiny table! While JavaScript works great for computational logic, it can a bit clunky when picking HTML elements out of the DOM and manipulating them. Therefore, it is useful to be aware of best practice workarounds that make manipulating the DOM easier. 
 
-As seen in Example 2.1, the `getElementById()` method was used to select the `mydiv` element in order to append the table to it. JavaScript uses a **_selector_** to find the element or elements you want to manipulate. In the case above, we gave our `<div>` an `id` attribute, which we can acess using the `getElementById()` method. If we had assigned a class, we could have used `getElementsByClassName()`. These methods, however, are a bit cumbersome. Instead, we can use the `querySelector()` method (Example 3.1). 
+As seen in Example 2.1, the `getElementById()` method was used to select the `myDiv` element in order to append the table to it. JavaScript uses a **_selector_** to find the element or elements you want to manipulate. In the case above, we gave our `<div>` an `id` attribute, which we can acess using the `getElementById()` method. If we had assigned a class, we could have used `getElementsByClassName()`. These methods, however, are a bit cumbersome. Instead, we can use the `querySelector()` method (Example 3.1). 
 
 ###### Example 3.1: Updating Example 2.1 to select an HTML element with `querySelector()`
 
-    var mydiv = document.querySelector("#mydiv");
-    mydiv.appendChild(table);
+    var myDiv = document.querySelector("#myDiv");
+    myDiv.appendChild(table);
 
-Using `querySelector()`, we can access our `<div>` using pound `#` sign, just like in CSS. If there are multiple elements we want to access, we can use the `querySelectorAll()` method, which returns all objects which meet the selection criteria. If we had assigned a `class` attribute to the `<div>`, we can access it with a `.`, as in `'.mydiv'`. You also can select all elements of a particular tag in the document by using just the tag name with no prefix character, such as `querySelectorAll('div')` to select all div elements.
+Using `querySelector()`, we can access our `<div>` using pound `#` sign, just like in CSS. If there are multiple elements we want to access, we can use the `querySelectorAll()` method, which returns all objects that meet the selection criteria. If we had assigned a `class` attribute to the `<div>`, we can access it with a `.`, as in `'.myDiv'`. You also can select all elements of a particular tag in the document by using just the tag name with no prefix character, such as `querySelectorAll('div')` to select all `<div>` elements.
 
-Note that the selector <ins>**_must be in quotes_**</ins> (single or double) unless it is a variable that holds the string value of the attribute used for the selection. It is good to get in the habit of naming any HTML elements with `id` and/or `class` attributes that you subsequently might want to manipulate in your script or your CSS stylesheet. Keep in mind that each unique `id` value should be used for only one element in the document, whereas `class` is meant to be used to give the same identifier to multiple elements.
+Note that the selector <ins>**_must be in quotes_**</ins> (single or double) unless it is a variable that holds the string value of the attribute used for the selection. It is good to get in the habit of naming any HTML elements that you subsequently might want to manipulate in your script or your CSS stylesheet with `id` and/or `class` attributes. Keep in mind that each unique `id` value should be used for only one element in the document, whereas `class` is meant to be used to give the same identifier to multiple elements.
 
 > ### Replace all instances of `getElementById()` with `querySelector()`.**
 
@@ -416,19 +416,19 @@ The `querySelector()` method is somewhat unique in that it supports **_method ch
 
 ###### Example 3.2: Updating Example 3.1 using method chaining with dot syntax in _main.js_
 
-	document.querySelector("#mydiv").insertAdjacentHTML('beforeend',"Hello World!");
+	document.querySelector("#myDiv").insertAdjacentHTML('beforeend',"Hello World!");
 
-The first part of the Example 3.2 method chain is the `document.querySelector()` from Example 3.1, which selects the HTML `<div>` with the id attribute `'mydiv'` and returns it to the script for manipulation. The second method, `insertAdjacentHTML()`, has two parameters: one is the position, which we will set as `beforeend` to insert the HTML as the last child of the selected element, while the other is the HTML string you wish to insert. The method chain above is functionally equivalent to Example 2.1 and Example 3.1 above, inserting the text 'Hello World' at the bottom of the `<div>` (thus, `'beforeend'`), but uses less code. 
+The first part of the Example 3.2 method chain is the `document.querySelector()` from Example 3.1, which selects the HTML `<div>` with the id attribute `'myDiv'` and returns it to the script for manipulation. The second method, `insertAdjacentHTML()`, has two parameters: one is the position, which we will set as `beforeend` to insert the HTML as the last child of the selected element, while the other is the HTML string you wish to insert. The method chain above is functionally equivalent to Example 2.1 and Example 3.1 above, inserting the text 'Hello World' at the bottom of the `<div>` (thus, `'beforeend'`), but uses less code. 
 
-Similarly, we can use a slightly modified method chain to append our table to the `mydiv` element from Example 2.3 (Example 3.3). 
+Similarly, we can use a slightly modified method chain to append our table to the `myDiv` element from Example 2.3 (Example 3.3). 
 
-###### Example 3.3: Updating Example 2.3 using a method chain to add the table to the `mydiv` element
+###### Example 3.3: Updating Example 2.3 using a method chain to add the table to the `myDiv` element
 
-    document.querySelector("#mydiv").appendChild(table);
+    document.querySelector("#myDiv").appendChild(table);
 
 Note the `querySelectorAll` method only supports method chaining with methods that accept arrays, such a `forEach()` loop (see Example 3.7).
 
-> ### **Use method chaining to add your table to the `mydiv` element**
+> ### **Use method chaining to add your table to the `myDiv` element.**
 
 ### III. Manipulating Elements
 
@@ -484,18 +484,18 @@ Looking back to Example 2.3, we used a series of methods to add new rows to the 
             table.insertAdjacentHTML('beforeend',rowHtml);
         })
 
-        document.querySelector("#mydiv").appendChild(table);
+        document.querySelector("#myDiv").appendChild(table);
     }
 
     document.addEventListener('DOMContentLoaded',initialize)
 
 Compare the (much shorter) script in Example 3.4 to our original script in Example 2.3. Note that the strategy for adding elements to the webpage has changed. In the original Example 2.3 script, we first created each element, then added the content to the element. 
 
-Continuing with the Example 3.4 code, we append the full HTML string of the header cells directly to the header row. This is just like writing HTML code within _index.html_, except that it is contained within a string and you need not worry about the formatting. Within the loop, we again append an HTML string, this time representing the full row. Instead of hard coding our HTML string  as a parameter of the `.insertAdjacentHTML()` method, we first assign it to the variable `rowHtml`. This keeps the code tidier by avoiding a line of script so long that it bleeds off the page (although sometimes this is simply unavoidable). We form the HTML string by concatenating strings of the proper HTML tags with the `cityPop[i].city` and `cityPop[i].population` properties, looping through the `cityPop` array until there are no more objects to append as rows to the table.
+Continuing with the Example 3.4 code, we append the full HTML string of the header cells directly to the header row. This is just like writing HTML code within _index.html_, except that it is contained within a string and you need not worry about the formatting. Within the loop, we again append an HTML string, this time representing the full row. Instead of hard coding our HTML string as a parameter of the `.insertAdjacentHTML()` method, we first assign it to the variable `rowHtml`. This keeps the code tidier by avoiding a line of script so long that it bleeds off the page (although sometimes this is unavoidable). We form the HTML string by concatenating strings of the proper HTML tags with the `cityPop[i].city` and `cityPop[i].population` properties, looping through the `cityPop` array until there are no more objects to append as rows to the table.
 
 At the bottom of the script, we replace `window.onload = intialize()` with `document.addEventListener('DOMContentLoaded',initialize)`. This will execute the script as soon as the DOM is prepared, before all images and frames are loaded, making the loading of the site faster. The `addEventListener` function itself is covered in more detail in the next section.
 
-When writing and concatenating HTML strings, make sure that you add all of the proper closing tags to your elements in the correct order. Unclosed elements may result in a DOM structure you did not anticipate, with odd formatting results. Figure 3.1 visualizes how the HTML elements in your table are organized in the DOM tree.
+When writing and concatenating HTML strings, make sure that you add all of the proper closing tags to your elements in the correct order. Unclosed elements may result in a DOM structure you did not anticipate, with odd formatting as a result. Figure 3.1 visualizes how the HTML elements in your table are organized in the DOM tree.
 
 ![figure2.3.1.png](img/figure2.3.1.png)
 
@@ -515,13 +515,13 @@ You will use many more JavaScript methods as you develop your lab projects. All 
 
         //Added at Example 3.5 line 44...
         //get the div id
-        var theid = document.querySelector('#mydiv').getAttribute('id');
+        var theid = document.querySelector('#myDiv').getAttribute('id');
 
-        //theid is 'mydiv'; add it as text to the div
-        document.querySelector('#mydiv').insertAdjacentHTML('beforeend',theid);
+        //theid is 'myDiv'; add it as text to the div
+        document.querySelector('#myDiv').insertAdjacentHTML('beforeend',theid);
 
         //add the class 'foo' to the div
-        document.querySelector('#mydiv').setAttribute('class', 'foo');
+        document.querySelector('#myDiv').setAttribute('class', 'foo');
 
         //Check your work with the Inspector!
 
@@ -529,15 +529,15 @@ You will use many more JavaScript methods as you develop your lab projects. All 
 
 ###### Example 3.6: Set Class and ID by changing object properties.
         //get the div id
-        var theid = document.querySelector('#mydiv').id;
+        var theid = document.querySelector('#myDiv').id;
         
         //set the id to newdiv
-        document.querySelector('#mydiv').id = "newdiv";
+        document.querySelector('#myDiv').id = "newdiv";
 
         //set the class 
-        document.querySelector('#mydiv').className = "foo";
+        document.querySelector('#myDiv').className = "foo";
 
-In Example 3.6, we access the `'mydiv'` element, select the `id` property, and assign it to a variable. That variable will now have a value of `'mydiv'`. We also can assign a new `id` value. We follow similar steps to set the `class`, though note that in JavaScript, `className` is used to set `class`. This is just one of the many quirks of the language! In general, this technique is preferred to `setAttribute()`, but depending on the project you may end up using a bit of both. You also can use this approach to access any HTML attribute, such as `src` for images or scripts, or `href` for links.
+In Example 3.6, we access the `'myDiv'` element, select the `id` property, and assign it to a variable. That variable will now have a value of `'myDiv'`. We also can assign a new `id` value. We follow similar steps to set the `class`, though note that in JavaScript, `className` is used to set `class`. This is just one of the many quirks of the language! In general, this technique is preferred to `setAttribute()`, but depending on the project you may end up using a bit of both. You also can use this approach to access any HTML attribute, such as `src` for images or scripts, or `href` for links.
 
 _**[.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)**_: This is the same `forEach()` method used in Example 2.6, only with a slightly different use case: looping multiple elements selected with `querySelectorAll`. This is useful if you need to use individual attribute values of each element or need to assign different values to each element using imported data (Example 3.7).
 
@@ -547,10 +547,10 @@ _**[.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
         //iterate over each script element and add each one's source url as text to the div
         document.querySelectorAll("script").forEach(function(selectedScript){
             var thesource = selectedScript.src;
-            document.querySelector('#mydiv').insertAdjacentHTML('beforeend',thesource);
+            document.querySelector('#myDiv').insertAdjacentHTML('beforeend',thesource);
         })
 
-**_[.addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)_** and _**[.removeEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)**_: These are _**event listener**_ methods that apply actions or behaviors based on user- or system-driven events. `.addEventListener()` usually takes two parameters: the name of the event (such as `'click'`, `'mouseover'`, `'mouseout'`, etc.), and an _**event handler**_ function that executes when the event occurs (Example 3.8). `.removeEventListener()` predictably does the opposite of `.addEventListener()`, although you need to provide _exactly the same_ event name and handler function to actually remove the event listener from the element. Thus, while you can provide either method an anonymous function as the second parameter, if you wish to remove the listener it is best to define this function separately and pass the function name to the `.addEventListener()` and `.removeEventListener()` methods (Example 3.8). 
+**_[.addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)_** and _**[.removeEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)**_: These are _**event listener**_ methods that apply actions or behaviors based on user- or system-driven events. `.addEventListener()` usually takes two parameters: the name of the event (such as `'click'`, `'mouseover'`, `'mouseout'`, etc.), and an _**event handler**_ function that executes when the event occurs (Example 3.8). `.removeEventListener()` predictably does the opposite of `.addEventListener()`, although you need to provide _exactly the same_ event name and handler function to actually remove the event listener from the element. Thus, while you can provide either method an anonymous function as the second parameter, it is best to define this function separately if you wish to remove the listener, passing the function name to the `.addEventListener()` and `.removeEventListener()` methods (Example 3.8). 
 
 ###### Example 3.8: Using `.addEventListener()` in _main.js_
 
@@ -575,7 +575,7 @@ _**[.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 
 ###### Example 3.9: Changing the style attribute of a selected element
     //change the text color
-    document.querySelector('#mydiv').style.color = 'red';
+    document.querySelector('#myDiv').style.color = 'red';
 
 The `.style` property accesses the styles of the element, and `.color` selects the specific CSS `color` property, which we set to `red`. We can do this for any CSS property, but note certain differences in notation between CSS and JS. For example, CSS properties that contain dashes, such as `background-color`, are written in JavaScript as `backgroundColor`. A full list of CSS properties along with their JavaScript translations, can be found in the [documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference).
 
@@ -585,15 +585,15 @@ This technique is useful for changing element styles dynamically. It will, howev
 
         //Added below Example 3.6...
         //change the text color
-        document.querySelector('#mydiv').style.color = 'red';
+        document.querySelector('#myDiv').style.color = 'red';
     
         //change the text size and alignment
-        document.querySelector('#mydiv').style.fontSize = '2em';
-        document.querySelector('#mydiv').style.textAlign = 'left';
+        document.querySelector('#myDiv').style.fontSize = '2em';
+        document.querySelector('#myDiv').style.textAlign = 'left';
 
         //get the text color and add it as text to the div
-        var thecolor = document.querySelector('#mydiv').style.color;
-        document.querySelector('#mydiv').insertAdjacentHTML('beforeend',thecolor);
+        var thecolor = document.querySelector('#myDiv').style.color;
+        document.querySelector('#myDiv').insertAdjacentHTML('beforeend',thecolor);
 
 > ### **Use the above techinques for attribute and style manipulation as well as the `addEventListener()` method to add properties and events to the HTML elements on your webpage.**
 
@@ -649,7 +649,6 @@ The error statement identifies line 25 of your _main.js_ file, where there may b
             population: 27244
     ]; //this is line 25 of Example 3.4
 
-
 Similarly, perhaps you have an undefined variable that you try to manipulate through JavaScript in the code. The console will display a reference error, noting the particular variable (Figure 4.2).
 
 ![figure2.4.2.png](img/figure2.4.2.png)
@@ -660,13 +659,13 @@ There are multiple reasons a variable could be undefined, but a very common caus
 
 ### III. Console.log
 
-What about an error that causes your script to fail silently? For instance, while I was tinkering with the example script for this lesson, I was able to generate a table with just the headers and no errors in the console (Figure 4.3):
+What about an error that causes your script to fail silently? For instance, while we were tinkering with the example script for this lesson, we was able to generate a table with just the headers and no errors in the console (Figure 4.3):
 
 ![figure2.4.3.png](img/figure2.4.3.png)
 
 ###### Figure 4.3: There's no table, Jim
 
-Example 4.2 shows my original script producing this silent error.
+Example 4.2 shows the original script producing this silent error.
 
 ###### Example 4.2: The _main.js_ script drawing an incomplete table without a console error
 
@@ -716,13 +715,13 @@ Example 4.2 shows my original script producing this silent error.
             table.insertAdjacentHTML('beforeend',rowHtml);
         })
 
-        document.querySelector("#mydiv").appendChild(table);
+        document.querySelector("#myDiv").appendChild(table);
     }
     
     //call the initialize function when the DOM has loaded
     document.addEventListener('DOMContentLoaded',initialize)
 
-Can you see the problem? I did not. I could tell from preview that my header row was drawing correctly, but it was as though my loop did not exist. There were a few things that could be going on, so I needed to use a process of elimination to test for different issues. This is where `console.log` comes in handy. This native JavaScript method prints whatever you want to the console, allowing you to make visible what is going on in the script.
+Can you see the problem? We did not. We could tell from preview that the header row was drawing correctly, but it was as though my loop did not exist. There were a few things that could be going on, so we needed to use a process of elimination to test for different issues. This is where `console.log` comes in handy. This native JavaScript method prints whatever you want to the console, allowing you to make visible what is going on in the script.
 
 Let's debug! First, we can see whether the script is stopping for some reason before it reaches the loop. To do this, we can add a simple `console.log` statement just before the loop to see if it will execute (Example 4.3):
 
@@ -775,7 +774,7 @@ Aha! The loop is _not_ executing at all. So let's look at the opening statement 
         for (var i = 0; i < cities.length; i++){
 
 
-Look carefully at every character in the line for errors with the syntax. There are none (plus the console didn't show a syntax error), so let's look at the variables. The only variable that is not defined within the statement is `cities`. Let's check this variable with a `console.log` statement just above the loop (Example 4.6).
+Look carefully at every character in the line for errors with the syntax. There are none (plus the console did not show a syntax error), so let's look at the variables. The only variable that is not defined within the statement is `cities`. Let's check this variable with a `console.log` statement just above the loop (Example 4.6).
 
 ###### Example 4.6: Checking if `cities` is defined in _main.js_
 
@@ -796,7 +795,7 @@ Notice in the Console that `cities` is a function, not a variable! Thus it is de
 
 ###### Figure 4.7: The Debugger tab showing where `cities()` is defined
 
-Why then did I use `cities` in my loop? Remember back to our _very first script_, when we were using two arrays for our data instead of an array of objects (Example 4.7).
+Why then did we use `cities` in my loop? Remember back to our _very first script_, when we were using two arrays for our data instead of an array of objects (Example 4.7).
 
 ###### Example 4.7: Contrasting the former and current array structures in _main.js_
 
@@ -839,7 +838,7 @@ Why then did I use `cities` in my loop? Remember back to our _very first script_
         ];
 
 
-I simply forgot to change the name of the variable `cities` to `cityPop` in the loop when I changed the structure of my data. Since both the original `cities` variable and the new `cityPop` variable hold arrays of the same length (4, the number of cities in our data), they should work the same way in a loop statement. We can now fix the loop statement (Example 4.8):
+We simply forgot to change the name of the variable `cities` to `cityPop` in the loop when changing the data structure. Since both the original `cities` variable and the new `cityPop` variable hold arrays of the same length (4, the number of cities in our data), they should work the same way in a loop statement. We can now fix the loop statement (Example 4.8):
 
 ###### Example 4.8: Rectifying the incorrectly referenced variable in _main.js_
 
