@@ -408,7 +408,7 @@ Using `querySelector()`, we can access our `<div>` using pound `#` sign, just li
 
 Note that the selector <ins>**_must be in quotes_**</ins> (single or double) unless it is a variable that holds the string value of the attribute used for the selection. It is good to get in the habit of naming any HTML elements with `id` and/or `class` attributes that you subsequently might want to manipulate in your script or your CSS stylesheet. Keep in mind that each unique `id` value should be used for only one element in the document, whereas `class` is meant to be used to give the same identifier to multiple elements.
 
-> ### Replace all instances `getElementById()` with `querySelector()`.**
+> ### Replace all instances of `getElementById()` with `querySelector()`.**
 
 ### II. Method Chaining
 
