@@ -536,7 +536,7 @@ You will use many more JavaScript methods as you develop your lab projects. All 
         document.querySelector('#myDiv').id = "newdiv";
 
         //set the class 
-        document.querySelector('#myDiv').className = "foo";
+        document.querySelector('#newDiv').className = "foo";
 
 In Example 3.6, we access the `'myDiv'` element, select the `id` property, and assign it to a variable. That variable will now have a value of `'myDiv'`. We also can assign a new `id` value. We follow similar steps to set the `class`, though note that in JavaScript, `className` is used to set `class`. This is just one of the many quirks of the language! In general, this technique is preferred to `setAttribute()`, but depending on the project you may end up using a bit of both. You also can use this approach to access any HTML attribute, such as `src` for images or scripts, or `href` for links.
 
