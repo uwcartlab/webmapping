@@ -233,6 +233,7 @@ Example 2.3 uses two arrays `cities` and `population` to hold the city names ve
     
             table.appendChild(tr);
         };
+    }
 
 
 This format has the advantage of explicitly associating each city with its population as two properties of the same object, rather than simply relying on the order of elements in the arrays to associate them, which easily could have an off-by-one error with a missing or misplaced comma, or otherwise omitted value.
