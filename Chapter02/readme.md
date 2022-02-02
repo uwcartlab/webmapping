@@ -462,7 +462,7 @@ Looking back to Example 2.3, we used a series of methods to add new rows to the 
         {
             city: 'Superior',
             population: 27244
-        }
+        }]
     
         //create the table element
         var table = document.createElement("table");
@@ -477,12 +477,12 @@ Looking back to Example 2.3, we used a series of methods to add new rows to the 
         table.appendChild(headerRow);
 
         //loop to add a new row for each city
-        for(var i = 0; i < cityPop.length; i++)){
+        for(var i = 0; i < cityPop.length; i++){
             //assign longer html strings to a variable
             var rowHtml = "<tr><td>" + cityPop[i].city + "</td><td>" + cityPop[i].population + "</td></tr>";
             //add the row's html string to the table
             table.insertAdjacentHTML('beforeend',rowHtml);
-        })
+        }
 
         document.querySelector("#myDiv").appendChild(table);
     }
