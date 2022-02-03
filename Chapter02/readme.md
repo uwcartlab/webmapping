@@ -83,8 +83,8 @@ Let's build a simple example to explore the logic of JavaScript (Example 2.1).
 
 ###### Example 2.1: Accessing the `<div>` element through JavaScript in _main.js_
 
-    var mydiv = document.getElementById("mydiv");
-    mydiv.innerHTML = "Hello World";
+    var myDiv =  document.getElementById("mydiv");
+    myDiv.innerHTML = "Hello World";
 
 In Example 2.1, you are accessing and manipulating `mydiv` using JavaScript rather than hard-coding the div content using HTML.
 
@@ -99,8 +99,8 @@ It is best practice is to load any scripts _after_ the rest of the HTML document
 ###### Example 2.2: Using `<window.onload>` in _main.js_
 
     function myFunc(){
-        var mydiv = document.getElementById("mydiv");
-        mydiv.innerHTML = "Hello World.";
+        var myDiv =  document.getElementById("mydiv");
+        myDiv.innerHTML = "Hello World.";
     };
     
     window.onload = myFunc();
@@ -171,8 +171,8 @@ A **method** is a function association with a particular object. In most cases, 
         };
     
         //add the table to the div in index.html
-        var mydiv = document.getElementById("mydiv");
-        mydiv.appendChild(table);
+        var myDiv =  document.getElementById("mydiv");
+        myDiv.appendChild(table);
     };
     
     //call the initialize function when the window has loaded
@@ -398,11 +398,11 @@ Lesson 3: Simplified DOM Manipulation
 
 As you can see from the previous lesson, you need quite a bit of JavaScript code to make just one tiny table! While JavaScript works great for computational logic, it can a bit clunky when picking HTML elements out of the DOM and manipulating them. Therefore, it is useful to be aware of best practice workarounds that make manipulating the DOM easier. 
 
-As seen in Example 2.1, the `getElementById()` method was used to select the `myDiv` element in order to append the table to it. JavaScript uses a **_selector_** to find the element or elements you want to manipulate. In the case above, we gave our `<div>` an `id` attribute, which we can acess using the `getElementById()` method. If we had assigned a class, we could have used `getElementsByClassName()`. These methods, however, are a bit cumbersome. Instead, we can use the `querySelector()` method (Example 3.1). 
+As seen in Example 2.1, the `getElementById()` method was used to select the `mydiv` element in order to append the table to it. JavaScript uses a **_selector_** to find the element or elements you want to manipulate. In the case above, we gave our `<div>` an `id` attribute, which we can acess using the `getElementById()` method. If we had assigned a class, we could have used `getElementsByClassName()`. These methods, however, are a bit cumbersome. Instead, we can use the `querySelector()` method (Example 3.1). 
 
 ###### Example 3.1: Updating Example 2.1 to select an HTML element with `querySelector()`
 
-    var myDiv = document.querySelector("#myDiv");
+    var myDiv =  document.querySelector("#mydiv");
     myDiv.appendChild(table);
 
 Using `querySelector()`, we can access our `<div>` using pound `#` sign, just like in CSS. If there are multiple elements we want to access, we can use the `querySelectorAll()` method, which returns all objects that meet the selection criteria. If we had assigned a `class` attribute to the `<div>`, we can access it with a `.`, as in `'.myDiv'`. You also can select all elements of a particular tag in the document by using just the tag name with no prefix character, such as `querySelectorAll('div')` to select all `<div>` elements.
@@ -417,19 +417,19 @@ The `querySelector()` method is somewhat unique in that it supports **_method ch
 
 ###### Example 3.2: Updating Example 3.1 using method chaining with dot syntax in _main.js_
 
-	document.querySelector("#myDiv").insertAdjacentHTML('beforeend',"Hello World!");
+	document.querySelector("#mydiv").insertAdjacentHTML('beforeend',"Hello World!");
 
-The first part of the Example 3.2 method chain is the `document.querySelector()` from Example 3.1, which selects the HTML `<div>` with the id attribute `'myDiv'` and returns it to the script for manipulation. The second method, `insertAdjacentHTML()`, has two parameters: one is the position, which we will set as `beforeend` to insert the HTML as the last child of the selected element, while the other is the HTML string you wish to insert. The method chain above is functionally equivalent to Example 2.1 and Example 3.1 above, inserting the text 'Hello World' at the bottom of the `<div>` (thus, `'beforeend'`), but uses less code. 
+The first part of the Example 3.2 method chain is the `document.querySelector()` from Example 3.1, which selects the HTML `<div>` with the id attribute `'mydiv;` and returns it to the script for manipulation. The second method, `insertAdjacentHTML()`, has two parameters: one is the position, which we will set as `beforeend` to insert the HTML as the last child of the selected element, while the other is the HTML string you wish to insert. The method chain above is functionally equivalent to Example 2.1 and Example 3.1 above, inserting the text 'Hello World' at the bottom of the `<div>` (thus, `'beforeend'`), but uses less code. 
 
-Similarly, we can use a slightly modified method chain to append our table to the `myDiv` element from Example 2.3 (Example 3.3). 
+Similarly, we can use a slightly modified method chain to append our table to the `mydiv` element from Example 2.3 (Example 3.3). 
 
-###### Example 3.3: Updating Example 2.3 using a method chain to add the table to the `myDiv` element
+###### Example 3.3: Updating Example 2.3 using a method chain to add the table to the `mydiv` element
 
-    document.querySelector("#myDiv").appendChild(table);
+    document.querySelector("#mydiv").appendChild(table);
 
 Note the `querySelectorAll` method only supports method chaining with methods that accept arrays, such a `forEach()` loop (see Example 3.7).
 
-> ### **Use method chaining to add your table to the `myDiv` element.**
+> ### **Use method chaining to add your table to the `mydiv` element.**
 
 ### III. Manipulating Elements
 
@@ -485,7 +485,7 @@ Looking back to Example 2.3, we used a series of methods to add new rows to the 
             table.insertAdjacentHTML('beforeend',rowHtml);
         }
 
-        document.querySelector("#myDiv").appendChild(table);
+        document.querySelector("#mydiv").appendChild(table);
     }
 
     document.addEventListener('DOMContentLoaded',initialize)
@@ -516,13 +516,13 @@ You will use many more JavaScript methods as you develop your lab projects. All 
 
         //Added at Example 3.5 line 44...
         //get the div id
-        var theid = document.querySelector('#myDiv').getAttribute('id');
+        var theid = document.querySelector('#mydiv').getAttribute('id');
 
-        //theid is 'myDiv'; add it as text to the div
-        document.querySelector('#myDiv').insertAdjacentHTML('beforeend',theid);
+        //theid is 'mydiv;; add it as text to the div
+        document.querySelector('#mydiv').insertAdjacentHTML('beforeend',theid);
 
         //add the class 'foo' to the div
-        document.querySelector('#myDiv').setAttribute('class', 'foo');
+        document.querySelector('#mydiv').setAttribute('class', 'foo');
 
         //Check your work with the Inspector!
 
@@ -530,15 +530,15 @@ You will use many more JavaScript methods as you develop your lab projects. All 
 
 ###### Example 3.6: Set Class and ID by changing object properties.
         //get the div id
-        var theid = document.querySelector('#myDiv').id;
+        var theid = document.querySelector('#mydiv').id;
         
         //set the id to newdiv
-        document.querySelector('#myDiv').id = "newdiv";
+        document.querySelector('#mydiv').id = "newdiv";
 
         //set the class 
         document.querySelector('#newDiv').className = "foo";
 
-In Example 3.6, we access the `'myDiv'` element, select the `id` property, and assign it to a variable. That variable will now have a value of `'myDiv'`. We also can assign a new `id` value. We follow similar steps to set the `class`, though note that in JavaScript, `className` is used to set `class`. This is just one of the many quirks of the language! In general, this technique is preferred to `setAttribute()`, but depending on the project you may end up using a bit of both. You also can use this approach to access any HTML attribute, such as `src` for images or scripts, or `href` for links.
+In Example 3.6, we access the `'mydiv;` element, select the `id` property, and assign it to a variable. That variable will now have a value of `'mydiv;`. We also can assign a new `id` value. We follow similar steps to set the `class`, though note that in JavaScript, `className` is used to set `class`. This is just one of the many quirks of the language! In general, this technique is preferred to `setAttribute()`, but depending on the project you may end up using a bit of both. You also can use this approach to access any HTML attribute, such as `src` for images or scripts, or `href` for links.
 
 _**[.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)**_: This is the same `forEach()` method used in Example 2.6, only with a slightly different use case: looping multiple elements selected with `querySelectorAll`. This is useful if you need to use individual attribute values of each element or need to assign different values to each element using imported data (Example 3.7).
 
@@ -548,7 +548,7 @@ _**[.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
         //iterate over each script element and add each one's source url as text to the div
         document.querySelectorAll("script").forEach(function(selectedScript){
             var thesource = selectedScript.src;
-            document.querySelector('#myDiv').insertAdjacentHTML('beforeend',thesource);
+            document.querySelector('#mydiv').insertAdjacentHTML('beforeend',thesource);
         })
 
 **_[.addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)_** and _**[.removeEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)**_: These are _**event listener**_ methods that apply actions or behaviors based on user- or system-driven events. `.addEventListener()` usually takes two parameters: the name of the event (such as `'click'`, `'mouseover'`, `'mouseout'`, etc.), and an _**event handler**_ function that executes when the event occurs (Example 3.8). `.removeEventListener()` predictably does the opposite of `.addEventListener()`, although you need to provide _exactly the same_ event name and handler function to actually remove the event listener from the element. Thus, while you can provide either method an anonymous function as the second parameter, it is best to define this function separately if you wish to remove the listener, passing the function name to the `.addEventListener()` and `.removeEventListener()` methods (Example 3.8). 
@@ -576,7 +576,7 @@ _**[.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 
 ###### Example 3.9: Changing the style attribute of a selected element
     //change the text color
-    document.querySelector('#myDiv').style.color = 'red';
+    document.querySelector('#mydiv').style.color = 'red';
 
 The `.style` property accesses the styles of the element, and `.color` selects the specific CSS `color` property, which we set to `red`. We can do this for any CSS property, but note certain differences in notation between CSS and JS. For example, CSS properties that contain dashes, such as `background-color`, are written in JavaScript as `backgroundColor`. A full list of CSS properties along with their JavaScript translations, can be found in the [documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference).
 
@@ -586,15 +586,15 @@ This technique is useful for changing element styles dynamically. It will, howev
 
         //Added below Example 3.6...
         //change the text color
-        document.querySelector('#myDiv').style.color = 'red';
+        document.querySelector('#mydiv').style.color = 'red';
     
         //change the text size and alignment
-        document.querySelector('#myDiv').style.fontSize = '2em';
-        document.querySelector('#myDiv').style.textAlign = 'left';
+        document.querySelector('#mydiv').style.fontSize = '2em';
+        document.querySelector('#mydiv').style.textAlign = 'left';
 
         //get the text color and add it as text to the div
-        var thecolor = document.querySelector('#myDiv').style.color;
-        document.querySelector('#myDiv').insertAdjacentHTML('beforeend',thecolor);
+        var thecolor = document.querySelector('#mydiv').style.color;
+        document.querySelector('#mydiv').insertAdjacentHTML('beforeend',thecolor);
 
 > ### **Use the above techinques for attribute and style manipulation as well as the `addEventListener()` method to add properties and events to the HTML elements on your webpage.**
 
@@ -716,7 +716,7 @@ Example 4.2 shows the original script producing this silent error.
             table.insertAdjacentHTML('beforeend',rowHtml);
         })
 
-        document.querySelector("#myDiv").appendChild(table);
+        document.querySelector("#mydiv").appendChild(table);
     }
     
     //call the initialize function when the DOM has loaded
