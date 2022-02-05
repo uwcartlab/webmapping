@@ -232,7 +232,7 @@ The full `fetch()` request in Example 2.6 is awfully long, and much of it can be
 
 To start, the `request` object can be defined in the `fetch()` method itself and you do not need to specify any properties though the `init` variable since `GET` is the default (Example 2.7).
 
-###### Example 2.7: Simplified `fetch()` request in _main.js_
+###### Example 2.7: Simplifying the `fetch()` request in _main.js_
 
     //Example 2.5 line 1
     function jsAjax(){
@@ -258,7 +258,7 @@ To start, the `request` object can be defined in the `fetch()` method itself and
 
 The function for data conversion also is unnecessarily long, and can be added directly as an anynomous function to the `.then()` method (Example 2.8).
 
-###### Example 2.8: Simplified `fetch()` request with shorthand in _main.js_
+###### Example 2.8: Simplifying the `conversion()` request with shorthand in _main.js_
 
     //Example 2.7 line 1
     function jsAjax(){
