@@ -22,9 +22,9 @@ Lesson 1: (Geo)Web Data Formats
 
 **_Geospatial data_** are explicitly referenced to a coordinate system representing the Earth's surface. Geospatial data can be in a _**vector**_ (representing "objects" as combinations of coordinate nodes and arcs between nodes) or _**raster**_ (representing a "field" as a regularly-spaced lattice or grid) format. Spatial often is described as "special" because spatial topology is meaningful, with near features more likely to be similar than distant features. 
 
-Geospatial data therefore cannot be treated as simple X,Y or Cartesian coordinates, but instead need to be [projected](https://gistbok.ucgis.org/bok-topics/map-projections) onto a distorted, flat surface of the otherwise three-dimensional Earth. As we discuss later in the semester when introducing non-spatial data formats and their associated visualization techniques, the importance of coordinate systems, spatial typology, and projections makes maps perhaps the most difficult form of information visualization (i.e., _cartographers easily can design non-map visualizations, but data scientists without spatial training often struggle to make effective maps_!). 
+Geospatial data therefore cannot be treated as simple X,Y or Cartesian coordinates, but instead need to be [projected](https://gistbok.ucgis.org/bok-topics/map-projections) onto a distorted, flat surface of the otherwise three-dimensional Earth. As we discuss later in the semester when introducing non-spatial data formats and their associated visualization techniques, the importance of coordinate systems, spatial typology, and projections makes maps perhaps the most difficult form of information visualization (i.e., _cartographers typically can design non-map visualizations--directly porting what they know about map design to other visuals--but data scientists without spatial training often need to acquire additional knowledge or risk making ineffective maps_!). 
 
-When making static maps, we rely primarily on **_shapefiles_** (extension **_.shp_**), a very common geospatial format developed by Esri for its proprietary products. Shapefiles are not optimized for the web, as they comprise multiple files of different formats (e.g., .prj, .dbf), some that can be read by a text editor (and thus web browser) and others that cannot. Thus, the first step in web mapping often is converting shapefiles into a simpler web format (details below).
+When making static maps, we rely primarily on **_shapefiles_** (extension **_.shp_**), a very common geospatial format developed by Esri for its proprietary products. Shapefiles are not optimized for the web, as they comprise multiple files of different formats (e.g., .prj, .dbf), some that can be read by a text editor (and therefore web browser) and others that cannot. Thus, the first step in web mapping often is converting shapefiles into a simpler web format (details below).
 
 There are a number of options of web data formats that can be used for interactive maps. For instance, _**KML** (**Keyhold Markup Language**_) is an extension of _**XML**_ (_**eXtensible Markup Language**_) popularized by Google for its Google Earth and Google Maps APIs. While XML remains popular on the web (it is the X in AJAX, as introduced below!), contemporary web mapping is shifting to JSON-based formats (introduced below) that are more easily interpreted through the DOM. In Lesson 1, we first introduce CSV data, perhaps the simplest form of geospatial data that is acceptable for mapping vector points, and then discuss the more complex JSON-based formats used for mapping lines and polygons.
 
@@ -42,7 +42,7 @@ Say you want to tell a story about the growth of the world's largest cities. You
 
 Each geographic feature (a city) occupies one row, and the attribute data (population) is stored in a column or field, just as in the attribute table of a shapefile.
 
-If we want to tell a story about urban _growth_, we need more than one population data capture for each city. The expanded spreadsheet  includes the urban populations at five-year time intervals from 1985 to 2015 (Figure 1.2). 
+If we want to tell a story about urban _growth_, we need more than one population data capture for each city. The expanded spreadsheet includes the urban populations at five-year time intervals from 1985 to 2015 (Figure 1.2). 
 
 ![figure3.1.2.png](img/figure3.1.2.png)
 
@@ -78,7 +78,7 @@ _**JSON**_, or _**JavaScript Object Notation**_, is an alternative data format n
 
 _**GeoJSON**_ was invented to take advantage of JSON syntax for geospatial data. GeoJSON is to JSON as KML is to XML; while JSON may use any arbitrary keys and values, the GeoJSON specification requires particular keys and data types. Like a shapefile, GeoJSON uses a spaghetti model for geometry, with no topology or shared polygon boundaries (more about this when we introduce TopoJSON for D3 in Chapter 8).
 
-You can convert a CSV or KML to GeoJSON using [geojson.io](http://geojson.io/). You can convert shapefiles to GeoJSON using the [MapShaper tool](https://mapshaper.org/). Starting with geojson.io, upload your dataset by dragging the file into the browser. If it is correctly formatted, the application will recognize the geography instantly and display a point marker for each city (Figure 1.6).
+You can manually convert a CSV or KML to GeoJSON using [geojson.io](http://geojson.io/) or programmatically using the [`csv2geojson()` method](https://github.com/mapbox/csv2geojson) during the execution of your script. You can convert shapefiles to GeoJSON using the [MapShaper tool](https://mapshaper.org/). Starting with geojson.io, upload your dataset by dragging the file into the browser. If it is correctly formatted, the application will recognize the geography instantly and display a point marker for each city (Figure 1.6).
 
 ![figure3.1.6.png](img/figure3.1.6.png)
 
