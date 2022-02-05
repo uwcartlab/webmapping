@@ -17,8 +17,8 @@ function loadData(){
 		})
 }
 
-function debugCallback(mydata){
-	document.querySelector("#mydiv").insertAdjacentHTML('beforeend',"GeoJSON data: " + JSON.stringify(mydata));
+function debugCallback(myData){
+	document.querySelector("#mydiv").insertAdjacentHTML('beforeend',"GeoJSON data: " + JSON.stringify(myData));
 };
 
 function debugAjax(){
