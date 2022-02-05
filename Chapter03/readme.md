@@ -300,13 +300,13 @@ What would happen, for example, if instead of converting the data as we did in E
 
         window.onload = jsAjax();
 
-Instead of our JSON data, the Fetch request returns a full [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response) object. While this object tells us some interesting things about the status of our request, it's not actually usable until we parse it (Example 3.1). 
+Instead of our JSON data, the `fetch()` request returns a full [`response`](https://developer.mozilla.org/en-US/docs/Web/API/Response) object. While this object tells us some interesting things about the status of our request, it is not actually usable until we parse it (Example 3.1). 
 
 ![figure3.3.1.png](img/figure3.3.1.png)
 
-###### Figure 3.1: The DOM tab showing properties of the Response object
+###### Figure 3.1: The DOM tab showing properties of the `response` object
 
-However, if we simply try to parse the data in the same callback function using `json()`, we'll get a strange result. (Example 3.2; Figure 3.2).
+However, if we simply try to parse the data in the same callback function using `json()`, we will get a strange result (Example 3.2; Figure 3.2).
 
 ###### Example 3.2: Attempting to print the response data to the console in _main.js_
 
@@ -315,19 +315,19 @@ However, if we simply try to parse the data in the same callback function using 
     
 ![figure3.3.2.png](img/figure3.3.2.png)
 
-###### Figure 3.2: What is a promise and why is it pending?
+###### Figure 3.2: What is a `promise` and why is it pending?
 
-Why is our `response` listed as a `promise`? Since we are using fetch, we request the data to be sent _asynchronously_. Accordingly, the browser interpreter continues executing the rest of the script while the server takes a few milliseconds to gather and send the requested data. Thus, when our `console.log` statement is executed to print the contents of `response`, the data have not arrived yet! Instead, they are stored in a type of object called a _**`promise`**_, which acts a placeholder for asynchronously loaded data. Promises have three `states`, which tell us the status of the data. `pending`: the data are stil being loaded, `fulfilled`: the data have finished loading, and `rejected`: for some reason, the data cannot load. 
+Why is our `response` listed as a `promise`? Since we are using `fetch()`, we request the data to be sent _asynchronously_. Accordingly, the browser interpreter continues executing the rest of the script while the server takes a few milliseconds to gather and send the requested data. Thus, when our `console.log` statement is executed to print the contents of `response`, the data have not arrived yet! Instead, they are stored in a type of object called a _**`promise`**_, which acts a placeholder for asynchronously loaded data. Promises have three `states` that indicate the status of the data. `pending`: the data are stil being loaded; `fulfilled`: the data have completed loading; and `rejected`: for some reason, the data cannot load. 
 
-If we uncollapse the promise, we'll see that eventually it was fulfilled, but only _after_ the `console.log` request (Figure 3.3).
+If we uncollapse the promise, we will see that eventually it was fulfilled, but only _after_ the `console.log` request (Figure 3.3).
 
 ![figure3.3.3.png](img/figure3.3.3.png)
 
 ###### Figure 3.3: The uncollapsed promise
 
-Consequently, any script that makes use of data retrieved through Fetch needs to be converted before it is brought to the final callback function. Example 3.3  again shows the correct `fetch()` solution including the additionaly callback function from Example 2.8 (Example 3.3).
+Consequently, any script that makes use of data retrieved through `fetch()` needs to be converted before it is brought into the final callback function. Example 3.3 again shows the correct `fetch()` solution including the additional callback function from Example 2.8 (Example 3.3).
 
-###### Example 3.3: Correctly accessing response using a callback function in _main.js_
+###### Example 3.3: Correctly accessing the `response` using a `callback()` function in _main.js_
 
     //Example 3.1...
     //define fetch request
@@ -350,25 +350,25 @@ Consequently, any script that makes use of data retrieved through Fetch needs to
 
     window.onload = jsAjax();
 
-Note that the `fetch()` function itself _also_ resturns a promise, and is only `fufilled` when the data have been successfully retrieved from the server. When the `fetch` has been `fufilled`, it uses the `then()` method to trigger the conversion callback. The data are then converted using `json()`, and once this conversion is complete (and the promise is `fulfilled`), the final `callback` function is tiggered. Finally, the data can be used!
+Note that the `fetch()` function itself _also_ resturns a promise, and is only `fufilled` when the data have been successfully retrieved from the server. When the `fetch` has been `fufilled`, it uses the `then()` method to trigger the `conversion()` callback function. The data then are converted using `json()`, and once this conversion is complete (and the promise is `fulfilled`), the final `callback` function is tiggered. Finally, the data can be used!
 
 Any other functions you call from within the final callback function can access the loaded data if you pass it as a parameter in the function call (Example 3.4).
 
-###### Example 3.4: Calling a new function from within the callback function in _main.js_
+###### Example 3.4: Calling a new function called `nextFunction()` from within the `callback()` function in _main.js_
 
      //Example 3.3 Line 10...
     //define callback function
     function callback(response){
     
-        var mydata = response;
+        var myData = response;
     
         //pass data to another function
-        nextFunction(mydata);
+        nextFunction(myData);
     };
     
     function nextFunction(data){
     
-        console.log(data); //contains response data held by mydata in callback
+        console.log(data); //contains response data held by myData in callback
     };
     
 
@@ -378,7 +378,7 @@ You can use an anonymous function as a callback instead of defining the function
 
     function jsAjax(){
         //define a variable to hold the data
-        var mydata;
+        var myData;
         
         //basic fetch
         fetch('data/MegaCities.geojson')
@@ -386,26 +386,26 @@ You can use an anonymous function as a callback instead of defining the function
                 return response.json();
             }) 
             .then(function(response){
-                mydata = response;
+                myData = response;
             }) 
         
         //check the data
-        console.log(mydata)
+        console.log(myData)
     };
 
     document.addEventListener('DOMContentLoaded',jsAjax)
     
 
-If you copy this script to your _main.js_ file and preview in Prepros, you will see that `mydata` on Line 15 is undefined. Even though we correctly created our variable at the top of the function and assigned the data to it within the `fetch` anonymous callback function, the data is not available to us on Line 15 because that line was executed by the interpreter _before_ the data arrived and was assigned to the variable.
+If you copy this script to your _main.js_ file and preview in Prepros or local server, you will see that `myData` on Line 15 is undefined. Even though we correctly created our variable at the top of the function and assigned the data to it within the `fetch()` anonymous callback function, the data is not available to us on Line 15 because that line was executed by the interpreter _before_ the data arrived and was assigned to the variable.
 
-Adding another `console.log()` statement inside of the callback shows the that `mydata` is available within the anonymous function, but undefined outside the anonymous function (Example 3.6; Figure 3.4).
+Adding another `console.log()` statement inside of the callback shows the that `myData` is available within the anonymous function, but undefined outside the anonymous function (Example 3.6; Figure 3.4).
 
-###### Example 3.6: Attempting to print the data to the console within and outside of the callback in _main.js_
+###### Example 3.6: Attempting to print the data to the console within and outside of the `callback()` function in _main.js_
 
     //Example 3.5...
     function jsAjax(){
         //define a variable to hold the data
-        var mydata;
+        var myData;
         
         //basic fetch
         fetch('data/MegaCities.geojson')
@@ -413,14 +413,14 @@ Adding another `console.log()` statement inside of the callback shows the that `
                 return response.json();
             }) 
             .then(function(response){
-                mydata = response;
+                myData = response;
 
                 //check the data
-                console.log(mydata)
+                console.log(myData)
             }) 
         
         //check the data
-        console.log(mydata)
+        console.log(myData)
     };
     
 
@@ -428,7 +428,7 @@ Adding another `console.log()` statement inside of the callback shows the that `
 
 ###### Figure 3.4: The console showing attempts to access data outside of and within the callback
 
-Note that the `console.log()` statement on Line 18 of Example 3.6 is executed _first_ and is undefined. The statement on Line 14 is executed within the callback, so only after the data has been received and assigned to `mydata`.
+Note that the `console.log()` statement on Line 18 of Example 3.6 is executed _first_ and is undefined. The statement on Line 14 is executed within the callback, so only after the data has been received and assigned to `myData`.
 
 > ### **Add at at least two `console.log()` statements _with comments_ to your AJAX script indicating where your data can and cannot be accessed.**
 
