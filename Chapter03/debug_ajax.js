@@ -1,21 +1,17 @@
 function debugCallback(response){
-	
-	$(mydiv).append('GeoJSON data: ' + JSON.stringify(mydata));
+	document.querySelector("#mydiv").insertAdjacentHTML('beforeend', 'GeoJSON data: ' + JSON.stringify(myData))
 };
 
 function debugAjax(){
 	
-	var mydata;
+	var myData;
+	
+	fetch("data/MegaCities.geojson")
+		.then(function(response){
+			debugCallback(response);
+		})
 
-	$.ajax("data/MegaCities.geojson", {
-		dataType: "json",
-		success: function(response){
-			
-			debugCallback(mydata);
-		}
-	});
-
-	$(mydiv).append('<br>GeoJSON data:<br>' + JSON.stringify(mydata));
+	document.querySelector("#mydiv").insertAdjacentHTML('beforeend' '<br>GeoJSON data:<br>' + JSON.stringify(myData))
 };
 
-$(mydiv).append('GeoJSON data: ' + JSON.stringify(mydata));
+document.querySelector("#mydiv").insertAdjacentHTML('beforeend', 'GeoJSON data: ' + JSON.stringify(myData))
