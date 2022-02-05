@@ -7,12 +7,12 @@ Chapter 3 is all about data, inching us one step closer to making your first int
 
 *   In Lesson 1, we introduce common web data formats and their geospatial variants.
 *   In Lesson 2, we introduce AJAX (Asynchronous JavaScript and XML) and Fetch, or the strategy used to load data dynamically into the browser, enabling interactivity with maps and visualizations.
-*   In Lesson 3, we demonstrate how to employ Fetch requests through callback functions.
+*   In Lesson 3, we demonstrate how to employ `fetch()` requests through callback functions.
 
 After this chapter, you should be able to:
 
 *   Correctly format geospatial data in CSV and JSON formats
-*   Write an AJAX call to retrieve data using `fetch()`
+*   Write an AJAX call to retrieve data using the `fetch()` method
 *   Write an AJAX callback function that adds data to the DOM
 
 Lesson 1: (Geo)Web Data Formats
@@ -88,7 +88,7 @@ Note that data appears in GeoJSON format in the right-side panel. There are no v
 
 Once you have imported your data, you have two options for saving it as a GeoJSON file. If you want to keep the data neatly formatted as it is in the side panel, you can simply select all of the text in the side panel, copy it, paste into a new blank file in your text editor, and save it with a _.geojson_ extension from there. For a minified file, use the Save menu in the upper-left corner of the map and choose "GeoJSON". A file called _map.geojson_ will download automatically; retrieve this file from your downloads folder, move it to the data folder in your website directory, and rename it appropriately.
 
-> ### **Use [geojson.io](http://geojson.io/) to convert your CSV to a GeoJSON. Save your GeoJSON file to your _data_ folder in your _Chapter03_ subdirectory.**
+> ### **Use [geojson.io](http://geojson.io/) to convert your CSV to a GeoJSON. Save your GeoJSON file to your _data_ folder in your _Chapter03_ subdirectory. We use the file named _MegaCities.geojson_ in the Lesson 2 example.**
 
 Lesson 2: AJAX Concepts and Syntax
 ----------------------------------
@@ -101,11 +101,11 @@ AJAX is the reason we can have a fluid rather than fragmented user experience, a
 
 ### II. Fetch Requests
 
-JavaScript AJAX requests are somewhat complicated; they involve an entire back-and-forth conversation between the client and the server. To make AJAX requests, you will use Javacript's native _**Fetch**_ API. Although you ultimately will use a highly simplifed Fetch for you AJAX calls (see Lesson 3), it is conceptually useful to step through a full Fetch Request to gain an understanding of how AJAX works.
+JavaScript AJAX requests are somewhat complicated; they involve an entire back-and-forth conversation between the client and the server. To make AJAX requests, you will use Javacript's native _**Fetch**_ API. Although you ultimately will use a highly simplifed form of the [`fetch()` method](https://developer.mozilla.org/en-US/docs/Web/API/fetch) for you AJAX calls (see Lesson 3), it is conceptually useful to step through a full Fetch request to gain an understanding of how AJAX works.
 
-We'll start by creating a simple data request (Example 2.1).
+Start by creating a simple request for the data in your converted _MegaCities.geojson_ file (Example 2.1). The statement `new Request()` creates a new instance of a special type of object, assigned to the `request` variable, that communicates with a server to retrieve or send data asynchronously (i.e., without reloading the webpage).
 
-###### Example 2.1: Creating a basic data request
+###### Example 2.1: Declaring and assigning a new data `request` object in _main.js_
 
     function jsAjax(){
         // Step 1: Define the data request
@@ -114,11 +114,9 @@ We'll start by creating a simple data request (Example 2.1).
 
     window.onload = jsAjax();
 
-The statement `new Request()` creates a new instance of a special type of object that includes properties and methods meant for a particular purpose. In this case, that purpose is to communicate with a server to retrieve the dataset we want.
+We then declare a second variable, here named `init`, to define the type of Fetch request using the `method` property of the `request` object: either `'GET'` for retrieving data from the server or `'POST'` for sending data to the server. Example 2.2 uses `GET` get load the data in the _MegaCities.geojson_ file into the browser.
 
-We then need to define the type of request we are making (Example 2.2).
-
-###### Example 2.2: Defining fetch parameters in main.js
+###### Example 2.2: Defining the `method' property in _main.js_
 
     function jsAjax(){
         // Step 1: Create the data request 
@@ -131,11 +129,9 @@ We then need to define the type of request we are making (Example 2.2).
 
     window.onload = jsAjax();
 
-The `init` variable contains the parameters we want to set for our Fetch request. In this case, we only care about one: `method`. `method` specifies the type of request we are making to the server: either `GET` for retrieving data from the server or `POST` for sending data to the server.
+We then trigger the Fetch request using the `fetch()` method passing the `request` and `init` variables as parameters (Example 2.3). Note that the `init` parameter is optional for our purposes, as `'GET'` is the default `method` property of the `request` object.
 
-We then trigger the Fetch request using the [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/fetch) method, which takes two parameters. The first is the request itself, the second (which is optional) is the variable storing the parameters for the request (Example 2.3). 
-
-###### Example 2.3: Creating a AJAX request using fetch in main.js
+###### Example 2.3: Creating a AJAX request using `fetch()` in _main.js_
 
     function jsAjax(){
         // Step 1: Create the data request 
@@ -150,11 +146,11 @@ We then trigger the Fetch request using the [`fetch`](https://developer.mozilla.
 
     window.onload = jsAjax();
 
-The `fetch` method accesses the server at the location defined in the `Request`, and based on the parameters stored in the `init` variable. In this case, the data are being retrieved from the server. 
+The `fetch()` method accesses the server at the location defined in the `request` variable using the properties stored in the `init` variable. In this case, the data are being retrieved from the _data_ folder of your boilerplate web directory. 
 
-The final step is to actually send the received data to a callback function. A JavaScript _**callback function**_ executes script that uses the data retrieved from a server after the data loads into the browser. Consequently, any script that makes use of data sent through AJAX should be written or called within the callback function to avoid manipulating the data before it is fully available in the browser (Example 2.4). 
+The final step is to send the received data to a callback function that it can be accessed in other areas of your script to support map rendering and interaction. A JavaScript _**callback function**_ executes script that uses the data retrieved from a server after the data is completely loaded into the browser. Consequently, any script that makes use of data sent through AJAX should be written or called within the `callback()` function to avoid manipulating the data before it is fully available in the browser (Example 2.4). 
 
-###### Example 2.4: Adding a callback function to a fetch request in main.js
+###### Example 2.4: Adding a `callback()` function to a `fetch()` request in _main.js_
 
     function jsAjax(){
         // Step 1: Create the data request 
@@ -176,11 +172,11 @@ The final step is to actually send the received data to a callback function. A J
 
     window.onload = jsAjax();
 
-The `.then()` method fires the callback after, and only after, the data have been retrieved from the server. `then()` methods can be chained together, so that a series of functions fires one after the other. 
+The `.then()` method fires the `callback()` function after, and only after, the data have been retrieved from the server. `then()` methods can be chained together, so that a series of functions calls one after the other. 
 
-While example 2.4 will run, we're actually missing a crucial step: converting the retrieved data to a readable form. To do this, we need to add a new `.then()` method and callback between the `fetch()` and our current callback, and reassign the order of our steps (Example 2.5). We'll learn more about why this is necessary in Lessson 3.  
+While Example 2.4 will run successfully, it is actually missing a crucial step: converting the retrieved data into a readable format for subsequent use. To do this, add a new `.then()` method and callback between the `fetch()` and our current callback, and reassign the order of our steps (Example 2.5). We will discuss why this is necessary in Lessson 3.  
 
-###### Example 2.5: Adding a second callback to convert the fetch request data in main.js
+###### Example 2.5: Adding a `conversion()` function to convert the returned `fetch()' request data in _main.js_
 
     function jsAjax(){
         // Step 1: Create the data request 
@@ -209,34 +205,34 @@ While example 2.4 will run, we're actually missing a crucial step: converting th
 
     window.onload = jsAjax();
 
-In the `conversion` function, we convert the data using the `.json()` method.
+In the `conversion()` function, we convert the data using the `.json()` method.
 
-From the Codecademy tutorials in Activity 2, you know that you can pass data into a function through the parameters and then return data for storage in a variable using the `return` reserved word. In Example 2.5, we return the converted data, which then passes to our second callback function as the `response` variable, where it can be used. To review, data are retrieved from the server in Steps 1-3. After (and only after) they are retrieved, the data are sent to the `conversion` function in Step 4. After (and only after) the data are converted, they are finally sent to the `callback` function in a usable form.  
+From the Codecademy tutorials in Activity 2, you know that you can pass data into a function through the parameters and then return data for storage in a variable using the `return` reserved word. In Example 2.5, we return the converted data, which then passes to our second `callback()` function as the `response` variable, where it can be used. To review, data are retrieved from the server in Steps 1-3. After (and only after) they are retrieved, the data are sent to the `conversion` function in Step 4. After (and only after) the data are converted, they are finally sent to the `callback` function in a usable form.  
 
-If the fetch request executes successfully, the `callback` function will print the GeoJSON to the console (Figure 2.1).
+If the `fetch()` request executes successfully, the `callback()` function will print the _MegaCitites.geojson_ object to the console (Figure 2.1).
 
-###### Figure 2.1: The console showing the GeoJSON object
+###### Figure 2.1: The console showing the _MegaCitites.geojson_ object
 
 ![figure3.2.1.png](img/figure3.2.1.png)
 
-We also can view the response as plain text using JavaScript's built-in JSON library to translate our JSON to a string (Example 2.6; Figure 2.2).
+We also can view the response as plain text using JavaScript's built-in JSON library to translate the _MegaCitites.geojson_ object to a string (Example 2.6; Figure 2.2).
 
-###### Example 2.6: Translating JSON to a strinng in _main.js_
+###### Example 2.6: Translating the _MegaCitites.geojson_ object to a string in _main.js_
 
         //Example 2.5 line 23...
         console.log(JSON.stringify(response));
 
-###### Figure 2.2: The console showing the JSON data as a string
+###### Figure 2.2: The console showing the _MegaCitites.geojson_ object as a string
 
 ![figure3.2.2.png](img/figure3.2.2.png) 
 
 ### III. Simplifying Fetch Requests
 
-The full Fetch request in Example 2.6 is awfully long, and much of it can be greatly simplified now that we know how it works. 
+The full `fetch()` request in Example 2.6 is awfully long, and much of it can be greatly simplified now that you know how it works. 
 
-To start, the `Request` object can actually be defined in the `fetch()` method itself, and we don't actually need to specificy any parameters in the `init` variable, as `GET` is the default (Example 2.7).
+To start, the `request` object can be defined in the `fetch()` method itself and you do not need to specify any properties though the `init` variable since `GET` is the default (Example 2.7).
 
-###### Example 2.7: Simplified Fetch request
+###### Example 2.7: Simplified `fetch()` request in _main.js_
 
     //Example 2.5 line 1
     function jsAjax(){
@@ -260,9 +256,9 @@ To start, the `Request` object can actually be defined in the `fetch()` method i
 
     window.onload = jsAjax();
 
-The function for data conversion is also unnecessarily long, and can be added directly as an anynomous function to the `.then()` method.
+The function for data conversion also is unnecessarily long, and can be added directly as an anynomous function to the `.then()` method (Example 2.8).
 
-###### Example 2.8: Simplified Fetch request with shorthand
+###### Example 2.8: Simplified `fetch()` request with shorthand in _main.js_
 
     //Example 2.7 line 1
     function jsAjax(){
@@ -282,9 +278,9 @@ The function for data conversion is also unnecessarily long, and can be added di
 
     window.onload = jsAjax();
 
-> ### **Examine the API Documentation for the [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/fetch) method to determine the purpose each parameter serves. Then, write a script using a Fetch request that prints _MegaCities.geojson_ file to the console in _main.js_.**
+> ### **Examine the API Documentation for the [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/fetch) method to determine the purpose each property serves. Then, write a script using a `fetch()` request that prints _MegaCities.geojson_ file to the console in _main.js_.**
 
-Note that regardless of the method used, there is always a URL string that points to the data and at least one callback function specified within the parameters. The purpose served by the URL string should be obvious—find the data we want—but the callback function may be trickier to fully understand. Next, we will examine the reason for both callback functions in the Fetch request, and how to debug the callback function in your script.
+Note that regardless of the `method` used for `fetch()`, there always is a URL string that points to the data location and at least one callback function specified within the parameters. The purpose served by the URL string should be obvious—find the data we want—but the callback function may be trickier to fully understand. Next, we examine the reason for both callback functions in the `fetch()` request and describe how to debug the callback function in your script.
 
 Lesson 3: Understanding AJAX Callback Functions
 -----------------------------------------------
