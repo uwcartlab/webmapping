@@ -149,7 +149,7 @@ After getting a basic slippy map to load, complete the [_Using GeoJSON with Leaf
 
 Figure 1.2 illustrates the expected slippy map resulting from the _Using GeoJSON with Leaflet_ tutorial. Lesson 2 describes how to integrate your GeoJSON data imported via AJAX with the `L.geoJson()` method.
 
-![figure4.1.2.png](img/figure4.1.2.png)
+![figure4.1.2.PNG](img/figure4.1.2.PNG)
 
 ###### Figure 1.2: An example slippy map created during the _Using GeoJSON with Leaflet_ tutorial
 
@@ -168,7 +168,7 @@ In general, API documentation provide:
 
 Leaflet's API documentation is organized as one long webpage, making it convenient to find a specific method using the browser Ctrl/Command+F feature. The Leaflet API documentation includes a persistent table of contents referencing different page sections (Figure 1.3).
 
-![figure4.1.3.png](img/figure4.1.3.png)
+![figure4.1.3.PNG](img/figure4.1.3.PNG)
 
 ###### Figure 1.3:The Leaflet API documentation.
 
@@ -181,7 +181,7 @@ Let's examine the Leaflet methods from the two tutorials you completed using the
 
 Let's take a look at [`L.map()`](http://leafletjs.com/reference.html#map-example) in the API. The first line under the section titled "Map" describes the method's parent class (`Map`), "\[t\]he central class of the API — it is used to create a map on a page and manipulate it". Definition of [`L.map()`](http://leafletjs.com/reference.html#map-example) begins with a "Usage example" (Figure 1.4).
 
-![figure4.1.4.png](img/figure4.1.4.png)
+![figure4.1.4.PNG](img/figure4.1.4.PNG)
 
 ###### Figure 1.4: Example map instantiation script in the Leaflet API documentation
 
@@ -256,7 +256,7 @@ Making use of tutorial examples requires figuring out how to integrate them into
 
 The _Using GeoJSON with Leaflet_ tutorial makes use of single GeoJSON features for its data (Figure 2.1).
 
-![figure4.2.1.png](img/figure4.2.1.png)
+![figure4.2.1.PNG](img/figure4.2.1.PNG)
 
 ###### Figure 2.1: Creation of a GeoJSON feature in the _Using GeoJSON with Leaflet_ tutorial
 
@@ -285,7 +285,7 @@ This object represents a point feature, essentially equivalent to one element in
 
 The _Using GeoJSON with Leaflet_ tutorial then maps the feature using the `.addTo()` method (Figure 2.2).
 
-![figure4.2.2.png](img/figure4.2.2.png)
+![figure4.2.2.PNG](img/figure4.2.2.PNG)
 
 ###### Figure 2.2: Script from the _Using GeoJSON with Leaflet_ tutorial to add the feature to the map
 
@@ -355,7 +355,7 @@ Since _megaCities.geojson_ comprises point data, we can adapt the additional sty
 
 **pointToLayer:** The `pointToLayer` option of `GeoJSON` defines a function to convert GeoJSON points into Leaflet layers. Figure 2.4 shows use of `pointToLayer` in _geojsonTutorial.js._
 
-![figure4.2.4.png](img/figure4.2.4.png)
+![figure4.2.4.PNG](img/figure4.2.4.PNG)
 
 ###### Figure 2.4: `pointToLayer` script from the _Using GeoJSON with Leaflet_ tutorial
 
@@ -391,7 +391,7 @@ Figure 2.5 illustrates the results of applying the modified use of `pointToLayer
 
 **onEachFeature:** The onEachFeature option of GeoJSON calls a function once for each feature contained in the created GeoJSON object. Figure 2.6 shows the use of onEachFeature in the _Using GeoJSON with Leaflet_ tutorial.
 
-![figure4.2.6.png](img/figure4.2.6.png)
+![figure4.2.6.PNG](img/figure4.2.6.PNG)
 
 ###### Figure 2.6: `onEachFeature` script from the _Using GeoJSON with Leaflet_ tutorial
 
