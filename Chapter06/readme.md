@@ -22,7 +22,7 @@ Lesson 1: Procedural and Object-oriented JavaScript
 
 JavaScript employs two different computer programming paradigms: [procedural programming](https://en.wikipedia.org/wiki/Procedural_programming) and [object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming) (OOP). ***Procedural programming*** uses individual variables, functions, and data structures to give step-by-step instructions to the processor. In contrast, ***object-oriented programming*** uses data and methods contained within complex data structures called objects. JavaScript is primarily a procedural language, but has some characteristics that allow advanced programmers to take an object-oriented approach. In the code for your Leaflet map, you have actually already used a bit of both.
 
-The chapter tutorials use the term **_function_** to refer to a set of tasks or routines written into the _main.js_ custom script, and the term **_method_** to refer to functions that are part of a library such as jQuery or Leaflet. This is an important semantic distinction. Methods are routines that look like functions but are included as part of an object. Functions belong to the domain of procedural programming: they are a set of instructions that can be used anywhere to redirect the flow of execution, and are not designated as part of a particular code package. On the other hand, code libraries use an object-oriented approach to classes and their methods so that specific ***child*** classes _inherit_ (as introduced in Chapter 5), or make use of, broader ***parent*** classes, requiring the parent method to be written just once for efficiency. 
+The chapter tutorials use the term **_function_** to refer to a set of tasks or routines written into the _main.js_ custom script, and the term **_method_** to refer to functions that are part of a library such as Leaflet. This is an important semantic distinction. Methods are routines that look like functions but are included as part of an object. Functions belong to the domain of procedural programming: they are a set of instructions that can be used anywhere to redirect the flow of execution, and are not designated as part of a particular code package. On the other hand, code libraries use an object-oriented approach to classes and their methods so that specific ***child*** classes _inherit_ (as introduced in Chapter 5), or make use of, broader ***parent*** classes, requiring the parent method to be written just once for efficiency. 
 
 To examine the difference, let's refactor some of the _main.js_ script from the end of Chapter 5. As you hone your programming skills, you will begin to notice places where your code is more lengthy than it needs to be and could be ***refactored***, or revised for efficiency. To start refactoring, look for code that occurs in a very similar form in multiple places in your script. In procedural programming, this repetition can be reduced by consolidating the duplicate code into its own function that can be called from multiple places to return the desired value.
 
@@ -228,9 +228,9 @@ The value of the `extend()` method—as seen in the example above—is that it t
 
 The `onAdd()` method creates the HTML element and child elements for the Leaflet control, along with HTML attributes and event listeners for the Leaflet control. As the name of the method implies, this script is executed when the control is added to the map. Similarly, we can add an `onRemove()` method to remove elements and event listeners from the DOM when the control is removed. Since we only are adding the control to our map, we do not need to use `onRemove()`. However, `onAdd()` _always_ is required for a new Leaflet control.
 
-Following the documentation example, we create a new HTML `<div>` element within the `onAdd()` method using Leaflet's [DOM Utility](http://leafletjs.com/reference.html#domutil) and the [`L.DomUtil.create()`](http://leafletjs.com/reference.html#domutil-create) method. We also can create the `<div>` using JavaScript's native `document.createElement()` method, but `L.DomUtil.create()` is slightly more convenient because it automatically adds a class name (as in Example 2.2) and optionally assigns the new element to a parent element. We do <ins>_not_</ins> want to use jQuery for this, as we need to define the new Leaflet control without adding it to the DOM immediately.
+Following the documentation example, we create a new HTML `<div>` element within the `onAdd()` method using Leaflet's [DOM Utility](http://leafletjs.com/reference.html#domutil) and the [`L.DomUtil.create()`](http://leafletjs.com/reference.html#domutil-create) method. We also can create the `<div>` using JavaScript's native `document.createElement()` method, but `L.DomUtil.create()` is slightly more convenient because it automatically adds a class name (as in Example 2.2) and optionally assigns the new element to a parent element. We do <ins>_not_</ins> want to use native JavaScript for this, as we need to define the new Leaflet control without adding it to the DOM immediately.
 
-We _can_ use jQuery for the next step, which is to place our `"range-slider"` _inside_ of the `SequenceControl`. To do this, we simply move the line that creates the `"range-slider"` into the `onAdd()` method, appending it to the `container` element using jQuery (Example 2.3).
+We _can_ use native JS for the next step, which is to place our `"range-slider"` _inside_ of the `SequenceControl`. To do this, we simply move the line that creates the `"range-slider"` into the `onAdd()` method, appending it to the `container` element (Example 2.3).
 
 ###### Example 2.3: Moving the slider into the Leaflet control in _main.js_
 
@@ -240,7 +240,7 @@ We _can_ use jQuery for the next step, which is to place our `"range-slider"` _i
                 var container = L.DomUtil.create('div', 'sequence-control-container');
     
                 //create range input element (slider)
-                $(container).append('<input class="range-slider" type="range">');
+                container.insertAdjacentHTML('beforeend', '<input class="range-slider" type="range">')
     
                 return container;
             }
@@ -258,15 +258,15 @@ You similarly can move the step buttons into the `SequenceControl` by placing th
 
             //Example 2.3 line 1
             onAdd: function () {
-                // create the control container with a particular class name
+                // create the control container div with a particular class name
                 var container = L.DomUtil.create('div', 'sequence-control-container');
-    
+
                 //create range input element (slider)
-                $(container).append('<input class="range-slider" type="range">');
-    
+                container.insertAdjacentHTML('beforeend', '<input class="range-slider" type="range">')
+
                 //add skip buttons
-                $(container).append('<button class="step" id="reverse" title="Reverse">Reverse</button>');
-                $(container).append('<button class="step" id="forward" title="Forward">Forward</button>');
+                container.insertAdjacentHTML('beforeend', '<button class="step" id="reverse" title="Reverse"><img src="img/reverse.png"></button>'); 
+                container.insertAdjacentHTML('beforeend', '<button class="step" id="forward" title="Forward"><img src="img/forward.png"></button>');
     
                 return container;
             }
@@ -507,7 +507,7 @@ Returning to our attribute legend, we can use pseudocode to clarify our tasks (E
     Step 3. Assign each `<circle>` element a center and radius based on the dataset min, max, and mean values of all attributes
     Step 4. Create legend text to label each circle
 
-Step 1 in Example 3.4 dynamically adds an `<svg>` element to the legend container in our `createLegend()` function from Lesson 2 (Example 2.7). Since we also dynamically add each circle in Step 2, write out the opening `<svg>` tag as a string and assign it to the variable `svg`. For now, specify only the `id`, `width`, and `height` attributes for the `<svg>` element . Then append `svg` to the `container` using jQuery (Example 3.5).
+Step 1 in Example 3.4 dynamically adds an `<svg>` element to the legend container in our `createLegend()` function from Lesson 2 (Example 2.7). Since we also dynamically add each circle in Step 2, write out the opening `<svg>` tag as a string and assign it to the variable `svg`. For now, specify only the `id`, `width`, and `height` attributes for the `<svg>` element . Then append `svg` to the `container` using `insertAdjacentHTML()` (Example 3.5).
 
 ###### Example 3.5: Starting an SVG string in _main.js_
 
@@ -517,26 +517,26 @@ Step 1 in Example 3.4 dynamically adds an `<svg>` element to the legend containe
             options: {
                 position: 'bottomright'
             },
-    
+
             onAdd: function () {
                 // create the control container with a particular class name
                 var container = L.DomUtil.create('div', 'legend-control-container');
-    
-                $(container).append('<div class="temporalLegend">Population in <span class="year">1980</span></div>');
-    
+
+                container.innerHTML = '<p class="temporalLegend">Population in <span class="year">1980</span></p>';
+
                 //Step 1: start attribute legend svg string
                 var svg = '<svg id="attribute-legend" width="130px" height="130px">';
-    
+
                 //add attribute legend svg to container
-                $(container).append(svg);
-    
+                container.innerHTML += svg;
+
                 return container;
             }
         });
-    
-        map.addControl(new LegendControl());
-    };
 
+        map.addControl(new LegendControl());
+
+    };
 
 Let's take a look at our legend control via the Inspector (Figure 3.5).
 
@@ -565,7 +565,7 @@ Step 2 of the pseudocode creates each example proportional circle for the legend
             svg += "</svg>";
     
             //add attribute legend svg to container
-            $(container).append(svg);
+            container.insertAdjacentHTML('beforeend',svg);
 
 
 On line 10 of Example 3.6, we assign the circle `id` attribute based orean the current value of the array. Other attributes are similar to the code on line 3 of Example 3.2, except that we have left out the unnecessary `stroke-miterlimit` attribute as well as the necessary `cy` and `r` attributes. We have left out the latter two because these will be assigned dynamically depending on the dataset values for each attribute. Because they are left out, no circles will appear yet in the legend, but if you were to inspect the legend, you could see that the `<circle>` elements are all present in the DOM.
@@ -609,8 +609,11 @@ For Step 3 of our pseudocode, we want to size and center our legend's circles ba
     function getData(map){  
         
         //load the data  
-        $.getJSON("data/MegaCities.geojson", function(response){  
-    
+        fetch("data/MegaCities.geojson")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(json){
         .....  
     
             //calling our renamed function  
@@ -688,7 +691,7 @@ Now we are ready for Step 4 of the pseudocode. We can create text within an SVG 
             svg += "</svg>";
     
             //add attribute legend svg to container
-            $(container).append(svg);
+            container.insertAdjacentHTML('beforeend',svg);
 
 This adds a `<text>` element with a unique id and content for each circle to the SVG (line 8).  Notice that we evenly space out each `<text>` element's `y` coordinate attribute for readability. This completes our legend and the basic requirements for the Leaflet map (Figure 3.8)!
 

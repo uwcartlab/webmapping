@@ -72,10 +72,14 @@ While we could keep adding script to the AJAX callback function to create the pr
     //Step 2: Import GeoJSON data
     function getData(){
         //load the data
-        $.getJSON("data/MegaCities.geojson", function(response){
+        fetch("data/MegaCities.geojson")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(json){
                 //call function to create proportional symbols
-                createPropSymbols(response);
-        });
+                createPropSymbols(json);
+            })
     };
 
 
@@ -215,19 +219,23 @@ Example 1.5 illustrates the steps needed to implement Flannery scaling for our s
         }).addTo(map);
     };
     
+
     //Step 2: Import GeoJSON data
-    function getData(map){
+    function getData(){
         //load the data
-        $.getJSON("data/MegaCities.geojson", function(response){
-    
+        fetch("data/MegaCities.geojson")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(json){
                 //calculate minimum data value
-                minValue = calculateMinValue(response);
+                minValue = calculateMinValue(json);
                 //call function to create proportional symbols
-                createPropSymbols(response);
-        });
+                createPropSymbols(json);
+            })
     };
     
-    $(document).ready(createMap);
+    document.addEventListener('DOMContentLoaded',createMap)
 
 The areas of the circles on the map are now proportional to our data (Figure 1.2)!
 
@@ -420,29 +428,30 @@ Next, specify the position of the `#panel` relative to the `#map` using CSS in _
             line-height: 42px;
         }
 
-It makes sense to start a new function called `createSequenceControls()` for creating our sequence controls. Since the controls need access to the GeoJSON data, call the `createSequenceControls()` function from within the AJAX callback (Example 3.5). Within the function, we can make a simple slider using an HTML `<input>` element with the `type` attribute set to [`range`](http://www.w3schools.com/jsref/dom_obj_range.asp). We also give it a class name `range-slider` to access the slider in our stylesheet and with jQuery.
+It makes sense to start a new function called `createSequenceControls()` for creating our sequence controls. Since the controls need access to the GeoJSON data, call the `createSequenceControls()` function from within the AJAX callback (Example 3.5). Within the function, we can make a simple slider using an HTML `<input>` element with the `type` attribute set to [`range`](http://www.w3schools.com/jsref/dom_obj_range.asp). We also give it a class name `range-slider` to access the slider in our stylesheet and with `querySelector`.
 
 ###### Example 3.5: Creating an HTML `range` slider in _main.js_
 
     //Step 1: Create new sequence controls
     function createSequenceControls(){
         //create range input element (slider)
-        $('#panel').append('<input class="range-slider" type="range">');
+        var slider = "<input class='range-slider' type='range'></input>";
+        document.querySelector("#panel").insertAdjacentHTML('beforeend',slider);
     };
     
     //Import GeoJSON data
     function getData(map){
         //load the data
-        $.ajax("data/MegaCities.geojson", {
-            dataType: "json",
-            success: function(response){
-                minValue = calcMinValue(response);            
-                //add symbols and UI elements
-                createPropSymbols(response);
+        fetch("data/MegaCities.geojson")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(json){
+                minValue = calcMinValue(json);
+                //call function to create proportional symbols
+                createPropSymbols(json);
                 createSequenceControls();
-    
-            }
-        });
+            })
     };
 
 
@@ -451,15 +460,14 @@ Besides setting the `type` attribute to `range`, we also need to give our slider
 ###### Example 3.6: Adding slider attributes in _main.js_
 
         //Example 3.5...create range input element (slider)
-        $('#panel').append('<input class="range-slider" type="range">');
+        var slider = "<input class='range-slider' type='range'></input>";
+        document.querySelector("#panel").insertAdjacentHTML('beforeend',slider);
     
         //set slider attributes
-        $('.range-slider').attr({
-            max: 6,
-            min: 0,
-            value: 0,
-            step: 1
-        });
+        document.querySelector(".range-slider").max = 6;
+        document.querySelector(".range-slider").min = 0;
+        document.querySelector(".range-slider").value = 0;
+        document.querySelector(".range-slider").step = 1;
 
 
 Figure 3.1 shows the resulting panel and slider created from the `createSequenceControls()` function. The slider is centered horizontally in the panel by adding `text-align: center;` to the `#panel` styles in _style.css_ (see Example 3.4).
@@ -473,8 +481,8 @@ Step 2 of the pseudocode creates the forward and reverse step buttons. For these
 ###### Example 3.7: Adding step buttons in _main.js_
 
         //below Example 3.6...add step buttons
-        $('#panel').append('<button class="step" id="reverse">Reverse</button>');
-        $('#panel').append('<button class="step" id="forward">Forward</button>');
+        document.querySelector('#panel').insertAdjacentHTML('beforeend','<button class="step" id="reverse">Reverse</button>');
+        document.querySelector('#panel').insertAdjacentHTML('beforeend','<button class="step" id="forward">Forward</button>');
 
 
 Give our buttons both a `class` attribute (`"step"`) and an `id` attribute (`"forward"` and `"reverse"`). We can use the `class` attribute to style both buttons together, and the `id` attribute to style them individually and to attach individual event listeners. Figure 3.2 shows the resulting step buttons.
@@ -483,14 +491,13 @@ Give our buttons both a `class` attribute (`"step"`) and an `id` attribute (`"fo
 
 ###### Figure 3.2: Step buttons
 
-Normally _sequence_ UI controls use icons rather than words. You can find and download open source icons at [The Noun Project](https://thenounproject.com/) and save them as raster images in your _unit-2/img_ folder. We then can references these icons for our buttons using jQuery's `html()` method (Example 3.8).
+Normally _sequence_ UI controls use icons rather than words. You can find and download open source icons at [The Noun Project](https://thenounproject.com/) and save them as raster images in your _unit-2/img_ folder. We then can reference these icons for our buttons using the `insertAdjacentHTML()` method (Example 3.8).
 
 ###### Example 3.8: Replacing button content with images in _main.js_
 
         //replace button content with images
-        $('#reverse').html('<img src="img/reverse.png">');
-        $('#forward').html('<img src="img/forward.png">');
-
+        document.querySelector('#reverse').insertAdjacentHTML('beforeend',"<img src='img/reverse.png'>")
+        document.querySelector('#forward').insertAdjacentHTML('beforeend',"<img src='img/forward.png'>")
 
 Finally, we can adjust the _sequence_ UI styles to make the controls more usable (Example 3.9).
 
@@ -516,8 +523,6 @@ Finally, we can adjust the _sequence_ UI styles to make the controls more usable
     .step img {  
         width: 100%;  
     }  
-
-
 ​    
     #forward {  
         float: right;  
@@ -541,17 +546,20 @@ Step 3 of our _sequence_ pseudocode creates an array to hold all of the attribut
 
 ###### Example 3.10: Creating a variable to hold the attributes array in _main.js_
 
-        //Example 3.5 line 8...load the data
-        $.ajax("data/MegaCities.geojson", {
-            dataType: "json",
-            success: function(response){
-                //create an attributes array
-                var attributes = processData(response);
-                minValue = calcMinValue(response);
-                createPropSymbols(response, attributes);
-                createSequenceControls(attributes);
-            }
-        });
+        function getData(map){
+            //load the data
+            fetch("data/MegaCities.geojson")
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(json){
+                     //create an attributes array
+                    var attributes = processData(json);
+                    minValue = calcMinValue(json);
+                    createPropSymbols(json, attributes);
+                    createSequenceControls(attributes);
+                })
+        };
 
 
 We then create and return the array within the `processData()` function. Start with an empty array, then loop through the attribute names from the `properties` object of the first feature in the dataset, and push each attribute name that contains the characters `"Pop"` into our array. Your dataset likely uses other attributes keys than those in _MegaCities.geojson_, perhaps only a given year (e.g., `"1985"` instead of `"Pop_1985")`, so reformat your attribute keys to include a common prefix string for each of the attributes you wish to include in the spatiotemporal sequence. After successfully building the array, `return` the array to the callback function (Example 3.11).
@@ -624,7 +632,9 @@ Not only have we successfully assigned the first value in our array to the `attr
 
 ###### Figure 3.5: Leaflet map visualizing the first attribute in the dataset
 
-Step 5 of our pseudocode listens for user interaction with the slider and step buttons. We can add `.click` listeners to the step buttons, using the jQuery alias syntax introduced in Chapter 02. The slider `<input>` element has an [`input`](http://www.w3schools.com/jsref/event_oninput.asp) event that fires when the user moves the slider thumb or clicks on the slider bar.
+Step 5 of our pseudocode listens for user interaction with the slider and step buttons. We can add `click` listeners by iterating through each `step` class and using `addEventListener()` syntax introduced in Chapter 02. To iterate, the step buttons are selected using `querySelectorAll()` and then looped using a `forEach` loop, with the individual `step` declared as the parameter. The `click` listener is added within the loop, attached to the `step`. 
+
+The slider `<input>` element has an [`input`](http://www.w3schools.com/jsref/event_oninput.asp) event that fires when the user moves the slider thumb or clicks on the slider bar. Since there there is only one `range-slider`, there is no need to iterate.
 
 The _sequence_ listeners should be placed within the `createSequenceControls()` function, after the elements have been added to the DOM (Example 3.14). For now, the contents of the anonymous functions called by both event listeners is a placeholder comment that eventually will include the logic to update the proportional symbols according to the user input.
 
@@ -632,52 +642,52 @@ The _sequence_ listeners should be placed within the `createSequenceControls()`
 
         //Below Example 3.6 in createSequenceControls()
         //Step 5: click listener for buttons
-        $('.step').click(function(){
-            //sequence
-        });
-    
+        document.querySelectorAll('.step').forEach(function(step){
+            step.addEventListener("click", function(){
+                //sequence
+            })
+        })
+        
         //Step 5: input listener for slider
-        $('.range-slider').on('input', function(){
+        document.querySelector('.range-slider').addEventListener('input', function(){            
             //sequence
         });
 
 
-In Step 6 of the pseudocode, we change the attribute index based on the user interaction. The slider makes this easy: we can obtain the current slider value using `$(this).val()`. Returning to the basics of jQuery, `$(this)` references the element that fired the event and[`.val()`](http://api.jquery.com/val/) retrieves the slider's current value (Example 3.15). You can watch the index value change in real time by adding a `console.log()` statement and manipulating the slider. 
+In Step 6 of the pseudocode, we change the attribute index based on the user interaction. The slider makes this easy: we can obtain the current slider value using `this.value`. In JavaScript, `this` references the element that fired the event and[`value)`](https://www.w3schools.com/tags/att_value.asp) retrieves the slider's current value (Example 3.15). You can watch the index value change in real time by adding a `console.log()` statement and manipulating the slider. 
 
 ###### Example 3.15: Retrieving the value of the slider in _main.js_
 
-        //Example 3.14 line 7...Step 5: input listener for slider
-        $('.range-slider').on('input', function(){
+        //Step 5: input listener for slider
+        document.querySelector('.range-slider').addEventListener('input', function(){
             //Step 6: get the new index value
-            var index = $(this).val();        
-            console.log(index);    
+            var index = this.value;
+            console.log(index)
         });
 
-
-The step buttons are a bit more complicated. To coordinate the step buttons with the slider, we can obtain the current index using `$('.range-slider').val()` and increment or decrement this value depending on which button the user clicked (increment for `'forward'`, decrement for `'reverse'`). We then update the slider with the new value so it continues to track the current index (Example 3.16).
+The step buttons are a bit more complicated. To coordinate the step buttons with the slider, we can obtain the current index using `document.querySelector('.range-slider').value` and increment or decrement this value depending on which button the user clicked (increment for `'forward'`, decrement for `'reverse'`). We then update the slider with the new value so it continues to track the current index (Example 3.16).
 
 ###### Example 3.16: Changing the index value and updating the slider when a button is clicked in _main.js_
 
-        //Example 3.14 line 2...Step 5: click listener for buttons
-        $('.step').click(function(){
-            //get the old index value
-            var index = $('.range-slider').val();
-    
-            //Step 6: increment or decrement depending on button clicked
-            if ($(this).attr('id') == 'forward'){
-                index++;
-                //Step 7: if past the last attribute, wrap around to first attribute
-                index = index > 6 ? 0 : index;
-            } else if ($(this).attr('id') == 'reverse'){
-                index--;
-                //Step 7: if past the first attribute, wrap around to last attribute
-                index = index < 0 ? 6 : index;
-            };
-    
-            //Step 8: update slider
-            $('.range-slider').val(index);
-        });
+        document.querySelectorAll('.step').forEach(function(step){
+            step.addEventListener("click", function(){
+                var index = document.querySelector('.range-slider').value;
+                
+                //Step 6: increment or decrement depending on button clicked
+                if (step.id == 'forward'){
+                    index++;
+                    //Step 7: if past the last attribute, wrap around to first attribute
+                    index = index > 6 ? 0 : index;
+                } else if (step.id == 'reverse'){
+                    index--;
+                    //Step 7: if past the first attribute, wrap around to last attribute
+                    index = index < 0 ? 6 : index;
+                };
 
+                //Step 8: update slider
+                document.querySelector('.range-slider').value = index;
+            })
+        })
 
 Note that in Example 3.16, we implemented Step 7 in our pseudocode using simplified conditional syntax to assign the index `0` if it is incremented past `6`, and to assign it `6` if it is decremented past `0`. This prevents our sequence from going beyond the boundaries of our attribute array and allows it to wrap continuously. We also implemented Step 8 in our pseudocode by simply setting our new `index` as the value of the slider, which automatically updates its position.
 
@@ -805,7 +815,7 @@ You can implement the plugin to enable users to search for mapped features corre
 
 **_Arrange_** manipulates the layout of the map and linked views. _Arrange_ generally is not common on maps for presentation, and thus is rarely implemented with the mobile-friendly Leaflet library.
 
-_Arrange_ is more common for the highly-exploratory coordinated multiview visualization possible with D3, with a Leaflet map perhaps one window among coordinated views. Figure 4.6 shows a [ project](http://www.youtube.com/watch?v=Dlt3vU0ZBZ4&list=PLz9yX13m-GeL9tbxNN1tuOuMyx6wgkwb3) by a former Web Mapping workbook user using the jQuery UI library's [Draggable](https://jqueryui.com/draggable/) functionality.
+_Arrange_ is more common for the highly-exploratory coordinated multiview visualization possible with D3, with a Leaflet map perhaps one window among coordinated views. Figure 4.6 shows a [ project](http://www.youtube.com/watch?v=Dlt3vU0ZBZ4&list=PLz9yX13m-GeL9tbxNN1tuOuMyx6wgkwb3) by a former Web Mapping workbook user using [Draggable](https://jqueryui.com/draggable/) functionality.
 
 ![figure5.4.6.png](img/figure5.4.6.png)
 

@@ -1,0 +1,23 @@
+/*Example 2.9*/
+.map {
+    border: medium solid #999;
+}
+
+/*Example 2.4*/
+
+.countries {
+    fill: #fff;
+    stroke: #CCC;
+    stroke-width: 2px;
+}
+
+/*Example 2.7*/
+.gratLines {
+    fill: none;
+    stroke: #999;
+    stroke-width: 1px;
+}
+
+.gratBackground {
+    fill: #D5E3FF;
+}

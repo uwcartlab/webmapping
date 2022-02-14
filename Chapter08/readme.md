@@ -34,7 +34,7 @@ To begin, you will need to copy your boilerplate web directory and rename the co
 
 ### II. Selections
 
-The core of D3 is the _**selection**_, allowing its methods to interface with the DOM much like selections in jQuery. Recall that a selector is a string parameter that uses the same syntax as CSS to select an element in the DOM, e.g., `"tagname"`, `".classname"`, `"#id"`, etc.
+The core of D3 is the _**selection**_, allowing its methods to interface with the DOM much like selections made using `querySelector`. Recall that a selector is a string parameter that uses the same syntax as CSS to select an element in the DOM, e.g., `"tagname"`, `".classname"`, `"#id"`, etc.
 
 There are two methods used to create a selection: [`d3.select()`](https://github.com/d3/d3-selection/blob/master/README.md#select) and [`d3.selectAll()`](https://github.com/d3/d3-selection/blob/master/README.md#selectAll), which differ by how many markup elements are selected at once. The `d3.select()` method selects only the _first_ element in the DOM that matches the selector. Subsequent methods chained to the selection only affect that element. Conversely, `d3.selectAll()` grabs _all_ markup elements in the DOM that match the selector and applies any subsequent methods to all of the selected elements.
 
@@ -50,7 +50,7 @@ We will demonstrate the utility of this distinction over the course of the Chapt
     };
     
 
-This selects the HTML `<body>` element from the DOM and returns it to the variable `container`. Notice that there is <ins>_no_</ins> semicolon after the `.select()` method. This is intentional, as we will be chaining more methods to it momentarily. D3 utilizes method chaining in a way that's similar to jQuery, but to an even greater extent.
+This selects the HTML `<body>` element from the DOM and returns it to the variable `container`. Notice that there is <ins>_no_</ins> semicolon after the `.select()` method. This is intentional, as we will be chaining more methods to it momentarily. D3 utilizes method chaining to an even greater extent.
 
 At this stage, if you were to issue the statement `console.log(container)`, you would see a nested array with the `body` as the only element (Figure 1.1).
 
@@ -76,7 +76,7 @@ Reload your _unit-3_ website and use the inspector to see the new SVG in the DOM
 
 ###### Figure 1.2: An SVG created using D3
 
-Note that both jQuery and D3 have `.append()` methods. In this case, we know that the `.append()` method we are using belongs to D3 because the block starts with `d3`. Recall from Chapter 6 how JavaScript object prototypes work: D3's `.append()` is a method of the `d3` object, just as jQuery's `.append()` is a method of the `jQuery` object (and its `$` alias). In any script that uses chain syntax or blocks (such as D3, Leaflet, and jQuery), the methods you can use in the chain depend on the library object referenced at the beginning of the chain (e.g., `d3`, `L`, or `$`). You can identify which library is being used by reading backwards up the chain or block to its beginning. If the beginning of the chain or block is a variable, you need to look at how that variable was created to discover which library is being used.
+In any script that uses chain syntax or blocks (such as D3, Leaflet), the methods you can use in the chain depend on the library object referenced at the beginning of the chain (e.g., `d3` or `L`). You can identify which library is being used by reading backwards up the chain or block to its beginning. If the beginning of the chain or block is a variable, you need to look at how that variable was created to discover which library is being used.
 
 *   **_Rule:_** _In any method chain or block, only chain together methods belonging to the library referenced at the start of the chain._
 
@@ -110,7 +110,7 @@ In addition to setting the dimensions of an `<svg>` element, it is good practice
 
 *   **_Rule:_** _Assign each newly created element a class name identical to the name of the block._
 
-Before closing the block, add an inline style to the `<svg>` element, coloring the background so we can see the container on the page. Note that you also can do this in a CSS stylesheet by applying the style to the `container` class. To add a higher-priority inline style, we can use D3's [`.style()`](https://github.com/d3/d3-selection/blob/master/README.md#selection_style) operator the same way we would use jQuery's `.css()` method. Upon styling, add a semicolon to close the block (Example 1.4).
+Before closing the block, add an inline style to the `<svg>` element, coloring the background so we can see the container on the page. Note that you also can do this in a CSS stylesheet by applying the style to the `container` class. To add a higher-priority inline style, we can use D3's [`.style()`](https://github.com/d3/d3-selection/blob/master/README.md#selection_style) operator . Upon styling, add a semicolon to close the block (Example 1.4).
 
 ###### Example 1.4: Adding an inline style to the container in _main.js_
 
@@ -175,7 +175,7 @@ In Example 1.7, the `container` block creates our `<svg>` and the `innerRect` bl
 
 ### IV. Datum
 
-So far, D3 selections and blocks may seem pretty straightforward—again, very similar to a version of jQuery with extended method chaining syntax. However, where D3 departs from this model is a special property of its selections: the _**datum**_.
+So far, D3 selections and blocks may seem pretty straightforward. However, where D3 departs from this model is a special property of its selections: the _**datum**_.
 
 In a selection created with `d3.select()` (or their children, such as `innerRect`), the [`.datum()`](https://github.com/d3/d3-selection/blob/master/README.md#selection_datum) operator is used to _**bind**_ a data value to the selection. The `.datum()` method takes a _single data value_ (literally, a [datum](http://dictionary.reference.com/browse/datum)) as a parameter and attaches it to the selection (Example 1.7).
 
