@@ -224,7 +224,7 @@ For security reasons, browsers <ins>_only_</ins> display webpages correctly if t
 
 We use [Prepros](https://prepros.io/) in lesson examples for simplicity. Prepros is a "preprocessor" software application that automatically compiles your website and refreshes the browser every time you save files in your web directory. Prepros works on Windows and Mac machines. If you're using [Visual Studio Code](https://code.visualstudio.com/), you can install the Live Server extension, which performs the same function. 
 
-> ### **Preview _unit-1_ using Prepros.** 
+> ### **Preview _unit-1_ using Prepros or Visual Studio Code.** 
 
 Lesson 3: GitHub Setup
 ----------------------
@@ -280,11 +280,11 @@ Note, if you are using a Mac, these files may be hidden. You can view hidden fil
 
 <ins>_Never_</ins> tamper with the directories and files inside of the _.git_ folder, and for the most part you will not need to modify directly the other GitHub files in this class. You can change settings and add to the _.gitignore_ file through the GitHub application gear menu→"Repository" settings in the upper-right corner of the application window. You also can sign in to GitHub, manage your account, and configure Git through the gear menu→"Options". 
 
-Next, you need to publish your repository to GitHub. At the top of the page click "Publish repository". Name the repository _unit-1_ and add your name and "unit 1" as the description. Uncheck "Keep this code private" so others can see your repository. Finally, click "Publish Repository" (Figrue 3.4).
+Next, you need to publish your repository to GitHub. At the top of the page click "Publish repository". Name the repository _unit-1_ and add your name and "unit 1" as the description. Uncheck "Keep this code private" so others can see your repository. Finally, click "Publish Repository".
 
 ![figure1.3.4.png](img/figure1.3.4.png)
 
-###### Figure 3.4: Publishing a repository from GitHub Desktop
+###### Figure 3.3: Publishing a repository from GitHub Desktop
 
 You should end up with both a local repository in your website directory and a copy of the repository on your GitHub web page. Note that it is also possible to work in reverse order by creating a new repository on the GitHub website and then copying it over (i.e., _clone_ it) to your machine. The GitHub [Hello World Guide](https://guides.github.com/activities/hello-world/) provides details on this reverse process for future reference. We will return to this process in Activity 7.
 
@@ -304,12 +304,12 @@ From this point, though, the key to becoming comfortable with GitHub is to use i
 
 ## Activity 2
 
-1.  **_Required_**: Navigate to codecademy.com and create a free account. Do _<ins>not</ins>_ sign-up for the Pro paid account. You only need to complete the free content from the following tutorials, not the paywalled extra exercises.
+1.  **_Required_**: Navigate to codecademy.com and create a free account. Do _<ins>not</ins>_ sign-up for the Pro paid account.
 2.  _Recommended_: If you do not have any programming experience, we recommend first completing the [Learn How to Code](https://www.codecademy.com/learn/learn-how-to-code) broad overview of programming concepts (~1 hour).
 3.  _Recommended_: If you do not have experience with HTML or want a refresher, we recommend completing Lesson 1 (and only Lesson 1) of the [Introduction to HTML tutorial](https://www.codecademy.com/learn/learn-html). (~1 hour)
 4.  _Recommended_: If you do not have experience with CSS or want a refresher, we recommend completing Lessons 1 and 2 of the [Introduction to CSS tutorial](https://www.codecademy.com/learn/learn-css). (~2 hours)
-5.  **_Required_**: Complete Lessons 2, 3, 4, and 7 of [Introduction to JavaScript](https://www.codecademy.com/learn/introduction-to-javascript). For UW-Madison students: Print a PDF (Ctrl+P in browser; save as a PDF) of your completed table of contents for these tutorials and upload to the Activity 2 assignment to confirm completion. (~8 hours)
-6.  _Recommended_: Complete Lessons 5, 6, 8, and 9 of [Introduction to JavaScript](https://www.codecademy.com/learn/introduction-to-javascript). We will introduce and review these concepts in depth in subsequent lessons, so these tutorials are helpful but not essential foundation. (~8 hours)
+5.  **_Required_**: Complete Lessons 2 (Introduction), 3 (Conditionals), 4 (Functions), and 7 (Loops) of [Introduction to JavaScript](https://www.codecademy.com/learn/introduction-to-javascript). For UW-Madison students: Print a PDF (Ctrl+P in browser; save as a PDF) of your completed table of contents for these tutorials and upload to the Activity 2 assignment to confirm completion. (~8 hours)
+6.  _Recommended_: Complete Lessons 5 (Scope), 6 (Arrays), 8 (Iterators), and 9 (Objects) of [Introduction to JavaScript](https://www.codecademy.com/learn/introduction-to-javascript). We will introduce and review these concepts in depth in subsequent lessons, so these tutorials are helpful but not essential foundation. (~8 hours)
 
 _This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). <br/> For more information, please contact Robert E. Roth \(reroth@wisc.edu\)._
 

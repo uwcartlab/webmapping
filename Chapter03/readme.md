@@ -78,7 +78,7 @@ _**JSON**_, or _**JavaScript Object Notation**_, is an alternative data format n
 
 _**GeoJSON**_ was invented to take advantage of JSON syntax for geospatial data. GeoJSON is to JSON as KML is to XML; while JSON may use any arbitrary keys and values, the GeoJSON specification requires particular keys and data types. Like a shapefile, GeoJSON uses a spaghetti model for geometry, with no topology or shared polygon boundaries (more about this when we introduce TopoJSON for D3 in Chapter 8).
 
-You can manually convert a CSV or KML to GeoJSON using [geojson.io](http://geojson.io/) or programmatically using the [`csv2geojson()` method](https://github.com/mapbox/csv2geojson) during the execution of your script. You can convert shapefiles to GeoJSON using the [MapShaper tool](https://mapshaper.org/). Starting with manual conversation with geojson.io, upload your dataset by dragging the file into the browser. If it is correctly formatted, the application will recognize the geography instantly and display a point marker for each city (Figure 1.6).
+You can manually convert a CSV or KML to GeoJSON using [geojson.io](http://geojson.io/) or programmatically using the [`csv2geojson()` method](https://github.com/mapbox/csv2geojson) during the execution of your script. You can convert shapefiles to GeoJSON using the [MapShaper tool](https://mapshaper.org/). Starting with manual conversion with geojson.io, upload your dataset by dragging the file into the browser. If it is correctly formatted, the application will recognize the geography instantly and display a point marker for each city (Figure 1.6).
 
 ![figure3.1.6.png](img/figure3.1.6.png)
 
@@ -101,7 +101,7 @@ AJAX is the reason we can have a fluid rather than fragmented user experience, a
 
 ### II. Fetch Requests
 
-JavaScript AJAX requests are somewhat complicated; they involve an entire back-and-forth conversation between the client and the server. To make AJAX requests, you will use Javacript's native _**Fetch**_ API. Although you ultimately will use a highly simplifed form of the [`fetch()` method](https://developer.mozilla.org/en-US/docs/Web/API/fetch) for you AJAX calls (see Lesson 3), it is conceptually useful to step through a full Fetch request to gain an understanding of how AJAX works.
+JavaScript AJAX requests are somewhat complicated; they involve an entire back-and-forth conversation between the client and the server. To make AJAX requests, you will use Javacript's native _**Fetch**_ API. Although you ultimately will use a highly simplifed form of the [`fetch()` method](https://developer.mozilla.org/en-US/docs/Web/API/fetch) for your AJAX calls (see Lesson 3), it is conceptually useful to step through a full Fetch request to gain an understanding of how AJAX works.
 
 Start by creating a simple request for the data in your converted _MegaCities.geojson_ file (Example 2.1). The statement `new Request()` creates a new instance of a special type of object, assigned to the `request` variable, that communicates with a server to retrieve or send data asynchronously (i.e., without reloading the webpage).
 
