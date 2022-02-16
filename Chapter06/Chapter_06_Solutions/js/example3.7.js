@@ -140,10 +140,8 @@ function getCircleValues(attribute) {
 function updateLegend(attribute) {
   //create content for legend
   var year = attribute.split("_")[1];
-  var content = "Population in " + year;
-
   //replace legend content
-  $("#temporal-legend").html(content);
+  document.querySelector("span.year").innerHTML = year;
 
   //get the max, mean, and min values as an object
   var circleValues = getCircleValues(attribute);
@@ -152,23 +150,24 @@ function updateLegend(attribute) {
     //get the radius
     var radius = calcPropRadius(circleValues[key]);
 
-    $("#" + key).attr({
+    document.querySelector("#" + key).setAttribute("cy", 59 - radius);
+    document.querySelector("#" + key).setAttribute("r", radius)
+
+    document.querySelector("#" + key + "-text").textContent = Math.round(circleValues[key] * 100) / 100 + " million";
+
+    /*$("#" + key).attr({
       cy: 59 - radius,
       r: radius,
     });
 
     $("#" + key + "-text").text(
       Math.round(circleValues[key] * 100) / 100 + " million"
-    );
+    );*/
   }
 }
 
 //Step 10: Resize proportional symbols according to new attribute values
 function updatePropSymbols(attribute) {
-  var year = attribute.split("_")[1];
-  //update temporal legend
-  $("span.year").html(year);
-
   map.eachLayer(function (layer) {
     if (layer.feature && layer.feature.properties[attribute]) {
       //access feature properties

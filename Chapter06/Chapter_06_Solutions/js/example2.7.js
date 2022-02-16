@@ -99,7 +99,7 @@ function createPropSymbols(data, attributes){
 function updatePropSymbols(attribute){
     var year = attribute.split("_")[1];
     //update temporal legend
-    $("span.year").html(year);
+    document.querySelector("span.year").innerHTML = year;
 
     map.eachLayer(function(layer){
 
