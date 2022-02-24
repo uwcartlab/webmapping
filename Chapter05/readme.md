@@ -523,7 +523,7 @@ Finally, we can adjust the _sequence_ UI styles to make the controls more usable
     .step img {  
         width: 100%;  
     }  
-​    
+    
     #forward {  
         float: right;  
     }  
