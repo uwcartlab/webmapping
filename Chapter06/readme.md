@@ -693,7 +693,18 @@ Now we are ready for Step 4 of the pseudocode. We can create text within an SVG 
             //add attribute legend svg to container
             container.insertAdjacentHTML('beforeend',svg);
 
-This adds a `<text>` element with a unique id and content for each circle to the SVG (line 8).  Notice that we evenly space out each `<text>` element's `y` coordinate attribute for readability. This completes our legend and the basic requirements for the Leaflet map (Figure 3.8)!
+This adds a `<text>` element with a unique id and content for each circle to the SVG (line 8).  Notice that we evenly space out each `<text>` element's `y` coordinate attribute for readability. 
+
+Finally, we need to update the legend title whenever the year is changed. We've already set this up by creating a `<span>` element within the legend title string with a `class` of "year". The only thing we need to do now is access that element whenever the year changes and include the currently selected year. We'll do this at the top of the `updatePropSymbols()` function (Example 3.10).
+
+###### Example 3.10 Update temporal legend title with current year
+
+        function updatePropSymbols(attribute){
+            var year = attribute.split("_")[1];
+            //update temporal legend
+            document.querySelector("span.year").innerHTML = year;
+
+This completes our legend and the basic requirements for the Leaflet map (Figure 3.8)!
 
 ![figure6.3.8.png](img/figure6.3.8.png)
 
