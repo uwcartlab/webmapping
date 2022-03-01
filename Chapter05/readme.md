@@ -406,8 +406,8 @@ Step 1 in the pseudocode is creating a slider widget. For now, we can place our 
 ###### Example 3.3: Adding a `<div>` panel for the sequence controls in _index.html_
 
     <body>    
-        <div id="map"</div>
-        <div id="panel"</div>
+        <div id="map"></div>
+        <div id="panel"></div>
 
 Next, specify the position of the `#panel` relative to the `#map` using CSS in _style.css_ (Example 3.4). Note that this type of a panel also can be used for the _retrieve_ operator is an information panel is preferred over a information window due to a large amount of detail content.
 
