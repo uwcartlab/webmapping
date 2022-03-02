@@ -7,7 +7,7 @@ Your Leaflet map should be coming along nicely after the Chapter 5 overview of i
 
 *   In Lesson 1, we contrast procedural versus object-oriented coding with JavaScript by refactoring some existing, suboptimal code from Chapter 4-5.
 *   In Lesson 2, we refresh our introduction of Leaflet to look at it as a library of classes and use several of these classes to implement UI controls and a temporal legend.
-*   In Lesson 3, we introduce scamaple vector graphics (SVGs)—a graphics format we rely on with D3 in _unit-3_ and use SVG to build an attribute legend for our Leaflet map example.
+*   In Lesson 3, we introduce scalable vector graphics (SVGs)—a graphics format we rely on with D3 in _unit-3_ and use SVG to build an attribute legend for our Leaflet map example.
 
 After this chapter, you should be able to:
 
