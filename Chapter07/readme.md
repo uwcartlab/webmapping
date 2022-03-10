@@ -46,13 +46,13 @@ Specifically, a large focus for this chapter is on the additional features of Gi
 
 Collaborative coding, like other collective projects, relies on effective group communication. Some of this communication should occur outside of GitHub, either offline in person or online via email or (preferably) work messaging platforms like [Slack](https://slack.com/features). As a first step, determine what communication platform your group will use and when you generally are able to touch base about the group project.
 
-The next step in collaborative coding is assigning roles to each team member. For example, one member may focus on data loading and processing, another on interaction operators, and a third on layout and styling, etc. When first starting with a new collaboration, we also recommend assigning a group "facilitator" who "owns" the main branch of your code and merges major code conflicts (more below) with the others submitting pull requests to the facilitator for review. Keep in mind that it is OK if roles change a bit and that you should be helping your other team members as they get stuck.
+The next step in collaborative coding is assigning roles to each team member. For example, one member may focus on data loading and processing, another on interaction operators, and a third on layout and styling, etc. When first starting with a new collaboration, we also recommend assigning a group "facilitator" who "owns" the main branch of your code and merges major code conflicts (more below). All group members should have an equal role, and the person who "owns" the repository should not represent any hierarchy in the group. Keep in mind that it is OK if roles change a bit and that you should be helping your other team members as they get stuck.
 
 Finally, you should assign specific development tasks to each role. We recommend using GitHub _**milestones**_ (more on these later) to decompose a group project into its functional scope and important subtasks for completing each function, assigning these milestones to different roles.
 
 ### II. GitHub Documentation with Markdown
 
-Collaborative coding with GitHub relies as much on functions like forking, merging, and pulling as it does on effective messaging and documentation. So far, we have emphasized the importance of commit messages that succinctly describe what changes were made so that you can track your own changes. Commit messages along with pull requests become even more important when collaboratively coding.
+Collaborative coding with GitHub relies as much on functions like cloning, merging, and pulling as it does on effective messaging and documentation. So far, we have emphasized the importance of commit messages that succinctly describe what changes were made so that you can track your own changes. Meaningful commit messages along with pull requests become even more important when collaboratively coding.
 
 As your projects grow in scale, you also should add documentation to explain the repos to other collaborators (some of whom may be joining the project in the future) as well as to other interested coders who might draw on your work following the ethos of "libre" free and open source software. A _**readme**_ file acts as the metadata of software, datasets, or other repos posted to GitHub. Readme files often include information about authors and licensing, code versions and dependencies, as well as documentation and background description about the project.
 
@@ -114,17 +114,17 @@ Lesson 2: Setting Up A Collaborative Repository for a Group Project
 
 To get you started on your group project, we have created a [group repository template](https://github.com/uwcartlab/webmapping-final-project) under the [UWCartLab](https://github.com/uwcartlab) GitHub account.
 
-To begin, the team facilitator should download the [group repository template](https://github.com/uwcartlab/webmapping-final-project) as a ZIP. After unzipping the file, rename the repo in accordance with your group project plans. For clarity in this lesson, we recommend renaming the repo "[year]_[projectname]". The faciliator should publish the repository to their own GitHub account, just like in Chapter 1. 
+To begin, the team facilitator should download the [group repository template](https://github.com/uwcartlab/webmapping-final-project) as a ZIP. After unzipping the file, rename the repo in accordance with your group project plans. For clarity in this lesson, we recommend renaming the repo "[year]_[projectname]". **The faciliator should publish the repository to their own GitHub account, just like in Chapter 1.**
 
 ### II. Adding Collaborators
 
-Next, the facilitator must give all team members access to the repository, adding each additional team member as a _**collaborator**_. To add collaborators, the facilitator should select the "Manage Access" tab in the "Settings" menu and click the "Add a collaborator" option, inputting each team member GitHub username one at a time (Figure 2.1).	
+Next, the facilitator must give all team members access to the repository, adding each additional team member as a _**collaborator**_. To add collaborators, the facilitator should open GitHub in a web browser and select the "Manage Access" tab in the "Settings" menu and click the "Add a collaborator" option, inputting each team member GitHub username one at a time (Figure 2.1).
 
 ![figure7.2.1.png](img/figure7.2.1.png)
 
 ###### Figure 2.1: Adding a collaborator.
 
-Repeat this process with each of your team members. Team members need to accept the invitation in order to clone the repository to their desktop. To do so, team members should login to the email associated with their GitHub account to find the invitation to your group repo. If you cannot find the email, check your spam folder, or search "\[year]_\[projectname]" and the email should show up.  Click "view invitation" and, when redirected, "accept invitation".
+Repeat this process with each of your team members. **Team members need to accept the invitation in order to clone the repository to their desktop.** To do so, team members should login to the email associated with their GitHub account to find the invitation to your group repo. If you cannot find the email, check your spam folder, or search "\[year]_\[projectname]" and the email should show up.  Click "view invitation" and, when redirected, "accept invitation".
 
 ### III. Cloning the Group Repo to Your Desktop
 
@@ -134,7 +134,7 @@ Finally, each team member needs to clone the group project repository to their d
 
 ###### Figure 2.2: Cloning your group repo.
 
-Select "clone" and follow the remaining instructions to clone your group repo locally. When prompted with "How are you planning to use this fork?" select "For my own purposes" to ensure that your updates go to the right place. 
+Look at the location GitHub is placing the repository on your hard drive, and keep or change this location. Select "clone" and follow the remaining instructions to clone your group repo locally. 
 
 > ### **Confirm access to and clone your group repo.**
 
@@ -170,7 +170,7 @@ Accept the new additions to the code and merge the main branch with your local c
 
 ###### Figure 2.6: The revised message when conflicts are resolved, allowing a merge.
 
-Now that you know a bit about Markdown, use the _readme.md_ to begin planning the group project (e.g., Figure 2.7). It is worth experimenting with the collaborative coding process early on, perhaps over a video call with your team members.
+Now that you know a bit about Markdown, use the _readme.md_ to begin planning the group project (e.g., Figure 2.7). It is worth experimenting with the collaborative coding process early on, either in person or over a video call with your team members.
 
 ![figure7.2.7.png](img/figure7.2.7.png)
 
@@ -206,7 +206,7 @@ As you move along in your project, you may want to create separate [branches](ht
 
 Similar to a branch, you can _**fork**_ another user's repo. Forking is a way to create a personal copy of another user's repo. For example, if you wanted to build off of another user's code, you could fork their repo. Forked repos maintain a link to the original, allowing you to pull updates into your branch. You can also submit a pull request if you want the original author to incorporate your changes into their original repo. You will likely not need to use forking for this project.
 
-As you get started with collaborative coding, you likely will encounter simple merge conflicts that can be resolved using GitHub Desktop. However, more complicated merge conflicts may need to be resolved using GitHub in your browser, where you can select portions of each version to retain in the group project. Alternatively, these conflicts can be resolved using [GitHub command line](https://cli.github.com/manual/), a more advanced use of the Git framework that is outside the scope of this workbook but helpful as you continue to grow your skills.
+As you get started with collaborative coding, you likely will encounter simple merge conflicts that can be resolved using GitHub Desktop. However, more complicated merge conflicts may need to be resolved using GitHub in your code editor or browser, where you can select portions of each version to retain in the group project. Alternatively, these conflicts can be resolved using [GitHub command line](https://cli.github.com/manual/), a more advanced use of the Git framework that is outside the scope of this workbook but helpful as you continue to grow your skills.
 
 > ### **Work with your team to build the _readme.md_ file supporting your group project, merging and resolving all conflicts.**
 
