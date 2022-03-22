@@ -50,7 +50,7 @@ We will demonstrate the utility of this distinction over the course of the Chapt
     };
     
 
-This selects the HTML `<body>` element from the DOM and returns it to the variable `container`. Notice that there is <ins>_no_</ins> semicolon after the `.select()` method. This is intentional, as we will be chaining more methods to it momentarily. D3 utilizes method chaining to an even greater extent.
+This selects the HTML `<body>` element from the DOM and returns it to the variable `container`. Notice that there is <ins>_no_</ins> semicolon after the `.select()` method. This is intentional, as we will be chaining more methods to it momentarily. D3 utilizes method chaining to an even greater extent than we used with vanilla javascript.
 
 At this stage, if you were to issue the statement `console.log(container)`, you would see a nested array with the `body` as the only element (Figure 1.1).
 
