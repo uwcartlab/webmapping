@@ -568,7 +568,7 @@ Step 2 of the pseudocode creates each example proportional circle for the legend
             container.insertAdjacentHTML('beforeend',svg);
 
 
-On line 10 of Example 3.6, we assign the circle `id` attribute based orean the current value of the array. Other attributes are similar to the code on line 3 of Example 3.2, except that we have left out the unnecessary `stroke-miterlimit` attribute as well as the necessary `cy` and `r` attributes. We have left out the latter two because these will be assigned dynamically depending on the dataset values for each attribute. Because they are left out, no circles will appear yet in the legend, but if you were to inspect the legend, you could see that the `<circle>` elements are all present in the DOM.
+On line 10 of Example 3.6, we assign the circle `id` attribute based on the current value of the array. Other attributes are similar to the code on line 3 of Example 3.2, except that we have left out the unnecessary `stroke-miterlimit` attribute as well as the necessary `cy` and `r` attributes. We have left out the latter two because these will be assigned dynamically depending on the dataset values for each attribute. Because they are left out, no circles will appear yet in the legend, but if you were to inspect the legend, you could see that the `<circle>` elements are all present in the DOM.
 
 After the loop, we must add a closing `</svg>` tag to the string (line 15) before appending it to the control container.
 
