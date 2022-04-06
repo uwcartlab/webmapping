@@ -139,7 +139,7 @@ Create a promise to load your datasets within a `setMap()` function in _main.js
     };
 
 
-In Example 1.3, the methods [`d3.csv()`](https://github.com/d3/d3-request/blob/master/README.md#csv) and [`d3.json()`](https://github.com/d3/d3-request/blob/master/README.md#json) are AJAX methods similar to `fetch()`. D3 provides many convenient [AJAX methods](https://github.com/d3/d3-request/blob/master/README.md) that can be used individually or as part of a promise. These normally are called with a URL and callback as their own parameters, but `Prosemise.all()` only uses the AJAX method name and takes care of the rest.
+In Example 1.3, the methods [`d3.csv()`](https://github.com/d3/d3-request/blob/master/README.md#csv) and [`d3.json()`](https://github.com/d3/d3-request/blob/master/README.md#json) are AJAX methods similar to `fetch()`. D3 provides many convenient [AJAX methods](https://github.com/d3/d3-request/blob/master/README.md) that can be used individually or as part of a promise. These normally are called with a URL and callback as their own parameters, but `Promise.all()` only uses the AJAX method name and takes care of the rest.
 
 Once we have set up our `Promise.all()` block, we can write the callback function. Place this function within `setMap()` so that it can make use of local variables that will be added later (Example 1.4).
 
