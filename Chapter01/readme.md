@@ -256,15 +256,19 @@ For simplicity, we use [GitHub Desktop](https://desktop.github.com/) in lesson e
 
 The first step to setting up GitHub is to create a GitHub account, if you do not already have one. Go to [https://github.com/](https://github.com/), enter a username, e-mail, and password, and click "Sign up for GitHub."
 
-Then open GitHub Desktop and log in. Click "Current repository" in the upper-left corner of the application, then click "Add" and choose "Create new repository...". Enter the name of your website, then in "Local path" navigate to the directory _containing_ your website directory, and click "Create repository" (Figure 3.2).
+Then open GitHub Desktop and log in. Click "Current repository" in the upper-left corner of the application, then click "Add" and choose "Add existing repository...". Choose your _unit-1_ folder. You will then get a warning saying that there is no repository in the selected folder. That's OK! There is a tiny blue link that says "create a repository" (shown underlined in Figure 3.2), click it.
 
-Importantly, if you first navigate to your website directory instead of the folder above it, the application will create a new directory _inside_ your website directory with the same name. Check the path shown in the "local path" text field to ensure you are syncing from the correct location on your computer.
-
-![figure1.3.2(new).png](img/figure1.3.2.png)
+![figure1.3.2.png](img/figure1.3.2.png)
 
 ###### Figure 3.2: Creating a repository in your _unit-1_ directory
 
-Once you have created the repository, open your the _unit-1_ directory on your machine and observe that three new files have been created (Figure 3.3):
+A new window will pop up (Figure 3.3). There, enter the name of your website, and click "Create repository". 
+
+![figure1.3.3.png](img/figure1.3.3.png)
+
+###### Figure 3.3: Setting up your _unit-1_ repository.
+
+Once you have created the repository, open your the _unit-1_ directory on your machine and observe that three new files have been created (Figure 3.4):
 
 *   **._git_**, a hidden folder that holds the snapshots of your files,
     
@@ -274,17 +278,17 @@ Once you have created the repository, open your the _unit-1_ directory on your m
     
 Note, if you are using a Mac, these files may be hidden. You can view hidden files by pressing `command-shift-dot`.
 
-![figure1.3.3.png](img/figure1.3.3.png)
+![figure1.3.4.png](img/figure1.3.4.png)
 
-###### Figure 3.3: Website directory with repository files
+###### Figure 3.4: Website directory with repository files
 
 <ins>_Never_</ins> tamper with the directories and files inside of the _.git_ folder, and for the most part you will not need to modify directly the other GitHub files in this class. You can change settings and add to the _.gitignore_ file through the GitHub application gear menu→"Repository" settings in the upper-right corner of the application window. You also can sign in to GitHub, manage your account, and configure Git through the gear menu→"Options". 
 
 Next, you need to publish your repository to GitHub. At the top of the page click "Publish repository". Name the repository _unit-1_ and add your name and "unit 1" as the description. Uncheck "Keep this code private" so others can see your repository. Finally, click "Publish Repository".
 
-![figure1.3.4.png](img/figure1.3.4.png)
+![figure1.3.5.png](img/figure1.3.5.png)
 
-###### Figure 3.3: Publishing a repository from GitHub Desktop
+###### Figure 3.5: Publishing a repository from GitHub Desktop
 
 You should end up with both a local repository in your website directory and a copy of the repository on your GitHub web page. Note that it is also possible to work in reverse order by creating a new repository on the GitHub website and then copying it over (i.e., _clone_ it) to your machine. The GitHub [Hello World Guide](https://guides.github.com/activities/hello-world/) provides details on this reverse process for future reference. We will return to this process in Activity 7.
 
