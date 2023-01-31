@@ -856,7 +856,7 @@ This might seem like a simple error, but much of debugging involves tediously tr
 
 ## Activity 3
 
-1.  View the _main_with_debug.js_ script found in the _js_ folder of the _Chapter02_ subdirectory within your _unit-1_ repo. Replace the script link in _index.html_ from _main.js_ to _main_with_debug.js_.
+1.  View the _main_with_debug.js_ script found in the _js_ folder of the _Chapter02_ subdirectory within your _unit-1_ repo. Replace the script link in _index.html_ from _main.js_ to _main_with_debug.js_. Note: you will need to copy the _main.js_ code into the _main_with_debug.js_ file for the table to show up!
 2.  Debug the _main\_with\_debug.js_ script to get the table to draw properly with the hover and click interactions (see preview below).
 3.  Add comments to _main\_with\_debug.js_ explaining what the script is doing at each step.
 4.  Commit your changes to your _unit-1_ repository and sync with GitHub (you will want to keep your boilerplate site clean for future use). 
