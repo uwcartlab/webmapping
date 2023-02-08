@@ -60,11 +60,8 @@ function addColumns(cityPop){
 	document.querySelectorAll("tr").forEach(function(row,i){
 		//for first row in the table, add the column header
 		if (i == 0){
-    		//create new header element
-			newHeader = document.createElement('th');
-			newHeader.innerHTML = 'City Size';
-			//append header element to table
-			row.appendChild(newHeader)
+    		//create new header element and add it to the table
+			row.insertAdjacentHTML('beforeend', '<th>City Size</th>');
     	} else {
     		var citySize;
 
@@ -77,10 +74,7 @@ function addColumns(cityPop){
     		};
 
 			//add new table cell with the city size
-    		var newRow = document.createElement('td')
-			newRow.innerHTML = citySize
-			//append city size cell to table
-			row.appendChild(newRow)	
+    		row.insertAdjacentHTML('beforeend','<td>' + citySize + '</td>');
     	};
 	})
 };
