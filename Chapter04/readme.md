@@ -67,29 +67,27 @@ Your script should look approximately like Example 1.1 after completing the _Lea
 
     /* Example from Leaflet Quick Start Guide*/
     
-    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+    var map = L.map('map').setView([51.505, -0.09], 13);
     
-    //add tile layer...replace project id and accessToken with your own
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com">Mapbox</a>',
-        maxZoom: 18,
-        id: 'your.mapbox.project.id',
-        accessToken: 'your.mapbox.public.access.token'
-    }).addTo(mymap);
+    //add tile layer
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+       maxZoom: 19,
+       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
     
-    var marker = L.marker([51.5, -0.09]).addTo(mymap);
+    var marker = L.marker([51.5, -0.09]).addTo(map);
     
     var circle = L.circle([51.508, -0.11], {
         color: 'red',
         fillColor: '#f03',
         fillOpacity: 0.5,    radius: 500
-    }).addTo(mymap);
+    }).addTo(map);
     
     var polygon = L.polygon([
         [51.509, -0.08],
         [51.503, -0.06],
         [51.51, -0.047]
-    ]).addTo(mymap);
+    ]).addTo(map);
     
     marker.bindPopup("<strong>Hello world!</strong><br />I am a popup.").openPopup();
     circle.bindPopup("I am a circle.");
@@ -98,7 +96,7 @@ Your script should look approximately like Example 1.1 after completing the _Lea
     var popup = L.popup()
         .setLatLng([51.5, -0.09])
         .setContent("I am a standalone popup.")
-        .openOn(mymap);
+        .openOn(map);
     
     var popup = L.popup();
     
@@ -106,13 +104,13 @@ Your script should look approximately like Example 1.1 after completing the _Lea
         popup
             .setLatLng(e.latlng)
             .setContent("You clicked the map at " + e.latlng.toString())
-            .openOn(mymap);
+            .openOn(map);
     }
     
-    mymap.on('click', onMapClick);
+    map.on('click', onMapClick);
 
 
-When completing the tutorial, be sure to add a `<div>` element with the `id "mapid"` to the `<body>` of your _index.html_ file, and assigned a `height` to `#mapid` in your _style.css_ stylesheet. Figure 1.1 illustrates the expected slippy map resulting from the _Leaflet Quick Start Guide_.
+When completing the tutorial, be sure to add a `<div>` element with the `id "map"` to the `<body>` of your _index.html_ file, and assigned a `height` to `#map` in your _style.css_ stylesheet. Figure 1.1 illustrates the expected slippy map resulting from the _Leaflet Quick Start Guide_.
 
 ![figure4.1.1.png](img/figure4.1.1.png)
 
