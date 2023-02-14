@@ -116,11 +116,11 @@ When completing the tutorial, be sure to add a `<div>` element with the `id "map
 
 ###### Figure 1.1: An example slippy map created during the _Leaflet Quick Start Guide_ tutorial
 
-Leaflet.js is the foundation for Mapbox.js, maintained by a large web mapping company of the same name, and the original developer of Leaflet (Vladimir Agafonkin) is now a software engineer for Mapbox. Accordingly, the _Leaflet Quick Start Guide_ makes use of a Mapbox tileset that requires an [access token](https://account.mapbox.com/access-tokens/) (You may need to create a Mapbox account first). You may follow the format given in the tutorial, but if so, note that you must replace the text _your.mapbox.project.id_ and _your.mapbox.public.access.token_ with your unique project id and access token acquired from Mapbox.
+Leaflet.js is the foundation for Mapbox.js, maintained by a large web mapping company of the same name, and the original developer of Leaflet (Vladimir Agafonkin) is now a software engineer for Mapbox. 
 
-Alternatively, you can avoid creating a Mapbox account by using an open tileset from the [Leaflet-providers preview website.](http://leaflet-extras.github.io/leaflet-providers/preview/) Example 1.2 makes use of the primary OpenStreetMap (OSM) tileset.
+The basemap in the example is called a _tileset_. There are a number of open tilesets that you can use in your Leaflet maps. The example uses an openstreetmap tileset from the [Leaflet-providers preview website](http://leaflet-extras.github.io/leaflet-providers/preview/), as shown in Example 1.2.
 
-###### Example 1.2: Replacing the Mapbox tile layer with an OpenStreetMap tileset in _main.js_
+###### Example 1.2: Tile layer with an OpenStreetMap tileset in _main.js_
 
     //Example 1.1 line 5...add tile layer
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -128,7 +128,7 @@ Alternatively, you can avoid creating a Mapbox account by using an open tileset 
     }).addTo(map);
 
 
-For both tilesets, the URL string for the tile layer has some special characters in it. The URL format reflects the standardized structure of slippy map tilesets, which consist of 256x256 pixel images in a set of nested subdirectories on the tile server. Tileset URL variables include:
+For tilesets, the URL string for the tile layer has some special characters in it. The URL format reflects the standardized structure of slippy map tilesets, which consist of 256x256 pixel images in a set of nested subdirectories on the tile server. Tileset URL variables include:
 
 *   `{z}` represents the zoom level, typically a number between 0 (very small scale; the entire globe should be visible in the browser window) and 22 (very large scale)
 *   `{x}` is the horizontal coordinate, numbered left-to-right starting from 0 at the western boundary of the tileset
