@@ -59,7 +59,7 @@ It is standard practice to include either _leaflet.js_ or _leaflet-src.js_ in t
 
 With Leaflet "installed", let's take a look at some of the resources provided on the website to get started. The [Tutorials](http://leafletjs.com/examples.html) tab includes over a dozen helpful tutorials written at a beginner-level in web mapping but assuming some prior knowledge of HTML, CSS, and JavaScript. You will review two tutorials within this lesson: [_Leaflet Quick Start Guide_](http://leafletjs.com/examples/quick-start.html) and [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html). These tutorials are excellent, and so we rely on them in the following instructions rather than replicating.
 
-> ### **Read and follow the instructions in the [_Leaflet Quick Start Guide_](http://leafletjs.com/examples/quick-start.html) and [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html) tutorials. Save your scripts from each tutorial in two files called _quickstartTutorial.js_ and _geojsonTutorial.js_, placing both in your _unit-2_ _js_ folder.**
+> ### **Read and follow the instructions in the [_Leaflet Quick Start Guide_](http://leafletjs.com/examples/quick-start.html) tutorial. Save your script from the tutorial in a file called _quickstartTutorial.js_ and place it in your _unit-2_ _js_ folder.**
 
 Your script should look approximately like Example 1.1 after completing the _Leaflet Quick Start Guide_.
 
@@ -143,7 +143,9 @@ In OSM and other tilesets:
 
 *   `{s}` represents the server instance from which the tiles are drawn, as many hosts of public-facing tilesets utilize multiple servers to avoid slow response times
 
-After getting a basic slippy map to load, complete the [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html) tutorial. The second tutorial integrates GeoJSON data—introduced last chapter—with your slippy map via Leaflet's `L.geoJson()` method. Note that the examples given by the tutorial utilize GeoJSON `features` arrays assigned to variables, rather than a `FeatureCollection` object imported via AJAX. 
+> ### **After getting a basic slippy map to load, complete the [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html) tutorial. Save your script from the tutorial in a new file called _geojsonTutorial.js_, placing it in your _unit-2_ _js_ folder.**
+
+The second tutorial integrates GeoJSON data—introduced last chapter—with your slippy map via Leaflet's `L.geoJson()` method. Note that the examples given by the tutorial utilize GeoJSON `features` arrays assigned to variables, rather than a `FeatureCollection` object imported via AJAX. 
 
 Figure 1.2 illustrates the expected slippy map resulting from the _Using GeoJSON with Leaflet_ tutorial. Lesson 2 describes how to integrate your GeoJSON data imported via AJAX with the `L.geoJson()` method.
 
@@ -221,12 +223,9 @@ Next, let's look at the `L.tileLayer()` and `.addTo()` methods. `L.tileLayer` ta
 ###### Example 1.4: Adding a tile layer using a variable and the `addTo()` method in _quickstartTutorial.js_
 
     //Example 1.1 line 5...add tile layer
-    var tileLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com">Mapbox</a>',
-        maxZoom: 18,
-        id: 'your.mapbox.project.id',
-        accessToken: 'your.mapbox.public.access.token'
-    });
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+    }).addTo(map);
     
     tileLayer.addTo(map);
 
