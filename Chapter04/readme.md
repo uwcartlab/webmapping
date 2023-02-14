@@ -134,16 +134,7 @@ For tilesets, the URL string for the tile layer has some special characters in i
 *   `{x}` is the horizontal coordinate, numbered left-to-right starting from 0 at the western boundary of the tileset
 *   `{y}` is the vertical coordinate, which also forms the root filename of each tile image, numbered from the top (north) edge of the tileset down
 
-In Mapbox tilesets:
-
-*   `{id}` represents the project id, given in the `L.tileLayer()` settings object, allowing use custom-styled Mapbox Streets tiles
-*   `{accessToken}` represents your Mapbox public token, also given in the `L.tileLayer()` settings object, allowing Mapbox to track the usage of your tileset for billing purposes
-
-In OSM and other tilesets:
-
-*   `{s}` represents the server instance from which the tiles are drawn, as many hosts of public-facing tilesets utilize multiple servers to avoid slow response times
-
-> ### **After getting a basic slippy map to load, complete the [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html) tutorial. Save your script from the tutorial in a new file called _geojsonTutorial.js_, placing it in your _unit-2_ _js_ folder.**
+> ### **After getting a basic slippy map to load, complete the [_Using GeoJSON with Leaflet_](http://leafletjs.com/examples/geojson.html) tutorial. You'll have to copy the code for the tileset and _map_ object from the _Leaflet Quick Start Guide_. Save your script from the tutorial in a new file called _geojsonTutorial.js_, placing it in your _unit-2_ _js_ folder.**
 
 The second tutorial integrates GeoJSON data—introduced last chapter—with your slippy map via Leaflet's `L.geoJson()` method. Note that the examples given by the tutorial utilize GeoJSON `features` arrays assigned to variables, rather than a `FeatureCollection` object imported via AJAX. 
 
