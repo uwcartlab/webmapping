@@ -1,15 +1,10 @@
 //initialize and center map
-var mymap = L.map('map').setView([39.75621,-104.99404], 12);
+var map = L.map('map').setView([39.75621,-104.99404], 5);
 
 //store reference to tile layer from leaflet providers
-var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-	subdomains: 'abcd',
-	maxZoom: 19
-});
-
-//add tile layer to map
-CartoDB_Positron.addTo(mymap);
+var tileLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+}).addTo(map);
 
 //create geojson feature
 var geojsonFeature = {
@@ -35,7 +30,7 @@ var myLines = [{
 }];
 
 //add geojson to map
-L.geoJSON(geojsonFeature).addTo(mymap);
+L.geoJSON(geojsonFeature).addTo(map);
 
 //styles for lines
 var myStyle = {
@@ -47,7 +42,7 @@ var myStyle = {
 //pass style config object with lines
 L.geoJSON(myLines, {
     style: myStyle
-}).addTo(mymap);
+}).addTo(map);
 
 
 //create array of geojson features with party attribute
@@ -87,7 +82,7 @@ L.geoJSON(states, {
             case 'Democrat':   return {color: "#0000ff"};
         }
     }
-}).addTo(mymap);
+}).addTo(map);
 
 //add geojson  as circle marker with styles
 var geojsonMarkerOptions = {
@@ -103,7 +98,7 @@ L.geoJSON(geojsonFeature, {
     pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng, geojsonMarkerOptions);
     }
-}).addTo(mymap);
+}).addTo(map);
 
 
 //attach popup if geojson feature has attribute
@@ -116,7 +111,7 @@ function onEachFeature(feature, layer) {
 
 L.geoJSON(geojsonFeature, {
     onEachFeature: onEachFeature
-}).addTo(mymap);
+}).addTo(map);
 
 //create some geojson points
 var someFeatures = [{
@@ -146,4 +141,4 @@ var someFeatures = [{
 //     filter: function(feature, layer) {
 //         return feature.properties.show_on_map;
 //     }
-// }).addTo(mymap);
+// }).addTo(map);
