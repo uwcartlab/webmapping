@@ -181,7 +181,7 @@ D3, Leaflet, and other web mapping libraries do not natively support TopoJSON da
 
 We will use Mike Bostock's small `topojson.js` library to convert TopoJSON to GeoJSON in browser.
 
-> ### **Download [topojson.js](https://github.com/mbostock/topojson) from the link above and place it in your _lib_ folder. Add a script link in _index.html_.**
+> ### **Download [topojson.js](https://github.com/topojson/topojson/releases/tag/v3.0.2) from the link above and place it in your _lib_ folder. Add a script link in _index.html_.**
 
 As explained in the `topojson.js` [API Reference](https://github.com/topojson/topojson/blob/master/README.md), the `topojson.feature()` method translates TopoJSON to GeoJSON. The `topojson.feature()` method takes two parameters: the variable holding the TopoJSON data (created from our callback in Example 1.4) and the object within that variable containing the TopoJSON formatted data we want to convert (Example 1.5).
 
