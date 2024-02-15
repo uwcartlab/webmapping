@@ -72,7 +72,7 @@ Additionally, copy the contents from _Chapter02_ to _Chapter03_. Doing so will a
 
 > **Open _MegaCities.csv_ located in _Chapter03_ of the _unit-1_ folder. Run its contents through a batch geocoder to add latitude and longitude columns. Fill in any missing coordinate values.**
 
-### II. JSON and GeoJSON
+### III. JSON and GeoJSON
 
 _**JSON**_, or _**JavaScript Object Notation**_, is an alternative data format native to JavaScript and the Open Web that stores data as one long JavaScript object for referencing and manipulation in the DOM. JSON keys are strings and the values may be strings, numbers, arrays, or other objects.
 
