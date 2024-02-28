@@ -30,7 +30,7 @@ In the `updatePropSymbols()` function in _main.js_ of the Leaflet map example co
 
 ###### Example 1.1: Duplicate code in _main.js_
 
-    //CODE FROM pointToLayer() FUNCTION
+        //CODE FROM pointToLayer() FUNCTION
         //build popup content string
         var popupContent = "<p><b>City:</b> " + feature.properties.City + "</p>";
     
@@ -45,7 +45,7 @@ In the `updatePropSymbols()` function in _main.js_ of the Leaflet map example co
     
     ...
     
-    		//CODE FROM updatePropSymbols() FUNCTION
+    	//CODE FROM updatePropSymbols() FUNCTION
         //build new popup content string
         var popupContent = "<p><b>City:</b> " + props.City + "</p>";
     
@@ -342,7 +342,7 @@ Lastly, make sure you add the event listeners for your slider and step buttons *
     
     map.addControl(new SequenceControl());  
     
-    //ATTACH LISTENERS HERE
+    //SET SLIDER ATTRIBUTES AND ATTACH LISTENERS HERE
 
 Figure 2.3 shows our beautiful new UI controls.
 
@@ -399,13 +399,13 @@ Lesson 3: Using SVG Graphics
 
 ### I. Introduction to SVG
 
-Thematic maps typical require an attribute legend to define the meaning of the map symbols. It is conventional for a proportional symbol map to include a legend of nested circles representing the minimum, maximum, and one or more intermediate values.
+Thematic maps typically require an attribute legend to define the meaning of the map symbols. It is conventional for a proportional symbol map to include a legend of nested circles representing the minimum, maximum, and one or more intermediate values.
 
 You could create your attribute legend using static HTML `<div>` or `<img>` elements. However, Leaflet uses SVG graphics to dynamically create its circle markers and other vector linework, so it makes sense to replicate the circle markers using SVG for the legend. Additionally, you will need to understand how SVG works to complete the D3 map in the next unit, so a basic introduction to the SVG standard now will help you in the future.
 
 ***SVG***, or ***S***calable ***V***ector ***G***raphics, is the web standard vector graphics format. As with vector geospatial data introduced in Chapter 3, [_**vector graphics**_](https://gistbok.ucgis.org/bok-topics/vector-formats-and-sources) use points, lines, and polygon fills to represent image elements. In contrast, [<ins>_**raster graphics**_</ins>](https://gistbok.ucgis.org/bok-topics/raster-formats-and-sources) (such as the ***png*** or ***P***ortable ***N***etwork ***G***raphics format), much like raster geospatial data, use a continuous grid of pixels.
 
-SVG uses XML markup, making it relatively human-readable and easy to integrate with HTML. Microsoft initially had its own Vector Markup Language (VML), and Internet Explorer was the last major browser to adopt SVG support. Accordingly, IE 8 and below do not support SVG, the primary reason most boilerplate websites check for this browser. Fortunately, there are increasingly fewer users of these older browser versions, so we will not be concerned with this problem in this workbook.
+SVG uses XML markup, making it relatively human-readable and easy to integrate with HTML. Microsoft initially had its own Vector Markup Language (VML), and Internet Explorer was the last major browser to adopt SVG support. Accordingly, IE 8 and below do not support SVG, the primary reason is most boilerplate websites check for this browser. Fortunately, there are increasingly fewer users of these older browser versions, so we will not be concerned with this problem in this workbook.
 
 The [SVG standard](https://www.w3.org/TR/SVG11/) describes the [elements](https://developer.mozilla.org/en-US/docs/Web/SVG/Element) and [attributes](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute) available as part of an SVG drawing. Every SVG graphic begins with the tag `<svg>`, within which every other SVG element is nested.
 
