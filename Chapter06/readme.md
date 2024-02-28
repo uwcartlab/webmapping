@@ -617,7 +617,7 @@ For Step 3 of our pseudocode, we want to size and center our legend's circles ba
         .....  
     
             //calling our renamed function  
-            calcStats(response);  
+            calcStats(json);  
     
         .....  
     
