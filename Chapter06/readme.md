@@ -522,7 +522,7 @@ Step 1 in Example 3.4 dynamically adds an `<svg>` element to the legend containe
                 // create the control container with a particular class name
                 var container = L.DomUtil.create('div', 'legend-control-container');
 
-                container.innerHTML = '<p class="temporalLegend">Population in <span class="year">1980</span></p>';
+                container.innerHTML = '<p class="temporalLegend">Population in <span class="year">1985</span></p>';
 
                 //Step 1: start attribute legend svg string
                 var svg = '<svg id="attribute-legend" width="130px" height="130px">';
