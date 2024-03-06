@@ -50,7 +50,7 @@ The next step in collaborative coding is assigning roles to each team member. Fo
 
 Finally, you should assign specific development tasks to each role. We recommend using GitHub _**milestones**_ (more on these later) to decompose a group project into its functional scope and important subtasks for completing each function, assigning these milestones to different roles.
 
-### II. GitHub Documentation with Markdown
+### III. GitHub Documentation with Markdown
 
 Collaborative coding with GitHub relies as much on functions like cloning, merging, and pulling as it does on effective messaging and documentation. So far, we have emphasized the importance of commit messages that succinctly describe what changes were made so that you can track your own changes. Meaningful commit messages along with pull requests become even more important when collaboratively coding.
 
