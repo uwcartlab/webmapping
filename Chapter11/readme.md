@@ -516,7 +516,7 @@ This completes the `dehighlight()` function, which needs its own event listeners
             .on("mouseover", function(event, d){
                 highlight(d);
             })
-            .on("mouseover", function(event, d){
+            .on("mouseout", function(event, d){
                 dehighlight(d);
             });
 
