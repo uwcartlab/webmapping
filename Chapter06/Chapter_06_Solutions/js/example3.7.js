@@ -187,7 +187,7 @@ function updatePropSymbols(attribute) {
         year +
         ":</b> " +
         props[attribute] +
-        " million</p>";
+        " million</p>"; 
 
       //update popup with new content
       popup = layer.getPopup();
