@@ -48,13 +48,13 @@ If we want to tell a story about urban _growth_, we need more than one populatio
 
 ###### Figure 1.2: A CSV with multiple sequential, numeric attributes (Source: United Nations)
 
-The Figure 1.2 spreadsheet is just attributes and does not yet contain geospatial coordinates. Given the world scale of the map, each city should be represented as a point at its geographic center. You can use an internet search engine to find latitude and longitude values for each feature, but a faster and easier way to do so is to use a **_batch geocoder_**. Figure 1.3 uses the [Local Focus](https://geocode.localfocus.nl/) batch geocoder, one in a number of options available online. Leave "country" set to Worldwide, and simply copy the first column of your spreadsheet and paste it into the input box. Hit "Add to Geocoder" and see your results below.
+The Figure 1.2 spreadsheet is just attributes and does not yet contain geospatial coordinates. Given the world scale of the map, each city should be represented as a point at its geographic center. You can use an internet search engine to find latitude and longitude values for each feature, but a faster and easier way to do so is to use a **_geocoder_**. Figure 1.3 uses the [Simple Geocoder](https://uwcartlab.github.io/Simple-Geocoder/) tool developed by the UW Cart Lab, one in a number of options available online. Simply copy the first column of your spreadsheet and paste it into the input box. Hit "Geocode" and see your results below.
 
 ![figure3.1.3.png](img/figure3.1.3.png)
 
-###### Figure 1.3: The Local Focus Geocoder: https://geocode.localfocus.nl/
+###### Figure 1.3: The Simple Geocoder Tool with the first column of _MegaCities.csv_ copied into the input box.
 
-The Local Focus geocoder attempts to disambiguate all text strings into geographic coordinates. Some names may produce multiple coordinates, with Local Focus allowing you to select the correct location. You also can flag incorrectly geocoded coordinates using the "X" button and manually add the coordinates to your CSV later based on an internet search. Notice that the interactive map displaying the results is built with Leaflet, the Javascript library we will start learning next chapter! Importantly, set your text results to "Decimals with dots", copy the final results, and paste them into a spreadsheet.
+The Simple Geocoder tool attempts to disambiguate all text strings into geographic coordinates. Some names may not produce real coordinates, and will return _undefined_ coordinates. For these values, you will need to manually add the coordinates to your CSV later based on an internet search. Notice that the interactive map displaying the results is built with Leaflet, the Javascript library we will start learning next chapter! Copy the final results, and paste them into a spreadsheet.
 
 ![figure3.1.4.png](img/figure3.1.4.png)
 
