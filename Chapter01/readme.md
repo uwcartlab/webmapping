@@ -7,7 +7,7 @@ Welcome to the first chapter of Web Mapping! Chapter 1 includes three lessons an
 
 *   In Lesson 1, we will introduce text editors and some basic "boilerplate" HTML used to structure your website.
 *   In Lesson 2, we will discuss how to efficiently set up your web directory and host it through a localhost development server.
-*   In Lesson 3, we will set-up a GitHub account you will use for cloud storage, version control, web hosting, and collaboration with other developers. If you already have used Github in other courses, this will be review. However, you still must commit a "repo" as part of the Activity 1, so please still read carefully.
+*   In Lesson 3, we will set-up the GitHub account you will use for cloud storage, version control, web hosting, and collaboration with other developers. If you already have used Github in other courses, this will be review. However, you still must commit a "repo" as part of the Activity 1, so please still read carefully.
 
 After this chapter, you should be able to:
 
@@ -22,7 +22,7 @@ We break each chapter's material into a set of 3-4 lessons that you should compl
 
 As you read, we include many [links](https://en.wikipedia.org/wiki/Hyperlink) that point to additional reference material. This material is for your reference only, and we recommend returning to these materials when you get stuck at different steps. Importantly, you may want to cycle back to these links towards the end of the course to debug issues specific to your final project, so it is helpful to get a sense of what information is included in the links.
 
-> ### **Occasionally, a link does contain suggested reading, additional downloads, or specific tasks needed to complete the activities. We offset these required "actions" to make them visually obvious in the text. Please follow these directions carefully, as it will be difficult to advance in future lessons without first completing these tasks.**
+> ### **Occasionally, a link contains important reading, additional downloads, or specific tasks needed to complete the activities. We offset these required "actions" to make them visually obvious in the text. Please follow these directions carefully, as it will be difficult to advance in future lessons without first completing these tasks.**
 
     We format example code in code blocks, like this.  
     You can copy-paste this code into a text editor to make it easier to reference the line numbers.
@@ -42,7 +42,7 @@ HTML **_tags_** are keywords composed of reserved words surrounded by angle brac
 
 ### II. Text Editors
 
-_**Code**_ is just text that gets interpreted by various technologies (e.g., by a web browser for HTML) to complete actions or execute instructions. A _**text editor**_ is a software program that facilitates the writing of code. Text editors include features that support coding, such as color-coding reserved words in different code languages, automatically applying indentation and closing tags, and even live preview of the code. Text editors are regularly updated with new features, so it is worth continuously reviewing your choice of text editor. Popular text editors include [Visual Studio Code](https://code.visualstudio.com/), [Aptana Studio](http://www.aptana.com/), [Atom](https://atom.io/), [Brackets](http://brackets.io/), [Notepad++](https://notepad-plus-plus.org/), and [Sublime Text](http://www.sublimetext.com/).
+_**Code**_ is just text that gets interpreted by various technologies (e.g., by a web browser for HTML) to complete actions or execute instructions. A _**text editor**_ is a software program that facilitates the writing of code. Text editors include features that support coding, such as color-coding reserved words in different code languages, automatically applying indentation and closing tags, and even live preview of the code. Text editors are regularly updated with new features, so it is worth continuously reviewing your choice of text editor. Popular text editors include [Visual Studio Code](https://code.visualstudio.com/) (our current preference), [Aptana Studio](http://www.aptana.com/), [Atom](https://atom.io/), [Brackets](http://brackets.io/), [Notepad++](https://notepad-plus-plus.org/), and [Sublime Text](http://www.sublimetext.com/).
 
 You are welcomed to use your preferred text editor.
 
@@ -52,7 +52,7 @@ A _**boilerplate**_ is the minimum starter code needed to begin development.  F
 
 > ### **Download _[unit-1.zip](https://github.com/uwcartlab/unit-1)_ from the uwcartlab GitHub page by clicking "Code" then "Download ZIP". After placing the folder in your preferred location, unzip it, and in your text editor open _index.html_ from the _Chapter01_ folder.**
 
-The HTML boilerplate code in _index.html_ should look like Example 1.1. Every component <ins>_must_</ins> be present in your _index.html_ file, except the `<!-- -->` comments and IE stylesheet check. Importantly: you must use _index.html_ as the name of the homepage to use the directory name as the endpoint of a web url. For instance [www.geography.wisc.edu/cartography/](http://www.geography.wisc.edu/cartography/) is the same as [www.geography.wisc.edu/cartography/index.html](http://www.geography.wisc.edu/cartography/index.html), but shorter and therefore preferred.
+The HTML boilerplate code in _index.html_ should look like Example 1.1. Every component <ins>_must_</ins> be present in your _index.html_ file, except the `<!-- -->` comments and IE stylesheet check. Importantly, you must use _index.html_ as the name of the homepage to use the directory name as the endpoint of a web url. For instance [www.geography.wisc.edu/cartography/](http://www.geography.wisc.edu/cartography/) is the same as [www.geography.wisc.edu/cartography/index.html](http://www.geography.wisc.edu/cartography/index.html), but shorter and therefore preferred.
 
 ###### Example 1.1: Boilerplate code in _index.html_
 
@@ -88,7 +88,7 @@ Note the neatly indented structure of the markup. This is not strictly required 
 
 Different levels of _**indentation**_ represent parent-child relationships in the overall tree structure of the document. Think of this structure as analogous to [Matryoshka dolls](https://en.wikipedia.org/wiki/Matryoshka_doll) that nest inside one another. In the code above, the `<html>` tag is the outermost "doll", the `<head>` and `<body>` are smaller "dolls" sitting inside the `<html>` "doll", and so on. Each new level of indentation is used to represent another nested level of HTML elements, helping you to assess visually how the webpage is structured hierarchically and then identify missing or incorrectly located opening and closing tags. 
 
-The `<!DOCTYPE html>` tag indicates to the browser that this is an HTML5 file. The `<html lang="en">` tag opens the html code, telling the browser to interpret the code as English. In the `<head>` tag, there are two `<meta>` tags: the first declares the character set as UTF-8, which interprets the broadest possible range of ASCII characters; the second `<meta>` tag sets the width of the page to the width of the device monitor, ensuring that the content stays within the available frame regardless of device size. While there are other options available for the `<meta name="viewport">` tag, this is really the only setting that should ever be used, and it <ins>_must_</ins> be included. The `<title>` open and closing tags declare the title of the page; text in between these tags will appear in the tab at the top of the browser page. The `<link>` tag links out to the website stylesheet, and will be covered further below. Finally, the conditional statement `<!--[if IE<9]>`, although it looks like a comment, loads a different stylesheet formatted for old versions of Internet Explorer prior to version 9.
+The `<!DOCTYPE html>` tag indicates to the browser that this is an HTML5 file. The `<html lang="en">` tag opens the html code, telling the browser to interpret the code as English. In the `<head>` tag, there are two `<meta>` tags: the first declares the character set as UTF-8, which interprets the broadest possible range of ASCII characters; the second `<meta>` tag sets the width of the page to the width of the device monitor, ensuring that the content stays within the available frame regardless of device size. While there are other options available for the `<meta name="viewport">` tag, this is really the only setting that should ever be used, and it <ins>_must_</ins> be included. The `<title>` open and closing tags declare the title of the page; text in between these tags will appear in the tab at the top of the browser page. The `<link>` tag links out to the website stylesheet, and will be covered further below. Finally, the conditional statement `<!--[if IE<9]>`, although looking like a comment, loads a different stylesheet formatted for old versions of Internet Explorer prior to version 9.
 
 The `<body>` will contain the majority of the page content you write in HTML. Below your custom HTML is where you should place your `<script>` tags linking to the website's JavaScript. This also will be covered further below.
 
@@ -110,7 +110,7 @@ and then open the file in a browser, you should see what you just added to the p
 
 There are a number of frameworks that have their own boilerplates and directory structures, such as [Bootstrap](https://getbootstrap.com/), used for responsive design across mobile and non-mobile devices. For simplicity's sake, we recommend that you use this boilerplate when completing the following lessons.
 
-> ### **Add content to the body element and then load your _index.html_ file in a browser and check that your content appears in the browser tab. If HTML is completely new to you, we recommend supplemental Codecademy tutorials as part of Activity 2 to complete alongside JavaScript tutorials.**
+> ### **Add content to the body element. Then load your _index.html_ file in a browser and check that your content appears in the browser tab. If HTML is completely new to you, we recommend supplemental Codecademy tutorials as part of Activity 2 to complete alongside JavaScript tutorials.**
 
 Lesson 2: Web Directory Setup
 -----------------------------
@@ -168,7 +168,7 @@ You also can add a `<script>` tag without a `src` attribute below the `<div>` to
     </script>
     
 
-If you click on the div element in your browser, you should see:
+If you click on the `<div>` element in your browser, you should see:
 
 ![figure1.2.2.png](img/figure1.2.2.png)
 
@@ -196,7 +196,7 @@ Let's describe each of these folders in your directory structure:
     
 *   _**css**_: This folder holds your custom CSS stylesheets.
     
-*   _**data**_: This folder holds data files used to create your thematic web maps, and thus is not necessary for all websites.  The _data_ folder can hold CSV, GeoJSON, and other open formats that we will cover later. If you ever need to include Esri Shapefiles in your website, place these in a _shapefiles_ subdirectory of the data folder since a shapefile in itself is technically a file directory just like a website.
+*   _**data**_: This folder holds data files used to create your thematic web maps, and thus is not necessary for all websites. The _data_ folder can hold CSV, GeoJSON, and other open formats that we will cover later. If you ever need to include Esri Shapefiles in your website, place these in a _shapefiles_ subdirectory of the data folder since a shapefile in itself is technically a file directory just like a website.
     
 *   _**img**_: This folder holds any images used in your website.
     
@@ -204,7 +204,7 @@ Notice that the boilerplate _index.html_ file already contains two links to exte
 
 ###### Example 2.3: Authorship comment in _style.css_
 
-    /* Stylesheet by Buck E. Badger, 2022 */
+    /* Stylesheet by Buck E. Badger, 2026 */
 
 Next, add a _readme.md_ file to your _lib_, _data_, and _img_ folders. For a real project, you would include relevant files in these folders. For now, a _readme.md_ file will ensure your folders show up on GitHub (Lesson 3).
 
@@ -220,11 +220,13 @@ As you develop your website, you will need to preview it in a browser to see wha
 
 ###### Figure 2.3: Client-server architecture
 
-For security reasons, browsers <ins>_only_</ins> display webpages correctly if the files are passed through a server. This complicates development, as you do not want to push every change to your website to a server just to preview it. However, you can set up a _**local development server**_ on your machine to reliably preview dynamic content such as JavaScript before you post online. As with text editors, there are many options for setting up a local development server, with many common ones requiring additional programming knowledge such as Python SimpleHTTPServer and server frameworks including [WAMP](http://www.wampserver.com/en/) (for Windows), [MAMP](https://www.mamp.info/en/) (for Mac), and [LAMP](http://lamphowto.com/) (for Linux).
+For security reasons, browsers <ins>_only_</ins> display webpages correctly if the files are passed through a server. This complicates development, as you do not want to push every change to your website onto a server just to preview it. However, you can set up a _**local development server**_ on your machine to reliably preview dynamic content such as JavaScript before you post online. As with text editors, there are many options for setting up a local development server, with many common ones requiring additional programming knowledge such as Python SimpleHTTPServer and server frameworks including [WAMP](http://www.wampserver.com/en/) (for Windows), [MAMP](https://www.mamp.info/en/) (for Mac), and [LAMP](http://lamphowto.com/) (for Linux).
 
-We use [Prepros](https://prepros.io/) in lesson examples for simplicity. Prepros is a "preprocessor" software application that automatically compiles your website and refreshes the browser every time you save files in your web directory. Prepros works on Windows and Mac machines. If you're using [Visual Studio Code](https://code.visualstudio.com/), you can install the Live Server extension, which performs the same function. 
+We recommend using [Visual Studio Code](https://code.visualstudio.com/) and installing the [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer), which allows you to create a local server instance. The Visual Studio Code [documentation](https://code.visualstudio.com/docs/getstarted/extensions) provides instructions for installing extensions from within the VS Code app. The Live Server [documentation] describes how to use the extension to create a server. When Live Server is running, it automatically compiles your website and refreshes the browser every time you save files in your web directory.
 
-> ### **Preview _unit-1_ using Prepros or Visual Studio Code.** 
+You can also use [Prepros](https://prepros.io/), a "preprocessor" software application that works similarly. Example screenshots throughout the workbook use either Live Server or Prepros. 
+
+> ### **Preview _unit-1_ using Prepros or Visual Studio Code, or try both to determine your preference.** 
 
 Lesson 3: GitHub Setup
 ----------------------
@@ -266,7 +268,7 @@ A new window will pop up (Figure 3.3). There, enter the name of your website, an
 
 ![figure1.3.3.png](img/figure1.3.3.png)
 
-###### Figure 3.3: Setting up your _unit-1_ repository.
+###### Figure 3.3: Setting up your _unit-1_ repository
 
 Once you have created the repository, open your the _unit-1_ directory on your machine and observe that three new files have been created (Figure 3.4):
 
