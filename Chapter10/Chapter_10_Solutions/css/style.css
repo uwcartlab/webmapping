@@ -1,69 +1,25 @@
-/*Example 2.3*/
-.map {
-    border: medium solid #999;
-    margin: 10px 0 0 20px;
-}
-
-.countries {
-    fill: #fff;
+/*Chapter 9 Styling*/
+/*example 2.4*/
+.us {
+    fill: #fff; 
     stroke: #CCC;
-    stroke-width: 2px;
-}
-
-
-.gratLines {
-    fill: none;
-    stroke: #999;
     stroke-width: 1px;
 }
-
-.gratBackground {
-    fill: #D5E3FF;
-}
-
-.regions {
-    stroke: #000;
-    stroke-width: 0.5px;
+.midwest {
+    stroke: #fff;
+    stroke-width: 1px;
     stroke-linecap: round;
 }
-
-.numbers {
-    fill: white;
-    font-family: sans-serif;
+/*example 2.5*/
+.map {
+    border: medium solid #999;
+    margin: 5px 0 0 0;
+    background:#D5E3FF;
 }
-
+/*Chapter 10 Styling*/
 .chart {
+    background-color: rgba(128,128,128,.2);
+    border: medium solid #999;
     float: right;
-    margin: 7px 20px 0 0;
-}
-
-.chartTitle {
-    font-family: sans-serif;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.chartBackground {
-    fill: rgba(128,128,128,.2);
-}
-
-.chartFrame {
-    fill: none;
-    stroke: #999;
-    stroke-width: 3px;
-    shape-rendering: crispEdges;
-}
-
-.axis path,
-.axis line {
-    fill: none;
-    stroke: #999;
-    stroke-width: 1px;
-    shape-rendering: crispEdges;
-}
-
-.axis text {
-    font-family: sans-serif;
-    font-size: 0.8em;
-    fill: #999;
+    margin: 5px 0 0 0;
 }

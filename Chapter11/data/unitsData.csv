@@ -1,0 +1,23 @@
+id,name,adm1_code,varA,varB,varC,varD,varE
+1,Alsace,FRA-2686,85,38,75,30,9
+2,Aquitaine,FRA-2665,28,29,38,26,15
+3,Auvergne,FRA-2670,18,59,22,60,82
+4,Basse-Normandie,FRA-2661,35,45,31,26,14
+5,Bourgogne,FRA-2671,12,31,15,22,28
+6,Bretagne,FRA-2662,25,50,25,25,25
+7,Centre,FRA-2672,88,46,56,15,12
+8,Champagne-Ardenne,FRA-2682,52,51,46,68,75
+9,Corse,FRA-2666,7,12,18,11,9
+10,Franche-Comte,FRA-2685,23,18,16,24,26
+11,Haute-Normandie,FRA-2673,32,28,29,25,22
+12,Ile de France,FRA-2680,8,15,22,25,29
+13,Languedoc-Roussillon,FRA-2668,82,74,72,10,85
+14,Limousin,FRA-2681,9,16,14,23,45
+15,Lorraine,FRA-2687,33,45,68,96,102
+16,Midi-Pyrenees,FRA-2669,15,38,85,96,82
+17,Nord Pas de Calais,FRA-2683,12,10,9,4,74
+18,Pays de la Loire,FRA-2664,42,18,28,30,22
+19,Picardie,FRA-2684,9,15,15,8,29
+20,Poitou-Charentes,FRA-2663,38,31,28,32,85
+21,Provence-Alpes Cote D'Azur,FRA-2667,25,100,88,74,45
+22,Rhone-Alpes,FRA-1265,25,46,66,85,45

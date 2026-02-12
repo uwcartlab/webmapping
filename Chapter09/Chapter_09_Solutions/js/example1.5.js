@@ -5,23 +5,23 @@ window.onload = setMap();
 function setMap() {
     //use Promise.all to parallelize asynchronous data loading
     var promises = [
-        d3.csv("data/unitsData.csv"),
-        d3.json("data/EuropeCountries.topojson"),
-        d3.json("data/FranceRegions.topojson"),
+        d3.csv("data/greatLakesEnergyStats.csv"),
+        d3.json("data/midwestStates.topojson"),
+        d3.json("data/usStates.topojson"),
     ];
     Promise.all(promises).then(callback);
 }
 
 function callback(data) {
     var csvData = data[0],
-        europe = data[1],
-        france = data[2];
+        midwestData = data[1],
+        statesData = data[2];
 
     //translate europe TopoJSON
-    var europeCountries = topojson.feature(europe, europe.objects.EuropeCountries),
-        franceRegions = topojson.feature(france, france.objects.FranceRegions);
+    var midwestStates = topojson.feature(midwestData, midwestData.objects.midwestStates),
+        usStates = topojson.feature(statesData, statesData.objects.usStates);
 
     //examine the results
-    console.log(europeCountries);
-    console.log(franceRegions);
+    console.log(midwestStates);
+    console.log(usStates);
 }
