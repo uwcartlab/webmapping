@@ -152,7 +152,8 @@
             })
             .on("mouseout", function(event, d){
                 dehighlight(d.properties);
-            });
+            })
+            .on("mousemove", moveLabel);
     }
     //function to calculate minimum and maximum data values
     //add parameter to calculate the expressed value for the chosen scale
@@ -243,7 +244,8 @@
             })
             .on("mouseout", function(event, d){
                 dehighlight(d);
-            });
+            })
+            .on("mousemove", moveLabel);
 
     };
     //function to create a dropdown menu for attribute selection
@@ -342,8 +344,8 @@
     function highlight(props) {
         //create label
         setLabel(props)
-         //change stroke
-         var selected = d3.selectAll("." + props.state_abbr)
+        //change stroke
+        var selected = d3.selectAll("." + props.state_abbr)
             .attr("class", function (d) {
                 //get current list of classes for each element
                 let elemClasses = this.classList;
@@ -382,5 +384,25 @@
             .attr("id", props.state_abbr + "_label")
             .html(labelAttribute);
     };
+    //function to move label
+    function moveLabel(event, d) {
+        //text wrapping
+        var labelWidth = d3.select(".infolabel")
+            .node()
+            .getBoundingClientRect().width;
+        //use coordinates of mousemove event to set label coordinates
+        var x1 = event.clientX + 10,
+            y1 = event.clientY - 75,
+            x2 = event.clientX - labelWidth - 10,
+            y2 = event.clientY + 25;
+        //horizontal label coordinate, testing for overflow
+        var x = event.clientX > window.innerWidth - labelWidth - 20 ? x2 : x1;
+        //vertical label coordinate, testing for overflow
+        var y = event.clientY < 75 ? y2 : y1;
+
+        var infoLabel = d3.select(".infolabel")
+            .style("top", y + "px")
+            .style("left", x + "px")
+    }
 
 })();

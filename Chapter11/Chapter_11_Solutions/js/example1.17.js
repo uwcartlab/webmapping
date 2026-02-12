@@ -146,13 +146,7 @@
 				} else {            	
 					return "#ccc";            
 				}    
-			})
-            .on("mouseover", function (event, d) {
-                highlight(d.properties);
-            })
-            .on("mouseout", function(event, d){
-                dehighlight(d.properties);
-            });
+			});
     }
     //function to calculate minimum and maximum data values
     //add parameter to calculate the expressed value for the chosen scale
@@ -237,12 +231,6 @@
             //color circles to match the map
             .attr("fill", function (d) {
                 return colorScale(parseFloat(d[expressed.color]));
-            })
-            .on("mouseover", function (event, d) {
-                highlight(d);
-            })
-            .on("mouseout", function(event, d){
-                dehighlight(d);
             });
 
     };
@@ -338,49 +326,5 @@
                 return yScale(parseFloat(d[expressed.y]));
             });
     }
-    //function to highlight enumeration units and bars
-    function highlight(props) {
-        //create label
-        setLabel(props)
-         //change stroke
-         var selected = d3.selectAll("." + props.state_abbr)
-            .attr("class", function (d) {
-                //get current list of classes for each element
-                let elemClasses = this.classList;
-                //add 'selected` to classList
-                elemClasses += " selected";
-                //add class "selected" to class list
-                return elemClasses
-            })
-            .raise()
-    };
-    //function to dehighlight enumeration units and bars
-    function dehighlight(props) {
-        //remove label
-        d3.select(".infolabel")
-            .remove();
-        //change stroke
-        var selected = d3.selectAll("." + props.state_abbr)
-            .attr("class", function () {
-                //get current list of classes for each element
-                let elemClasses = this.classList;
-                //remove class "selected" from class list
-                elemClasses.remove("selected")
-                return elemClasses;
-            })
-    };
-    //function to create dynamic label
-    function setLabel(props) {
-        //label content
-        var labelAttribute = "<h1>" + props[expressed.color] +
-            "</h1><b>" + props.state_abbr + " " + expressed.color + "</b>";
-
-        //create info label div
-        var infolabel = d3.select("body")
-            .append("div")
-            .attr("class", "infolabel")
-            .attr("id", props.state_abbr + "_label")
-            .html(labelAttribute);
-    };
 
 })();

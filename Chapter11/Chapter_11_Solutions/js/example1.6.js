@@ -1,21 +1,13 @@
 //wrap everything is immediately invoked anonymous function so nothing is in clobal scope
 (function () {
     //pseudo-global variables
-    var attrArray = ["varA", "varB", "varC", "varD", "varE"]; //list of attributes
-    var expressed = attrArray[0]; //initial attribute
-
-    //chart frame dimensions
-    var chartWidth = window.innerWidth * 0.425,
-        chartHeight = 473,
-        leftPadding = 25,
-        rightPadding = 2,
-        topBottomPadding = 5,
-        chartInnerWidth = chartWidth - leftPadding - rightPadding,
-        chartInnerHeight = chartHeight - topBottomPadding * 2,
-        translate = "translate(" + leftPadding + "," + topBottomPadding + ")";
-
-    //create a scale to size bars proportionally to frame and for axis
-    var yScale = d3.scaleLinear().range([463, 0]).domain([0, 110]);
+    var attrArray = ["coal_twh","gas_twh","wind_twh","solar_twh","cents_kwh","tot_twh"]; //list of attributes
+    //create an object for different expressed variables
+    var expressed = {
+        x: attrArray[2],
+        y: attrArray[0],
+        color: attrArray[1]
+    }
 
     //begin script when window loads
     window.onload = setMap();
@@ -23,7 +15,7 @@
     //Example 1.3 line 4...set up choropleth map
     function setMap() {
         //map frame dimensions
-        var width = window.innerWidth * 0.5,
+        var width = window.innerWidth * 0.5 - 25,
             height = 460;
 
         //create new svg container for the map
@@ -34,113 +26,96 @@
             .attr("width", width)
             .attr("height", height);
 
-        //create Albers equal area conic projection centered on France
+        //create Albers equal area conic projection centered on the Midwest
         var projection = d3
             .geoAlbers()
-            .center([0, 46.2])
-            .rotate([-2, 0, 0])
-            .parallels([43, 62])
-            .scale(2500)
-            .translate([width / 2, height / 2]);
+			.center([-11.97, 46.33])
+			.rotate([85.45, 4.33, 3.1])
+			.parallels([8.41, 47.50])
+			.scale(1600)
+			.translate([width / 2, height / 2]); 
 
         var path = d3.geoPath().projection(projection);
 
         //use Promise.all to parallelize asynchronous data loading
         var promises = [
-            d3.csv("data/unitsData.csv"),
-            d3.json("data/EuropeCountries.topojson"),
-            d3.json("data/FranceRegions.topojson"),
+            d3.csv("data/greatLakesEnergyStats.csv"),
+            d3.json("data/usStates.topojson"),
+            d3.json("data/midwestStates.topojson")
         ];
         Promise.all(promises).then(callback);
 
         function callback(data) {
-            var csvData = data[0],
-                europe = data[1],
-                france = data[2];
+            var csvData = data[0], statesData = data[1], midwestData = data[2];
 
-            setGraticule(map, path);
+            //translate midwest states TopoJSON
+            var usStates = topojson.feature(statesData, statesData.objects.usStates),
+                midwestStates = topojson.feature(midwestData, midwestData.objects.midwestStates).features;
 
-            //translate europe TopoJSON
-            var europeCountries = topojson.feature(europe, europe.objects.EuropeCountries),
-                franceRegions = topojson.feature(france, france.objects.FranceRegions).features;
-
-            //add Europe countries to map
-            var countries = map
-                .append("path")
-                .datum(europeCountries)
-                .attr("class", "countries")
+            //add us state to map
+            var states = map.append("path")
+                .datum(usStates)
+                .attr("class", "us")
                 .attr("d", path);
 
-            franceRegions = joinData(franceRegions, csvData);
+            midwestStates = joinData(midwestStates, csvData);
 
             var colorScale = makeColorScale(csvData);
 
-            setEnumerationUnits(franceRegions, map, path, colorScale);
-
-            //add coordinated visualization to the map
             setChart(csvData, colorScale);
 
-            //add dropdown
-            createDropdown(csvData);
-        }
-    }
+            setEnumerationUnits(midwestStates, map, path, colorScale);
 
-    function setGraticule(map, path) {
-        var graticule = d3.geoGraticule().step([5, 5]); //place graticule lines every 5 degrees of longitude and latitude
+            createTitle();
 
-        //create graticule background
-        var gratBackground = map
-            .append("path")
-            .datum(graticule.outline()) //bind graticule background
-            .attr("class", "gratBackground") //assign class for styling
-            .attr("d", path); //project graticule
+            createDropdown();
+        };
+    };
 
-        //create graticule lines
-        var gratLines = map
-            .selectAll(".gratLines") //select graticule elements that will be created
-            .data(graticule.lines()) //bind graticule lines to each element to be created
-            .enter() //create an element for each datum
-            .append("path") //append each element to the svg as a path element
-            .attr("class", "gratLines") //assign class for styling
-            .attr("d", path); //project graticule lines
-    }
-
-    function joinData(franceRegions, csvData) {
+    function joinData(midwestStates, csvData) {
         //loop through csv to assign each set of csv attribute values to geojson region
         for (var i = 0; i < csvData.length; i++) {
-            var csvRegion = csvData[i]; //the current region
-            var csvKey = csvRegion.adm1_code; //the CSV primary key
+            var csvState = csvData[i]; //the current region
+            var csvKey = csvState.state_abbr; //the CSV primary key
 
-            //loop through geojson regions to find correct region
-            for (var a = 0; a < franceRegions.length; a++) {
-                var geojsonProps = franceRegions[a].properties; //the current region geojson properties
-                var geojsonKey = geojsonProps.adm1_code; //the geojson primary key
+            //loop through geojson regions to find correct state
+            for (var a = 0; a < midwestStates.length; a++) {
+                var geojsonProps = midwestStates[a].properties; //the current state geojson properties
+                var geojsonKey = geojsonProps.state_abbr; //the geojson primary key
 
                 //where primary keys match, transfer csv data to geojson properties object
                 if (geojsonKey == csvKey) {
                     //assign all attributes and values
                     attrArray.forEach(function (attr) {
-                        var val = parseFloat(csvRegion[attr]); //get csv attribute value
+                        var val = parseFloat(csvState[attr]); //get csv attribute value
                         geojsonProps[attr] = val; //assign attribute and value to geojson properties
                     });
                 }
             }
         }
-        return franceRegions;
+        return midwestStates;
     }
 
     function makeColorScale(data) {
-        var colorClasses = ["#D4B9DA", "#C994C7", "#DF65B0", "#DD1C77", "#980043"];
+        var colorClasses = [
+            "#D4B9DA",
+            "#C994C7",
+            "#DF65B0",
+            "#DD1C77",
+            "#980043"
+        ];
 
         //create color scale generator
-        var colorScale = d3.scaleQuantile().range(colorClasses);
+        var colorScale = d3.scaleQuantile()
+            .range(colorClasses);
 
         //build array of all values of the expressed attribute
         var domainArray = [];
         for (var i = 0; i < data.length; i++) {
-            var val = parseFloat(data[i][expressed]);
+            //color scale will be expressed.color
+            var val = parseFloat(data[i][expressed.color]);
             domainArray.push(val);
-        }
+        };
 
         //assign array of expressed values as scale domain
         colorScale.domain(domainArray);
@@ -148,169 +123,146 @@
         return colorScale;
     }
 
-    function setEnumerationUnits(franceRegions, map, path, colorScale) {
-        //add France regions to map
-        var regions = map
-            .selectAll(".regions")
-            .data(franceRegions)
+    function setEnumerationUnits(midwestStates, map, path, colorScale) {
+        //add midwest states regions to map
+        var midwest = map
+            .selectAll(".midwest")
+            .data(midwestStates)
             .enter()
             .append("path")
             .attr("class", function (d) {
-                return "regions " + d.properties.adm1_code;
+                return "midwest " + d.properties.state_abbr;
             })
             .attr("d", path)
-            .style("fill", function (d) {
-                var value = d.properties[expressed];
-                if (value) {
-                    return colorScale(d.properties[expressed]);
-                } else {
-                    return "#ccc";
-                }
-            });
+			.style("fill", function (d) {
+				//check to make sure a data value exists, if not set color to gray
+				var value = d.properties[expressed.color];            
+				if(value) {            	
+					return colorScale(d.properties[expressed.color]);            
+				} else {            	
+					return "#ccc";            
+				}    
+			});
     }
+    //function to calculate minimum and maximum data values
+    //add parameter to calculate the expressed value for the chosen scale
+    function getDataValues(csvData, expressedValue) {
+        var max = d3.max(csvData, function(d) { 
+            return parseFloat(d[expressedValue]); 
+        });
+        var min = d3.min(csvData, function(d) { 
+            return parseFloat(d[expressedValue]); 
+        });
+        var range = max - min,
+            adjustment = (range / csvData.length)
 
-    //function to create coordinated bar chart
+        return [min - adjustment, max + adjustment];
+    }
+    //function to create y scale
+    function createYScale(csvData, chartHeight) {
+        var dataMinMax = getDataValues(csvData, expressed.y)
+        return yScale = d3.scaleLinear().range([0, chartHeight]).domain([dataMinMax[1], dataMinMax[0]]);
+    }
+    //function to create x scale
+    function createXScale(csvData, chartWidth) {
+        var dataMinMax = getDataValues(csvData, expressed.x)
+        return xScale = d3.scaleLinear().range([0, chartWidth]).domain([dataMinMax[0], dataMinMax[1]]);
+    }
+    //create axes
+    function createChartAxes(chart, chartHeight, yScale, xScale) {
+        //add axis
+        //create vertical axis generator
+        var yAxisScale = d3.axisRight().scale(yScale);
+        var xAxisScale = d3.axisTop().scale(xScale);
+
+        //place axis
+        var yaxis = chart.append("g")
+            .attr("class", "yaxis")
+            .call(yAxisScale);
+
+        var xaxis = chart.append("g")
+            .attr("class", "xaxis")//format x axis
+            .attr("transform", "translate(0," + chartHeight + ")")
+            .call(xAxisScale);
+    }
+    //function to create coordinated bubble chart
     function setChart(csvData, colorScale) {
+        //chart frame dimensions
+        var chartWidth = window.innerWidth * 0.5 - 25,
+            chartHeight = 460;
+
         //create a second svg element to hold the bar chart
-        var chart = d3
-            .select("body")
+        var chart = d3.select("body")
             .append("svg")
             .attr("width", chartWidth)
             .attr("height", chartHeight)
             .attr("class", "chart");
 
-        //create a rectangle for chart background fill
-        var chartBackground = chart
-            .append("rect")
-            .attr("class", "chartBackground")
-            .attr("width", chartInnerWidth)
-            .attr("height", chartInnerHeight)
-            .attr("transform", translate);
+        //create a y scale to place circles proportionally
+        var yScale = createYScale(csvData, chartHeight);
+        //create an x scale to place circles proportionally
+        var xScale = createXScale(csvData, chartWidth);
+        //create axes
+        createChartAxes(chart, chartHeight, yScale, xScale)
 
-        //set bars for each province
-        var bars = chart
-            .selectAll(".bar")
-            .data(csvData)
-            .enter()
-            .append("rect")
-            .sort(function (a, b) {
-                return b[expressed] - a[expressed];
-            })
+        //set circles for each state
+        var circles = chart.selectAll(".circles") //create an empty selection
+            .data(csvData) //here we feed in our array of data
+            .enter() //one of the great mysteries of the universe
+            .append("circle") //inspect the HTML--holy crap, there's some circles there
+            .attr("class", "circles")
             .attr("class", function (d) {
-                return "bar " + d.adm1_code;
+                return "bubble " + d.state_abbr;
             })
-            .attr("width", chartInnerWidth / csvData.length - 1)
-            .attr("x", function (d, i) {
-                return i * (chartInnerWidth / csvData.length) + leftPadding;
+            //calculate the size of circles
+            .attr("r", function (d) {
+                var min = 1, minRadius = 2.5
+                //calculate the radius based on population value as circle area
+                var radius = Math.pow(d[expressed.color] / min, 0.5715) * minRadius;;
+                return radius;
             })
-            .attr("height", function (d, i) {
-                return 463 - yScale(parseFloat(d[expressed]));
+            .attr("cx", function (d, i) {
+                return xScale(parseFloat(d[expressed.x]));
             })
-            .attr("y", function (d, i) {
-                return yScale(parseFloat(d[expressed])) + topBottomPadding;
+            //place circles vertically on the chart
+            .attr("cy", function (d) {
+                return yScale(parseFloat(d[expressed.y]));
             })
-            .style("fill", function (d) {
-                return colorScale(d[expressed]);
+            //color circles to match the map
+            .attr("fill", function (d) {
+                return colorScale(parseFloat(d[expressed.color]));
             });
 
-        //create a text element for the chart title
-        var chartTitle = chart
-            .append("text")
-            .attr("x", 40)
-            .attr("y", 40)
-            .attr("class", "chartTitle")
-            .text("Number of Variable " + expressed[3] + " in each region");
-
-        //create vertical axis generator
-        var yAxis = d3.axisLeft().scale(yScale);
-
-        //place axis
-        var axis = chart.append("g").attr("class", "axis").attr("transform", translate).call(yAxis);
-
-        //create frame for chart border
-        var chartFrame = chart
-            .append("rect")
-            .attr("class", "chartFrame")
-            .attr("width", chartInnerWidth)
-            .attr("height", chartInnerHeight)
-            .attr("transform", translate);
-    }
-
+    };
     //function to create a dropdown menu for attribute selection
-    function createDropdown(csvData) {
+    function createDropdown() {
         //add select element
-        var dropdown = d3
-            .select("body")
+        //select .navbar instead of body
+        var dropdown = d3.select(".navbar")
             .append("select")
-            .attr("class", "dropdown")
-            .on("change", function () {
-                changeAttribute(this.value, csvData);
-            });
+            .attr("class", "dropdown");
 
         //add initial option
-        var titleOption = dropdown
-            .append("option")
+        var titleOption = dropdown.append("option")
             .attr("class", "titleOption")
             .attr("disabled", "true")
             .text("Select Attribute");
 
         //add attribute name options
-        var attrOptions = dropdown
-            .selectAll("attrOptions")
+        var attrOptions = dropdown.selectAll("attrOptions")
             .data(attrArray)
             .enter()
             .append("option")
-            .attr("value", function (d) {
-                return d;
-            })
-            .text(function (d) {
-                return d;
-            });
+            .attr("value", function (d) { return d })
+            .text(function (d) { return d });
+    };
+    //create page title
+    function createTitle() {
+        var pageTitle = d3
+            .select(".navbar")
+            .append("h1")
+            .attr("class", "pageTitle")
+            .text("Midwest Energy Dashboard")
     }
-
-    //dropdown change listener handler
-    function changeAttribute(attribute, csvData) {
-        //change the expressed attribute
-        expressed = attribute;
-
-        //recreate the color scale
-        var colorScale = makeColorScale(csvData);
-
-        //recolor enumeration units
-        var regions = d3.selectAll(".regions").style("fill", function (d) {
-            var value = d.properties[expressed];
-            if (value) {
-                return colorScale(value);
-            } else {
-                return "#ccc";
-            }
-        });
-
-        //re-sort, resize, and recolor bars
-        var bars = d3
-            .selectAll(".bar")
-            //re-sort bars
-            .sort(function (a, b) {
-                return b[expressed] - a[expressed];
-            })
-            .attr("x", function (d, i) {
-                return i * (chartInnerWidth / csvData.length) + leftPadding;
-            })
-            //resize bars
-            .attr("height", function (d, i) {
-                return 463 - yScale(parseFloat(d[expressed]));
-            })
-            .attr("y", function (d, i) {
-                return yScale(parseFloat(d[expressed])) + topBottomPadding;
-            })
-            //recolor bars
-            .style("fill", function (d) {
-                var value = d[expressed];
-                if (value) {
-                    return colorScale(value);
-                } else {
-                    return "#ccc";
-                }
-            });
-    }
+    
 })();
