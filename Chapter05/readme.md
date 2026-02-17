@@ -823,7 +823,7 @@ _Arrange_ is more common for the highly-exploratory coordinated multiview visual
 
 ### IX. Calculate
 
-**_Calculate_** derives new informatoin about a map feature of interest. One way to implement _calculate_ would be to enable your users to perform mathematical operations on your spatiotemporal data, such as mapping the change between two years or calculating the average across years.
+**_Calculate_** derives new information about a map feature of interest. One way to implement _calculate_ would be to enable your users to perform mathematical operations on your spatiotemporal data, such as mapping the change between two years or calculating the average across years.
 
 A common calculation on slippy maps is distance and area measurement, which can be implemented on Leaflet maps using the [Leaflet Draw](https://github.com/Leaflet/Leaflet.draw) plugin. This set of tools is included in [geojson.io](http://geojson.io), which we used in Chapter 03. Figure 4.7 shows the plugin example, demonstrating measurement with the Leaflet Draw controls.
 
