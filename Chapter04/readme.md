@@ -531,7 +531,7 @@ Finding data can be one of the most difficult and time-consuming tasks of any ma
 
 Once you have found data you want to use for the assignment, format it as a spreadsheet with each feature a row and each attribute a column, and include columns with a unique id for each feature, the feature name, latitude, and longitude. Then, convert your dataset into GeoJSON format.
 
-> ### **Find and format your own thematic, sequential point data containing at least 15 point features and at least 7 sequential attribute columns. Convert your dataset to a GeoJSON file and add it to a Leaflet map in _main.js_.**
+> ### **Find and format your own thematic, sequential point data containing at least 15 point features and at least 5 sequential attribute columns. Convert your dataset to a GeoJSON file and add it to a Leaflet map in _main.js_.**
 
 ## Activity 5
 
